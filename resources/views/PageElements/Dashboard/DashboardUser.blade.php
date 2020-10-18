@@ -13,5 +13,5 @@
         DashboardUser::$CurrentUser= Auth::user();
         DashboardUser::$id = DashboardUser::$CurrentUser->id;
         DashboardUser::$UserName = DashboardUser::$CurrentUser->name;
-        //DashboardUser::$Menus = MenuPicker(DashboardUser::$CurrentUser);
+        DashboardUser::$Menus = MenuPicker();
 @endphp
