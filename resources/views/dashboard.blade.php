@@ -14,7 +14,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</x-app-layout>--}}
-
+@section('PageTitle', 'پنل مدیریت')
 @section('content')
 
 @endsection
