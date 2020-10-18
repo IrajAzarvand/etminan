@@ -23,6 +23,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+    @include('PageElements.Dashboard.DashboardUser')
 
 @include('PageElements.Dashboard.Topbar')
 
