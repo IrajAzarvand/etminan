@@ -12,3 +12,5 @@
 <link rel="stylesheet" href="{{asset('Panel/dist/css/AdminLTE.css')}}">
 
 <link rel="stylesheet" href="{{asset('Panel/dist/css/skins/_all-skins.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('fonts/vazir.css')}}">

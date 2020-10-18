@@ -20,32 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Black.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Black.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Black.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Thin.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Thin.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir-Thin.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/vazir/Vazir.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/panel/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Topbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Css.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
     </list>
@@ -225,7 +205,7 @@
       <updated>1603008408280</updated>
       <workItem from="1603008416453" duration="574000" />
       <workItem from="1603009070428" duration="4829000" />
-      <workItem from="1603014344552" duration="2779000" />
+      <workItem from="1603014344552" duration="6335000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -234,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603015591512</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add vazir fonts to project">
+      <created>1603017260827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603017260827</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +244,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="add admin panel dashboard with css and js" />
-    <option name="LAST_COMMIT_MESSAGE" value="add admin panel dashboard with css and js" />
+    <MESSAGE value="add vazir fonts to project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add vazir fonts to project" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603016776020">
@@ -276,10 +264,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603015594918">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603017262938">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603015594918" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603017262938" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603012935143">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
