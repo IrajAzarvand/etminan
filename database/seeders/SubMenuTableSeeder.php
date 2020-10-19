@@ -13,6 +13,11 @@ class SubMenuTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $SubMenus=[
+            'تنظیمات'=>
+            [
+
+            ],
+        ];
     }
 }
