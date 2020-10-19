@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +201,7 @@
       <workItem from="1603008416453" duration="574000" />
       <workItem from="1603009070428" duration="4829000" />
       <workItem from="1603014344552" duration="12460000" />
-      <workItem from="1603085786573" duration="228000" />
+      <workItem from="1603085786573" duration="1250000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -246,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603026841358</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="set app default locale to fa">
+      <created>1603086342133</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603086342133</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +281,8 @@
     <MESSAGE value="add current user class to project" />
     <MESSAGE value="Add Helpers.php to app folder" />
     <MESSAGE value="add main and sub menus -mr with seeder to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="add main and sub menus -mr with seeder to project" />
+    <MESSAGE value="set app default locale to fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="set app default locale to fa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603016776020">
@@ -294,13 +301,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603026843927">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603086348553">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603026843927" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603012935143">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603086348553" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603086626712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603012935143" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603086626712" />
   </component>
 </project>
