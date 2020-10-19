@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\MainNavController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainNavController::class, 'index']);
 
-Route::get('fa','LangController@fa')->name('fa');
-Route::get('en','LangController@en')->name('en');
+//Route::get('/fa', [LangController::class, 'fa'])->name('fa');
+//Route::get('/en', [LangController::class, 'en'])->name('en');
+
+Route::get('/locale/{id}',[LangController::class, 'locale']);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

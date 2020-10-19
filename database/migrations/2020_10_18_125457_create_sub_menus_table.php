@@ -21,7 +21,7 @@ class CreateSubMenusTable extends Migration
             $table->string('Icon')->nullable();
             $table->timestamps();
 
-            $table->foreign('main_menu')->references('MainMenu')->on('main_menus')
+            $table->foreign('main_menu')->references('id')->on('main_menus')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

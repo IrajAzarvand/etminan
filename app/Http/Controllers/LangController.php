@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class LangController extends Controller
 {
-    public function en()
+    public function locale(Request $request, string $language)
     {
-        app::setlocale('en');
-        return back();
-    }
-
-
-    public function fa()
-    {
-        app::setLocale('fa');
-        return back();
+        try {
+            if (array_key_exists($language, config('locale.languages'))) {
+                Session::put('locale', $language);
+                App::setLocale($language);
+                return redirect()->back();
+            }
+            return redirect()->back();
+        } catch (\Exception $exception) {
+            return redirect()->back();
+        }
     }
 }
