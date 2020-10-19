@@ -20,79 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LocaleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/LocaleMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Locale.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/locale.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_19_060516_create_locales_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/LocaleTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Gilroy-ExtraBold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Gilroy-Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Larsseit-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Larsseit-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Larsseit-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/Larsseit.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/gotham-narrow-black.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/gotham-narrow-book.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/gotham-narrow-light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/fonts/segoeui.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/arrows-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/eye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/home-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/news1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/news2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/news3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/slide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/isotope-docs.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/parallax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.carousel.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.theme.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.theme.default.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.theme.green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.theme.green.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/owl-carousel/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/fa/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/fa/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/fa/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/fa/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/AboutUs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/ContactUs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/OurNews.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Products.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Slider.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreCSS.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreScripts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainNav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MasterLayout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/owl-carousel/assets/owl.carousel.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -257,6 +201,7 @@
       <recent name="E:\Programming\etminan\resources\lang" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
     </key>
   </component>
@@ -278,7 +223,7 @@
       <workItem from="1603009070428" duration="4829000" />
       <workItem from="1603014344552" duration="12460000" />
       <workItem from="1603085786573" duration="8731000" />
-      <workItem from="1603095602147" duration="5237000" />
+      <workItem from="1603095602147" duration="15910000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -336,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603087432447</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add multi-language ability and change welcome page">
+      <created>1603101923168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603101923168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,13 +319,14 @@
     <MESSAGE value="add main and sub menus -mr with seeder to project" />
     <MESSAGE value="set app default locale to fa" />
     <MESSAGE value="add LangController to set app locale by user" />
-    <option name="LAST_COMMIT_MESSAGE" value="add LangController to set app locale by user" />
+    <MESSAGE value="add multi-language ability and change welcome page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add multi-language ability and change welcome page" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603016776020">
+    <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603016776020" />
+    <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603102998408" />
     <state x="559" y="263" key="Github.ShareDialog" timestamp="1603009140931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -386,13 +339,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603087434134">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603101926428">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603087434134" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603097565919">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603101926428" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603111938396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603097565919" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603111938396" />
   </component>
 </project>
