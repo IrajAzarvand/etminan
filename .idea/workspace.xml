@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeders/UsersTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreCSS.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreCSS.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreJS.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreJS.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/LocaleMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/LocaleMiddleware.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,6 +210,7 @@
       <workItem from="1603095602147" duration="15910000" />
       <workItem from="1603132237850" duration="1073000" />
       <workItem from="1603133347771" duration="940000" />
+      <workItem from="1603214319568" duration="3130000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -342,15 +338,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603102998408" />
-    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603194378650">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603194378650" />
-    <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603133586306" />
-    <state x="462" y="110" key="FileChooserDialogImpl" timestamp="1603133585009">
+    <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603214787913">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="462" y="110" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1603133585009" />
+    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603194378650" />
+    <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603214787913" />
+    <state x="462" y="110" key="FileChooserDialogImpl" timestamp="1603214785543">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="462" y="110" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1603214785543" />
     <state x="559" y="263" key="Github.ShareDialog" timestamp="1603009140931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -2,6 +2,7 @@
 @section('PageTitle', 'صفحه اصلی')
 @section('Slider')
     @include('PageElements.Main.Index.Slider')
+    {{'locale is '. $locale .' and content is '. $content}}
 @endsection
 
 @section('content')
