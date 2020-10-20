@@ -2,7 +2,7 @@
     <label class="mobile_collapser">منو</label>
     <!-- Mobile menu title -->
     <ul>
-        <li class="active"><a href="index.html">صفحه اصلی</a></li>
+        <li><a href="/">صفحه اصلی</a></li>
         <li><a href="about_us.html">محصولات</a></li>
         <li><a href="services.html">گالری تصاویر</a></li>
         <li><a href="portfolio.html">دفاتر فروش</a></li>

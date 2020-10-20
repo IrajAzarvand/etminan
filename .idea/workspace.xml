@@ -20,16 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/CallToAction.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Portfolio.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/TwitterFeed.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/Footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/Header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/UsersTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreCSS.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreCSS.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreJS.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreJS.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,8 +188,8 @@
       <recent name="D:\projects\etminan" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
     </key>
@@ -296,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603192982348</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="put shared and index elements into separate folders">
+      <created>1603196182740</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1603196182740</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +334,8 @@
     <MESSAGE value="add multi-language ability and change welcome page" />
     <MESSAGE value="replace new template and set fonts to vazir." />
     <MESSAGE value="add images to slider &#10;made change to site logo to show bigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="add images to slider &#10;made change to site logo to show bigger" />
+    <MESSAGE value="put shared and index elements into separate folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="put shared and index elements into separate folders" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -375,17 +380,17 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603192987604">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603196184285">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603192987604" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603196184285" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603188873665">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603188873665" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603188374954">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603197965121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603188374954" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603197965121" />
   </component>
 </project>
