@@ -20,101 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Main/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/1a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/1as.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/2a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/2as.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/3a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/3as.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/404.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/4a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/4as.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/ArabiaFlag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/Descr.WD3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/GPlay.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/RussiaFlag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/UsaFlag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/about_us.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/bear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo_golden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo_purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/Descr.WD3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/bbpress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/jquery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/microlancer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/wordpress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/wpml.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/documentation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img_after.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img_after.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img_before.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/img_before.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/lib-v2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/lib.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/mega_menu_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/parallax.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/phone-v2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/plethora_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/plethora_logo_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/Descr.WD3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b3 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/Descr.WD3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/p3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/p4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/rating_stars.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/rocket_trans-v2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/rocket_trans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/services.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/ui.totop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ru/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MainMenu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Slider.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/CallToAction.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Portfolio.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/TwitterFeed.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/Footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/Header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locale.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/locale.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Main/css/animate-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/animate-rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Main/css/mainmenu-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/mainmenu-rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Main/css/mainmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/mainmenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Main/css/style-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style-rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,6 +191,8 @@
       <recent name="D:\projects\etminan" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
     </key>
@@ -371,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603175548879</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add images to slider &#10;made change to site logo to show bigger">
+      <created>1603192982348</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1603192982348</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,16 +329,18 @@
     <MESSAGE value="add LangController to set app locale by user" />
     <MESSAGE value="add multi-language ability and change welcome page" />
     <MESSAGE value="replace new template and set fonts to vazir." />
-    <option name="LAST_COMMIT_MESSAGE" value="replace new template and set fonts to vazir." />
+    <MESSAGE value="add images to slider &#10;made change to site logo to show bigger" />
+    <option name="LAST_COMMIT_MESSAGE" value="add images to slider &#10;made change to site logo to show bigger" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603102998408" />
-    <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603133586306">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603194378650">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603194378650" />
     <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603133586306" />
     <state x="462" y="110" key="FileChooserDialogImpl" timestamp="1603133585009">
       <screen x="0" y="0" width="1366" height="738" />
@@ -448,10 +375,10 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603175564089">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603192987604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603175564089" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603192987604" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603188873665">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
