@@ -20,63 +20,101 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Main/css/_style_switcher.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/animate-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/imagelightbox-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/imagelightbox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/mainmenu-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/mainmenu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/simpletextrotator.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style-golden-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style-golden.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style-purple-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style-purple.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/images/IranFlag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/bigvideo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/bigvideo_init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/cleanstart_theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/collapser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/contact_form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/google_map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/imagelightbox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/isotope/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/isotope/jquery.isotope.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery-1.10.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery-ui-1.8.22.custom.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.imagesloaded.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.mousewheel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.simple-text-rotator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.simplr.smoothscroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/jquery.ui.totop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/modernizr.custom.48287.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/pace-0.5.1/pace.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/pace-0.5.1/themes/pace-theme-minimal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/style_switcher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/twentytwenty-master/css/twentytwenty.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/twentytwenty-master/js/jquery.event.move.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/twentytwenty-master/js/jquery.twentytwenty.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/woothemes-FlexSlider-06b12f8/flexslider-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/woothemes-FlexSlider-06b12f8/flexslider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/woothemes-FlexSlider-06b12f8/images/luna-controls.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/woothemes-FlexSlider-06b12f8/jquery.flexslider-min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/js/wow.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Main/twitter-bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.eot@" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreCSS.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/CoreJS.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/1a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/1as.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/2a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/2as.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/3a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/3as.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/404.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/4a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/4as.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/ArabiaFlag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/GPlay.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/RussiaFlag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/UsaFlag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/about_us.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/bear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo_golden.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/cleanstart_logo_purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/bbpress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/jquery.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/microlancer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/wordpress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/clients/wpml.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/documentation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/img_after.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/img_after.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/img_before.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/img_before.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/lib-v2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/lib.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/mega_menu_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/parallax.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/phone-v2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/phone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/plethora_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/plethora_logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/a6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b3 (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/b5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/item/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/p3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/p4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/rating_stars.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/portfolio/t5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/rocket_trans-v2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/rocket_trans.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/serv_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/services.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Main/images/ui.totop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MainMenu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locale.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/locale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/animate-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/animate-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/mainmenu-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/mainmenu-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/mainmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/mainmenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/style-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,19 +264,19 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\lang" />
+      <recent name="D:\projects\etminan" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\projects\etminan" />
-      <recent name="E:\Programming\etminan\resources\lang" />
     </key>
   </component>
   <component name="RunManager">
@@ -326,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603101923168</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="replace new template and set fonts to vazir.">
+      <created>1603175548879</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603175548879</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +403,8 @@
     <MESSAGE value="set app default locale to fa" />
     <MESSAGE value="add LangController to set app locale by user" />
     <MESSAGE value="add multi-language ability and change welcome page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add multi-language ability and change welcome page" />
+    <MESSAGE value="replace new template and set fonts to vazir." />
+    <option name="LAST_COMMIT_MESSAGE" value="replace new template and set fonts to vazir." />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -402,13 +448,17 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603009130183" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603101926428">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603175564089">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603101926428" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603111938396">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603175564089" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1603188873665">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603111938396" />
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603188873665" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603188374954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603188374954" />
   </component>
 </project>

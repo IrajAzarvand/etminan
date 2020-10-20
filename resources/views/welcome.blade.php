@@ -1,4 +1,5 @@
 @extends('PageElements.Main.MasterLayout')
-@section('content')
-    <p>this is a test</p>
+@section('Slider')
+    @include('PageElements.Main.Slider')
+
 @endsection

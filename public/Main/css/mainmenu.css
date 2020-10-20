@@ -182,7 +182,7 @@
   color: #666;
 }
 .menu_container .dmui_dropdown_block .dmui-col {
-  float: none;
+  float: right;
   width: auto;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -251,7 +251,8 @@ ul.dmui-simple-ul li a:hover:before {
   color: inherit;
 }
 .dmui-container {
-  padding: 15px 20px;
+  /*padding: 15px 20px;*/
+  /*width: fit-content;*/
 }
 .dmui-container:after {
   content: ' ';
@@ -263,6 +264,7 @@ ul.dmui-submenu {
   padding: 0;
   margin: 0;
   background: #fff;
+  width: fit-content;
 }
 ul.dmui-submenu li {
   display: block;

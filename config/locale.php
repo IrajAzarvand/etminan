@@ -28,5 +28,6 @@ return [
         'ar'    => ['ar', 'ar_AR', false, 'Arabic'],
         'en'    => ['en', 'en_US', false, 'English'],
         'fa'    => ['fa', 'fa_IR', true, 'فارسی'],
+        'ru'    => ['ru', 'ru_RU', false, 'روسی'],
     ],
 ];

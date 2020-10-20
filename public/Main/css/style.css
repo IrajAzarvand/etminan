@@ -6884,7 +6884,8 @@ header {
   margin: 33px 0px 0px 0;
 }
 .logo a.brand {
-  height: 30px;
+  vertical-align: top;
+  /*height: 30px;*/
   line-height: 30px;
   margin: 0px 0;
   padding: 0px;

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainNavController::class, 'index']);
 
-Route::get('/locale/{id}',[LangController::class, 'locale']);
+Route::get('/locale/{id}',[LangController::class, 'locale'])->name('locale');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

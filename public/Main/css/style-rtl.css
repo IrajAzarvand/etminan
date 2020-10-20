@@ -1,5 +1,3 @@
-@import url(../../fonts/vazir.css);
-
 /*!
 Theme Name: CleanStart
 Theme URI: http://plethorathemes.com/cleanstart-html/
@@ -3873,12 +3871,13 @@ header {
 
 .logo {
 	float: right;
-	margin: 33px 0 0px 0px;
+	margin: 10px 0 0 0;
 }
 
 .logo a.brand img {
 	float: right;
 	margin: 2px 0 2px 8px;
+	height: auto;
 }
 
 .logo a.brand span.logo_title {
