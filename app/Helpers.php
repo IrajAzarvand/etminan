@@ -1,7 +1,10 @@
 <?php
+
+use App\Models\MainMenu;
+
 function MenuPicker()
 {
     //get menus of user
-    return main_menus()->with('sub_menus')->get();
+    return MainMenu::with('sub_menus')->get();
 
 }
