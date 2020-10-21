@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MainMenuTableSeeder extends Seeder
+class LocalesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +14,16 @@ class MainMenuTableSeeder extends Seeder
      */
     public function run()
     {
-        $MainMenus=[
-          'تنظیمات',
-
+        $Locales=[
+            'fa',
+            'en',
+            'ar',
+            'ru',
         ];
 
-        foreach ($MainMenus as $mainMenu){
-            DB::table('main_menus')->insert([
-                'MainMenu'=>$mainMenu,
+        foreach ($Locales as $locale){
+            DB::table('locales')->insert([
+                'locale'=>$locale,
             ]);
         }
     }

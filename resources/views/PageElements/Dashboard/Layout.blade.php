@@ -8,7 +8,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-@include('PageElements.Dashboard.Css')
+@include('PageElements.Dashboard.Shared.Css')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,16 +25,16 @@
 <div class="wrapper">
     @include('PageElements.Dashboard.DashboardUser')
 
-@include('PageElements.Dashboard.Topbar')
+@include('PageElements.Dashboard.Shared.Topbar')
 
-@include('PageElements.Dashboard.Menu')
+@include('PageElements.Dashboard.Shared.Menu')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                داشبورد
+                @yield('ContentHeader')
             </h1>
 
         </section>
@@ -63,7 +63,7 @@
 </div>
 <!-- ./wrapper -->
 
-@include('PageElements.Dashboard.Js')
+@include('PageElements.Dashboard.Shared.Js')
 
 </body>
 </html>

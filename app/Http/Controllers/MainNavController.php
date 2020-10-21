@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Locale;
+use App\Models\LocaleContent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class MainNavController extends Controller
 {
@@ -15,14 +18,8 @@ class MainNavController extends Controller
      */
     public function index()
     {
-        $locale = app::getLocale();
-        $section = 'about-us';
-        $page = 'welcome';
-        $content= Locale::
-        where('page', $page)
-            ->where('locale', $locale)
-            ->where('section', $section)
-            ->value('content');
-return view('welcome', compact('locale', 'content'));
+        $indexContents = collect(AllContentOfLocale())->where('page', 'aboutus')->all();
+        dd($indexContents);
+        return view('welcome', compact('indexContents'));
     }
 }

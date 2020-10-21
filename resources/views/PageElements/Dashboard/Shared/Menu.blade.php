@@ -17,12 +17,13 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">منو</li>
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> داشبورد</a></li>
+            <li><a href="/" target="_blank"><i class="fa fa-globe"></i> صفحه اصلی سایت</a></li>
 
             @foreach(DashboardUser::$Menus as $item)
                 {{--========================================================================--}}
                 <li class="treeview active">
                     <a id="{{$item->MainMenu}}" href="{{$item->Url}}">
-                        <i class="{{$item->Icon?$item->Icon :'fa fa-circle-o'}}"></i>
+                        <i class="{{$item->Icon?$item->Icon :''}}"></i>
                         <span>{{$item->MainMenu}}</span>
                         @if ($item->sub_menus->count())
                             <span class="pull-left-container">
@@ -33,7 +34,7 @@
                     @if ($item->sub_menus->count())
                         <ul class="treeview-menu">
                             @foreach ($item->sub_menus as $subitem)
-                                <li><a id="{{$subitem->SubMenu}}" href="">
+                                <li><a id="{{$subitem->SubMenu}}" href="{{route($subitem->Url)}}">
                                         <i class="{{$subitem->Icon?$subitem->Icon :'fa fa-circle-o'}}"></i>
                                         <span>{{$subitem->SubMenu}}</span>
                                         <span class="pull-left-container">

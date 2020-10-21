@@ -20,16 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_103949_create_sliders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LocaleContentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/LocaleContent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_123202_create_locale_contents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/LocalesTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Setting/Slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MainMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_18_125457_create_sub_menus_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Locale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Locale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_18_125249_create_main_menus_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_18_125249_create_main_menus_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_19_060516_create_locales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_123139_create_locales_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_103949_create_sliders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_103949_create_sliders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/LocaleTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/MainMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/MainMenuTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Shared/Css.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Js.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Shared/Js.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Shared/Menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Shared/Topbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/Slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,15 +202,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programming\etminan\resources\lang" />
-      <recent name="D:\projects\etminan" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Dashboard\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\lang" />
+      <recent name="D:\projects\etminan" />
     </key>
   </component>
   <component name="RunManager">
@@ -219,7 +237,7 @@
       <workItem from="1603133347771" duration="940000" />
       <workItem from="1603214319568" duration="3130000" />
       <workItem from="1603255428243" duration="145000" />
-      <workItem from="1603255611194" duration="6213000" />
+      <workItem from="1603255611194" duration="25882000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -305,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603196182740</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add menus with sub_menus to panel page&#10;add slider mvc to project">
+      <created>1603264717755</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1603264717755</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +365,8 @@
     <MESSAGE value="replace new template and set fonts to vazir." />
     <MESSAGE value="add images to slider &#10;made change to site logo to show bigger" />
     <MESSAGE value="put shared and index elements into separate folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="put shared and index elements into separate folders" />
+    <MESSAGE value="add menus with sub_menus to panel page&#10;add slider mvc to project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add menus with sub_menus to panel page&#10;add slider mvc to project" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -352,6 +378,10 @@
     </state>
     <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603255397643" />
     <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603214787913" />
+    <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603282214735">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603282214735" />
     <state x="462" y="109" key="FileChooserDialogImpl" timestamp="1603255384175">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -386,17 +416,17 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603196184285">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603264720328">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603196184285" />
-    <state x="339" y="157" key="run.anything.popup" timestamp="1603188873665">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603264720328" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1603277391933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603188873665" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603197965121">
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603277391933" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603277053250">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603197965121" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603277053250" />
   </component>
 </project>

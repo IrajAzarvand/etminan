@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\LocaleContent;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class LocaleContentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('PageElements.Dashboard.Setting.Slider');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class SliderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\LocaleContent  $localeContent
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(LocaleContent $localeContent)
     {
         //
     }
@@ -52,10 +52,10 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\LocaleContent  $localeContent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(LocaleContent $localeContent)
     {
         //
     }
@@ -64,10 +64,10 @@ class SliderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\LocaleContent  $localeContent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, LocaleContent $localeContent)
     {
         //
     }
@@ -75,10 +75,10 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\LocaleContent  $localeContent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(LocaleContent $localeContent)
     {
         //
     }

@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Locale extends Model
 {
-    protected $fillable = [
-        'page',
-        'section',
-        'locale',
-        'content',
+    protected $fillable=[
+        'locale'
     ];
 
+
+    public function  locale_contents()
+    {
+        return $this->hasMany(LocaleContent::class,'locale','locale');
+    }
 }

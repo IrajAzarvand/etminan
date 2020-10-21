@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    {{dd($indexContents)}}
     @include('PageElements.Main.Index.features')
     @include('PageElements.Main.Index.CallToAction')
     @include('PageElements.Main.Index.Portfolio')

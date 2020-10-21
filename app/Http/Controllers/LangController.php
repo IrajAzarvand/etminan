@@ -9,17 +9,16 @@ use Illuminate\Support\Facades\Session;
 
 class LangController extends Controller
 {
-    public function locale(Request $request, string $language)
+    public function locale(string $language)
     {
-        try {
-            if (array_key_exists($language, config('locale.languages'))) {
-                Session::put('locale', $language);
-                App::setLocale($language);
-                return redirect()->back();
-            }
-            return redirect()->back();
-        } catch (\Exception $exception) {
+        if (array_key_exists($language, config('locale.languages'))) {
+            Session::put('locale', $language);
+            App::setLocale($language);
+            //when site locale changes, this helper will fetch all of contents from db related to that locale.
+            AllContentOfLocale();
             return redirect()->back();
         }
+        return redirect()->back();
+
     }
 }
