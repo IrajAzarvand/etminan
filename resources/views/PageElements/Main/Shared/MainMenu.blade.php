@@ -1,6 +1,6 @@
 @php
     $MenuContents = collect(AllContentOfLocale())->where('section', 'menu')->all();
-dd($MenuContents);
+NavPicker();
 @endphp
 <div id="mainmenu" class="menu_container">
     <label class="mobile_collapser">منو</label>

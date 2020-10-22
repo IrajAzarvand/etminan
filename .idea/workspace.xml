@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubNavController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/SubNav.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_123202_create_locale_contents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_123202_create_locale_contents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MainNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +221,7 @@
       <workItem from="1603255428243" duration="145000" />
       <workItem from="1603255611194" duration="26216000" />
       <workItem from="1603341717882" duration="16887000" />
-      <workItem from="1603362205409" duration="8163000" />
+      <workItem from="1603362205409" duration="10499000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -338,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603357373259</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="working on menus to fetch from db">
+      <created>1603371000034</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1603371000034</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +381,8 @@
     <MESSAGE value="try to set default locale to fa if a locale does not have values in db" />
     <MESSAGE value="set default locale to fa if no data found for selected locale in DB." />
     <MESSAGE value="set different style files for rtl and ltr direction" />
-    <option name="LAST_COMMIT_MESSAGE" value="set different style files for rtl and ltr direction" />
+    <MESSAGE value="working on menus to fetch from db" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on menus to fetch from db" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -427,17 +432,17 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603357376464">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603371004585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603357376464" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603371004585" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603277391933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603277391933" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603368965075">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603371423819">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603368965075" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603371423819" />
   </component>
 </project>

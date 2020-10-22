@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class MainNav extends Model
 {
-    protected $fillable=[
-        'parent',
-        'child',
-        'parent_content',
-        'content',
-        'url',
+    protected $fillable = [
+        'MainNav',
     ];
+
+    public function sub_navs()
+    {
+        return $this->hasMany(SubNav::class,'main_nav_id','id');
+    }
 
 }
