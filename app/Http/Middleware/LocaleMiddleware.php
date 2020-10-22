@@ -13,13 +13,14 @@ class LocaleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        Session::has('locale')?App::setLocale(Session::get('locale'))
+        Session::has('locale')
+            ? App::setLocale(Session::get('locale'))
             : App::setLocale('fa');
 
         return $next($request);

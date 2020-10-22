@@ -7,7 +7,7 @@ use App\Http\Controllers\SliderController;
 
 Route::get('/', [MainNavController::class, 'index']);
 
-Route::get('/locale/{id}',[LangController::class, 'locale'])->name('locale');
+Route::get('/locale/{lang}',[LangController::class, 'locale'])->name('locale');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

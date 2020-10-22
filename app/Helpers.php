@@ -16,8 +16,8 @@ function AllContentOfLocale()
     //if selected locale oes not have contents in db, contents related to 'fa' locale
     //will be selected and show to user
     if(!empty(LocaleContent::where('locale',App::getLocale())->get()->toArray())){
-        LocaleContent::where('locale',App::getLocale())->get()->toArray();
+       return LocaleContent::where('locale',App::getLocale())->get()->toArray();
     }  else{
-        LocaleContent::where('locale','fa')->get()->toArray();
+        return LocaleContent::where('locale','fa')->get()->toArray();
     }
 }

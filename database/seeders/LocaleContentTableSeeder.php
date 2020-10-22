@@ -118,7 +118,7 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => 'aboutus',
                 'section' => 'features',
-                'locale' => 'fa',
+                'locale' => 'en',
                 'element_id' => '3',
                 'content' => 'third feature',
             ],
