@@ -20,14 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/RTLCoreCSS.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/LocaleMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/LocaleMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/LocaleContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LocaleContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_123202_create_locale_contents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_123202_create_locale_contents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/style-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Main/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Index/features.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/MasterLayout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/CoreCSS.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/LTRCoreCSS.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,22 +181,23 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/PageElements/Main/Shared" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
+      <recent name="E:\Programming\etminan\resources\lang" />
+      <recent name="D:\projects\etminan" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Programming\etminan\resources\views\PageElements\Dashboard\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programming\etminan\resources\lang" />
-      <recent name="D:\projects\etminan" />
     </key>
   </component>
   <component name="RunManager">
@@ -219,7 +224,7 @@
       <workItem from="1603214319568" duration="3130000" />
       <workItem from="1603255428243" duration="145000" />
       <workItem from="1603255611194" duration="26216000" />
-      <workItem from="1603341717882" duration="4959000" />
+      <workItem from="1603341717882" duration="14315000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -319,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603285822367</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="set default locale to fa if no data found for selected locale in DB.">
+      <created>1603347655071</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603347655071</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +368,8 @@
     <MESSAGE value="put shared and index elements into separate folders" />
     <MESSAGE value="add menus with sub_menus to panel page&#10;add slider mvc to project" />
     <MESSAGE value="try to set default locale to fa if a locale does not have values in db" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to set default locale to fa if a locale does not have values in db" />
+    <MESSAGE value="set default locale to fa if no data found for selected locale in DB." />
+    <option name="LAST_COMMIT_MESSAGE" value="set default locale to fa if no data found for selected locale in DB." />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -406,10 +419,10 @@
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603285827510">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603347687221">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603285827510" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603347687221" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603277391933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

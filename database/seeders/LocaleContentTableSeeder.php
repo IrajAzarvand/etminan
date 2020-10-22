@@ -14,124 +14,116 @@ class LocaleContentTableSeeder extends Seeder
      */
     public function run()
     {
-        $content=[
+        $Content=[
             [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'fa',
                 'element_id' => '1',
-                'content' => 'اولین اسلاید',
+                'element_title'=>'عنوان اولین اسلاید',
+                'element_content' => 'اولین اسلاید',
             ],
             [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'fa',
                 'element_id' => '2',
-                'content' => 'دومین اسلاید اسلاید',
+                'element_title'=>'عنوان دومین اسلاید',
+                'element_content' => 'دومین اسلاید',
             ],
             [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'fa',
                 'element_id' => '3',
-                'content' => 'سومین اسلاید اسلاید',
+                'element_title'=>'عنوان سومین اسلاید',
+                'element_content' => 'سومین اسلاید',
             ],
            [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'en',
                 'element_id' => '1',
-                'content' => 'first slide',
+               'element_title'=>'first slide title',
+               'element_content' => 'first slide',
             ],
             [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'en',
                 'element_id' => '2',
-                'content' => 'second slide',
+                'element_title'=>'second slide title',
+                'element_content' => 'second slide',
             ],
             [
                 'page' => 'welcome',
                 'section' => 'slider',
                 'locale' => 'en',
                 'element_id' => '3',
-                'content' => 'third slide',
+                'element_title'=>'third slide title',
+                'element_content' => 'third slide',
             ],
 
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'fa',
                 'element_id' => '1',
-                'content' => 'فیچر اول',
+                'element_title'=>'عنوان فیچر اول',
+                'element_content' => 'توضیحات فیچر اول',
             ],
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'fa',
                 'element_id' => '2',
-                'content' => 'فیچر دوم',
+                'element_title'=>'عنوان فیچر دوم',
+                'element_content' => 'توضیحات فیچر دوم',
             ],
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'fa',
                 'element_id' => '3',
-                'content' => 'فیچر سوم',
+                'element_title'=>'عنوان فیچر سوم',
+                'element_content' => 'توضیحات فیچر سوم',
             ],
 
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'en',
                 'element_id' => '1',
-                'content' => 'first feature',
+                'element_title'=>'first feature title',
+                'element_content' => 'first feature content',
             ],
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'en',
                 'element_id' => '2',
-                'content' => 'second feature',
+                'element_title'=>'second feature title',
+                'element_content' => 'second feature content',
             ],
             [
                 'page' => 'welcome',
-                'section' => 'features',
+                'section' => 'feature',
                 'locale' => 'en',
                 'element_id' => '3',
-                'content' => 'third feature',
-            ],
-            [
-                'page' => 'aboutus',
-                'section' => 'features',
-                'locale' => 'fa',
-                'element_id' => '1',
-                'content' => 'first feature',
-            ],
-            [
-                'page' => 'aboutus',
-                'section' => 'features',
-                'locale' => 'fa',
-                'element_id' => '2',
-                'content' => 'second feature',
-            ],
-            [
-                'page' => 'aboutus',
-                'section' => 'features',
-                'locale' => 'en',
-                'element_id' => '3',
-                'content' => 'third feature',
+                'element_title'=>'third feature title',
+                'element_content' => 'third feature content',
             ],
 
         ];
 
-        foreach ($content as $item) {
+        foreach ($Content as $item) {
             DB::table('locale_contents')->insert([
                 'page' => $item['page'],
                 'section' => $item['section'],
-                'element_id' => $item['element_id'],
                 'locale' => $item['locale'],
-                'content' =>$item['content'],
+                'element_id' => $item['element_id'],
+                'element_title' => $item['element_title'],
+                'element_content' =>$item['element_content'],
             ]);
         }
     }

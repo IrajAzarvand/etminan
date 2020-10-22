@@ -12,7 +12,8 @@ class LocaleContent extends Model
         'section',
         'element_id',
         'locale',
-        'content',
+        'element_title',
+        'element_content',
     ];
 
     public function locale()

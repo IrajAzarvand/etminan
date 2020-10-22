@@ -1,18 +1,16 @@
 <!-- All Animations CSS -->
 <link href="{{asset('Main/css/animate.css')}}" rel="stylesheet" type="text/css">
-<link href="{{asset('Main/css/animate-rtl.css')}}" rel="stylesheet" type="text/css">
 <!-- Image Lightbox CSS-->
 <link rel="stylesheet" href="{{asset('Main/css/imagelightbox.css')}}" type="text/css" media="screen">
-<link rel="stylesheet" href="{{asset('Main/css/imagelightbox-rtl.css')}}" type="text/css" media="screen">
 <!-- Theme styles and Menu styles -->
+
 <link href="{{asset('Main/css/style.css')}}" rel="stylesheet" type="text/css">
-<link href="{{asset('Main/css/style-rtl.css')}}" rel="stylesheet" type="text/css">
+
 <link href="{{asset('Main/css/mainmenu.css')}}" rel="stylesheet" type="text/css">
-<link href="{{asset('Main/css/mainmenu-rtl.css')}}" rel="stylesheet" type="text/css">
 <!-- Call Fontawsome Icon Font from a CDN -->
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <!--Pace Page Loader -->
-<link rel="stylesheet" href="{{asset('Main/js/pace-0.5.1/themes/pace-theme-minimal.css')}}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{asset('Main/js/pace-0.5.1/themes/pace-theme-minimal.css')}}" type="text/css" media="screen"/>
 <!--FlexSlider -->
 <link rel="stylesheet" href="{{asset('Main/js/woothemes-FlexSlider-06b12f8/flexslider.css')}}" type="text/css" media="screen">
 <!--Isotope Plugin -->

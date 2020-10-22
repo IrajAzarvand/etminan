@@ -8,7 +8,11 @@
     <meta name="HandheldFriendly" content="true"/>
     <meta name="apple-touch-fullscreen" content="yes"/>
 
-@include('PageElements.Main.Shared.CoreCSS')
+@if (app()->getLocale()=='fa' ||app()->getLocale()=='ar')
+    @include('PageElements.Main.Shared.RTLCoreCSS')
+@else
+    @include('PageElements.Main.Shared.LTRCoreCSS')
+@endif
 
 <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">

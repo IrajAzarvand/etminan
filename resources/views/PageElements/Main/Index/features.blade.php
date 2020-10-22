@@ -8,28 +8,16 @@
     <div class="container">
         <div class="row">
 
+            @php
+                $features=collect($indexContents)->where('section','feature')
+            @endphp
 
-            <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{asset('Main/images/phone-v2.png')}}">
-                <h3>طراحی واکنش گرا و تمیز</h3>
-                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-                    مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-            </div>
-
-
-            <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{asset('Main/images/lib-v2.png')}}">
-                <h3>بر اساس بوت استرپ</h3>
-                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-                    مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-            </div>
-
-
-            <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive"
-                                                               src="{{asset('Main/images/rocket_trans-v2.png')}}">
-                <h3>استفاده واقعی از LESS</h3>
-                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی
-                    مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-            </div>
-
+            @foreach($features as $feature)
+                <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{asset('Main/images/phone-v2.png')}}">
+                    <h3>{{$feature['element_title']}}</h3>
+                    <p>{{$feature['element_content']}}</p>
+                </div>
+            @endforeach
 
         </div>
     </div>

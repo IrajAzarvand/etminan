@@ -19,7 +19,8 @@ class CreateLocaleContentsTable extends Migration
             $table->string('section');
             $table->unsignedBigInteger('element_id');
             $table->string('locale');
-            $table->longText('content')->nullable();
+            $table->string('element_title')->nullable();
+            $table->longText('element_content')->nullable();
             $table->timestamps();
         });
     }

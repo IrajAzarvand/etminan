@@ -19,7 +19,7 @@ class MainNavController extends Controller
     public function index()
     {
         $indexContents = collect(AllContentOfLocale())->where('page', 'welcome')->all();
-        dd(App::getLocale(), $indexContents);
+
         return view('welcome', compact('indexContents'));
     }
 }
