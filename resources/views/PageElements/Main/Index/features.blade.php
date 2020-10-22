@@ -9,7 +9,7 @@
         <div class="row">
 
             @php
-                $features=collect($indexContents)->where('section','feature')
+                $features=collect($IndexContents)->where('section','feature')
             @endphp
 
             @foreach($features as $feature)

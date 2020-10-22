@@ -5,9 +5,10 @@ use App\Http\Controllers\MainNavController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 
-Route::get('/', [MainNavController::class, 'index']);
-
 Route::get('/locale/{lang}',[LangController::class, 'locale'])->name('locale');
+
+Route::get('/', [MainNavController::class, 'HomePage'])->name('Homepage');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

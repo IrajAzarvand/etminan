@@ -1,31 +1,32 @@
+@php
+    $MenuContents = collect(AllContentOfLocale())->where('section', 'menu')->all();
+dd($MenuContents);
+@endphp
 <div id="mainmenu" class="menu_container">
     <label class="mobile_collapser">منو</label>
     <!-- Mobile menu title -->
     <ul>
-        <li><a href="/">صفحه اصلی</a></li>
-        <li><a href="about_us.html">محصولات</a></li>
-        <li><a href="services.html">گالری تصاویر</a></li>
-        <li><a href="portfolio.html">دفاتر فروش</a></li>
-        <li><a href="blog.html">استخدام</a></li>
-        <li><a href="#">درباره ما</a>
-            <div class="dmui_dropdown_block" >
-                <div class="dmui-container">
-                    <div class="dmui-col span1">
+        {{--        <li><a href="/">صفحه اصلی</a></li>--}}
+        @foreach($MenuContents as $Item)
+            <li @if($Item['element_title']) class="has-dropdown" @endif>
+                <a href="#">{{$Item['element_content']}}</a>
+                @if ($Item['element_title'])
+                    <div class="dmui_dropdown_block">
                         <div class="dmui-container">
-                            <ul class="dmui-submenu">
-                                <li><a href="#">تاریخچه</a></li>
-                                <li><a href="#">پیام مدیر عامل</a></li>
-                                <li><a href="#">گواهینامه ها و افتخارات</a></li>
-                                <li><a href="#">چارت سازمانی</a></li>
-                            </ul>
+                            <div class="dmui-col span1">
+                                <div class="dmui-container">
+                                    <ul class="dmui-submenu">
+                                        <li><a href="#">{{$Item['element_content']}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </li>
-        <li><a href="contact.html">تماس با ما</a></li>
+                @endif
+            </li>
+        @endforeach
         <li><a href="#">زبان ها</a>
-            <div class="dmui_dropdown_block" >
+            <div class="dmui_dropdown_block">
                 <div class="dmui-container">
                     <div class="dmui-col span1">
                         <div class="dmui-container">

@@ -16,10 +16,10 @@ class MainNavController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function HomePage()
     {
-        $indexContents = collect(AllContentOfLocale())->where('page', 'welcome')->all();
+        $IndexContents = collect(AllContentOfLocale())->where('page', 'welcome')->all();
 
-        return view('welcome', compact('indexContents'));
+        return view('welcome', compact('IndexContents'));
     }
 }
