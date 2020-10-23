@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LocalesTableSeeder::class);
         $this->call(LocaleContentTableSeeder::class);
         $this->call(MainNavsTableSeeder::class);
+        $this->call(SubNavsTableSeeder::class);
 
     }
 }

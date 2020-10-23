@@ -13,7 +13,7 @@ class MainNav extends Model
 
     public function sub_navs()
     {
-        return $this->hasMany(SubNav::class,'main_nav_id','id');
+        return $this->hasMany(SubNav::class,'main_nav','MainNav');
     }
 
 }

@@ -15,12 +15,12 @@ class CreateSubNavsTable extends Migration
     {
         Schema::create('sub_navs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('main_nav_id');
+            $table->string('main_nav');
             $table->string('SubNav');
             $table->string('url')->nullable();
             $table->timestamps();
 
-            $table->foreign('main_nav_id')->references('id')->on('main_navs')
+            $table->foreign('main_nav')->references('MainNav')->on('main_navs')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

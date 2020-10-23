@@ -16,6 +16,7 @@ class CreateMainNavsTable extends Migration
         Schema::create('main_navs', function (Blueprint $table) {
             $table->id();
             $table->boolean('MainNav');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
