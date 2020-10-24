@@ -4,16 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 class MainNav extends Model
 {
     protected $fillable = [
-        'MainNav',
+        'url',
+        'description',
     ];
+
 
     public function sub_navs()
     {
-        return $this->hasMany(SubNav::class,'main_nav','MainNav');
+        return $this->hasMany(SubNav::class);
     }
 
+    public function content()
+    {
+       return $this->belongsTo(LocaleContent::class,'element_id');
+    }
 }

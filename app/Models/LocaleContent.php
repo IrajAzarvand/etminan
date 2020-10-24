@@ -20,4 +20,12 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(Locale::class);
     }
+
+    public function main_nav()
+    {
+        return $this->belongsTo(MainNav::class)
+            ->where('section','=','menu')
+            ->where('element_title','=','');
+    }
+
 }

@@ -7,7 +7,7 @@ use App\Http\Controllers\SliderController;
 
 Route::get('/locale/{lang}',[LangController::class, 'locale'])->name('locale');
 
-Route::get('/', [MainNavController::class, 'HomePage'])->name('Homepage');
+Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
 
 
 

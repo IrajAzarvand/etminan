@@ -20,15 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/LocaleContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LocaleContent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/MainNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/SubNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubNav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,10 +445,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603277391933" />
-    <state x="346" y="50" width="672" height="688" key="search.everywhere.popup" timestamp="1603430083006">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603533477858">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603371423819" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603533477858" />
     <state x="346" y="50" width="672" height="688" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1603430083006" />
   </component>
 </project>

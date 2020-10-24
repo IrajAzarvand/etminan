@@ -15,18 +15,44 @@ class MainNavsTableSeeder extends Seeder
     public function run()
     {
         $MainNav = [
-            'صفحه اصلی',
-            'محصولات',
-            'گالری تصاویر',
-            'دفاتر فروش',
-            'همکاری با ما',
-            'درباره ما',
-            'تماس با ما',
+            [
+                'url' => 'HomePage',
+                'description' => 'صفحه اصلی'
+            ],
+            [
+                'url' => '',
+                'description' => 'محصولات'
+            ],
+            [
+                'url' => '',
+                'description' => 'گالری تصاویر'
+            ],
+            [
+                'url' => '',
+                'description' => 'دفاتر فروش'
+            ],
+            [
+                'url' => '',
+                'description' => 'همکاری با ما'
+            ],
+            [
+                'url' => '',
+                'description' => 'درباره ما'
+            ],
+            [
+                'url' => '',
+                'description' => 'تماس با ما'
+            ],
+            [
+                'url' => '',
+                'description' => 'زبان ها'
+            ],
         ];
 
-        foreach ($MainNav as $item) {
+        foreach ($MainNav as $url => $item) {
             DB::table('main_navs')->insert([
-                'main_navs' => $item,
+                'url' => $item['url'],
+                'description' => $item['description'],
             ]);
         }
     }

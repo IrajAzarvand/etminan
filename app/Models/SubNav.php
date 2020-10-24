@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SubNav extends Model
 {
     protected $fillable=[
-        'main_nav',
+        'main_nav_id',
         'SubNav',
         'url',
+        'description',
 
         ];
 

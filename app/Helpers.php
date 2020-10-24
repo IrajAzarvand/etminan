@@ -14,7 +14,7 @@ function MenuPicker()
 function NavPicker()
 {
     //get menus for Main Site
-    dd(MainNav::all());
+   return MainNav::with(['sub_navs','content'])->get();
 }
 
 function AllContentOfLocale()
