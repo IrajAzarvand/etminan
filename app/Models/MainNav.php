@@ -22,6 +22,6 @@ class MainNav extends Model
 
     public function content()
     {
-       return $this->belongsTo(LocaleContent::class,'element_id');
+       return $this->hasOne(LocaleContent::class,'element_id','id');
     }
 }

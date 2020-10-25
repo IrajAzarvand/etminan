@@ -21,18 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/LocaleContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LocaleContent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/MainNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/SubNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LocaleContentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,23 +174,24 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/PageElements/Main/Shared" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
-      <recent name="E:\Programming\etminan\resources\lang" />
-      <recent name="D:\projects\etminan" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Programming\etminan\resources\views\PageElements\Dashboard\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Index" />
       <recent name="E:\Programming\etminan\resources\views\PageElements\Main" />
       <recent name="E:\Programming\etminan\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\etminan" />
+      <recent name="E:\Programming\etminan\resources\views\PageElements\Main\Shared" />
+      <recent name="E:\Programming\etminan\resources\lang" />
+      <recent name="D:\projects\etminan" />
     </key>
   </component>
   <component name="RunManager">
@@ -227,6 +220,9 @@
       <workItem from="1603255611194" duration="26216000" />
       <workItem from="1603341717882" duration="16887000" />
       <workItem from="1603362205409" duration="10499000" />
+      <workItem from="1603607721284" duration="686000" />
+      <workItem from="1603608427496" duration="4442000" />
+      <workItem from="1603626968632" duration="592000" />
     </task>
     <task id="LOCAL-00001" summary="add admin panel dashboard with css and js">
       <created>1603015591511</created>
@@ -394,20 +390,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1603102998408" />
-    <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603255397643">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="439" y="244" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1603608412457">
+      <screen x="0" y="0" width="1440" height="870" />
     </state>
     <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603255397643" />
     <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603214787913" />
+    <state x="439" y="244" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1440.870@0.0.1440.870" timestamp="1603608412457" />
     <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603282214735">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603282214735" />
-    <state x="462" y="109" key="FileChooserDialogImpl" timestamp="1603255384175">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="487" y="130" key="FileChooserDialogImpl" timestamp="1603608405345">
+      <screen x="0" y="0" width="1440" height="870" />
     </state>
     <state x="462" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603255384175" />
     <state x="462" y="110" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1603214785543" />
+    <state x="487" y="130" key="FileChooserDialogImpl/0.0.1440.870@0.0.1440.870" timestamp="1603608405345" />
     <state x="559" y="263" key="Github.ShareDialog" timestamp="1603009140931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -432,11 +430,12 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="180" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603133037653" />
-    <state x="184" y="0" width="1040" height="710" key="SettingsEditor" timestamp="1603255661830">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="194" y="0" width="1040" height="710" key="SettingsEditor" timestamp="1603608469457">
+      <screen x="0" y="0" width="1440" height="870" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
+    <state x="194" y="0" key="SettingsEditor/0.0.1440.870@0.0.1440.870" timestamp="1603608469457" />
     <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603371004585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

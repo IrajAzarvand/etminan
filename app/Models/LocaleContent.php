@@ -23,9 +23,8 @@ class LocaleContent extends Model
 
     public function main_nav()
     {
-        return $this->belongsTo(MainNav::class)
-            ->where('section','=','menu')
-            ->where('element_title','=','');
+        return $this->hasOne(MainNav::class,'id','element_id')
+            ->where('section','=','menu');
     }
 
 }
