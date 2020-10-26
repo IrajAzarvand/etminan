@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\MainNavController;
@@ -22,4 +23,6 @@ Route::get('Product/NewProductsSetting', [ProductController::class,'NewProductsS
 Route::resource('Product', ProductController::class);
 
 Route::resource('History', HistoryController::class);
+
+Route::resource('CeoMessage', CeoMessageController::class);
 

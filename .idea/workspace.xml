@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HistoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/History.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_26_125140_create_histories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Setting/History.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CeoMessageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/CeoMessage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_26_133029_create_ceo_messages_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PageElements/Dashboard/Setting/CeoMessage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/MainMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/MainMenuTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubMenuTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -361,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603702764064</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="create raw page for history in dashboard panel">
+      <created>1603704954648</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1603704954648</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +409,8 @@
     <MESSAGE value="working on menus to fetch from db" />
     <MESSAGE value="work on menus" />
     <MESSAGE value="write menus content for each loacale inside menus table.&#10;create products resource and setting page" />
-    <option name="LAST_COMMIT_MESSAGE" value="write menus content for each loacale inside menus table.&#10;create products resource and setting page" />
+    <MESSAGE value="create raw page for history in dashboard panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="create raw page for history in dashboard panel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -461,18 +468,18 @@
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
     <state x="194" y="0" key="SettingsEditor/0.0.1440.870@0.0.1440.870" timestamp="1603608469457" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603702768503">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603704956090">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603702768503" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603704956090" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603277391933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603277391933" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603704576792">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603706628095">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603704576792" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603706628095" />
     <state x="346" y="50" width="672" height="688" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1603430083006" />
   </component>
 </project>

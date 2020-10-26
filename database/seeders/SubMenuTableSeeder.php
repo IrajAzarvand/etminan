@@ -33,6 +33,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'History.index',
                     'Icon' => 'fa fa-clock-o',
                 ],
+                [
+                    'SubMenu' => 'پیام مدیر عامل',
+                    'Url' => 'CeoMessage.index',
+                    'Icon' => 'fa fa-address-card',
+                ],
             ],
         ];
 
