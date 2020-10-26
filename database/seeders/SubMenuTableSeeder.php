@@ -43,6 +43,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'CH.index',
                     'Icon' => 'fa fa-graduation-cap',
                 ],
+                [
+                    'SubMenu' => 'چارت سازمانی',
+                    'Url' => 'OC.index',
+                    'Icon' => 'fa fa-street-view',
+                ],
             ],
         ];
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\CertificatesAndHonorsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\MainNavController;
+use App\Http\Controllers\OrganizationalChartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
@@ -28,4 +29,6 @@ Route::resource('History', HistoryController::class);
 Route::resource('CeoMessage', CeoMessageController::class);
 
 Route::resource('CH', CertificatesAndHonorsController::class);
+
+Route::resource('OC', OrganizationalChartController::class);
 
