@@ -21,7 +21,6 @@ class MainNavController extends Controller
         $IndexContents = collect(AllContentOfLocale())
             ->whereIn('page', array('','welcome'))//''=>contents for all pages(menus, footer, ...) and 'welcome'=>contents for home page only
             ->all();
-        dd($IndexContents);
         return view('welcome', compact('IndexContents'));
     }
 }

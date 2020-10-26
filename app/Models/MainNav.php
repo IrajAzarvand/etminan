@@ -22,6 +22,9 @@ class MainNav extends Model
 
     public function content()
     {
-       return $this->hasOne(LocaleContent::class,'element_id','id');
+       return $this->hasOne(LocaleContent::class,'element_id')
+           ->where('section','menu')
+           ->where('locale',App::getLocale())
+           ->where('element_title','');
     }
 }

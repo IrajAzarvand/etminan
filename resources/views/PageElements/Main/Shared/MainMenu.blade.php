@@ -5,7 +5,6 @@
 {{--@endphp--}}
 @php
     $MainNav=NavPicker();
-    $MenuContents=collect($IndexContents)->where('section','menu');
 @endphp
 <div id="mainmenu" class="menu_container">
     <label class="mobile_collapser">منو</label>

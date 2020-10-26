@@ -21,9 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainNavController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/LocaleContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LocaleContent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/MainNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SubNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubNav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -396,10 +400,11 @@
     <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1603255397643" />
     <state x="416" y="207" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.738@0.0.1366.738" timestamp="1603214787913" />
     <state x="439" y="244" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1440.870@0.0.1440.870" timestamp="1603608412457" />
-    <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603282214735">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603657396900">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="117" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603282214735" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1603657396900" />
     <state x="487" y="130" key="FileChooserDialogImpl" timestamp="1603608405345">
       <screen x="0" y="0" width="1440" height="870" />
     </state>
