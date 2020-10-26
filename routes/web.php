@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\ProductController;
@@ -19,4 +20,6 @@ Route::resource('Slider', SliderController::class);
 
 Route::get('Product/NewProductsSetting', [ProductController::class,'NewProductsSetting'])->name('Product.NewProductsSetting');
 Route::resource('Product', ProductController::class);
+
+Route::resource('History', HistoryController::class);
 

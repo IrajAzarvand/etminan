@@ -15,7 +15,7 @@ class MainMenuTableSeeder extends Seeder
     public function run()
     {
         $MainMenus=[
-          'صفحه اصلی',
+          'صفحه اصلی','درباره ما',
 
         ];
 

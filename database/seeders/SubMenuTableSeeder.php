@@ -27,6 +27,13 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-shopping-bag',
                 ],
             ],
+            'درباره ما'=>[
+                [
+                    'SubMenu' => 'تاریخچه',
+                    'Url' => 'History.index',
+                    'Icon' => 'fa fa-clock-o',
+                ],
+            ],
         ];
 
         foreach ($SubMenus as $MainMenu => $subMenu) {
