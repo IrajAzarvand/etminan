@@ -18,42 +18,50 @@ class MainNavsTableSeeder extends Seeder
             [
                 'content_fa'=>'صفحه اصلی',
                 'content_en'=>'Home',
-                'url' => 'HomePage',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa'=>'محصولات',
                 'content_en'=>'Products',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'گالری تصاویر',
                 'content_en' => 'Gallery',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'دفاتر فروش',
                 'content_en' => 'Sales Offices',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'همکاری با ما',
                 'content_en' => 'Employment',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'درباره ما',
                 'content_en' => 'About Us',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'تماس با ما',
                 'content_en' => 'Contact Us',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
             [
                 'content_fa' => 'زبان ها',
                 'content_en' => 'Languages',
-                'url' => '',
+                'route_name' => 'HomePage',
+                'url'=>null,
             ],
         ];
 
@@ -61,6 +69,7 @@ class MainNavsTableSeeder extends Seeder
             DB::table('main_navs')->insert([
                 'content_fa' => $item['content_fa'],
                 'content_en' => $item['content_en'],
+                'route_name' => $item['route_name'],
                 'url' => $item['url'],
             ]);
         }

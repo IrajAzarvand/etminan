@@ -20,6 +20,7 @@ class CreateMainNavsTable extends Migration
             $table->string('content_ru')->default('');
             $table->string('content_ar')->default('');
             $table->string('url')->nullable();
+            $table->string('route_name')->nullable();
             $table->timestamps();
         });
     }

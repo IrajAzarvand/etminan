@@ -15,6 +15,7 @@ class MainNav extends Model
         'content_ru',
         'content_ar',
         'url',
+        'route_name',
     ];
 
 
