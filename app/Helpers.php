@@ -14,7 +14,11 @@ function MenuPicker()
 function NavPicker()
 {
     //get menus for Main Site
-   return MainNav::with(['sub_navs','content'])->get();
+    if (App::getLocale() == 'fa' || App::getLocale() == 'ar')
+        return MainNav::with('sub_navs')->get();
+    else
+        return MainNav::with('sub_navs')->orderBy('id', 'DESC')->get();
+
 }
 
 function AllContentOfLocale()
@@ -22,9 +26,9 @@ function AllContentOfLocale()
 //get content of page based on (page, section, element_id, and language that user selected)
     //if selected locale oes not have contents in db, contents related to 'fa' locale
     //will be selected and show to user
-    if(!empty(LocaleContent::where('locale',App::getLocale())->get()->toArray())){
-       return LocaleContent::where('locale',App::getLocale())->get()->toArray();
-    }  else{
-        return LocaleContent::where('locale','fa')->get()->toArray();
+    if (!empty(LocaleContent::where('locale', App::getLocale())->get()->toArray())) {
+        return LocaleContent::where('locale', App::getLocale())->get()->toArray();
+    } else {
+        return LocaleContent::where('locale', 'fa')->get()->toArray();
     }
 }

@@ -15,11 +15,16 @@ class SubMenuTableSeeder extends Seeder
     public function run()
     {
         $SubMenus = [
-            'تنظیمات' => [
+            'صفحه اصلی' => [
                 [
                     'SubMenu' => 'اسلایدر',
                     'Url' => 'Slider.index',
                     'Icon' => 'fa fa-columns',
+                ],
+                [
+                    'SubMenu' => 'جدیدترین محصولات',
+                    'Url' => 'Product.NewProductsSetting',
+                    'Icon' => 'fa fa-shopping-bag',
                 ],
             ],
         ];

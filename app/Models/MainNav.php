@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\DB;
 class MainNav extends Model
 {
     protected $fillable = [
+        'content_fa',
+        'content_en',
+        'content_ru',
+        'content_ar',
         'url',
-        'description',
     ];
 
 
@@ -20,11 +23,4 @@ class MainNav extends Model
         return $this->hasMany(SubNav::class);
     }
 
-    public function content()
-    {
-       return $this->hasOne(LocaleContent::class,'element_id')
-           ->where('section','menu')
-           ->where('locale',App::getLocale())
-           ->where('element_title','');
-    }
 }

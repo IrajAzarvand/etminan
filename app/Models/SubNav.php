@@ -10,21 +10,16 @@ class SubNav extends Model
 {
     protected $fillable=[
         'main_nav_id',
-        'SubNav',
+        'content_fa',
+        'content_en',
+        'content_ru',
+        'content_ar',
         'url',
-        'description',
 
         ];
 
     public function main_nav()
     {
         return $this->belongsTo(MainNav::class)->with($this->content());
-    }
-
-    public function content()
-    {
-        return $this->hasOne(LocaleContent::class,'element_id')
-            ->where('section','menu')
-            ->where('locale',App::getLocale());
     }
 }

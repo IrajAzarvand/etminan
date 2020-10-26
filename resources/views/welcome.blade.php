@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
+    @include('PageElements.Main.Index.NewProducts')
     @include('PageElements.Main.Index.features')
     @include('PageElements.Main.Index.CallToAction')
-    @include('PageElements.Main.Index.Portfolio')
     @include('PageElements.Main.Index.TwitterFeed')
 @endsection

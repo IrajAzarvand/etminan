@@ -17,8 +17,11 @@ class CreateSubNavsTable extends Migration
         Schema::create('sub_navs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('main_nav_id');
+            $table->string('content_fa')->default('');
+            $table->string('content_en')->default('');
+            $table->string('content_ru')->default('');
+            $table->string('content_ar')->default('');
             $table->string('url')->nullable();
-            $table->string('description');
             $table->timestamps();
 
             $table->foreign('main_nav_id')->references('id')->on('main_navs')

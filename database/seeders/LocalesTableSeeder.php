@@ -17,8 +17,8 @@ class LocalesTableSeeder extends Seeder
         $Locales=[
             'fa',
             'en',
-            'ar',
             'ru',
+            'ar',
         ];
 
         foreach ($Locales as $locale){

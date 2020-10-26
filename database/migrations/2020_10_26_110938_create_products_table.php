@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainNavsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateMainNavsTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_navs', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('content_fa')->default('');
-            $table->string('content_en')->default('');
-            $table->string('content_ru')->default('');
-            $table->string('content_ar')->default('');
-            $table->string('url')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateMainNavsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_navs');
+        Schema::dropIfExists('products');
     }
 }

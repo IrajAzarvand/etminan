@@ -52,23 +52,6 @@
                 </li>
                 {{--========================================================================--}}
             @endforeach
-
-{{--            <li class="treeview">--}}
-{{--                <a href="#">--}}
-{{--                    <i class="fa fa-gears"></i>--}}
-{{--                    <span>نمودارها</span>--}}
-{{--                    <span class="pull-left-container">--}}
-{{--              <i class="fa fa-angle-right pull-left"></i>--}}
-{{--            </span>--}}
-{{--                </a>--}}
-{{--                <ul class="treeview-menu">--}}
-{{--                    <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>نمودار ChartJS</a></li>--}}
-{{--                    <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i>نمودار Morris</a></li>--}}
-{{--                    <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i>نمودار Flot</a></li>--}}
-{{--                    <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>نمودار Inline charts</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-
         </ul>
     </section>
     <!-- /.sidebar -->

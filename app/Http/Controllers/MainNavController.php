@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Locale;
 use App\Models\LocaleContent;
+use Cassandra\Index;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;

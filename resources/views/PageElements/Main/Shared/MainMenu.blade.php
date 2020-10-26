@@ -1,8 +1,4 @@
-{{--@php--}}
-{{--    $MenuContents = collect(AllContentOfLocale())->where('section', 'menu')->all();--}}
 
-{{--NavPicker();--}}
-{{--@endphp--}}
 @php
     $MainNav=NavPicker();
 @endphp
@@ -13,7 +9,7 @@
         {{--        <li><a href="/">صفحه اصلی</a></li>--}}
         @foreach($MainNav as $main_menu)
             <li @if($main_menu->sub_navs->count()) class="has-dropdown" @endif>
-                <a href="#">{{$main_menu->content->element_content}}</a>
+                <a href="#">{{$main_menu['content_'.App::getLocale()]}}</a>
                 @if ($main_menu->sub_navs->count())
                     <div class="dmui_dropdown_block">
                         <div class="dmui-container">
@@ -21,7 +17,7 @@
                                 <div class="dmui-container">
                                     <ul class="dmui-submenu">
                                         @foreach($main_menu->sub_navs as $sub_menu)
-                                            <li><a href="#">{{$sub_menu->id}}</a></li>
+                                            <li><a href="#"><img src="{{asset('Main/images/'.$sub_menu['content_'.App::getLocale()].'.png')}}" alt=""> {{$sub_menu['content_'.App::getLocale()]}}</a></li>
                                         @endforeach
 
                                     </ul>

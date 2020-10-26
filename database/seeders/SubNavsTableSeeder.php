@@ -17,39 +17,47 @@ class SubNavsTableSeeder extends Seeder
         $SubNavs=[
           6=>[
               [
+                  'content_fa'=>'تاریخچه',
+                  'content_en'=>'History',
                   'url'=>'',
-                  'description'=>'تاریخچه'
               ],
               [
+                  'content_fa'=>'پیام مدیر عامل',
+                  'content_en'=>'CEO Message',
                   'url'=>'',
-                  'description'=>'پیام مدیر عامل'
               ],
               [
+                  'content_fa'=>'گواهینامه ها و افتخارات',
+                  'content_en'=>'Certificates and Honors',
                   'url'=>'',
-                  'description'=>'گواهینامه ها و افتخارات'
               ],
               [
+                  'content_fa'=>'چارت سازمانی',
+                  'content_en'=>'Organizational Chart',
                   'url'=>'',
-                  'description'=>'چارت سازمانی'
               ],
 
           ],
             8=>[
                 [
+                    'content_fa'=>'فارسی Persian',
+                    'content_en'=>'فارسی Persian',
                     'url'=>'locale',
-                    'description'=>'فارسی / Persian'
                 ],
                 [
+                    'content_fa'=>'انگلیسی English',
+                    'content_en'=>'انگلیسی English',
                     'url'=>'locale',
-                    'description'=>'انگلیسی / English'
                 ],
                 [
+                    'content_fa'=>'روسی Russian',
+                    'content_en'=>'روسی Russian',
                     'url'=>'locale',
-                    'description'=>'روسی / Russian'
                 ],
                 [
+                    'content_fa'=>'عربی Arabic',
+                    'content_en'=>'عربی Arabic',
                     'url'=>'locale',
-                    'description'=>'عربی / Arabic'
                 ],
             ],
         ];
@@ -60,8 +68,9 @@ class SubNavsTableSeeder extends Seeder
             {
                 DB::table('sub_navs')->insert([
                     'main_nav_id'=>$Main,
+                    'content_fa'=>$item['content_fa'],
+                    'content_en'=>$item['content_en'],
                     'url'=>$item['url'],
-                    'description'=>$item['description'],
                 ]);
             }
         }
