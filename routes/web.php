@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CeoMessageController;
+use App\Http\Controllers\CertificatesAndHonorsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\MainNavController;
@@ -25,4 +26,6 @@ Route::resource('Product', ProductController::class);
 Route::resource('History', HistoryController::class);
 
 Route::resource('CeoMessage', CeoMessageController::class);
+
+Route::resource('CH', CertificatesAndHonorsController::class);
 

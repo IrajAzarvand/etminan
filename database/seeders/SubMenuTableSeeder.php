@@ -38,6 +38,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'CeoMessage.index',
                     'Icon' => 'fa fa-address-card',
                 ],
+                [
+                    'SubMenu' => 'گواهینامه و افتخارات',
+                    'Url' => 'CH.index',
+                    'Icon' => 'fa fa-graduation-cap',
+                ],
             ],
         ];
 

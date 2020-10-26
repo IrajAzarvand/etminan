@@ -113,14 +113,6 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title'=>'third feature title',
                 'element_content' => 'third feature content',
             ],
-//            [
-//                'page' => 'welcome',
-//                'section' => 'NewProducts',
-//                'locale' => 'fa',
-//                'element_id' => '',
-//                'element_title'=>'جدیدترن محصولات',
-//                'element_content' => '',
-//            ],
         ];
 
         foreach ($Content as $item) {
