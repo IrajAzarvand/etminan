@@ -22,7 +22,7 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-columns',
                 ],
                 [
-                    'SubMenu' => 'جدیدترین محصولات',
+                    'SubMenu' => 'محصولات',
                     'Url' => 'Product.NewProductsSetting',
                     'Icon' => 'fa fa-shopping-bag',
                 ],
