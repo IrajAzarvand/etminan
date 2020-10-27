@@ -27,7 +27,7 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-shopping-bag',
                 ],
             ],
-            'درباره ما'=>[
+            'درباره ما' =>[
                 [
                     'SubMenu' => 'تاریخچه',
                     'Url' => 'History.index',
