@@ -3,5 +3,6 @@
     "files.associations": {
         ".blade.php": "html"
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "git.ignoreLimitWarning": true
 }
