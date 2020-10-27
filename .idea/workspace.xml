@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MainNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MainNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/SubNav.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubNav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_153117_create_main_navs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_22_163812_create_sub_navs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/MainNavsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SubNavsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PageElements/Main/Shared/MainMenu.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="6d6bdc40-f11e-493e-bae3-5d2a7e1b3d7c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -390,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603709108732</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixing route of main and sub menus for main site">
+      <created>1603718383431</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1603718383431</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +433,8 @@
     <MESSAGE value="create raw page for Ceo Message in dashboard panel" />
     <MESSAGE value="create raw page for Certificates And Honors in dashboard panel" />
     <MESSAGE value="create raw page for Organizational chart in dashboard panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="create raw page for Organizational chart in dashboard panel" />
+    <MESSAGE value="fixing route of main and sub menus for main site" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing route of main and sub menus for main site" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="152" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603102998408">
@@ -494,10 +492,10 @@
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1603255661830" />
     <state x="184" y="0" width="1040" height="710" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1603133940069" />
     <state x="194" y="0" key="SettingsEditor/0.0.1440.870@0.0.1440.870" timestamp="1603608469457" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603709110398">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1603718384872">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603709110398" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603718384872" />
     <state x="339" y="157" key="run.anything.popup" timestamp="1603277391933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
