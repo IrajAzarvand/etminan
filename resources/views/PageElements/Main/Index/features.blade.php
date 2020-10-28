@@ -9,13 +9,14 @@
         <div class="row">
 
             @php
-                $features=collect($IndexContents)->where('section','feature')
+            $features=collect($IndexContents)->where('section','feature');
             @endphp
 
-            @foreach($features as $feature)
-                <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{asset('Main/images/phone-v2.png')}}">
-                    <h3>{{$feature['element_title']}}</h3>
-                    <p>{{$feature['element_content']}}</p>
+            @foreach ($features as $feature)
+                <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive"
+                        src="{{ asset('Main/images/phone-v2.png') }}">
+                    <h3>{{ $feature['element_title'] }}</h3>
+                    <p>{{ $feature['element_content'] }}</p>
                 </div>
             @endforeach
 

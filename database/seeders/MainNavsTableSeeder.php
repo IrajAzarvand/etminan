@@ -60,7 +60,7 @@ class MainNavsTableSeeder extends Seeder
             [
                 'content_fa' => 'زبان ها',
                 'content_en' => 'Languages',
-                'route_name' => 'HomePage',
+                'route_name' => null,
                 'url'=>null,
             ],
         ];

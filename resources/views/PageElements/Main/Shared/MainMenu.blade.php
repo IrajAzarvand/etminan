@@ -30,7 +30,8 @@ $MainNav=NavPicker();
                         <div class="dmui-container">
                             <ul class="dmui-submenu">
                                 @foreach ($main_menu->sub_navs as $sub_menu)
-                                    <li><a href="#"><img
+                                    <li><a
+                                            href="{{ $sub_menu->route_name ? route($sub_menu->route_name) : $sub_menu->url }}"><img
                                                 src="{{ asset('Main/images/' . $sub_menu['content_' . App::getLocale()] . '.png') }}"
                                                 alt=""> {{ $sub_menu['content_' . App::getLocale()] }}</a></li>
                                 @endforeach

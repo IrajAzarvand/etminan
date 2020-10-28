@@ -15,7 +15,7 @@ class CreateLocaleContentsTable extends Migration
     {
         Schema::create('locale_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('page')->nullable();
+            $table->string('page')->nullable()->default('');
             $table->string('section');
             $table->unsignedBigInteger('element_id');
             $table->string('locale');

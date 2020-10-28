@@ -113,6 +113,39 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title'=>'third feature title',
                 'element_content' => 'third feature content',
             ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title'=>'section_title',
+                'element_content' => 'جدیدترین محصولات',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title'=>'btn_title',
+                'element_content' => 'بیشتر',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title'=>'section_title',
+                'element_content' => 'New Products',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title'=>'btn_title',
+                'element_content' => 'More',
+            ],
+
         ];
 
         foreach ($Content as $item) {
