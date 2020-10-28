@@ -23,5 +23,4 @@ class MainNav extends Model
     {
         return $this->hasMany(SubNav::class);
     }
-
 }
