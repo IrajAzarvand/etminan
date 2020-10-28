@@ -13,6 +13,7 @@ class CreateCertificatesAndHonorsTable extends Migration
      */
     public function up()
     {
+        //corresponding model => CH
         Schema::create('certificates_and_honors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

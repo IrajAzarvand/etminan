@@ -1,6 +1,5 @@
 @php
 $NewProducts=collect($IndexContents)->where('section','new_products');
-
 $SectionTitle=$NewProducts->where('element_title','section_title')->pluck('element_content')->first();
 $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element_content')->first();
 @endphp

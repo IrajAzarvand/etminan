@@ -14,7 +14,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('PageElements.Dashboard.Setting.Slider');
+        $Sliders = Slider::all()->sortKeysDesc();
+        return view('PageElements.Dashboard.Setting.Slider', compact('Sliders'));
     }
 
     /**
@@ -35,7 +36,26 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'SliderImage' => ['required', 'max:49999', 'mimes:jpg,jpeg, png'],
+        ];
+
+        $this->validate($request, $rules);
+        $Slider = new Slider;
+        $filename = '';
+
+        if ($request->hasFile('SliderImage')) {
+            $uploaded = $request->file('SliderImage');
+            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+            $uploaded->storeAs('public\Sliders\\', $filename);
+        }
+
+        $Slider->title = $request->input('slider_title');
+        $Slider->description = $request->input('slider_description');
+        $Slider->image = $filename;
+
+        $Slider->save();
+        return redirect('/sliders');
     }
 
     /**
@@ -55,9 +75,10 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit($slider)
     {
-        //
+        $slider = per_digit_conv($slider);
+        return Slider::find($slider);
     }
 
     /**
@@ -67,9 +88,24 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request)
     {
-        //
+        $filename = $request->input('OldSliderImage');
+        if ($request->hasFile('SliderImage')) {
+            //remove previous file
+            $filename = ('storage/Sliders/' . $filename);
+            unlink($filename);
+            //store new file
+            $uploaded = $request->file('SliderImage');
+            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+            $uploaded->storeAs('public\Sliders\\', $filename);
+        }
+        $Slider = Slider::find($request->input('SliderId'));
+        $Slider->title = $request->input('slider_title');
+        $Slider->description = $request->input('slider_description');
+        $Slider->image = $filename;
+        $Slider->save();
+        return redirect('/sliders');
     }
 
     /**
@@ -78,8 +114,12 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy($slider)
     {
-        //
+        $id = per_digit_conv($slider);
+        $item = Slider::find($id);
+        $filename = ('storage/Sliders/' . $item['image']);
+        unlink($filename);
+        $item->delete();
     }
 }

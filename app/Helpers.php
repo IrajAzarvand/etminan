@@ -18,12 +18,11 @@ function NavPicker()
         return MainNav::with('sub_navs')->get();
     else
         return MainNav::with('sub_navs')->orderBy('id', 'DESC')->get();
-
 }
 
 function AllContentOfLocale()
 {
-//get content of page based on (page, section, element_id, and language that user selected)
+    //get content of page based on (page, section, element_id, and language that user selected)
     //if selected locale oes not have contents in db, contents related to 'fa' locale
     //will be selected and show to user
     if (!empty(LocaleContent::where('locale', App::getLocale())->get()->toArray())) {
@@ -31,4 +30,29 @@ function AllContentOfLocale()
     } else {
         return LocaleContent::where('locale', 'fa')->get()->toArray();
     }
+}
+
+
+/**
+ * function for replace persian digits with english
+ * because persian digits cannot validate in laravel
+ */
+function per_digit_conv(string $per_digits)
+{
+    $result = "";
+    $rep = [
+        '۰',
+        '۱',
+        '۲',
+        '۳',
+        '۴',
+        '۵',
+        '۶',
+        '۷',
+        '۸',
+        '۹',
+    ];
+    $en_digits = \range(0, 9);
+    $result = \str_replace($rep, $en_digits, $per_digits);
+    return $result;
 }

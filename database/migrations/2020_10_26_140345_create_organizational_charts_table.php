@@ -13,6 +13,7 @@ class CreateOrganizationalChartsTable extends Migration
      */
     public function up()
     {
+        //corresponding model => OC
         Schema::create('organizational_charts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
