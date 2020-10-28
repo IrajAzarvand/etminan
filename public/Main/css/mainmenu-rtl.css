@@ -1,15 +1,15 @@
-.menu_container > ul.collapsed > li {
+.menu_container>ul.collapsed>li {
     float: right;
     border-left: solid 1px #cccccc;
     border-right: none;
 }
 
-.menu_container > ul.collapsed > li:nth-child(even) {
+.menu_container>ul.collapsed>li:nth-child(even) {
     border-left: solid 0 red;
     border-right: none;
 }
 
-.menu_container > ul > li.left > .dmui_dropdown_block {
+.menu_container>ul>li.left>.dmui_dropdown_block {
     left: 0;
     right: auto;
 }
@@ -25,7 +25,7 @@
     padding: 6px 8px 16px 0;
 }
 
-.menu_container .dmui_dropdown_block > ul.dmui-submenu > li > ul.dmui-submenu {
+.menu_container .dmui_dropdown_block>ul.dmui-submenu>li>ul.dmui-submenu {
     margin-right: 4px;
     margin-left: auto;
 }
@@ -45,31 +45,31 @@ ul.dmui-submenu li a .fa {
     margin-right: auto;
 }
 
-ul.dmui-submenu > li.has-dropdown > a:after {
+ul.dmui-submenu>li.has-dropdown>a:after {
     left: 10px;
     right: auto;
 }
 
-ul.dmui-submenu > li > .dmui-submenu {
+ul.dmui-submenu>li>.dmui-submenu {
     text-align: right;
 }
 
-ul.dmui-submenu > li > .dmui-submenu a {
+ul.dmui-submenu>li>.dmui-submenu a {
     padding-right: 30px;
     padding-left: 0;
 }
 
-ul.dmui-submenu > li > .dmui-submenu li > .dmui-submenu a {
+ul.dmui-submenu>li>.dmui-submenu li>.dmui-submenu a {
     padding-right: 40px;
     padding-left: 0;
 }
 
-ul.dmui-submenu > li > .dmui-submenu li > .dmui-submenu > li > .dmui-submenu a {
+ul.dmui-submenu>li>.dmui-submenu li>.dmui-submenu>li>.dmui-submenu a {
     padding-right: 50px;
     padding-left: 0;
 }
 
-.menu_container ul > li.has-dropdown > a:after {
+.menu_container ul>li.has-dropdown>a:after {
     left: 10px;
     right: auto;
 }
@@ -83,101 +83,96 @@ ul.dmui-submenu > li > .dmui-submenu li > .dmui-submenu > li > .dmui-submenu a {
     margin: -1px 2px 0 8px;
 }
 
+
 /* =Responsive: All above the breakpoint, default @ 768px
 -------------------------------------------------------------- */
-@media only screen and (min-width: 768px) {
 
-    .menu_container > ul > li.left > .dmui_dropdown_block {
+@media only screen and (min-width: 768px) {
+    .menu_container {
+        float: right;
+        clear: none;
+        margin: 29px 0px;
+        background: transparent;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+    }
+    .menu_container>ul>li.left>.dmui_dropdown_block {
         left: 0;
         right: auto;
     }
-
     .menu_container .dmui_dropdown_block.full_width {
         right: 0;
         margin-right: 0;
         left: auto;
         margin-left: auto;
     }
-
     .menu_container .dmui_dropdown_block h2 {
         padding: 6px 8px 16px 0;
     }
-
-    .menu_container .dmui_dropdown_block > ul.dmui-submenu > li > ul.dmui-submenu {
+    .menu_container .dmui_dropdown_block>ul.dmui-submenu>li>ul.dmui-submenu {
         margin-right: 4px;
         margin-left: auto;
     }
-
     ul.dmui-simple-ul li a:before {
         float: right;
         margin-left: 6px;
         margin-right: auto;
     }
-
     ul.dmui-submenu li a {
         padding: 9px 10px 9px 30px;
     }
-
     ul.dmui-submenu li a .fa {
         margin-left: 6px;
         margin-right: auto;
     }
-
-    ul.dmui-submenu > li.has-dropdown > a:after {
+    ul.dmui-submenu>li.has-dropdown>a:after {
         left: 10px;
         right: auto;
     }
-
-    ul.dmui-submenu > li > .dmui-submenu {
+    ul.dmui-submenu>li>.dmui-submenu {
         text-align: right;
     }
-
-    ul.dmui-submenu > li > .dmui-submenu a {
+    ul.dmui-submenu>li>.dmui-submenu a {
         padding-right: 30px;
         padding-left: 0;
     }
-
-    ul.dmui-submenu > li > .dmui-submenu li > .dmui-submenu a {
+    ul.dmui-submenu>li>.dmui-submenu li>.dmui-submenu a {
         padding-right: 40px;
         padding-left: 0;
     }
-
-    ul.dmui-submenu > li > .dmui-submenu li > .dmui-submenu > li > .dmui-submenu a {
+    ul.dmui-submenu>li>.dmui-submenu li>.dmui-submenu>li>.dmui-submenu a {
         padding-right: 50px;
         padding-left: 0;
     }
-
-    .menu_container ul > li.has-dropdown > a:after {
+    .menu_container ul>li.has-dropdown>a:after {
         left: 0;
         right: auto;
     }
-
     .mobile_collapser {
         text-align: right;
     }
-
     .mobile_collapser:before {
         float: right;
         margin: -1px 2px 0 8px;
     }
-
 }
+
 
 /* =Responsive: Desktop or even Big Tablet
 -------------------------------------------------------------- */
-@media (min-width: 992px) and (max-width: 1199px) {
 
-}
+@media (min-width: 992px) and (max-width: 1199px) {}
+
 
 /* =Responsive: Small Tablet
 -------------------------------------------------------------- */
-@media (min-width: 768px) and (max-width: 991px) {
 
-}
-    /* =Responsive: Desktop or even Big Tablet
+@media (min-width: 768px) and (max-width: 991px) {}
+
+
+/* =Responsive: Desktop or even Big Tablet
     -------------------------------------------------------------- */
-    @media (min-width: 992px) and (max-width: 1199px) {
-    }
 
-
-
+@media (min-width: 992px) and (max-width: 1199px) {}
