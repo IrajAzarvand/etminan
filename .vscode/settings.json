@@ -4,5 +4,10 @@
         ".blade.php": "html"
     },
     "editor.formatOnSave": true,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.wordWrapColumn": 800,
+    "editor.wordWrap": "wordWrapColumn",
+    "html.format.wrapLineLength": 0,
+    "bladeFormatter.format.wrapLineLength": 800,
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?"
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LocaleContent;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -50,12 +51,48 @@ class SliderController extends Controller
             $uploaded->storeAs('public\Sliders\\', $filename);
         }
 
-        $Slider->title = $request->input('slider_title');
-        $Slider->description = $request->input('slider_description');
         $Slider->image = $filename;
-
         $Slider->save();
-        return redirect('/sliders');
+        $ImageId = $Slider->id;
+
+        $SliderContent = [
+            [
+                'page' => 'welcome',
+                'section' => 'slider',
+                'element_id' => $ImageId,
+                'locale' => 'fa',
+                'element_content' => $request->input('Persian_Slider_Description'),
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'slider',
+                'element_id' => $ImageId,
+                'locale' => 'en',
+                'element_content' => $request->input('English_Slider_Description'),
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'slider',
+                'element_id' => $ImageId,
+                'locale' => 'ru',
+                'element_content' => $request->input('Russian_Slider_Description'),
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'slider',
+                'element_id' => $ImageId,
+                'locale' => 'ar',
+                'element_content' => $request->input('Arabic_Slider_Description'),
+            ],
+        ];
+        $Contents = [];
+        foreach ($SliderContent as $item) {
+            $Contents[] = new LocaleContent($item);
+        }
+        $NewSlider = Slider::find($ImageId);
+        $NewSlider->contents()->saveMany($Contents);
+
+        return redirect('/Slider');
     }
 
     /**

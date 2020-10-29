@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class LocaleContent extends Model
@@ -21,4 +20,8 @@ class LocaleContent extends Model
         return $this->belongsTo(Locale::class);
     }
 
+    public function slider()
+    {
+        return $this->belongsTo(Slider::class)->where('section', 'slider');
+    }
 }

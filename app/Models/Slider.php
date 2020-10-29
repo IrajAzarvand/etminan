@@ -9,4 +9,9 @@ class Slider extends Model
     protected $fillable = [
         'image',
     ];
+
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id');
+    }
 }
