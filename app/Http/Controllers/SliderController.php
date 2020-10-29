@@ -38,7 +38,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'SliderImage' => ['required', 'max:49999', 'mimes:jpg,jpeg, png'],
+            'SliderImage' => ['required', 'max:49999', 'mimes:jpg,jpeg,png'],
         ];
 
         $this->validate($request, $rules);
@@ -155,10 +155,10 @@ class SliderController extends Controller
     {
         $id = per_digit_conv($slider);
         $Slider = Slider::find($id);
-        $item = LocaleContent::where('element_id', $id);
+        $SliderContent = LocaleContent::where(['section' => 'slider', 'element_id' => $id]);
         $filename = ('storage/Sliders/' . $Slider['image']);
         unlink($filename);
-        $item->delete();
+        $SliderContent->delete();
         $Slider->delete();
     }
 }

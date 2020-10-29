@@ -12,6 +12,6 @@ class Slider extends Model
 
     public function contents()
     {
-        return $this->hasMany(LocaleContent::class, 'element_id');
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('section', 'slider');
     }
 }
