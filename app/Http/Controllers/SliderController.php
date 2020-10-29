@@ -15,7 +15,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $Sliders = Slider::all()->sortKeysDesc();
+        $Sliders = Slider::with('contents')->get()->sortKeysDesc();
         return view('PageElements.Dashboard.Setting.Slider', compact('Sliders'));
     }
 

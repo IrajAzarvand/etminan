@@ -115,8 +115,10 @@
                     <tr>
                         <th>ردیف</th>
                         <th>تصویر</th>
-                        <th>عنوان</th>
-                        <th>توضیح مختصر</th>
+                        <th>متن فارسی</th>
+                        <th>متن انگلیسی</th>
+                        <th>متن روسی</th>
+                        <th>متن عربی</th>
                         <th>عملیات</th>
                     </tr>
                     <?php
@@ -126,13 +128,11 @@
                         echo '<td>' . $counter++ . '</td>';
                         echo '<td style="display: none;">' . $item['id'] . '</td>';
                         echo '<td style="width: 15%;"><img style="width: 100%; height:8%;" src="storage/Sliders/' . $item['image'] . '"></td>';
-                        echo '<td>' . $item['title'] . '</td>';
-                        echo '<td>' . $item['description'] . '</td>';
-                        echo '<td>' .
-                            '<a onclick="editRow(this)"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp' .
-                            // '<a href="Slider/' . $item['id'] . '/edit"><button type="button" class="btn btn-warning" // // data-toggle="modal" data-target="#editModal"><i //class="fa fa-pencil"></i></button></a>&nbsp' .
-                            '<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp' .
-                            '</td>';
+
+                        foreach ($item->contents as $LocaleContent) {
+                        echo '<td>' . $LocaleContent['element_content'] . '</td>';
+                        }
+                        echo '<td>' . '<a onclick="editRow(this)"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
                         echo '</tr>';
                     }
                     ?>
