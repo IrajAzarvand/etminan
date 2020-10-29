@@ -25,9 +25,9 @@ return [
          * Index 2 of sub-array is true if the language uses RTL (right-to-left)
          * Index 3 of sub-array is the language name in the original language
          */
-        'ar'    => ['ar', 'ar_AR', false, 'Arabic'],
-        'en'    => ['en', 'en_US', false, 'English'],
         'fa'    => ['fa', 'fa_IR', true, 'فارسی'],
+        'en'    => ['en', 'en_US', false, 'English'],
         'ru'    => ['ru', 'ru_RU', false, 'روسی'],
+        'ar'    => ['ar', 'ar_AR', false, 'Arabic'],
     ],
 ];
