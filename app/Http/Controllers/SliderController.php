@@ -154,9 +154,11 @@ class SliderController extends Controller
     public function destroy($slider)
     {
         $id = per_digit_conv($slider);
-        $item = Slider::find($id);
-        $filename = ('storage/Sliders/' . $item['image']);
+        $Slider = Slider::find($id);
+        $item = LocaleContent::where('element_id', $id);
+        $filename = ('storage/Sliders/' . $Slider['image']);
         unlink($filename);
         $item->delete();
+        $Slider->delete();
     }
 }
