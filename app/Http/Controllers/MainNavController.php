@@ -20,9 +20,8 @@ class MainNavController extends Controller
     public function HomePage()
     {
         $IndexContents = collect(AllContentOfLocale())
-            ->whereIn('page', array('','welcome'))//''=>contents for all pages(menus, footer, ...) and 'welcome'=>contents for home page only
+            ->whereIn('page', array('', 'welcome')) //''=>contents for all pages(menus, footer, ...) and 'welcome'=>contents for home page only
             ->all();
-            // dd(gettype($IndexContents));
         return view('welcome', compact('IndexContents'));
     }
 }

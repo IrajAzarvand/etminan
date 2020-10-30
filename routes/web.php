@@ -10,7 +10,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 
-Route::get('/locale/{lang}',[LangController::class, 'locale'])->name('locale');
+Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
 
@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('Slider', SliderController::class);
 
-Route::get('Product/NewProductsSetting', [ProductController::class,'NewProductsSetting'])->name('Product.NewProductsSetting');
+Route::get('Product/NewProductsSetting', [ProductController::class, 'NewProductsSetting'])->name('Product.NewProductsSetting');
 Route::resource('Product', ProductController::class);
 
 Route::resource('History', HistoryController::class);
@@ -31,4 +31,3 @@ Route::resource('CeoMessage', CeoMessageController::class);
 Route::resource('CH', CertificatesAndHonorsController::class);
 
 Route::resource('OC', OrganizationalChartController::class);
-

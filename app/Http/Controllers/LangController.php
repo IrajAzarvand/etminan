@@ -12,7 +12,6 @@ class LangController extends Controller
     public function locale(string $lang)
     {
         Session::put('locale', $lang);
-//        App::setLocale(Session::get('locale'));
         AllContentOfLocale();
         return back();
     }

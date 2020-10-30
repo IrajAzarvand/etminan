@@ -21,7 +21,7 @@ class LocaleMiddleware
     {
         Session::has('locale')
             ? App::setLocale(Session::get('locale'))
-            : App::setLocale('fa');
+            : App::setLocale(DefaultLocale());
 
         return $next($request);
     }

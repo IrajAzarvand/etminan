@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LocaleContent;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use App\Helpers;
 
 class SliderController extends Controller
 {
@@ -54,40 +55,15 @@ class SliderController extends Controller
         $Slider->image = $filename;
         $Slider->save();
         $ImageId = $Slider->id;
-
-        $SliderContent = [
-            [
-                'page' => 'welcome',
-                'section' => 'slider',
-                'element_id' => $ImageId,
-                'locale' => 'fa',
-                'element_content' => $request->input('Persian_Slider_Description'),
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'slider',
-                'element_id' => $ImageId,
-                'locale' => 'en',
-                'element_content' => $request->input('English_Slider_Description'),
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'slider',
-                'element_id' => $ImageId,
-                'locale' => 'ru',
-                'element_content' => $request->input('Russian_Slider_Description'),
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'slider',
-                'element_id' => $ImageId,
-                'locale' => 'ar',
-                'element_content' => $request->input('Arabic_Slider_Description'),
-            ],
-        ];
         $Contents = [];
-        foreach ($SliderContent as $item) {
-            $Contents[] = new LocaleContent($item);
+        foreach (Locales() as $item) {
+            $Contents[] = new LocaleContent([
+                'page' => 'welcome',
+                'section' => 'slider',
+                'element_id' => $ImageId,
+                'locale' => $item['locale'],
+                'element_content' => $request->input($item['locale']),
+            ]);
         }
         $NewSlider = Slider::find($ImageId);
         $NewSlider->contents()->saveMany($Contents);
