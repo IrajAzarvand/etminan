@@ -1,40 +1,43 @@
 <!doctype html>
 <html class="no-js" lang="{{app()->getLocale()}}">
+
 <head>
     <meta charset="utf-8">
     <title>{{config('app.name')}} - @yield('PageTitle')</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-touch-fullscreen" content="yes" />
 
-@if (app()->getLocale()=='fa' ||app()->getLocale()=='ar')
+    @if (app()->getLocale()=='fa' ||app()->getLocale()=='ar')
     @include('PageElements.Main.Shared.RTLCoreCSS')
-@else
+    @else
     @include('PageElements.Main.Shared.LTRCoreCSS')
-@endif
+    @endif
 
-<!-- Fav and touch icons -->
+    <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 </head>
+
 <body class="sticky_header">
 
 
-<div class="overflow_wrapper">
+    <div class="overflow_wrapper">
 
-    @include('PageElements.Main.Shared.Header')
+        @include('PageElements.Main.Shared.Header')
 
-    @section('Slider')
-    @show
-
-    <div class="main">
-        @section('content')
+        @section('Slider')
         @show
 
-        @include('PageElements.Main.Shared.Footer')
-    </div>
+        <div class="main">
+            @section('content')
+            @show
 
-    @include('PageElements.Main.Shared.CoreJS')
-</div>
+            @include('PageElements.Main.Shared.Footer')
+        </div>
+
+        @include('PageElements.Main.Shared.CoreJS')
+    </div>
 </body>
+
 </html>

@@ -14,72 +14,88 @@ class SubNavsTableSeeder extends Seeder
      */
     public function run()
     {
-        $SubNavs=[
-          6=>[
-              [
-                  'content_fa'=>'تاریخچه',
-                  'content_en'=>'History',
-                  'route_name'=>'HomePage',
-                  'url'=>null,
-              ],
-              [
-                  'content_fa'=>'پیام مدیر عامل',
-                  'content_en'=>'CEO Message',
-                  'route_name'=>'HomePage',
-                  'url'=>null,
-              ],
-              [
-                  'content_fa'=>'گواهینامه ها و افتخارات',
-                  'content_en'=>'Certificates and Honors',
-                  'route_name'=>'HomePage',
-                  'url'=>null,
-              ],
-              [
-                  'content_fa'=>'چارت سازمانی',
-                  'content_en'=>'Organizational Chart',
-                  'route_name'=>'HomePage',
-                  'url'=>null,
-              ],
+        $SubNavs = [
+            6 => [
+                [
+                    'content_fa' => 'تاریخچه',
+                    'content_en' => 'History',
+                    'content_ar' => 'التاريخ',
+                    'content_ru' => 'История',
+                    'route_name' => 'HomePage',
+                    'url' => null,
+                ],
+                [
+                    'content_fa' => 'پیام مدیر عامل',
+                    'content_en' => 'CEO Message',
+                    'content_ar' => 'رسالة من مدير الرأس',
+                    'content_ru' => 'сообщение от руководителя',
+                    'route_name' => 'HomePage',
+                    'url' => null,
+                ],
+                [
+                    'content_fa' => 'گواهینامه ها و افتخارات',
+                    'content_en' => 'Certificates and Honors',
+                    'content_ar' => 'الشهادات والأوسمة',
+                    'content_ru' => 'Сертификаты и награды',
+                    'route_name' => 'HomePage',
+                    'url' => null,
+                ],
+                [
+                    'content_fa' => 'چارت سازمانی',
+                    'content_en' => 'Organizational Chart',
+                    'content_ar' => 'مخطط',
+                    'content_ru' => 'Диаграмма',
+                    'route_name' => 'HomePage',
+                    'url' => null,
+                ],
 
-          ],
-            8=>[
+            ],
+            8 => [
                 [
-                    'content_fa'=>'فارسی Persian',
-                    'content_en'=>'فارسی Persian',
-                    'url'=>'/locale/fa',
-                    'route_name'=>null,
+                    'content_fa' => 'فارسی',
+                    'content_en' => 'فارسی',
+                    'content_ru' => 'فارسی',
+                    'content_ar' => 'فارسی',
+                    'url' => '/locale/fa',
+                    'route_name' => null,
                 ],
                 [
-                    'content_fa'=>'انگلیسی English',
-                    'content_en'=>'انگلیسی English',
-                    'url'=>'/locale/en',
-                    'route_name'=>null,
+                    'content_fa' => 'English',
+                    'content_en' => 'English',
+                    'content_ru' => 'English',
+                    'content_ar' => 'English',
+                    'url' => '/locale/en',
+                    'route_name' => null,
                 ],
                 [
-                    'content_fa'=>'روسی Russian',
-                    'content_en'=>'روسی Russian',
-                    'url'=>'/locale/ru',
-                    'route_name'=>null,
+                    'content_fa' => 'русский',
+                    'content_en' => 'русский',
+                    'content_ru' => 'русский',
+                    'content_ar' => 'русский',
+                    'url' => '/locale/ru',
+                    'route_name' => null,
                 ],
                 [
-                    'content_fa'=>'عربی Arabic',
-                    'content_en'=>'عربی Arabic',
-                    'url'=>'/locale/ar',
-                    'route_name'=>null,
+                    'content_fa' => 'العربية',
+                    'content_en' => 'العربية',
+                    'content_ar' => 'العربية',
+                    'content_ru' => 'العربية',
+                    'url' => '/locale/ar',
+                    'route_name' => null,
                 ],
             ],
         ];
 
-        foreach ($SubNavs as $Main=>$SubNav)
-        {
-            foreach ($SubNav as $item)
-            {
+        foreach ($SubNavs as $Main => $SubNav) {
+            foreach ($SubNav as $item) {
                 DB::table('sub_navs')->insert([
-                    'main_nav_id'=>$Main,
-                    'content_fa'=>$item['content_fa'],
-                    'content_en'=>$item['content_en'],
-                    'route_name'=>$item['route_name'],
-                    'url'=>$item['url'],
+                    'main_nav_id' => $Main,
+                    'content_fa' => $item['content_fa'],
+                    'content_en' => $item['content_en'],
+                    'content_ru' => $item['content_ru'],
+                    'content_ar' => $item['content_ar'],
+                    'route_name' => $item['route_name'],
+                    'url' => $item['url'],
                 ]);
             }
         }
