@@ -96,6 +96,38 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'btn_title',
                 'element_content' => 'More',
             ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'новые продукты',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'btn_title',
+                'element_content' => 'Больше',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'منتجات جديدة',
+            ],
+            [
+                'page' => '',
+                'section' => 'new_products',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'btn_title',
+                'element_content' => 'أكثر',
+            ],
 
         ];
 
