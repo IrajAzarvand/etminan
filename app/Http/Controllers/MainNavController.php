@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Locale;
-use App\Models\LocaleContent;
 use Cassandra\Index;
-use Illuminate\Http\Request;
+use App\Models\Locale;
+use App\Models\Slider;
 use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
+use App\Models\LocaleContent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
@@ -22,6 +23,17 @@ class MainNavController extends Controller
         $IndexContents = collect(AllContentOfLocale())
             ->whereIn('page', array('', 'welcome')) //''=>contents for all pages(menus, footer, ...) and 'welcome'=>contents for home page only
             ->all();
-        return view('welcome', compact('IndexContents'));
+        $SliderItems = collect($IndexContents)
+            ->whereIn('section', array('slider'))
+            ->all();
+
+        $Slider = [];
+        foreach ($SliderItems as $item) {
+
+            $item['image'] = Slider::where('id', $item['element_id'])->value('image');
+            $Slider[] = $item;
+        }
+
+        return view('welcome', compact('IndexContents', 'Slider'));
     }
 }

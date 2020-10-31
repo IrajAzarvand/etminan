@@ -1,4 +1,3 @@
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
@@ -12,7 +11,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ asset('images/panel/user.png') }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('Panel/images/user.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{ DashboardUser::$UserName }}</a>
@@ -21,8 +20,7 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
 
@@ -58,10 +56,8 @@
                                 <ul class="nav nav-treeview">
                                     @foreach ($item->sub_menus as $subitem)
                                         <li class="nav-item">
-                                            <a class="nav-link" id="{{ $subitem->SubMenu }}"
-                                                href="{{ route($subitem->Url) }}">
-                                                <i
-                                                    class="nav-icon {{ $subitem->Icon ? $subitem->Icon : 'fa fa-circle-o' }}"></i>
+                                            <a class="nav-link" id="{{ $subitem->SubMenu }}" href="{{ route($subitem->Url) }}">
+                                                <i class="nav-icon {{ $subitem->Icon ? $subitem->Icon : 'fa fa-circle-o' }}"></i>
                                                 <p>{{ $subitem->SubMenu }}</p>
                                             </a>
                                         </li>
@@ -79,4 +75,3 @@
     </div>
     <!-- /.sidebar -->
 </aside>
-
