@@ -1,4 +1,3 @@
-
 <!-- jQuery -->
 <script src="{{ asset('Panel/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
@@ -9,3 +8,13 @@
 <script src="{{ asset('Panel/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('Panel/dist/js/demo.js') }}"></script>
+
+<!-- get input file name in setting slider page and show in input box  -->
+<script>
+    $('#sliderImage').on('change',function(){
+        //get the file name
+        let filename = $(this).val().split("\\").pop();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(filename);
+    })
+</script>
