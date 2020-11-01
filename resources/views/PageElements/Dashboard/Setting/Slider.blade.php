@@ -114,7 +114,7 @@
                         foreach ($item->contents as $LocaleContent) {
                         echo '<td>' . $LocaleContent['element_content'] . '</td>';
                         }
-                        echo '<td>' . '<a onclick="editRow(this)"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
+                        echo '<td>' . '<a href="/Slider/'. $item['id'] .'/edit"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
                         echo '</tr>';
                     }
                     ?>
@@ -147,29 +147,5 @@
         }
 
 </script>
-<script>
-    function editRow(r) {
-            let currentRow = $(r).closest("tr");
-            let Id = currentRow.find("td:eq(1)").text(); // get current row id
-            $.ajax({
-                type: "GET",
-                url: '/Slider/' + Id + '/edit',
-                success: function(data) {
-                    console.log(data);
-                //     //display data...
-                //     let sliderId = (data['id']);
-                //     $('#editModal').find('#SliderId').val(sliderId);
-                //     $('#editModal').find('#OldSliderImage').val(data['image']);
-                //     $('#editModal').find('#slider_title').text(data['title']);
-                //     $('#editModal').find('#slider_description').text(data['description']);
-                //     $("#editModal").find("#modal-image-preview").attr("src", "storage/Sliders/" + data['image']);
-                //     $("#modal-form").attr("action", "/Slider/" + sliderId);
-                //     $('#editModal').modal('show');
-                }
-            });
-        }
 
-</script>
-
-{{-- @include('PageElements.Dashboard.Shared.Modal') --}}
 @endsection

@@ -92,7 +92,8 @@ class SliderController extends Controller
     {
 
         $slider = per_digit_conv($slider);
-        return Slider::with('contents')->find($slider);
+        $EditSlider = Slider::with('contents')->find($slider);
+        return view('PageElements.Dashboard.Setting.SliderEdit', compact('EditSlider'));
     }
 
     /**

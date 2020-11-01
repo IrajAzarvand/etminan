@@ -18,7 +18,7 @@
             <!-- /. tools -->
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Slider.update') }}" method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{ route('Slider.update',$EditSlider->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- /image uploader -->
             <div class="mb3">
@@ -83,93 +83,25 @@
 </div>
 <!-- /.card -->
 
+<!-- image preview -->
 
-
-<!-- /Sliders List -->
-<div class="col-12">
-    <div class="card">
+<div class="col-md-4">
+    <!-- Box Comment -->
+    <div class="card card-widget">
         <div class="card-header">
-            <h3 class="card-title">لیست اسلایدرها</h3>
+            <div class="user-block">
+                <span class="username">تصویر قبلی</span>
+            </div>
+            <!-- /.user-block -->
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
-                <tr>
-                    <th>ردیف</th>
-                    <th>تصویر</th>
-                    <th>متن فارسی</th>
-                    <th>متن انگلیسی</th>
-                    <th>متن روسی</th>
-                    <th>متن عربی</th>
-                    <th>عملیات</th>
-                </tr>
-                <?php
-                    $counter = 1;
-                    foreach ($Sliders as $item) {
-                    echo '<tr style="alignment: center;">';
-                        echo '<td>' . $counter++ . '</td>';
-                        echo '<td style="display: none;">' . $item['id'] . '</td>';
-                        echo '<td style="width: 15%;"><img style="width: 100%; height:8%;" src="storage/Sliders/' . $item['image'] . '"></td>';
-
-                        foreach ($item->contents as $LocaleContent) {
-                        echo '<td>' . $LocaleContent['element_content'] . '</td>';
-                        }
-                        echo '<td>' . '<a onclick="editRow(this)"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow(this)"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
-                        echo '</tr>';
-                    }
-                    ?>
-            </table>
+        <div class="card-body">
+            <img class="img-fluid pad" src="/storage/Sliders/{{$EditSlider->image}}" alt="Photo">
         </div>
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
 </div>
+<!-- /.col -->
 
-
-
-<script>
-    function deleteRow(r) {
-            let currentRow = $(r).closest("tr");
-            let Id = currentRow.find("td:eq(1)").text(); // get current row id
-            let token = "{{ csrf_token() }}";
-            $.ajax({
-                type: 'DELETE',
-                url: '/Slider/' + Id,
-                data: {
-                    _token: token,
-                    Id
-                },
-                success: function() {
-                    location.reload();
-                }
-            });
-
-        }
-
-</script>
-<script>
-    function editRow(r) {
-            let currentRow = $(r).closest("tr");
-            let Id = currentRow.find("td:eq(1)").text(); // get current row id
-            $.ajax({
-                type: "GET",
-                url: '/Slider/' + Id + '/edit',
-                success: function(data) {
-                    console.log(data);
-                //     //display data...
-                //     let sliderId = (data['id']);
-                //     $('#editModal').find('#SliderId').val(sliderId);
-                //     $('#editModal').find('#OldSliderImage').val(data['image']);
-                //     $('#editModal').find('#slider_title').text(data['title']);
-                //     $('#editModal').find('#slider_description').text(data['description']);
-                //     $("#editModal").find("#modal-image-preview").attr("src", "storage/Sliders/" + data['image']);
-                //     $("#modal-form").attr("action", "/Slider/" + sliderId);
-                //     $('#editModal').modal('show');
-                }
-            });
-        }
-
-</script>
-
-{{-- @include('PageElements.Dashboard.Shared.Modal') --}}
 @endsection
