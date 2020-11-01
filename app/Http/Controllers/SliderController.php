@@ -90,8 +90,9 @@ class SliderController extends Controller
      */
     public function edit($slider)
     {
+
         $slider = per_digit_conv($slider);
-        return Slider::find($slider);
+        return Slider::with('contents')->find($slider);
     }
 
     /**
@@ -103,6 +104,7 @@ class SliderController extends Controller
      */
     public function update(Request $request)
     {
+        dd($request);
         $filename = $request->input('OldSliderImage');
         if ($request->hasFile('SliderImage')) {
             //remove previous file

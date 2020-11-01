@@ -6,7 +6,7 @@
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
-                افزودن تصویر و توضیحات
+                ویرایش تصویر و توضیحات
             </h3>
             <!-- tools box -->
             <div class="card-tools">
@@ -18,7 +18,7 @@
             <!-- /. tools -->
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Slider.store') }}" method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{ route('Slider.update') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- /image uploader -->
             <div class="mb3">
