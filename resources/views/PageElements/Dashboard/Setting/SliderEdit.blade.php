@@ -1,3 +1,5 @@
+{{-- @dd($EditSlider) --}}
+{{-- @dd(Locales()) --}}
 @extends('PageElements.Dashboard.Layout')
 @section('PageTitle', 'تنظیمات اسلایدر')
 @section('ContentHeader', 'تنظیمات اسلایدر')
@@ -20,10 +22,12 @@
         <!-- /.card-header -->
         <form class="card-body" action="{{ route('Slider.update',$EditSlider->id) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <!-- /image uploader -->
+            <input type="hidden" name="SliderId" value="{{$EditSlider->id}}" readonly>
+            <input type="hidden" name="OldSliderImage" value="{{$EditSlider->image}}" readonly>
+
             <div class="mb3">
-
-
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -39,8 +43,8 @@
                     <label for="sliderImage">تصویر</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" name="SliderImage" class="custom-file-input" id="sliderImage" required>
-                            <label class="custom-file-label" for="sliderImage">انتخاب فایل</label>
+                            <input type="file" name="SliderImage" class="custom-file-input" id="sliderImage">
+                            <label class="custom-file-label" for="sliderImage">{{$EditSlider->image}}</label>
                         </div>
                     </div>
                 </div>
@@ -60,10 +64,10 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content">
-                                @foreach (Locales() as $item)
-                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
+                                @foreach (Locales() as $key=>$value)
+                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$value['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <textarea id="editor1" name="{{$value['locale']}}" style="width: 100%">{{$EditSlider->contents[$key]['element_content']}}</textarea>
                                     </div>
                                 </div>
                                 @endforeach

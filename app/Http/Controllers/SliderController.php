@@ -105,7 +105,6 @@ class SliderController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request);
         $filename = $request->input('OldSliderImage');
         if ($request->hasFile('SliderImage')) {
             //remove previous file
@@ -116,12 +115,17 @@ class SliderController extends Controller
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
             $uploaded->storeAs('public\Sliders\\', $filename);
         }
+
+
         $Slider = Slider::find($request->input('SliderId'));
-        $Slider->title = $request->input('slider_title');
-        $Slider->description = $request->input('slider_description');
         $Slider->image = $filename;
         $Slider->save();
-        return redirect('/sliders');
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['page' => 'welcome', 'section' => 'slider', 'element_id' => $Slider->id, 'locale' => $item['locale'],])
+                ->update(['element_content' => $request->input($item['locale'])]);
+        }
+        return redirect('/Slider');
     }
 
     /**
