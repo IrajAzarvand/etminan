@@ -43,7 +43,7 @@
                     <label for="sliderImage">تصویر</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" name="SliderImage" class="custom-file-input" id="sliderImage">
+                            <input type="file" name="SliderImage" class="custom-file-input" id="fileUploader">
                             <label class="custom-file-label" for="sliderImage">{{$EditSlider->image}}</label>
                         </div>
                     </div>

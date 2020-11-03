@@ -39,7 +39,7 @@
                     <label for="sliderImage">تصویر</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" name="SliderImage" class="custom-file-input" id="sliderImage" required>
+                            <input type="file" name="SliderImage" class="custom-file-input" id="fileUploader" required>
                             <label class="custom-file-label" for="sliderImage">انتخاب فایل</label>
                         </div>
                     </div>

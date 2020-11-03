@@ -1,4 +1,3 @@
-
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- Ionicons -->
@@ -12,3 +11,6 @@
 <link rel="stylesheet" href="{{ asset('Panel/dist/css/bootstrap-rtl.min.css') }}">
 <!-- template rtl version -->
 <link rel="stylesheet" href="{{ asset('Panel/dist/css/custom-style.css') }}">
+
+<!-- Dropzone file Uploader -->
+<link rel="stylesheet" href="{{ asset('Panel/plugins/dropzone/dropzone.min.css') }}">

@@ -9,9 +9,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('Panel/dist/js/demo.js') }}"></script>
 
+<!-- Dropzone File Upload -->
+<script src="{{ asset('Panel/plugins/dropzone/dropzone.js') }}"></script>
+
+
 <!-- get input file name in setting slider page and show in input box  -->
 <script>
-    $('#sliderImage').on('change',function(){
+    $('#fileUploader').on('change',function(){
         //get the file name
         let filename = $(this).val().split("\\").pop();
         //replace the "Choose a file" label
