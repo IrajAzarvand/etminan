@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $fillable = [
         'cat_id',
-        'tag_id',
+
 
     ];
 
@@ -22,13 +22,13 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id');
     }
 
-    public function tags()
-    {
-        return $this->hasMany(Tag::class, 'product_id');
-    }
-
     public function catalogues()
     {
         return $this->hasMany(ProductCatalog::class, 'product_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsTo(ProductTag::class, 'product_id');
     }
 }
