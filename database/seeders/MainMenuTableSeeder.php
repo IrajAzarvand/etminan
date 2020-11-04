@@ -14,14 +14,16 @@ class MainMenuTableSeeder extends Seeder
      */
     public function run()
     {
-        $MainMenus=[
-          'صفحه اصلی','درباره ما',
+        $MainMenus = [
+            'صفحه اصلی',
+            'درباره ما',
+            'برچسب ها',
 
         ];
 
-        foreach ($MainMenus as $mainMenu){
+        foreach ($MainMenus as $mainMenu) {
             DB::table('main_menus')->insert([
-                'MainMenu'=>$mainMenu,
+                'MainMenu' => $mainMenu,
             ]);
         }
     }

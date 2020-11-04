@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $Tags = Tag::paginate(10)->toArray();
+        return view('PageElements.Dashboard.Setting.Tags', compact('Tags'));
     }
 
     /**
@@ -80,6 +81,5 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
     }
 }

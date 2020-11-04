@@ -27,7 +27,7 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-shopping-bag',
                 ],
             ],
-            'درباره ما' =>[
+            'درباره ما' => [
                 [
                     'SubMenu' => 'تاریخچه',
                     'Url' => 'History.index',
@@ -49,6 +49,13 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-street-view',
                 ],
             ],
+            'برچسب ها' => [
+                [
+                    'SubMenu' => 'مدیریت برچسب ها',
+                    'Url' => 'Tags.index',
+                    'Icon' => 'fa fa-tags',
+                ],
+            ]
         ];
 
         foreach ($SubMenus as $MainMenu => $subMenu) {
@@ -56,8 +63,8 @@ class SubMenuTableSeeder extends Seeder
                 DB::table('sub_menus')->insert([
                     'main_menu' => $MainMenu,
                     'SubMenu' => $item['SubMenu'],
-                    'Url'=>$item['Url'],
-                    'Icon'=>$item['Icon'],
+                    'Url' => $item['Url'],
+                    'Icon' => $item['Icon'],
                 ]);
             }
         }

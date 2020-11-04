@@ -9,6 +9,7 @@ use App\Http\Controllers\OrganizationalChartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TagController;
 
 Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
@@ -31,3 +32,5 @@ Route::resource('CeoMessage', CeoMessageController::class);
 Route::resource('CH', CertificatesAndHonorsController::class);
 
 Route::resource('OC', OrganizationalChartController::class);
+
+Route::resource('Tags', TagController::class);
