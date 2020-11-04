@@ -11,13 +11,13 @@ class ProductTag extends Model
         'tag_id',
     ];
 
-    public function products()
+    public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
 
-    public function tags()
+    public function tag()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsTo(Tag::class);
     }
 }
