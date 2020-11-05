@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\LocaleContent;
 
 class TagController extends Controller
 {
@@ -14,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        $Tags = Tag::paginate(10)->toArray();
+        $Tags = Tag::with('contents')->get();
+
         return view('PageElements.Dashboard.Setting.Tags', compact('Tags'));
     }
 
@@ -36,7 +38,25 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $Tags = new Tag;
+        $Tags->save();
+        $element_id = $Tags->id;
+        $Contents = [];
+        foreach (Locales() as $item) {
+            $Contents[] = new LocaleContent([
+                'page' => '',
+                'section' => 'products',
+                'element_id' => $element_id,
+                'locale' => $item['locale'],
+                'element_title' => 'tag',
+                'element_content' => $request->input($item['locale']),
+            ]);
+        }
+        $NewTag = Tag::find($element_id);
+        $NewTag->contents()->saveMany($Contents);
+
+        return redirect('/Tags');
     }
 
     /**

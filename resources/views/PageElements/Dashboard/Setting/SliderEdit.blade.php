@@ -1,5 +1,3 @@
-{{-- @dd($EditSlider) --}}
-{{-- @dd(Locales()) --}}
 @extends('PageElements.Dashboard.Layout')
 @section('PageTitle', 'تنظیمات اسلایدر')
 @section('ContentHeader', 'تنظیمات اسلایدر')

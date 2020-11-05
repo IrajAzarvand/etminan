@@ -24,4 +24,9 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(Slider::class)->where('section', 'slider');
     }
+
+    public function tag()
+    {
+        return $this->belongsTo(Tag::class);
+    }
 }
