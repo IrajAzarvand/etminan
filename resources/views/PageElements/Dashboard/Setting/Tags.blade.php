@@ -95,8 +95,8 @@
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow(this)"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow(this)"><i class="fa fa-trash-o"></i></a>';
+                    echo '<a onclick="editRow('.$Tag->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
+                     echo '<a onclick="deleteRow('.$Tag->id.')"><i class="fa fa-trash-o"></i></a>';
                  echo '</div>';
                 echo '</li>';
                 }
@@ -111,15 +111,13 @@
 
 <script>
     function deleteRow(r) {
-            let currentRow = $(r).closest("li");
-            let Id = currentRow.find("span:eq(0)").text(); // get current row id
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/Tags/' + Id,
+                url: '/Tags/' + r,
                 data: {
                     _token: token,
-                    Id
+                    r
                 },
                 success: function() {
                     location.reload();
@@ -132,19 +130,21 @@
 
 <script>
     function editRow(r) {
-        let currentRow = $(r).closest("li");
-        let Id =currentRow.find("span:eq(0)").text(); // get current row id
         $.ajax({
             type: "GET",
-            url: '/Slider/' + Id + '/edit',
+            url: '/Tags/' + r + '/edit',
+
             success: function (data) {
-                console.log(url);
-                console.log(data);
                 //display data...
-                // let TagId= (data['id']);
-                // $('#TagEditModal').find('#TagId').val(TagId);
-                // $("#modal-form").attr("action", "/Tags/" + TagId);
-                // $('#TagEditModal').modal('show');
+                let TagId= (data['id']);
+                $('#TagEditModal').find('#TagId').val(TagId);
+                array.forEach(data['contents'] => {
+
+                });
+                $('#TagEditModal').find('#').val(TagId);
+
+                $("#TagEditModal-form").attr("action", "/Tags/" + TagId);
+                $('#TagEditModal').modal('show');
             }
         });
     }

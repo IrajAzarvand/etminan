@@ -78,11 +78,8 @@ class TagController extends Controller
      */
     public function edit($tag)
     {
-        // dd($tag);
-        $id = per_digit_conv($tag);
-        return ($id);
-        // $EditTag = Tag::with('contents')->find($id);
-        // return $EditTag;
+        $EditTag = Tag::with('contents')->find($tag);
+        return $EditTag;
     }
 
     /**
