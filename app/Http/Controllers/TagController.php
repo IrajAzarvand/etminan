@@ -76,9 +76,13 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit($tag)
     {
-        //
+        // dd($tag);
+        $id = per_digit_conv($tag);
+        return ($id);
+        // $EditTag = Tag::with('contents')->find($id);
+        // return $EditTag;
     }
 
     /**
@@ -99,7 +103,12 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy($tag)
     {
+        $id = per_digit_conv($tag);
+        $Tag = Tag::find($id);
+        $TagContent = LocaleContent::where(['element_title' => 'tag', 'element_id' => $id]);
+        $TagContent->delete();
+        $Tag->delete();
     }
 }
