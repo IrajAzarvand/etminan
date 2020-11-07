@@ -138,8 +138,8 @@
                 //display data...
                 let TagId= (data['id']);
                 $('#TagEditModal').find('#TagId').val(TagId);
-                array.forEach(data['contents'] => {
-
+                data['contents'].forEach(element => {
+console.log(element);
                 });
                 $('#TagEditModal').find('#').val(TagId);
 
