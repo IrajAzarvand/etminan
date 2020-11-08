@@ -30,8 +30,8 @@ class SubMenuTableSeeder extends Seeder
                 ],
                 [
                     'SubMenu' => 'دسته بندی محصولات',
-                    'Url' => 'Tags.index',
-                    'Icon' => 'fa fa-tags',
+                    'Url' => 'Category.index',
+                    'Icon' => 'fa fa-list-ul',
                 ],
                 [
                     'SubMenu' => 'مدیریت برچسب ها',

@@ -1,19 +1,18 @@
-{{-- @dd($Tags) --}}
 @extends('PageElements.Dashboard.Layout')
-@section('PageTitle', 'تنظیمات برچسب ها')
-@section('ContentHeader', 'تنظیمات برچسب ها')
+@section('PageTitle', 'تنظیمات دسته بندی محصولات')
+@section('ContentHeader', 'دسته بندی محصولات')
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
-                افزودن برچسب جدید
+                افزودن دسته بندی جدید
             </h3>
 
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Tags.store') }}" method="post">
+        <form class="card-body" action="{{ route('Category.store') }}" method="post">
             @csrf
             <!-- /image uploader -->
             <div class="mb3">
@@ -77,7 +76,7 @@
         <div class="card-header">
             <h3 class="card-title">
                 <i class="ion ion-clipboard mr-1"></i>
-                لیست برچسب ها (فارسی - انگلیسی - روسی - عربی)
+                لیست دسته بندی ها (فارسی - انگلیسی - روسی - عربی)
             </h3>
 
         </div>
@@ -85,18 +84,18 @@
         <div class="card-body">
             <ul class="todo-list">
                 <?php
-            foreach ($Tags as $Tag) {
+            foreach ($Categories as $Category) {
                 echo '<li>';
                 foreach (Locales() as $key=>$value) {
-                    // tag text
-                   echo '<span style="display: none;" class="text">'.$Tag->id .'</span>';
-                   echo '<span class="text">' . $Tag->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
+                    // category text
+                   echo '<span style="display: none;" class="text">'.$Category->id .'</span>';
+                   echo '<span class="text">' . $Category->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow('.$Tag->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow('.$Tag->id.')"><i class="fa fa-trash-o"></i></a>';
+                    echo '<a onclick="editRow('.$Category->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
+                     echo '<a onclick="deleteRow('.$Category->id.')"><i class="fa fa-trash-o"></i></a>';
                  echo '</div>';
                 echo '</li>';
                 }
@@ -114,7 +113,7 @@
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/Tags/' + r,
+                url: '/Category/' + r,
                 data: {
                     _token: token,
                     r
@@ -132,21 +131,21 @@
     function editRow(r) {
         $.ajax({
             type: "GET",
-            url: '/Tags/' + r + '/edit',
+            url: '/Category/' + r + '/edit',
 
             success: function (data) {
                 //display data...
-                let TagId= (data['id']);
-                $('#TagEditModal').find('#TagId').val(TagId);
+                let CatId= (data['id']);
+                $('#CategoryEditModal').find('#CatId').val(CatId);
                 data['contents'].forEach(element => {
-                    $('#TagEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
+                    $('#CategoryEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
                 });
 
-                $("#TagEditModal-form").attr("action", "/Tags/" + TagId);
-                $('#TagEditModal').modal('show');
+                $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
+                $('#CategoryEditModal').modal('show');
             }
         });
     }
 </script>
-@include('PageElements.Dashboard.Setting.ModalEditTag')
+@include('PageElements.Dashboard.Setting.ModalEditCategory')
 @endsection

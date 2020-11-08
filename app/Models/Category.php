@@ -14,4 +14,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'cat_id');
     }
+
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('section', 'products')->where('element_title', 'category');
+    }
 }

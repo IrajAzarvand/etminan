@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\CertificatesAndHonorsController;
 use App\Http\Controllers\HistoryController;
@@ -34,3 +35,5 @@ Route::resource('CH', CertificatesAndHonorsController::class);
 Route::resource('OC', OrganizationalChartController::class);
 
 Route::resource('Tags', TagController::class);
+
+Route::resource('Category', CategoryController::class);
