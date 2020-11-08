@@ -44,7 +44,7 @@
 
                     @foreach (DashboardUser::$Menus as $item)
                     {{--========================================================================--}}
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview menu-open">
                         <a class="nav-link" id="{{ $item->MainMenu }}" href="{{ $item->Url }}">
                             <i class="nav-icon {{ $item->Icon ? $item->Icon : '' }}"></i>
                             <p>
