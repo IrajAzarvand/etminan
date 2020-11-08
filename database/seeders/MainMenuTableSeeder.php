@@ -17,7 +17,7 @@ class MainMenuTableSeeder extends Seeder
         $MainMenus = [
             'صفحه اصلی',
             'درباره ما',
-            'برچسب ها',
+            'محصولات',
 
         ];
 

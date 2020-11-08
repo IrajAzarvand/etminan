@@ -21,10 +21,22 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Slider.index',
                     'Icon' => 'fa fa-columns',
                 ],
+            ],
+            'محصولات' => [
                 [
-                    'SubMenu' => 'محصولات',
+                    'SubMenu' => 'مدیریت محصولات',
                     'Url' => 'Product.NewProductsSetting',
                     'Icon' => 'fa fa-shopping-bag',
+                ],
+                [
+                    'SubMenu' => 'دسته بندی محصولات',
+                    'Url' => 'Tags.index',
+                    'Icon' => 'fa fa-tags',
+                ],
+                [
+                    'SubMenu' => 'مدیریت برچسب ها',
+                    'Url' => 'Tags.index',
+                    'Icon' => 'fa fa-tags',
                 ],
             ],
             'درباره ما' => [
@@ -36,7 +48,7 @@ class SubMenuTableSeeder extends Seeder
                 [
                     'SubMenu' => 'پیام مدیر عامل',
                     'Url' => 'CeoMessage.index',
-                    'Icon' => 'fa fa-address-card',
+                    'Icon' => 'fa fa-commenting-o',
                 ],
                 [
                     'SubMenu' => 'گواهینامه و افتخارات',
@@ -49,13 +61,6 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-street-view',
                 ],
             ],
-            'برچسب ها' => [
-                [
-                    'SubMenu' => 'مدیریت برچسب ها',
-                    'Url' => 'Tags.index',
-                    'Icon' => 'fa fa-tags',
-                ],
-            ]
         ];
 
         foreach ($SubMenus as $MainMenu => $subMenu) {

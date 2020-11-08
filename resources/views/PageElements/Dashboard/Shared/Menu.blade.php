@@ -26,7 +26,7 @@
 
                     <li class="nav-item">
                         <a href="{{ route('dashboard') }}" class="nav-link">
-                            <i class="nav-icon fa fa-dashboard"></i>
+                            <i class="nav-icon fa fa-tachometer"></i>
                             <p>
                                 داشبورد
                             </p>
@@ -43,29 +43,29 @@
                     </li>
 
                     @foreach (DashboardUser::$Menus as $item)
-                        {{--========================================================================--}}
-                        <li class="nav-item has-treeview">
-                            <a class="nav-link" id="{{ $item->MainMenu }}" href="{{ $item->Url }}">
-                                <i class="nav-icon {{ $item->Icon ? $item->Icon : '' }}"></i>
-                                <p>
-                                    {{ $item->MainMenu }}
-                                    <i class="right fa fa-angle-left"></i>
-                                </p>
-                            </a>
-                            @if ($item->sub_menus->count())
-                                <ul class="nav nav-treeview">
-                                    @foreach ($item->sub_menus as $subitem)
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="{{ $subitem->SubMenu }}" href="{{ route($subitem->Url) }}">
-                                                <i class="nav-icon {{ $subitem->Icon ? $subitem->Icon : 'fa fa-circle-o' }}"></i>
-                                                <p>{{ $subitem->SubMenu }}</p>
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </li>
-                        {{--========================================================================--}}
+                    {{--========================================================================--}}
+                    <li class="nav-item has-treeview">
+                        <a class="nav-link" id="{{ $item->MainMenu }}" href="{{ $item->Url }}">
+                            <i class="nav-icon {{ $item->Icon ? $item->Icon : '' }}"></i>
+                            <p>
+                                {{ $item->MainMenu }}
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        @if ($item->sub_menus->count())
+                        <ul class="nav nav-treeview">
+                            @foreach ($item->sub_menus as $subitem)
+                            <li class="nav-item">
+                                <a class="nav-link" id="{{ $subitem->SubMenu }}" href="{{ route($subitem->Url) }}">
+                                    <i class="nav-icon {{ $subitem->Icon ? $subitem->Icon : 'fa fa-circle-o' }}"></i>
+                                    <p>{{ $subitem->SubMenu }}</p>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </li>
+                    {{--========================================================================--}}
 
                     @endforeach
                 </ul>
