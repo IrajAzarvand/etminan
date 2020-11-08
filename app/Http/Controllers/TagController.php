@@ -89,9 +89,16 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request)
     {
-        //
+
+        $Tag = Tag::find($request->input('TagId'));
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['section' => 'products', 'element_id' => $Tag->id, 'locale' => $item['locale'],])
+                ->update(['element_content' => $request->input($item['locale'])]);
+        }
+        return redirect('/Tags');
     }
 
     /**

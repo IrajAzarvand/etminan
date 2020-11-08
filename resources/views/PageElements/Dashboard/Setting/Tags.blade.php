@@ -139,9 +139,8 @@
                 let TagId= (data['id']);
                 $('#TagEditModal').find('#TagId').val(TagId);
                 data['contents'].forEach(element => {
-console.log(element);
+                    $('#TagEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
                 });
-                $('#TagEditModal').find('#').val(TagId);
 
                 $("#TagEditModal-form").attr("action", "/Tags/" + TagId);
                 $('#TagEditModal').modal('show');
