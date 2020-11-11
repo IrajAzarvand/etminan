@@ -21,5 +21,7 @@
 <link href="{{asset('Main/css/simpletextrotator.css')}}" rel="stylesheet" type="text/css">
 <!--Style Switcher, You propably want to remove this!-->
 <link href="{{asset('Main/css/_style_switcher.css')}}" rel="stylesheet" type="text/css">
+<!--Slick mini carousel-->
+<link href="{{asset('Main/css/slick.css')}}" rel="stylesheet" type="text/css">
 <!--Modernizer Custom -->
 <script type="text/javascript" src="{{asset('Main/js/modernizr.custom.48287.js')}}"></script>

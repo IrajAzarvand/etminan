@@ -459,7 +459,7 @@ ul.dmui-submenu>li>.dmui-submenu li>.dmui-submenu>li>.dmui-submenu a {
         text-align: left;
     }
     .menu_container>ul>li>a {
-        padding: 12px 12px;
+        padding: 12px 7px;
         margin: 0 3px;
         display: block;
         color: #555555;

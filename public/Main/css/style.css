@@ -7218,7 +7218,7 @@ a:focus {
 }
 
 img {
-    max-width: 100%;
+    max-width: 84%;
 }
 
 figure {
@@ -8762,8 +8762,10 @@ header.centered .menu_container>ul>li ul {
 .main .dark_section {
     background-color: #222222;
     color: #efefef !important;
-    margin-top: 75px;
-    padding-bottom: 75px;
+    height: 220px;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
 }
 
 .main .dark_section .container.triangles-of-section div:after {
@@ -9110,7 +9112,7 @@ section.twitter_feed_wrapper {
     background-color: rgba(66, 139, 202, 0.7);
     background-image: url('../images/GPlay.svg');
     position: relative;
-    margin-top: 140px !important;
+    margin-top: 68px !important;
     text-align: center;
 }
 

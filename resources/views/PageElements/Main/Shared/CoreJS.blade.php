@@ -18,3 +18,19 @@
 <script type="text/javascript" src="{{asset('Main/js/cleanstart_theme.js')}}"></script>
 <!--To collapse the menu -->
 <script type="text/javascript" src="{{asset('Main/js/collapser.js')}}"></script>
+<!--Slick mini carousel-->
+<script type="text/javascript" src="{{asset('Main/js/slick.min.js')}}"></script>
+
+<!--for mini carousel in index page-->
+
+<script>
+    $(document).ready(function(){
+        $('.mini-carousel').slick({
+            slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  infinite: true,
+        });
+    });
+</script>
