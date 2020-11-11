@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\LocaleContent;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product_categories = LocaleContent::where(['section' => 'products', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
+        return view('PageElements.Dashboard.Setting.Products', compact('product_categories'));
     }
 
     /**
@@ -35,7 +39,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $Product = new Product;
+        $Product->cat_id = 1;
+        $Product->save();
+
+        $images = [];
+        $filename = '';
+
+        if ($request->hasFile('product_images')) {
+            $count = 1;
+            foreach ($request->file('product_images') as $image) {
+                $uploaded = $image;
+                $filename = $Product->id . '_' . $count++ . '.' . $uploaded->getClientOriginalExtension();  //product.id_timestamps.extension
+                $uploaded->storeAs('public\Products\\' . $Product->id . '\images\\', $filename);
+                $images[] = $filename;
+            }
+        }
+        $image_list = serialize($images);
+        $Product->images = $image_list;
+        $Product->update();
+        return redirect('/Product');
     }
 
     /**
@@ -82,18 +106,4 @@ class ProductController extends Controller
     {
         //
     }
-
-     /**
-     * For New Products setting in dashboard Panel.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
-    public function NewProductsSetting()
-    {
-        return view('PageElements.Dashboard.Setting.Products');
-    }
-
-
-
 }

@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $fillable = [
         'cat_id',
+        'images',
 
 
     ];
@@ -15,11 +16,6 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function images()
-    {
-        return $this->hasMany(ProductImage::class, 'product_id');
     }
 
     public function catalogues()

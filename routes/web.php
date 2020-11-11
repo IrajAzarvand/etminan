@@ -23,7 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('Slider', SliderController::class);
 
-Route::get('Product/NewProductsSetting', [ProductController::class, 'NewProductsSetting'])->name('Product.NewProductsSetting');
 Route::resource('Product', ProductController::class);
 
 Route::resource('History', HistoryController::class);

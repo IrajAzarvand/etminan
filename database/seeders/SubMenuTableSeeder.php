@@ -25,7 +25,7 @@ class SubMenuTableSeeder extends Seeder
             'محصولات' => [
                 [
                     'SubMenu' => 'مدیریت محصولات',
-                    'Url' => 'Product.NewProductsSetting',
+                    'Url' => 'Product.index',
                     'Icon' => 'fa fa-shopping-bag',
                 ],
                 [

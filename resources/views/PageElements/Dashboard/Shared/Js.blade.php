@@ -10,7 +10,7 @@
 <script src="{{ asset('Panel/dist/js/demo.js') }}"></script>
 
 <!-- Dropzone File Upload -->
-<script src="{{ asset('Panel/plugins/dropzone/dropzone.js') }}"></script>
+<script src="{{ asset('Panel/plugins/dropzone/dropzone.min.js') }}"></script>
 
 
 <!-- get input file name in setting slider page and show in input box  -->
@@ -21,4 +21,8 @@
         //replace the "Choose a file" label
         $(this).next('.custom-file-label').html(filename);
     })
+</script>
+
+<script>
+    $("#productImages").dropzone({ url: "/Product/store" });
 </script>

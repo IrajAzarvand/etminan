@@ -8096,7 +8096,7 @@ header {
     width: auto;
     max-height: 100px;
     float: right;
-    margin: 10px 0 0 0;
+    margin: 0;
 }
 
 .logo a.brand {
@@ -8215,7 +8215,7 @@ header.centered .menu_container>ul>li ul {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 0px;
+    top: -27px;
     right: -100px;
     overflow: hidden;
 }
@@ -8242,7 +8242,7 @@ header.centered .menu_container>ul>li ul {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 0px;
+    top: -27px;
     left: -100px;
     overflow: hidden;
 }
@@ -8813,9 +8813,9 @@ header.centered .menu_container>ul>li ul {
 
 .container.triangles-of-section .triangle-up-left {
     width: 100px;
-    height: 100px;
+    height: 77px;
     position: absolute;
-    top: -175px;
+    top: -152px;
     left: -100px;
     overflow: hidden;
 }
@@ -8838,9 +8838,9 @@ header.centered .menu_container>ul>li ul {
 
 .container.triangles-of-section .triangle-up-right {
     width: 100px;
-    height: 100px;
+    height: 77px;
     position: absolute;
-    top: -175px;
+    top: -152px;
     right: -100px;
     overflow: hidden;
 }
@@ -8863,10 +8863,10 @@ header.centered .menu_container>ul>li ul {
 
 .container.triangles-of-section .square-left {
     width: 900px;
-    height: 103px;
+    height: 80px;
     position: absolute;
     left: -1000px;
-    top: -178px;
+    top: -155px;
     overflow: hidden;
 }
 
@@ -8882,10 +8882,10 @@ header.centered .menu_container>ul>li ul {
 
 .container.triangles-of-section .square-right {
     width: 900px;
-    height: 103px;
+    height: 80px;
     position: absolute;
     right: -1000px;
-    top: -178px;
+    top: -155px;
     overflow: hidden;
 }
 
