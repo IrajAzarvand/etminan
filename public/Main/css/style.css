@@ -8915,7 +8915,7 @@ section.call_to_action {
 }
 
 section.call_to_action img {
-    padding: 0 0 16px 0;
+    padding: 0;
 }
 
 section.call_to_action h3 {
