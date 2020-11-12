@@ -13,11 +13,10 @@
             @endphp
 
             @foreach ($features as $feature)
-                <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive"
-                        src="{{ asset('Main/images/phone-v2.png') }}">
-                    <h3>{{ $feature['element_title'] }}</h3>
-                    <p>{{ $feature['element_content'] }}</p>
-                </div>
+            <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{ asset('Main/images/500.jpg') }}">
+                <h3>{{ $feature['element_title'] }}</h3>
+                <p>{{ $feature['element_content'] }}</p>
+            </div>
             @endforeach
 
         </div>

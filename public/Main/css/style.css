@@ -7218,7 +7218,7 @@ a:focus {
 }
 
 img {
-    max-width: 84%;
+    max-width: 100%;
 }
 
 figure {
@@ -8946,7 +8946,7 @@ section.features_teasers_wrapper .feature_teaser {
     text-align: center;
     border-left: solid 1px #cccccc;
     overflow: hidden;
-    padding: 30px;
+    padding: 10px;
 }
 
 section.features_teasers_wrapper .feature_teaser:last-child {
