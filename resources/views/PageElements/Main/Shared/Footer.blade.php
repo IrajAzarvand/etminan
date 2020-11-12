@@ -15,7 +15,10 @@
                     <p><i class="fa fa-envelope"></i> info@hajabdollah.com</p>
                     <p><i class="fa fa-phone"></i> 041-34328221 | 041-34328223</p>
                     <div class="footer_social">
-                        <div class="social_wrapper"><a href="https://www.facebook.com/mihanwebmaster"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#googleplus"><i class="fa fa-google-plus"></i></a></div>
+                        <div class="social_wrapper">
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-paper-plane"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="footer_teaser pl_latest_news_widget col-sm-4 col-md-4">
