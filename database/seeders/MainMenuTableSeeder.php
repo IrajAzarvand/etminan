@@ -18,6 +18,7 @@ class MainMenuTableSeeder extends Seeder
             'صفحه اصلی',
             'درباره ما',
             'محصولات',
+            'سایر',
 
         ];
 

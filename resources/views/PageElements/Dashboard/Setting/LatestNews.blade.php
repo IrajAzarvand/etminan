@@ -1,19 +1,19 @@
 {{-- @dd($Tags) --}}
 @extends('PageElements.Dashboard.Layout')
-@section('PageTitle', 'تنظیمات برچسب ها')
-@section('ContentHeader', 'تنظیمات برچسب ها')
+@section('PageTitle', 'تنظیمات آخرین اخبار')
+@section('ContentHeader', 'تنظیمات آخرین اخبار')
 @section('content')
 
 <div class="col-md-12">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
-                افزودن برچسب جدید
+                افزودن خبر جدید
             </h3>
 
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Tags.store') }}" method="post">
+        <form class="card-body" action="{{ route('LatestNews.store') }}" method="post">
             @csrf
 
             <div class="mb3">
@@ -69,12 +69,11 @@
 
 
 <div class="col-9">
-
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
                 <i class="ion ion-clipboard mr-1"></i>
-                لیست برچسب ها (فارسی - انگلیسی - روسی - عربی)
+                لیست اخبار (فارسی - انگلیسی - روسی - عربی)
             </h3>
 
         </div>
@@ -86,8 +85,8 @@
                 echo '<li>';
                 foreach (Locales() as $key=>$value) {
                     // tag text
-                   echo '<span style="display: none;" class="text">'.$Tag->id .'</span>';
-                   echo '<span class="text">' . $Tag->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
+                   echo '<span class="text">'.$Tag->id .'</span>';
+                   echo '<span class="text">' . $Tag->contents[$key]['element_content'] . '</span><br/>';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';

@@ -61,6 +61,13 @@ class SubMenuTableSeeder extends Seeder
                     'Icon' => 'fa fa-street-view',
                 ],
             ],
+            'سایر' => [
+                [
+                    'SubMenu' => 'آخرین اخبار',
+                    'Url' => 'LatestNews.index',
+                    'Icon' => 'fa fa-commenting-o',
+                ],
+            ]
         ];
 
         foreach ($SubMenus as $MainMenu => $subMenu) {

@@ -8946,7 +8946,7 @@ section.features_teasers_wrapper .feature_teaser {
     text-align: center;
     border-left: solid 1px #cccccc;
     overflow: hidden;
-    padding: 10px;
+    padding: 20px;
 }
 
 section.features_teasers_wrapper .feature_teaser:last-child {

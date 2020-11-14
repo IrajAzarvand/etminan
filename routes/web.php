@@ -5,6 +5,7 @@ use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\CertificatesAndHonorsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\LatestNewsController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\OrganizationalChartController;
 use App\Http\Controllers\ProductController;
@@ -36,3 +37,5 @@ Route::resource('OC', OrganizationalChartController::class);
 Route::resource('Tags', TagController::class);
 
 Route::resource('Category', CategoryController::class);
+
+Route::resource('LatestNews', LatestNewsController::class);
