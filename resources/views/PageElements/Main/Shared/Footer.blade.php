@@ -1,9 +1,5 @@
 <footer>
     <section class="footer_teasers_wrapper dark_section">
-        {{-- <div class="container triangles-of-section"> --}}
-        {{-- <div class="square-left"></div> --}}
-        {{-- <div class="square-right"></div> --}}
-        {{-- </div> --}}
         <div class="container">
             <div class="row">
 
@@ -11,9 +7,15 @@
                     <h3>آدرس</h3>
 
                     <p>کیلومتر ۳۵ جاده تبریز-آذرشهر، شهرک صنعتی شهید سلیمی، خیابان ۲۰متری دهم، شرکت بستنی اطمینان</p>
-
+                </div>
+                <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     <p><i class="fa fa-envelope"></i> info@hajabdollah.com</p>
+                </div>
+
+                <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     <p><i class="fa fa-phone"></i> 041-34328221 | 041-34328223</p>
+                </div>
+                <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     <div class="footer_social">
                         <div class="social_wrapper">
                             <a href="#"><i class="fa fa-instagram"></i></a>
@@ -22,11 +24,6 @@
                     </div>
                 </div>
 
-                <div class="footer_teaser pl_flickr_widget col-sm-3 col-md-3">
-                    <h3>نمادهای سایت</h3>
-                    <ul>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>

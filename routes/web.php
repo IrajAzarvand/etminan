@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\CertificatesAndHonorsController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\LatestNewsController;
@@ -39,3 +40,5 @@ Route::resource('Tags', TagController::class);
 Route::resource('Category', CategoryController::class);
 
 Route::resource('LatestNews', LatestNewsController::class);
+
+Route::resource('Footer', FooterController::class);

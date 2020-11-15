@@ -14,6 +14,7 @@ class LatestNewsController extends Controller
      */
     public function index()
     {
+        echo 'this is latest news index';
     }
 
     /**

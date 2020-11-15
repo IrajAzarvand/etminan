@@ -65,7 +65,12 @@ class SubMenuTableSeeder extends Seeder
                 [
                     'SubMenu' => 'آخرین اخبار',
                     'Url' => 'LatestNews.index',
-                    'Icon' => 'fa fa-commenting-o',
+                    'Icon' => 'fa fa-align-right',
+                ],
+                [
+                    'SubMenu' => 'فوتر',
+                    'Url' => 'Footer.index',
+                    'Icon' => 'fa fa-sort-amount-asc',
                 ],
             ]
         ];

@@ -54,7 +54,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer text-left">
-            <strong>.CopyRight &copy; 2014-2020 <a href="http://etminan.net">Etminan Co</a></strong>
+            <strong>Design & Develop: <a href="https://vazhenegar.com" target="_blank">Iraj Azarvand</a></strong>
         </footer>
 
 
