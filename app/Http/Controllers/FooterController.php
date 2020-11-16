@@ -6,6 +6,7 @@ use App\Models\Footer;
 use Illuminate\Http\Request;
 use App\Models\LocaleContent;
 
+
 class FooterController extends Controller
 {
     /**
@@ -15,9 +16,15 @@ class FooterController extends Controller
      */
     public function index()
     {
-        $Footer = Footer::with('contents')->get();
+        $Address = Footer::with(['contents' => function ($query) {
+            $query->where('element_title', 'address');
+        }])->get();
 
-        return view('PageElements.Dashboard.Setting.Footer', compact('Footer'));
+        $CopyRight = Footer::with(['contents' => function ($query) {
+            $query->where('element_title', 'copyright');
+        }])->get();
+
+        return view('PageElements.Dashboard.Setting.Footer', compact('Address', 'CopyRight'));
     }
 
     /**

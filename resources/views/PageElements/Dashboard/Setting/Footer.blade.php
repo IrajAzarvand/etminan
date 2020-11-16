@@ -110,14 +110,12 @@
         <div class="card-body">
             <ul class="todo-list">
                 <?php
-            $Address=collect($Footer)->where('element_title','address');
-
             foreach ($Address as $address) {
                 echo '<li>';
                 foreach (Locales() as $key=>$value) {
                     // tag text
                    echo '<span style="display: none;" class="text">'.$address->id .'</span>';
-                   echo '<span class="text">' . $address->contents[$key]['element_content'] . '</span><br/>';
+                   echo '<span class="text">' . $address->contents[$key]['element_content'] . '</span><br/><hr>';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';
@@ -150,13 +148,12 @@
         <div class="card-body">
             <ul class="todo-list">
                 <?php
-                 $CopyRight=collect($Footer)->where('element_title','copyright');
             foreach ($CopyRight as $C) {
                 echo '<li>';
                 foreach (Locales() as $key=>$value) {
                     // tag text
                    echo '<span style="display: none;" class="text">'.$C->id .'</span>';
-                   echo '<span class="text">' . $C->contents[$key]['element_content'] . '</span><br/>';
+                   echo '<span class="text">' . $C->contents[$key]['element_content'] . '</span><br/><hr>';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';
