@@ -15,6 +15,7 @@
                     @csrf
                     <!-- Custom Tabs -->
                     <input type="hidden" name="FooterId" id="FooterId">
+                    <input type="hidden" name="element_title" id="element_title">
                     <div class="card">
                         <div class="card-header d-flex p-0">
                             <ul class="nav nav-pills ml-auto p-2">

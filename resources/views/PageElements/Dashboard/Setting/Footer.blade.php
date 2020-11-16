@@ -120,8 +120,7 @@
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow('.$address->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow('.$address->id.')"><i class="fa fa-trash-o"></i></a>';
+                    echo '<a onclick="editRow('.$address->contents[$key]['id'] .')"><i class="fa fa-edit"></i></a> &nbsp;';
                  echo '</div>';
                 echo '</li>';
                 }
@@ -158,8 +157,7 @@
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow('.$C->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow('.$C->id.')"><i class="fa fa-trash-o"></i></a>';
+                    echo '<a onclick="editRow('.$C->contents[$key]['id'] .')"><i class="fa fa-edit"></i></a> &nbsp;';
                  echo '</div>';
                 echo '</li>';
                 }
@@ -171,26 +169,6 @@
     </div>
 </div>
 
-
-<script>
-    function deleteRow(r) {
-            let token = "{{ csrf_token() }}";
-            $.ajax({
-                type: 'DELETE',
-                url: '/Footer/' + r,
-                data: {
-                    _token: token,
-                    r
-                },
-                success: function() {
-                    location.reload();
-                }
-            });
-
-        }
-
-</script>
-
 <script>
     function editRow(r) {
         $.ajax({
@@ -198,11 +176,12 @@
             url: '/Footer/' + r + '/edit',
 
             success: function (data) {
-                //display data...
+
                 let TagId= (data['id']);
                 $('#FooterEditModal').find('#FooterId').val(TagId);
                 data['contents'].forEach(element => {
                     $('#FooterEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
+                    $('#FooterEditModal').find('#element_title').val(element['element_title']);
                 });
 
                 $("#FooterEditModal-form").attr("action", "/Footer/" + TagId);

@@ -23,7 +23,7 @@ class FooterController extends Controller
         $CopyRight = Footer::with(['contents' => function ($query) {
             $query->where('element_title', 'copyright');
         }])->get();
-
+        // dd($Address);
         return view('PageElements.Dashboard.Setting.Footer', compact('Address', 'CopyRight'));
     }
 
@@ -99,10 +99,23 @@ class FooterController extends Controller
      * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function edit($footer)
+    public function edit($element_id)
     {
-        $EditFooter = Footer::with('contents')->find($footer);
-        return $EditFooter;
+        $LC = LocaleContent::find($element_id);
+        $footer = Footer::find($LC['element_id']);
+
+        if ($LC['element_title'] == 'address') {
+            $Contents = Footer::with(['contents' => function ($query) {
+                $query->where('element_title', 'address');
+            }])->find($LC['element_id']);
+        } elseif ($LC['element_title'] == 'copyright') {
+            $Contents = Footer::with(['contents' => function ($query) {
+                $query->where('element_title', 'copyright');
+            }])->find($LC['element_id']);
+        }
+
+
+        return $Contents;
     }
 
     /**
@@ -117,7 +130,7 @@ class FooterController extends Controller
         $Footer = Footer::find($request->input('FooterId'));
 
         foreach (Locales() as $item) {
-            LocaleContent::where(['section' => 'footer', 'element_id' => $Footer->id, 'locale' => $item['locale'],])
+            LocaleContent::where(['section' => 'footer', 'element_id' => $Footer->id, 'element_title' => $request->input('element_title'), 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
         }
         return redirect('/Footer');
@@ -131,10 +144,6 @@ class FooterController extends Controller
      */
     public function destroy($footer)
     {
-        $id = per_digit_conv($footer);
-        $Tag = Footer::find($id);
-        $TagContent = LocaleContent::where(['element_title' => 'address', 'element_id' => $id]);
-        $TagContent->delete();
-        $Tag->delete();
+        //
     }
 }
