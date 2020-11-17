@@ -40,10 +40,10 @@ class LatestNewsController extends Controller
         $LN = new LatestNews;
         $LN->save();
         $element_id = $LN->id;
-        $news = [];
+        $Contents = [];
 
         foreach (Locales() as $item) {
-            $news[] = [
+            $Contents[] = new LocaleContent([
 
                 [
                     'page' => '',
@@ -61,14 +61,13 @@ class LatestNewsController extends Controller
                     'element_title' => 'news_description',
                     'element_content' => $request->input($item['locale'] . '_description'),
                 ]
-            ];
+            ]);
+            $NewLC = LatestNews::find($element_id);
+            $NewLC->contents()->saveMany($Contents);
         }
-        $Contents = new LocaleContent($news);
 
-        $NewLC = LatestNews::find($element_id);
-        $NewLC->contents()->saveMany($Contents);
 
-        // return redirect('/LatestNews');
+        return redirect('/LatestNews');
     }
 
     /**
