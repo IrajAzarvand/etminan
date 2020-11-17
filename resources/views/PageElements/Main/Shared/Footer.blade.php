@@ -1,12 +1,31 @@
 <footer>
+    @php
+    $Footer=collect($IndexContents)->where('section','footer');
+    foreach ($Footer as $key => $value) {
+    if($value['element_title']=='address')
+    {
+    $Address= $value['element_content'];
+    }
+    elseif($value['element_title']=='copyright')
+    {
+    $CopyRight= $value['element_content'];
+    }
+    elseif($value['element_title']=='section_title')
+    {
+    $SectionTitle= $value['element_content'];
+    }
+    }
+
+
+    @endphp
     <section class="footer_teasers_wrapper dark_section">
         <div class="container">
             <div class="row">
 
                 <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
-                    <h3>آدرس</h3>
+                    <h3>{{$SectionTitle}}</h3>
 
-                    <p>کیلومتر ۳۵ جاده تبریز-آذرشهر، شهرک صنعتی شهید سلیمی، خیابان ۲۰متری دهم، شرکت بستنی اطمینان</p>
+                    <p>{{$Address}}</p>
                 </div>
                 <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     <p><i class="fa fa-envelope"></i> info@hajabdollah.com</p>
@@ -30,7 +49,7 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-4">تمامی حقوق برای شرکت اطمینان محفوظ است</div>
+                <div class="col-sm-4 col-md-4">{{$CopyRight}}</div>
                 <div class="col-sm-4 col-md-4"></div>
             </div>
         </div>
