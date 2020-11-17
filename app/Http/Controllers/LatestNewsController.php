@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LatestNews;
 use Illuminate\Http\Request;
+use App\Models\LocaleContent;
 
 class LatestNewsController extends Controller
 {
@@ -14,7 +15,8 @@ class LatestNewsController extends Controller
      */
     public function index()
     {
-        echo 'this is latest news index';
+        $LN = LatestNews::with('contents')->get();
+        return view('PageElements.Dashboard.Setting.LatestNews', compact('LN'));
     }
 
     /**
@@ -35,7 +37,38 @@ class LatestNewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $LN = new LatestNews;
+        $LN->save();
+        $element_id = $LN->id;
+        $news = [];
+
+        foreach (Locales() as $item) {
+            $news[] = [
+
+                [
+                    'page' => '',
+                    'section' => 'latestnews',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'news_title',
+                    'element_content' => $request->input($item['locale'] . '_title'),
+                ],
+                [
+                    'page' => '',
+                    'section' => 'latestnews',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'news_description',
+                    'element_content' => $request->input($item['locale'] . '_description'),
+                ]
+            ];
+        }
+        $Contents = new LocaleContent($news);
+
+        $NewLC = LatestNews::find($element_id);
+        $NewLC->contents()->saveMany($Contents);
+
+        // return redirect('/LatestNews');
     }
 
     /**

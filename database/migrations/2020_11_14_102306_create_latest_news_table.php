@@ -15,7 +15,6 @@ class CreateLatestNewsTable extends Migration
     {
         Schema::create('latest_news', function (Blueprint $table) {
             $table->id();
-            $table->string('news_text');
             $table->timestamps();
         });
     }

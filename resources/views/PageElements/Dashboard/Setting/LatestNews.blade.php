@@ -45,7 +45,10 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <textarea id="editor1" name="{{$item['locale']}}_title" style="width: 100%" placeholder="عنوان"></textarea>
+                                        <br />
+                                        <textarea id="editor1" name="{{$item['locale']}}_description" style="width: 100%" placeholder="شرح"></textarea>
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -68,12 +71,12 @@
 
 
 
-<div class="col-9">
+<div class="col-12">
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
                 <i class="ion ion-clipboard mr-1"></i>
-                لیست اخبار (فارسی - انگلیسی - روسی - عربی)
+                لیست اخبار (به ترتیب نزولی)
             </h3>
 
         </div>
@@ -81,20 +84,21 @@
         <div class="card-body">
             <ul class="todo-list">
                 <?php
-            foreach ($Tags as $Tag) {
+            foreach ($LN as $news) {
                 echo '<li>';
                 foreach (Locales() as $key=>$value) {
                     // tag text
-                   echo '<span class="text">'.$Tag->id .'</span>';
-                   echo '<span class="text">' . $Tag->contents[$key]['element_content'] . '</span><br/>';
+                   echo '<span class="text">'.$news->id .'</span>';
+                   echo '<span class="text">' . $news->contents[$key]['element_content'] . '</span><br/>';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow('.$Tag->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow('.$Tag->id.')"><i class="fa fa-trash-o"></i></a>';
+                    echo '<a onclick="editRow('.$news->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
+                     echo '<a onclick="deleteRow('.$news->id.')"><i class="fa fa-trash-o"></i></a>';
                  echo '</div>';
                 echo '</li>';
+                echo '<hr>';
                 }
                 ?>
             </ul>
@@ -110,7 +114,7 @@
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/Tags/' + r,
+                url: '/LatestNews/' + r,
                 data: {
                     _token: token,
                     r
@@ -128,7 +132,7 @@
     function editRow(r) {
         $.ajax({
             type: "GET",
-            url: '/Tags/' + r + '/edit',
+            url: '/LatestNews/' + r + '/edit',
 
             success: function (data) {
                 //display data...

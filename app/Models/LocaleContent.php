@@ -35,6 +35,11 @@ class LocaleContent extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function latestnews()
+    {
+        return $this->belongsTo(LatestNews::class);
+    }
+
     public function footer()
     {
         return $this->belongsTo(Footer::class);
