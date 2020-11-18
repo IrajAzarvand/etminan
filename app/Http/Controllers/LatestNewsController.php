@@ -117,8 +117,11 @@ class LatestNewsController extends Controller
      * @param  \App\Models\LatestNews  $latestNews
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LatestNews $latestNews)
+    public function destroy($latestNews)
     {
-        //
+        $LN = LatestNews::find($latestNews);
+        $LNContents = LocaleContent::where(['section' => 'latestnews', 'element_id' => $latestNews]);
+        $LNContents->delete();
+        $LN->delete();
     }
 }
