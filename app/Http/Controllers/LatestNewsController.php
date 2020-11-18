@@ -15,7 +15,7 @@ class LatestNewsController extends Controller
      */
     public function index()
     {
-        $LN = LatestNews::with('contents')->get();
+        $LN = LatestNews::with('contents')->orderBy('id', 'DESC')->get();
         return view('PageElements.Dashboard.Setting.LatestNews', compact('LN'));
     }
 
@@ -83,9 +83,11 @@ class LatestNewsController extends Controller
      * @param  \App\Models\LatestNews  $latestNews
      * @return \Illuminate\Http\Response
      */
-    public function edit(LatestNews $latestNews)
+    public function edit($latestNews)
     {
-        //
+
+        $LNEdit = LatestNews::with('contents')->find($latestNews);
+        return $LNEdit;
     }
 
     /**
@@ -95,9 +97,18 @@ class LatestNewsController extends Controller
      * @param  \App\Models\LatestNews  $latestNews
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LatestNews $latestNews)
+    public function update(Request $request)
     {
-        //
+        $LN = LatestNews::find($request->input('LNId'));
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['section' => 'latestnews', 'element_id' => $LN->id, 'locale' => $item['locale'], 'element_title' => 'news_title'])
+                ->update(['element_content' => $request->input($item['locale'] . '_title')]);
+
+            LocaleContent::where(['section' => 'latestnews', 'element_id' => $LN->id, 'locale' => $item['locale'], 'element_title' => 'news_description'])
+                ->update(['element_content' => $request->input($item['locale'] . '_description')]);
+        }
+        return redirect('/LatestNews');
     }
 
     /**

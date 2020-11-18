@@ -84,12 +84,13 @@
         <div class="card-body">
             <ul class="todo-list">
                 <?php
+
             foreach ($LN as $news) {
                 echo '<li>';
-                foreach (Locales() as $key=>$value) {
+                foreach ($news->contents as $key=>$value) {
                     // tag text
-                   echo '<span class="text">'.$news->id .'</span>';
-                   echo '<span class="text">' . $news->contents[$key]['element_content'] . '</span><br/>';
+                //    echo '<span class="text">'.$news->id .'</span>';
+                   echo '<span class="text">' . $value['element_content'] . '</span><br/>';
                 }
                 // General tools such as edit or delete
                 echo '<div class="tools">';
@@ -132,21 +133,28 @@
     function editRow(r) {
         $.ajax({
             type: "GET",
+
             url: '/LatestNews/' + r + '/edit',
 
             success: function (data) {
+                console.log(data);
                 //display data...
-                let TagId= (data['id']);
-                $('#TagEditModal').find('#TagId').val(TagId);
+                let LNId= (data['id']);
+                $('#LatestNewsEditModal').find('#LNId').val(LNId);
                 data['contents'].forEach(element => {
-                    $('#TagEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
+                    if(element['element_title']=='news_title'){
+                        $('#LatestNewsEditModal').find('#'+element['locale']+'_title').text(element['element_content']);
+                    }
+                    else if(element['element_title']=='news_description'){
+                    $('#LatestNewsEditModal').find('#'+element['locale']+'_description').text(element['element_content']);
+                    }
                 });
 
-                $("#TagEditModal-form").attr("action", "/Tags/" + TagId);
-                $('#TagEditModal').modal('show');
+                $("#LatestNewsEditModal-form").attr("action", "/LatestNews/" + LNId);
+                $('#LatestNewsEditModal').modal('show');
             }
         });
     }
 </script>
-@include('PageElements.Dashboard.Setting.ModalEditTag')
+@include('PageElements.Dashboard.Setting.ModalEditLatestNews')
 @endsection
