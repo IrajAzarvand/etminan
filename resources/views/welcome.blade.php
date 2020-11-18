@@ -8,5 +8,5 @@
 @include('PageElements.Main.Index.NewProducts')
 @include('PageElements.Main.Index.Catalogues')
 @include('PageElements.Main.Index.CallToAction')
-@include('PageElements.Main.Index.TwitterFeed')
+@include('PageElements.Main.Index.LatestNews')
 @endsection
