@@ -44,28 +44,24 @@ class LatestNewsController extends Controller
 
         foreach (Locales() as $item) {
             $Contents[] = new LocaleContent([
-
-                [
-                    'page' => '',
-                    'section' => 'latestnews',
-                    'element_id' => $element_id,
-                    'locale' => $item['locale'],
-                    'element_title' => 'news_title',
-                    'element_content' => $request->input($item['locale'] . '_title'),
-                ],
-                [
-                    'page' => '',
-                    'section' => 'latestnews',
-                    'element_id' => $element_id,
-                    'locale' => $item['locale'],
-                    'element_title' => 'news_description',
-                    'element_content' => $request->input($item['locale'] . '_description'),
-                ]
+                'page' => '',
+                'section' => 'latestnews',
+                'element_id' => $element_id,
+                'locale' => $item['locale'],
+                'element_title' => 'news_title',
+                'element_content' => $request->input($item['locale'] . '_title'),
             ]);
-            $NewLC = LatestNews::find($element_id);
-            $NewLC->contents()->saveMany($Contents);
+            $Contents[] = new LocaleContent([
+                'page' => '',
+                'section' => 'latestnews',
+                'element_id' => $element_id,
+                'locale' => $item['locale'],
+                'element_title' => 'news_description',
+                'element_content' => $request->input($item['locale'] . '_description'),
+            ]);
         }
-
+        $NewLC = LatestNews::find($element_id);
+        $NewLC->contents()->saveMany($Contents);
 
         return redirect('/LatestNews');
     }
