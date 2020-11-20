@@ -38,5 +38,6 @@ return [
             'rtl' => true,
             'name' => 'عربی',
         ],
+
     ],
 ];

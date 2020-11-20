@@ -22,6 +22,5 @@ class DatabaseSeeder extends Seeder
         $this->call(MainNavsTableSeeder::class);
         $this->call(SubNavsTableSeeder::class);
         $this->call(FooterTableSeeder::class);
-        // $this->call(TagSeeder::class);
     }
 }

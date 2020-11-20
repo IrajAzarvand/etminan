@@ -2,14 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Cassandra\Index;
-use App\Models\Locale;
 use App\Models\Slider;
-use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
-use App\Models\LocaleContent;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 class MainNavController extends Controller
 {

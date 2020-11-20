@@ -23,16 +23,22 @@ class SubMenuTableSeeder extends Seeder
                 ],
             ],
             'محصولات' => [
-                [
-                    'SubMenu' => 'مدیریت محصولات',
-                    'Url' => 'Product.index',
-                    'Icon' => 'fa fa-shopping-bag',
-                ],
+                // [
+                //     'SubMenu' => 'نوع محصولات',
+                //     'Url' => 'PType.index',
+                //     'Icon' => 'fa fa-arrows',
+                // ],
                 [
                     'SubMenu' => 'دسته بندی محصولات',
                     'Url' => 'Category.index',
                     'Icon' => 'fa fa-list-ul',
                 ],
+                [
+                    'SubMenu' => 'مدیریت محصولات',
+                    'Url' => 'Product.index',
+                    'Icon' => 'fa fa-shopping-bag',
+                ],
+
                 [
                     'SubMenu' => 'مدیریت برچسب ها',
                     'Url' => 'Tags.index',
