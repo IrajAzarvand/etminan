@@ -23,11 +23,11 @@ class SubMenuTableSeeder extends Seeder
                 ],
             ],
             'محصولات' => [
-                // [
-                //     'SubMenu' => 'نوع محصولات',
-                //     'Url' => 'PType.index',
-                //     'Icon' => 'fa fa-arrows',
-                // ],
+                [
+                    'SubMenu' => 'نوع محصولات',
+                    'Url' => 'PType.index',
+                    'Icon' => 'fa fa-arrows',
+                ],
                 [
                     'SubMenu' => 'دسته بندی محصولات',
                     'Url' => 'Category.index',

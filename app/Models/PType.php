@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class PType extends Model
 {
-    use HasFactory;
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('section', 'products')->where('element_title', 'ptype');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'ptype_id');
+    }
 }

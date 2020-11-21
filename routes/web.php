@@ -10,6 +10,7 @@ use App\Http\Controllers\LatestNewsController;
 use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\OrganizationalChartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
@@ -42,3 +43,5 @@ Route::resource('Category', CategoryController::class);
 Route::resource('LatestNews', LatestNewsController::class);
 
 Route::resource('Footer', FooterController::class);
+
+Route::resource('PType', PTypeController::class);

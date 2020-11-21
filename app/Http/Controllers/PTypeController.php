@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PType;
 use Illuminate\Http\Request;
+use App\Models\LocaleContent;
 
 class PTypeController extends Controller
 {
@@ -14,7 +15,9 @@ class PTypeController extends Controller
      */
     public function index()
     {
-        //
+        $PTypes = PType::with('contents')->get();
+
+        return view('PageElements.Dashboard.Setting.‍PType', compact('PTypes'));
     }
 
     /**
@@ -35,7 +38,24 @@ class PTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $PTypes = new PType;
+        $PTypes->save();
+        $element_id = $PTypes->id;
+        $Contents = [];
+        foreach (Locales() as $item) {
+            $Contents[] = new LocaleContent([
+                'page' => '',
+                'section' => 'products',
+                'element_id' => $element_id,
+                'locale' => $item['locale'],
+                'element_title' => 'ptype',
+                'element_content' => $request->input($item['locale']),
+            ]);
+        }
+        $NewPType = PType::find($element_id);
+        $NewPType->contents()->saveMany($Contents);
+
+        return redirect('/PType');
     }
 
     /**
@@ -55,9 +75,10 @@ class PTypeController extends Controller
      * @param  \App\Models\PType  $pType
      * @return \Illuminate\Http\Response
      */
-    public function edit(PType $pType)
+    public function edit($pType)
     {
-        //
+        $EditPType = PType::with('contents')->find($pType);
+        return $EditPType;
     }
 
     /**
@@ -67,9 +88,15 @@ class PTypeController extends Controller
      * @param  \App\Models\PType  $pType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PType $pType)
+    public function update(Request $request)
     {
-        //
+        $PType = PType::find($request->input('PTypeId'));
+
+        foreach (Locales() as $item) {
+            LocaleContent::where(['section' => 'products', 'element_title' => 'ptype', 'element_id' => $PType->id, 'locale' => $item['locale'],])
+                ->update(['element_content' => $request->input($item['locale'])]);
+        }
+        return redirect('/PType');
     }
 
     /**
@@ -78,8 +105,12 @@ class PTypeController extends Controller
      * @param  \App\Models\PType  $pType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PType $pType)
+    public function destroy($pType)
     {
-        //
+        // $id = per_digit_conv($pType);
+        $Type = PType::find($pType);
+        $PTypeContent = LocaleContent::where(['section' => 'products', 'element_title' => 'ptype', 'element_id' => $pType]);
+        $PTypeContent->delete();
+        $Type->delete();
     }
 }

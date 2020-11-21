@@ -27,4 +27,9 @@ class Product extends Model
     {
         return $this->hasMany(ProductTag::class, 'product_id');
     }
+
+    public function ptype()
+    {
+        return $this->belongsTo(PType::class);
+    }
 }
