@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\LocaleContent;
+use App\Models\PType;
 
 class CategoryController extends Controller
 {
@@ -15,8 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $PTypes = PType::with('contents')->get();
         $Categories = Category::with('contents')->get();
-        return view('PageElements.Dashboard.Setting.Categories', compact('Categories'));
+        return view('PageElements.Dashboard.Setting.Categories', compact('PTypes', 'Categories'));
     }
 
     /**
@@ -38,6 +40,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $Category = new Category;
+        $Category->ptype_id = $request->input('ptype');
         $Category->save();
         $element_id = $Category->id;
         $Contents = [];
@@ -63,9 +66,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($category)
     {
-        //
+        dd($category);
     }
 
     /**

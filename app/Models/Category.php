@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'cat_name',
+        'ptype_id',
     ];
 
     public function products()
@@ -18,5 +18,10 @@ class Category extends Model
     public function contents()
     {
         return $this->hasMany(LocaleContent::class, 'element_id')->where('section', 'products')->where('element_title', 'category');
+    }
+
+    public function ptype()
+    {
+        return $this->belongsTo(PType::class);
     }
 }
