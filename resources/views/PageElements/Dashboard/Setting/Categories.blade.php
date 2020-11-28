@@ -108,7 +108,8 @@
                     <label>انتخاب نوع محصول</label>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <select name="ptype" class="form-control select2" style="width: 100%;" onchange="show({{$item->id}})">
+                            <select name="ptype" id="ptypeId" onchange="showCategory()" class="form-control select2" style="width: 100%;">
+                                <option>یکی از انواع محصولات را انتخاب کنید</option>
                                 @foreach ($PTypes as $item)
                                 <option value="{{$item->id}}">{{$item->contents['0']->element_content}}</option>
                                 @endforeach
@@ -116,31 +117,26 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-success">نمایش</button>
-                    </div>
-
                 </div>
             </div>
             <hr>
 
             <ul class="todo-list">
                 <?php
-            foreach ($Categories as $Category) {
                 echo '<li>';
-                foreach (Locales() as $key=>$value) {
+
                     // category text
-                   echo '<span style="display: none;" class="text">'.$Category->id .'</span>';
-                   echo '<span class="text">' . $Category->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
-                }
+                   echo '<span class="text" id="categoryContent"></span>| &nbsp; ';
+                //    echo '<span class="text" id="categoryContent">' . $Category->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
+
                 // General tools such as edit or delete
                 echo '<div class="tools">';
 
-                    echo '<a onclick="editRow('.$Category->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                     echo '<a onclick="deleteRow('.$Category->id.')"><i class="fa fa-trash-o"></i></a>';
+                    // echo '<a onclick="editRow('.$Category->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
+                    //  echo '<a onclick="deleteRow('.$Category->id.')"><i class="fa fa-trash-o"></i></a>';
                  echo '</div>';
                 echo '</li>';
-                }
+
                 ?>
             </ul>
         </div>
@@ -153,19 +149,19 @@
 <script>
     function deleteRow(r) {
             let token = "{{ csrf_token() }}";
-            $.ajax({
+                $.ajax({
                 type: 'DELETE',
                 url: '/Category/' + r,
                 data: {
-                    _token: token,
-                    r
+                _token: token,
+                r
                 },
                 success: function() {
-                    location.reload();
+                location.reload();
                 }
-            });
+                });
 
-        }
+                }
 
 </script>
 
@@ -192,24 +188,25 @@
 
 
 <script>
-    function show(r) {
-alert(r);
-        // $.ajax({
-        //     type: "GET",
-        //     url: '/Category/' + r + '/edit',
+    function showCategory() {
+        let ptypeId=document.getElementById('ptypeId').value;
+        $.ajax({
+            type: "GET",
+            url: '/Category/' + ptypeId,
 
-        //     success: function (data) {
-        //         //display data...
-        //         let CatId= (data['id']);
-        //         $('#CategoryEditModal').find('#CatId').val(CatId);
-        //         data['contents'].forEach(element => {
-        //             $('#CategoryEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
-        //         });
+            success: function (data) {
+                //display data...
+                console.log(data);
+                // let CatId= (data['id']);
+                // $('#CategoryEditModal').find('#CatId').val(CatId);
+                // data['contents'].forEach(element => {
+                //     $('#CategoryEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
+                // });
 
-        //         $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
-        //         $('#CategoryEditModal').modal('show');
-        //     }
-        // });
+                // $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
+                // $('#CategoryEditModal').modal('show');
+            }
+        });
     }
 </script>
 @include('PageElements.Dashboard.Setting.ModalEditCategory')

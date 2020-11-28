@@ -17,8 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $PTypes = PType::with('contents')->get();
-        $Categories = Category::with('contents')->get();
-        return view('PageElements.Dashboard.Setting.Categories', compact('PTypes', 'Categories'));
+        return view('PageElements.Dashboard.Setting.Categories', compact('PTypes'));
     }
 
     /**
@@ -66,9 +65,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($category)
+    public function show($PType)
     {
-        dd($category);
+        return Category::where('ptype_id', $PType)->with('contents')->get();
     }
 
     /**
