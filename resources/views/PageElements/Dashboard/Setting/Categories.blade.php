@@ -121,23 +121,23 @@
             </div>
             <hr>
 
-            <ul class="todo-list">
-                <?php
-                echo '<li>';
+            <ul class="todo-list" id="CategoryList">
+                {{-- <php --
+               // echo '<li>';
 
                     // category text
-                   echo '<span class="text" id="categoryContent"></span>| &nbsp; ';
+                 //  echo '<span class="text" id="categoryContent"></span>';
                 //    echo '<span class="text" id="categoryContent">' . $Category->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
 
                 // General tools such as edit or delete
-                echo '<div class="tools">';
+               // echo '<div class="tools">';
 
                     // echo '<a onclick="editRow('.$Category->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
                     //  echo '<a onclick="deleteRow('.$Category->id.')"><i class="fa fa-trash-o"></i></a>';
-                 echo '</div>';
-                echo '</li>';
+                //  echo '</div>';
+                // echo '</li>';
 
-                ?>
+                ?> --}}
             </ul>
         </div>
         <!-- /.card-body -->
@@ -195,16 +195,45 @@
             url: '/Category/' + ptypeId,
 
             success: function (data) {
-                //display data...
-                console.log(data);
-                // let CatId= (data['id']);
-                // $('#CategoryEditModal').find('#CatId').val(CatId);
-                // data['contents'].forEach(element => {
-                //     $('#CategoryEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
-                // });
 
-                // $("#CategoryEditModal-form").attr("action", "/Category/" + CatId);
-                // $('#CategoryEditModal').modal('show');
+                //create li
+                function createElementLi(obj) {
+                    let ul_obj = document.getElementById(obj);
+
+                    //Create li
+                    let li_obj = document.createElement("li");
+                    ul_obj.appendChild(li_obj);
+                }
+                createElementLi("CategoryList");
+                 let li = document.getElementById("CategoryList").lastChild;
+
+                //create span in li
+                function createElementSpan(obj) {
+                    let li_obj = obj;
+
+                    // Add span
+                    var span_obj = document.createElement("span");
+
+                    // Set attribute for span element, such as id
+                    span_obj.setAttribute("class", "text");
+                    span_obj.setAttribute("id", "categoryContent");
+                    // span_obj.innerHTML = "tst";
+                    li_obj.appendChild(span_obj);
+                }
+                createElementSpan(li);
+
+
+                //show content
+                let list='';
+                data.forEach(function(entry){
+                    entry.forEach(function(childrenEntry) {
+                        list = list + ' | ' + childrenEntry.element_content;
+                    });
+                    console.log(list);
+
+                    $('#categoryContent').text(list);
+                    list='';
+                });
             }
         });
     }

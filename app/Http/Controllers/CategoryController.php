@@ -67,7 +67,8 @@ class CategoryController extends Controller
      */
     public function show($PType)
     {
-        return Category::where('ptype_id', $PType)->with('contents')->get();
+        $result = Category::where('ptype_id', $PType)->with('contents')->get()->pluck('contents');
+        return $result;
     }
 
     /**
