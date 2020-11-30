@@ -203,7 +203,7 @@
                 $('#CategoryList').empty();
                 data.forEach(function(entry){
                     entry.forEach(function(childrenEntry) {
-                        list = list + ' | ' +  childrenEntry.element_content;
+                        list = list + ' (' +  childrenEntry.element_content + ') ';
                         Cat_id=childrenEntry.element_id;
                     });
                     createElementLi("CategoryList");
