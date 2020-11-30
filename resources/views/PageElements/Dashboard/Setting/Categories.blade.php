@@ -122,22 +122,7 @@
             <hr>
 
             <ul class="todo-list" id="CategoryList">
-                {{-- <php --
-               // echo '<li>';
-
-                    // category text
-                 //  echo '<span class="text" id="categoryContent"></span>';
-                //    echo '<span class="text" id="categoryContent">' . $Category->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
-
-                // General tools such as edit or delete
-               // echo '<div class="tools">';
-
-                    // echo '<a onclick="editRow('.$Category->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                    //  echo '<a onclick="deleteRow('.$Category->id.')"><i class="fa fa-trash-o"></i></a>';
-                //  echo '</div>';
-                // echo '</li>';
-
-                ?> --}}
+                {{-- category list shows here --}}
             </ul>
         </div>
         <!-- /.card-body -->
@@ -196,44 +181,40 @@
 
             success: function (data) {
 
-                //create li
+                // create category list
                 function createElementLi(obj) {
                     let ul_obj = document.getElementById(obj);
 
-                    //Create li
+                    // Create li
                     let li_obj = document.createElement("li");
                     ul_obj.appendChild(li_obj);
-                }
-                createElementLi("CategoryList");
-                 let li = document.getElementById("CategoryList").lastChild;
 
-                //create span in li
-                function createElementSpan(obj) {
-                    let li_obj = obj;
-
-                    // Add span
-                    var span_obj = document.createElement("span");
-
-                    // Set attribute for span element, such as id
+                    //create span inside li
+                    let last_li = ul_obj.lastElementChild;
+                    let span_obj = document.createElement("span");
                     span_obj.setAttribute("class", "text");
-                    span_obj.setAttribute("id", "categoryContent");
-                    // span_obj.innerHTML = "tst";
-                    li_obj.appendChild(span_obj);
+                    last_li.appendChild(span_obj);
                 }
-                createElementSpan(li);
 
 
                 //show content
                 let list='';
+                let Cat_id='';
+                $('#CategoryList').empty();
                 data.forEach(function(entry){
                     entry.forEach(function(childrenEntry) {
-                        list = list + ' | ' + childrenEntry.element_content;
+                        list = list + ' | ' +  childrenEntry.element_content;
+                        Cat_id=childrenEntry.element_id;
                     });
+                    createElementLi("CategoryList");
+                    let lst_LI=document.getElementById("CategoryList").lastElementChild;
+                    let spn=lst_LI.getElementsByTagName("span");
+                    spn[0].innerHTML='<a onclick="editRow('+ Cat_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Cat_id +')"><i class="fa fa-trash-o"></i></a>' + list;
                     console.log(list);
-
-                    $('#categoryContent').text(list);
                     list='';
                 });
+
+
             }
         });
     }
