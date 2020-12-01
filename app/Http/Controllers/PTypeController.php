@@ -115,8 +115,8 @@ class PTypeController extends Controller
         foreach ($categories as $item) {
             $item->contents()->delete();
         }
+        $SelectedPType->categories()->delete();
         $SelectedPType->contents()->delete();
         $SelectedPType->delete();
-        $SelectedPType->categories()->delete();
     }
 }
