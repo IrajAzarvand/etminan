@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\PType;
 use Illuminate\Http\Request;
 use App\Models\LocaleContent;
@@ -108,9 +109,14 @@ class PTypeController extends Controller
     public function destroy($pType)
     {
         // $id = per_digit_conv($pType);
-        $Type = PType::find($pType);
-        $PTypeContent = LocaleContent::where(['section' => 'products', 'element_title' => 'ptype', 'element_id' => $pType]);
-        $PTypeContent->delete();
-        $Type->delete();
+
+        $SelectedPType = PType::find($pType);
+        $categories = Category::where('ptype_id', $pType)->get();
+        foreach ($categories as $item) {
+            $item->contents()->delete();
+        }
+        $SelectedPType->contents()->delete();
+        $SelectedPType->delete();
+        $SelectedPType->categories()->delete();
     }
 }
