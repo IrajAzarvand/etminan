@@ -38,6 +38,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Product.index',
                     'Icon' => 'fa fa-shopping-bag',
                 ],
+                [
+                    'SubMenu' => 'مدیریت کاتالوگ ها',
+                    'Url' => 'Catalog.index',
+                    'Icon' => 'fa fa-newspaper-o',
+                ],
 
                 [
                     'SubMenu' => 'مدیریت برچسب ها',

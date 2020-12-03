@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CeoMessageController;
 use App\Http\Controllers\CertificatesAndHonorsController;
@@ -45,3 +46,5 @@ Route::resource('LatestNews', LatestNewsController::class);
 Route::resource('Footer', FooterController::class);
 
 Route::resource('PType', PTypeController::class);
+
+Route::resource('Catalog', CatalogController::class);

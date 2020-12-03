@@ -17,8 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $product_ptypes = LocaleContent::where(['section' => 'products', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
         $product_categories = LocaleContent::where(['section' => 'products', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
-        return view('PageElements.Dashboard.Setting.Products', compact('product_categories'));
+        return view('PageElements.Dashboard.Setting.Products', compact('product_ptypes', 'product_categories'));
     }
 
     /**
