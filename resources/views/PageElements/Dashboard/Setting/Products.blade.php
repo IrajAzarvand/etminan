@@ -78,21 +78,55 @@
                 <div class="col-12">
                     <!-- Custom Tabs -->
                     <div class="card">
-                        <label>محتوای مطالب</label>
+                        <label>معرفی محصول</label>
 
                         <div class="card-header d-flex p-0">
                             <ul class="nav nav-pills ml-auto p-2">
                                 @foreach (Locales() as $item)
-                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#p_introduction_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
                                 @endforeach
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content">
                                 @foreach (Locales() as $item)
-                                <div class="tab-pane @if ($loop->first) active @endif" id="{{$item['locale']}}">
+                                <div class="tab-pane @if ($loop->first) active @endif" id="p_introduction_{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="{{$item['locale']}}" style="width: 100%"></textarea>
+                                        <textarea id="editor1" name="p_introduction_{{$item['locale']}}" style="width: 100%"></textarea>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- ./card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Custom Tabs -->
+                    <div class="card">
+                        <label>ارزش غذایی</label>
+
+                        <div class="card-header d-flex p-0">
+                            <ul class="nav nav-pills ml-auto p-2">
+                                @foreach (Locales() as $item)
+                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#nutritionalValue_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                @endforeach
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                @foreach (Locales() as $item)
+                                <div class="tab-pane @if ($loop->first) active @endif" id="nutritionalValue_{{$item['locale']}}">
+                                    <div class="mb-3">
+                                        <textarea id="editor1" name="nutritionalValue_{{$item['locale']}}" style="width: 100%"></textarea>
                                     </div>
                                 </div>
                                 @endforeach
