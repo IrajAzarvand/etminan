@@ -40,27 +40,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $Product = new Product;
-        $Product->cat_id = 1;
-        $Product->save();
+        dd($request);
+        // $Product = new Product;
+        // $Product->cat_id = 1;
+        // $Product->save();
 
-        $images = [];
-        $filename = '';
+        // $images = [];
+        // $filename = '';
 
-        if ($request->hasFile('product_images')) {
-            $count = 1;
-            foreach ($request->file('product_images') as $image) {
-                $uploaded = $image;
-                $filename = $Product->id . '_' . $count++ . '.' . $uploaded->getClientOriginalExtension();  //product.id_timestamps.extension
-                $uploaded->storeAs('public\Products\\' . $Product->id . '\images\\', $filename);
-                $images[] = $filename;
-            }
-        }
-        $image_list = serialize($images);
-        $Product->images = $image_list;
-        $Product->update();
-        return redirect('/Product');
+        // if ($request->hasFile('product_images')) {
+        //     $count = 1;
+        //     foreach ($request->file('product_images') as $image) {
+        //         $uploaded = $image;
+        //         $filename = $Product->id . '_' . $count++ . '.' . $uploaded->getClientOriginalExtension();  //product.id_timestamps.extension
+        //         $uploaded->storeAs('public\Products\\' . $Product->id . '\images\\', $filename);
+        //         $images[] = $filename;
+        //     }
+        // }
+        // $image_list = serialize($images);
+        // $Product->images = $image_list;
+        // $Product->update();
+        // return redirect('/Product');
     }
 
     /**
