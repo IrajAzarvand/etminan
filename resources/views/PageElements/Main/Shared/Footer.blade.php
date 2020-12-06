@@ -1,6 +1,6 @@
 <footer>
     @php
-    $Footer=collect($IndexContents)->where('section','footer');
+    $Footer=collect($SharedContents)->where('section','footer');
     foreach ($Footer as $key => $value) {
     if($value['element_title']=='address')
     {

@@ -19,6 +19,7 @@ use App\Http\Controllers\TagController;
 Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
+Route::get('/AllProducts', [MainNavController::class, 'AllProducts'])->name('AllProducts');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -28,7 +28,7 @@ class MainNavsTableSeeder extends Seeder
                 'content_en' => 'Products',
                 'content_ru' => 'Продукция',
                 'content_ar' => 'منتجات',
-                'route_name' => 'HomePage',
+                'route_name' => 'AllProducts',
                 'url' => null,
             ],
             [

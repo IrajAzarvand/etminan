@@ -17,7 +17,7 @@ $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element
         <div class="portfolio_strict row">
             <div class="col-sm-4 col-md-4">
                 <div class="portfolio_item wow fadeInUp"><a href="portfolio_item.html">
-                        <figure style="background-image:url({{ asset('Main/images/portfolio/b3.jpg') }})">
+                        <figure style="background-image:url({{ asset('storage/Main/Products/1/img.jpg') }})">
                             <figcaption>
                                 <div class="portfolio_description">
                                     <h3>پروژه کلین استارت</h3>

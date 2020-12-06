@@ -8306,7 +8306,7 @@ header.centered .menu_container>ul>li ul {
 
 .sticky_header .full_page_photo {
     position: fixed;
-    top: 5px;
+    top: 0px;
 }
 
 .sticky_header .full_page_photo .flexslider .flex-control-nav {
@@ -9112,7 +9112,6 @@ section.twitter_feed_wrapper {
     padding-bottom: 35px !important;
     background-color: #428bca;
     background-color: rgba(66, 139, 202, 0.7);
-    background-image: url('../images/GPlay.svg');
     position: relative;
     margin-top: 68px !important;
     text-align: center;

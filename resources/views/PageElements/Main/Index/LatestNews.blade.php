@@ -3,7 +3,7 @@ $LatestNews=collect($IndexContents)->where('section','latestnews');
 $NewsTitle=$LatestNews->where('element_title','news_title')->pluck('element_content');
 @endphp
 
-<section class="twitter_feed_wrapper skincolored_section">
+<section class="twitter_feed_wrapper skincolored_section" style="background-image:url({{ asset('storage/Main/Shared/GPlay.svg') }})">
     <div class="container">
         <div class="row">
             <div class="twitter_feed_icon wow fadeInDown"><a href="#"><i class="fa fa-star-o"></i></a></div>

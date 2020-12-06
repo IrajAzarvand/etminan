@@ -26,8 +26,11 @@
 
         @include('PageElements.Main.Shared.Header')
 
+        @if (Route::currentRouteName() == 'HomePage')
         @section('Slider')
         @show
+        @endif
+
 
         <div class="main">
             @section('content')

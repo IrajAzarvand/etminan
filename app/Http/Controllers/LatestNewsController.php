@@ -44,7 +44,7 @@ class LatestNewsController extends Controller
 
         foreach (Locales() as $item) {
             $Contents[] = new LocaleContent([
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'latestnews',
                 'element_id' => $element_id,
                 'locale' => $item['locale'],
@@ -52,7 +52,7 @@ class LatestNewsController extends Controller
                 'element_content' => $request->input($item['locale'] . '_title'),
             ]);
             $Contents[] = new LocaleContent([
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'latestnews',
                 'element_id' => $element_id,
                 'locale' => $item['locale'],

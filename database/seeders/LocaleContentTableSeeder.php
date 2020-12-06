@@ -65,7 +65,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'third catalog content',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'fa',
                 'element_id' => '0',
@@ -73,7 +73,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'جدیدترین محصولات',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'fa',
                 'element_id' => '0',
@@ -81,7 +81,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'بیشتر',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'en',
                 'element_id' => '0',
@@ -89,7 +89,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'New Products',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'en',
                 'element_id' => '0',
@@ -97,7 +97,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'More',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'ru',
                 'element_id' => '0',
@@ -105,7 +105,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'новые продукты',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'ru',
                 'element_id' => '0',
@@ -113,7 +113,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'Больше',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'ar',
                 'element_id' => '0',
@@ -121,13 +121,14 @@ class LocaleContentTableSeeder extends Seeder
                 'element_content' => 'منتجات جديدة',
             ],
             [
-                'page' => '',
+                'page' => 'welcome',
                 'section' => 'new_products',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'btn_title',
                 'element_content' => 'أكثر',
             ],
+            //footer
             [
                 'page' => '',
                 'section' => 'footer',
@@ -223,6 +224,39 @@ class LocaleContentTableSeeder extends Seeder
                 'element_id' => '1',
                 'element_title' => 'copyright',
                 'element_content' => 'جميع الحقوق محفوظة لشركة الاطمینان',
+            ],
+            //Products
+            [
+                'page' => 'products',
+                'section' => 'products',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'محصولات',
+            ],
+            [
+                'page' => 'products',
+                'section' => 'products',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Porducts',
+            ],
+            [
+                'page' => 'products',
+                'section' => 'products',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Товары',
+            ],
+            [
+                'page' => 'products',
+                'section' => 'products',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'منتجات',
             ],
 
         ];
