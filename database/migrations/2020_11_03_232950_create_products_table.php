@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('cat_id')->nullable();
 
-            $table->string('images')->nullable();
+            $table->longText('images')->nullable();
             $table->timestamps();
 
             $table->foreign('cat_id')->references('id')->on('categories')

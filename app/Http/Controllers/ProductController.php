@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\LocaleContent;
 use App\Models\Product;
-use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -17,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product_ptypes = LocaleContent::where(['section' => 'products', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
-        $product_categories = LocaleContent::where(['section' => 'products', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
+        $product_ptypes = LocaleContent::where(['section' => 'ptype', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
+        $product_categories = LocaleContent::where(['section' => 'category', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
         return view('PageElements.Dashboard.Setting.Products', compact('product_ptypes', 'product_categories'));
     }
 
@@ -40,7 +38,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
         $Product = new Product;
         $Product->save();
         $element_id = $Product->id;
@@ -97,9 +95,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($CatID)
     {
-        //
+        $result = Product::where('cat_id', $CatID)->with('contents')->get()->pluck('contents');
+        return $result;
     }
 
     /**
