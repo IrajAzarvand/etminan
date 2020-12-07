@@ -9,7 +9,7 @@ class PType extends Model
 
     public function contents()
     {
-        return $this->hasMany(LocaleContent::class, 'element_id')->where('section', 'products')->where('element_title', 'ptype');
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('page', 'products')->where('section', 'products')->where('element_title', 'ptype');
     }
 
 

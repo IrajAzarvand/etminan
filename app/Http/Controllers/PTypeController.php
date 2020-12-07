@@ -45,7 +45,7 @@ class PTypeController extends Controller
         $Contents = [];
         foreach (Locales() as $item) {
             $Contents[] = new LocaleContent([
-                'page' => '',
+                'page' => 'products',
                 'section' => 'products',
                 'element_id' => $element_id,
                 'locale' => $item['locale'],
@@ -94,7 +94,7 @@ class PTypeController extends Controller
         $PType = PType::find($request->input('PTypeId'));
 
         foreach (Locales() as $item) {
-            LocaleContent::where(['section' => 'products', 'element_title' => 'ptype', 'element_id' => $PType->id, 'locale' => $item['locale'],])
+            LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_title' => 'ptype', 'element_id' => $PType->id, 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
         }
         return redirect('/PType');

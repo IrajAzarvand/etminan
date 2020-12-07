@@ -40,27 +40,55 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
+        $Product = new Product;
+        $Product->save();
+        $element_id = $Product->id;
+        $Contents = [];
+        if ($request->p_introduction_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'products',
+                    'section' => 'products',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'p_introduction_' . $item['locale'],
+                    'element_content' => $request->input('p_introduction_' . $item['locale']),
+                ]);
+            }
+        }
 
-         $Product = new Product;
-         $Product->cat_id = 1;
-         $Product->save();
+        if ($request->nutritionalValue_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'products',
+                    'section' => 'products',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'nutritionalValue_' . $item['locale'],
+                    'element_content' => $request->input('nutritionalValue_' . $item['locale']),
+                ]);
+            }
+        }
 
-         $images = [];
-         $filename = '';
+        $NewProduct = Product::find($element_id);
+        $NewProduct->contents()->saveMany($Contents);
 
-         if ($request->hasFile('product_images')) {
-             $count = 1;
-             foreach ($request->file('product_images') as $image) {
-                 $uploaded = $image;
-                 $filename = $Product->id . '_' . $count++ . '.' . $uploaded->getClientOriginalExtension();  //product.id_timestamps.extension
-                 $uploaded->storeAs('public\Products\\' . $Product->id . '\images\\', $filename);
-                 $images[] = $filename;
-             }
-         }
-         $image_list = serialize($images);
-         $Product->images = $image_list;
-         $Product->update();
-         return redirect('/Product');
+        $NewProduct->cat_id = $request->input('category');
+        $images = [];
+        if ($request->hasFile('product_images')) {
+            $count = 0;
+            foreach ($request->file('product_images') as $image) {
+                $uploaded = $image;
+                $filename = $element_id . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Products\\' . $element_id . '\\', $filename);
+                $images[] = $filename;
+            }
+        }
+        $NewProduct->images = serialize($images); //for get array back use unserialize
+        $NewProduct->update();
+
+        return redirect('/Product');
     }
 
     /**

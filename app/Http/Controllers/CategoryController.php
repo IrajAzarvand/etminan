@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $Contents = [];
         foreach (Locales() as $item) {
             $Contents[] = new LocaleContent([
-                'page' => '',
+                'page' => 'products',
                 'section' => 'products',
                 'element_id' => $element_id,
                 'locale' => $item['locale'],
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         $Category = Category::find($request->input('CatId'));
 
         foreach (Locales() as $item) {
-            LocaleContent::where(['section' => 'products', 'element_title' => 'category', 'element_id' => $Category->id, 'locale' => $item['locale'],])
+            LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_title' => 'category', 'element_id' => $Category->id, 'locale' => $item['locale'],])
                 ->update(['element_content' => $request->input($item['locale'])]);
         }
         return redirect('/Category');
@@ -111,8 +111,7 @@ class CategoryController extends Controller
     {
         $id = per_digit_conv($category);
         $Category = Category::find($id);
-        $TagContent = LocaleContent::where(['section' => 'products', 'element_title' => 'category', 'element_id' => $id]);
-        $TagContent->delete();
+        $Category->contents()->delete();
         $Category->delete();
     }
 }
