@@ -2,17 +2,17 @@
 @section('PageTitle', 'تنظیمات محصولات')
 @section('ContentHeader', 'مدیریت محصولات')
 @section('content')
-
+@dd($Product)
 <div class="col-md-12">
     <div class="card card-info card-outline">
         <div class="card-header">
             <h3 class="card-title">
-                افزودن محصول جدید
+                مشاهده و ویرایش محصول
             </h3>
 
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Product.store') }}" method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{ route('Product.update') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- /error box -->
             <div class="mb3">
@@ -404,7 +404,7 @@ console.log(product);
 
             success: function (data) {
 
-
+                console.log(data);
             }
         });
     }

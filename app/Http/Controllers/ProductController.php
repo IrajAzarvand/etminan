@@ -134,4 +134,16 @@ class ProductController extends Controller
     {
         //
     }
+
+    /**
+     * Display the specified Product.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function showProduct($P_ID)
+    {
+        $Product = Product::where('id', $P_ID)->with('contents')->get();
+        return $Product;
+    }
 }
