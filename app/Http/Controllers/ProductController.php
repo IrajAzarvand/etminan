@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\LocaleContent;
 use App\Models\Product;
+use App\Models\PType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -38,7 +40,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request->p_introduction_fa);
         $Product = new Product;
         $Product->save();
         $element_id = $Product->id;
@@ -107,9 +109,18 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($product)
     {
-        //
+        $Selectedproduct = Product::where('id', $product)->with('contents')->first();
+        $product_ptypes = LocaleContent::where(['section' => 'ptype', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
+        $Selectedptype = Category::where('id', $Selectedproduct->cat_id)->value('ptype_id');
+        $ptype_categories = Category::where('ptype_id', $Selectedptype)->with('contents', function ($query) {
+            $query->where('locale', '=', 'fa')
+                ->pluck('element_content', 'element_id');
+        })->get()->toArray();
+        // dd('selected product', $Selectedproduct, 'product_ptypes', $product_ptypes, 'Selectedptype', $Selectedptype, 'ptype_categories', $ptype_categories);
+
+        return view('PageElements.Dashboard.Setting.ProductsViewEdit', compact('Selectedproduct', 'product_ptypes', 'Selectedptype', 'ptype_categories',));
     }
 
     /**
@@ -133,17 +144,5 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-    }
-
-    /**
-     * Display the specified Product.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function showProduct($P_ID)
-    {
-        $Product = Product::where('id', $P_ID)->with('contents')->get();
-        return $Product;
     }
 }

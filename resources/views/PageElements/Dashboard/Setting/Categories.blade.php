@@ -133,20 +133,20 @@
 
 <script>
     function deleteRow(r) {
-            let token = "{{ csrf_token() }}";
-                $.ajax({
-                type: 'DELETE',
-                url: '/Category/' + r,
-                data: {
-                _token: token,
-                r
-                },
-                success: function() {
-                location.reload();
-                }
-                });
+        let token = "{{ csrf_token() }}";
+        $.ajax({
+            type: 'DELETE',
+            url: '/Category/' + r,
+            data: {
+            _token: token,
+            r
+            },
+            success: function() {
+            location.reload();
+            }
+        });
 
-                }
+    }
 
 </script>
 

@@ -397,23 +397,29 @@
 
 <script>
     function viewEditProduct(product) {
-console.log(product);
-        $.ajax({
-            type: "GET",
-            url: '/showProduct/' + product,
-
-            success: function (data) {
-
-
-            }
-        });
+        window.location.href = "/Product/"+product+"/edit";
     }
 </script>
 
 
 
+<script>
+    function deleteProduct(product) {
+        let token = "{{ csrf_token() }}";
+        $.ajax({
+            type: 'DELETE',
+            url: '/Product/' + product,
+            data: {
+            _token: token,
+            product
+            },
+            success: function() {
+                location.reload();
+            }
+        });
 
-
+    }
+</script>
 
 
 @endsection

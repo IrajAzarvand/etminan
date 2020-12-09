@@ -2,7 +2,6 @@
 @section('PageTitle', 'تنظیمات محصولات')
 @section('ContentHeader', 'مدیریت محصولات')
 @section('content')
-@dd($Product)
 <div class="col-md-12">
     <div class="card card-info card-outline">
         <div class="card-header">
@@ -12,8 +11,9 @@
 
         </div>
         <!-- /.card-header -->
-        <form class="card-body" action="{{ route('Product.update') }}" method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{ route('Product.update',[$Selectedproduct->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PATCH')
             <!-- /error box -->
             <div class="mb3">
 
@@ -39,7 +39,7 @@
                             <select name="ptype" class="form-control select2" onchange="collectCategories(this)" style="width: 100%;">
                                 <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
                                 @foreach ($product_ptypes as $id=>$ptype)
-                                <option value="{{$id}}">{{$ptype}}</option>
+                                <option value="{{$id}}" @if($id==$Selectedptype) selected @endif>{{$ptype}}</option>
                                 @endforeach
                             </select>
                             <hr>
@@ -47,6 +47,9 @@
                             <div class="form-group">
                                 <select name="category" id="categories_list" class="form-control select2" style="width: 100%;">
                                     <option value="">یکی از دسته بندی های محصولات را انتخاب کنید</option>
+                                    @foreach ($ptype_categories as $key=>$value)
+                                    <option value="{{$value['id']}}" @if($value['id']==$Selectedproduct->cat_id) selected @endif>{{$value['contents']['0']['element_content']}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -92,7 +95,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="p_introduction_{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="p_introduction_{{$item['locale']}}" style="width: 100%" rows="10"></textarea>
+                                        <textarea id="editor1" name="p_introduction_{{$item['locale']}}" style="width: 100%" rows="10">@foreach ($Selectedproduct->contents as $content)@if($content['element_title']=='p_introduction_'.$item['locale']){!!  $content['element_content'] !!}@endif @endforeach</textarea>
                                     </div>
                                 </div>
                                 @endforeach
@@ -126,7 +129,7 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="nutritionalValue_{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="nutritionalValue_{{$item['locale']}}" style="width: 100%" rows="10"></textarea>
+                                        <textarea id="editor1" name="nutritionalValue_{{$item['locale']}}" style="width: 100%" rows="10">@foreach ($Selectedproduct->contents as $content)@if($content['element_title']=='nutritionalValue_'.$item['locale']){!!$content['element_content']!!}@endif @endforeach</textarea>
                                     </div>
                                 </div>
                                 @endforeach
@@ -144,113 +147,20 @@
 </div>
 <!-- /.card -->
 
-<!-- / =============================================================================== -->
-<!-- /view products list -->
-<div class="col-md-12">
-    <div class="card card-info card-outline">
-        <div class="card-header">
-            <h3 class="card-title">
-                مشاهده لیست محصولات
-            </h3>
-
-        </div>
-        <!-- /.card-header -->
-
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <i class="ion ion-clipboard mr-1"></i>
-                    لیست محصولات ثبت شده
-                </h3>
-
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-
-                <div class="box-body">
-                    <div class="row">
-                        <div class="form-group col-4">
-                            <label>انتخاب نوع و دسته بندی محصول جدید</label>
-                            <select name="ptypeList" class="form-control select2" onchange="collectAllCategories(this)" style="width: 100%;">
-                                <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
-                                @foreach ($product_ptypes as $id=>$ptype)
-                                <option value="{{$id}}">{{$ptype}}</option>
-                                @endforeach
-                            </select>
-                            <hr>
-                            {{-- ======================================= --}}
-                            <div class="form-group">
-                                <select name="categoryList" id="ShowcategoriesList" class="form-control select2" onchange="showCategoryProducts(this)" style="width: 100%;">
-                                    <option value="">یکی از دسته بندی های محصولات را انتخاب کنید</option>
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <hr>
-
-                {{-- <ul class="todo-list" id="ProductsList">
-                    {{-- category list shows here --}}
-                {{--</ul> --}}
-
-
-
-
-
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">جدول محصولات</h3>
-
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover" id="ProductsTable">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>کد محصول</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                    <tr id="ProductsList">
-
-                                    </tr>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                </div><!-- /.row -->
-            </div>
-            <!-- /.card-body -->
-
-        </div>
-
-
-    </div>
-</div>
-<!-- /.card -->
-
-
-
-
-
 
 <script>
     function collectCategories(ptype)
 {
-    let selectedPType=ptype.value;
 
+    let selectedPType=ptype.value;
+    let selectedCategory=@JSON($Selectedproduct->cat_id);
 
         $.ajax({
             type: "GET",
             url: '/Category/' + selectedPType,
 
             success: function (data) {
-
+console.log(data);
                 $('#categories_list').empty();
                 data.forEach(function(entry){
                 let list='';
@@ -262,158 +172,12 @@
                     });
                         let select = document.getElementById("categories_list");
                         select.options[select.options.length] = new Option(list, Cat_id);
+                        $("#categories_list option[value='" + selectedCategory + "']").attr("selected","selected");
                 });
             }
         });
 }
 </script>
-
-
-
-<script>
-    function showCategory() {
-        let ptypeId=document.getElementById('ptypeId').value;
-        $.ajax({
-            type: "GET",
-            url: '/Category/' + ptypeId,
-
-            success: function (data) {
-
-                // create category list
-                function createElementLi(obj) {
-                    let ul_obj = document.getElementById(obj);
-
-                    // Create li
-                    let li_obj = document.createElement("li");
-                    ul_obj.appendChild(li_obj);
-
-                    //create span inside li
-                    let last_li = ul_obj.lastElementChild;
-                    let span_obj = document.createElement("span");
-                    span_obj.setAttribute("class", "text");
-                    last_li.appendChild(span_obj);
-                }
-
-
-                //show content
-                let list='';
-                let Cat_id='';
-                $('#CategoryList').empty();
-                data.forEach(function(entry){
-                    entry.forEach(function(childrenEntry) {
-                        list = list + ' (' +  childrenEntry.element_content + ') ';
-                        Cat_id=childrenEntry.element_id;
-                    });
-                    createElementLi("CategoryList");
-                    let lst_LI=document.getElementById("CategoryList").lastElementChild;
-                    let spn=lst_LI.getElementsByTagName("span");
-                    spn[0].innerHTML='<a onclick="editRow('+ Cat_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Cat_id +')"><i class="fa fa-trash-o"></i></a>' + list;
-                    console.log(list);
-                    list='';
-                });
-
-
-            }
-        });
-    }
-</script>
-
-
-
-
-
-{{-- ====================for show all products=============== --}}
-<script>
-    function collectAllCategories(ptype)
-{
-    let selectedPType=ptype.value;
-        $.ajax({
-            type: "GET",
-            url: '/Category/' + selectedPType,
-
-            success: function (data) {
-
-                $('#ShowcategoriesList').empty();
-                document.getElementById("ShowcategoriesList").options[0] = new Option("یکی از دسته بندی های محصولات را انتخاب کنید", "disabled");
-                data.forEach(function(entry){
-                let list='';
-                let Cat_id='';
-                    entry.forEach(function(childrenEntry) {
-                        list = list + ' (' +  childrenEntry.element_content + ') ';
-                        Cat_id=childrenEntry.element_id;
-
-                    });
-                        let select = document.getElementById("ShowcategoriesList");
-                        select.options[select.options.length] = new Option(list, Cat_id);
-                });
-            }
-        });
-}
-</script>
-
-<script>
-    function showCategoryProducts(category) {
-        let selectedCategory=category.value;
-
-        $.ajax({
-            type: "GET",
-            url: '/Product/' + selectedCategory,
-
-            success: function (data) {
-                //show content
-                let Product_id='';
-                let count=0;
-                let table = document.getElementById("ProductsTable");
-                $('#ProductsTable').empty();
-                let row = table.insertRow();
-                row.insertCell(0).innerHTML= "#";
-                row.insertCell(1).innerHTML= "کد محصول";
-                row.insertCell(2).innerHTML= "عملیات";
-
-                data.forEach(function(entry){
-                    count++;
-                    entry.forEach(function(childrenEntry) {
-                        Product_id = childrenEntry.element_id;
-
-                    });
-
-                    let rowCount = table.rows.length;
-                    let row = table.insertRow(rowCount);
-
-                    row.insertCell(0).innerHTML= count;
-                    row.insertCell(1).innerHTML= Product_id;
-
-                    row.insertCell(2).innerHTML= '<button type="button" class="btn btn-primary"><a onclick="viewEditProduct('+ Product_id +')"><i class="fa fa-eye"></i></a></button> &nbsp <button type="button" class="btn btn-danger"><a onclick="deleteProduct('+ Product_id +')"><i class="fa fa-trash-o"></i></a></button>';
-                    //   '<a onclick="editRow('+ Product_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Product_id +')"><i class="fa fa-trash-o"></i></a>';
-                });
-
-
-            }
-        });
-    }
-</script>
-
-
-
-<script>
-    function viewEditProduct(product) {
-console.log(product);
-        $.ajax({
-            type: "GET",
-            url: '/showProduct/' + product,
-
-            success: function (data) {
-
-                console.log(data);
-            }
-        });
-    }
-</script>
-
-
-
-
-
 
 
 @endsection
