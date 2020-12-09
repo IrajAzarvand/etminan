@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>انتخاب نوع و دسته بندی محصول جدید</label>
+                            <label>انتخاب نوع و دسته بندی محصول</label>
                             <select name="ptype" class="form-control select2" onchange="collectCategories(this)" style="width: 100%;">
                                 <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
                                 @foreach ($product_ptypes as $id=>$ptype)
@@ -77,6 +77,25 @@
             </div>
             <hr>
 
+            {{-- show related images of product  --}}
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label>تصاویر مربوط به محصول</label>
+                        <br>
+                        @foreach($ProductImages as $image)
+                        {{-- <div class="col-3"> --}}
+                        <img class="col-3" style="padding-bottom: 10px;" src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}" alt="Photo">
+                        {{-- </div> --}}
+                        @endforeach
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            {{-- image section end --}}
+
             <div class="row">
                 <div class="col-12">
                     <!-- Custom Tabs -->
@@ -95,7 +114,11 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="p_introduction_{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="p_introduction_{{$item['locale']}}" style="width: 100%" rows="10">@foreach ($Selectedproduct->contents as $content)@if($content['element_title']=='p_introduction_'.$item['locale']){!!  $content['element_content'] !!}@endif @endforeach</textarea>
+                                        @foreach ($Selectedproduct->contents as $content)
+                                        @if($content['element_title']=='p_introduction_'.$item['locale'])
+                                        <textarea id="editor1" name="p_introduction_{{$item['locale']}}" style="width: 100%" rows="10">{{$content['element_content']}}</textarea>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                 @endforeach
@@ -129,7 +152,11 @@
                                 @foreach (Locales() as $item)
                                 <div class="tab-pane @if ($loop->first) active @endif" id="nutritionalValue_{{$item['locale']}}">
                                     <div class="mb-3">
-                                        <textarea id="editor1" name="nutritionalValue_{{$item['locale']}}" style="width: 100%" rows="10">@foreach ($Selectedproduct->contents as $content)@if($content['element_title']=='nutritionalValue_'.$item['locale']){!!$content['element_content']!!}@endif @endforeach</textarea>
+                                        @foreach($Selectedproduct->contents as $content)
+                                        @if($content['element_title']=='nutritionalValue_'.$item['locale'])
+                                        <textarea id="editor1" name="nutritionalValue_{{$item['locale']}}" style="width: 100%" rows="10">{{$content['element_content']}}</textarea>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                 @endforeach
@@ -142,6 +169,8 @@
                 <!-- /.col -->
             </div>
             <button type="submit" class="btn btn-primary">ذخیره</button>
+            &nbsp;
+            <button type="button" onclick="returnBack()" class="btn btn-default">بازگشت</button>
         </form>
     </div>
 </div>
@@ -179,5 +208,11 @@ console.log(data);
 }
 </script>
 
+<script>
+    function returnBack()
+    {
+        window.location.href="/Product";
+    }
+</script>
 
 @endsection

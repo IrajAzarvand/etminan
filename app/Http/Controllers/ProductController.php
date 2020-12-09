@@ -40,7 +40,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->p_introduction_fa);
         $Product = new Product;
         $Product->save();
         $element_id = $Product->id;
@@ -118,9 +117,9 @@ class ProductController extends Controller
             $query->where('locale', '=', 'fa')
                 ->pluck('element_content', 'element_id');
         })->get()->toArray();
-        // dd('selected product', $Selectedproduct, 'product_ptypes', $product_ptypes, 'Selectedptype', $Selectedptype, 'ptype_categories', $ptype_categories);
 
-        return view('PageElements.Dashboard.Setting.ProductsViewEdit', compact('Selectedproduct', 'product_ptypes', 'Selectedptype', 'ptype_categories',));
+        $ProductImages = unserialize($Selectedproduct->images);
+        return view('PageElements.Dashboard.Setting.ProductsViewEdit', compact('Selectedproduct', 'product_ptypes', 'Selectedptype', 'ptype_categories', 'ProductImages'));
     }
 
     /**
