@@ -15,6 +15,9 @@ $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element
     <div class="container">
         <h2 class="section_header fancy centered">{{ $SectionTitle }}</h2>
         <div class="portfolio_strict row">
+
+
+
             <div class="col-sm-4 col-md-4">
                 <div class="portfolio_item wow fadeInUp"><a href="portfolio_item.html">
                         <figure style="background-image:url({{ asset('storage/Main/Products/1/img.jpg') }})">
@@ -28,6 +31,9 @@ $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element
                         </figure>
                     </a></div>
             </div>
+
+
+
             <div class="col-sm-4 col-md-4">
                 <div class="portfolio_item wow fadeInUp"><a href="portfolio_item.html">
                         <figure style="background-image:url({{ asset('Main/images/portfolio/a4.jpg') }})">
@@ -41,6 +47,9 @@ $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element
                         </figure>
                     </a></div>
             </div>
+
+
+
             <div class="col-sm-4 col-md-4">
                 <div class="portfolio_item wow fadeInUp"><a href="portfolio_item.html">
                         <figure style="background-image:url({{ asset('Main/images/portfolio/t5.jpg') }})">
@@ -54,6 +63,9 @@ $BtnNewProducts=$NewProducts->where('element_title','btn_title')->pluck('element
                         </figure>
                     </a></div>
             </div>
+
+
+
         </div>
         <div class="centered_button"><a class="btn btn-primary" href="portfolio.html">{{ $BtnNewProducts }}</a></div>
     </div>

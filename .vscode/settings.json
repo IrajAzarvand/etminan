@@ -42,4 +42,5 @@
     "editor.snippetSuggestions": "bottom",
     "php.suggest.basic": false,
     "artisan.maxBuffer": 304800,
+    "files.autoSave": "afterDelay",
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 
@@ -38,6 +40,26 @@ class MainNavController extends Controller
             $Slider[] = $item;
         }
 
+
+        //get last 3 item from db to show in index page
+        $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
+
+        //get category related to selected new products
+        $NewPrCategory = [];
+        foreach ($NewPr as $product) {
+            $NewPrCategory[] = Category::where('id', $product->cat_id)->with('contents', function ($query) {
+                $query->pluck('element_content');
+            })->get()->toArray('contents');
+        }
+
+        $NewProduct = [];
+        foreach($NewPr as $item)
+        {
+            
+        }
+
+
+        dd($NewPr, $NewPrCategory);
         return view('welcome', compact('SharedContents', 'IndexContents', 'Slider'));
     }
 
