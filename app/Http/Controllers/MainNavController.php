@@ -49,17 +49,19 @@ class MainNavController extends Controller
         foreach ($NewPr as $product) {
             $NewPrCategory[] = Category::where('id', $product->cat_id)->with('contents', function ($query) {
                 $query->pluck('element_content');
-            })->get()->toArray('contents');
+            })->get();
         }
 
         $NewProduct = [];
-        foreach($NewPr as $item)
-        {
-            
+        $P_Images=[];
+        foreach ($NewPr as $item) {
+            $P_Images = unserialize($item->images);
+            $NewProduct[]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
+
         }
 
 
-        dd($NewPr, $NewPrCategory);
+        dd($NewPr, $NewPrCategory,$NewProduct);
         return view('welcome', compact('SharedContents', 'IndexContents', 'Slider'));
     }
 
