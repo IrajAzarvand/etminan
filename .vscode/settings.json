@@ -43,4 +43,5 @@
     "php.suggest.basic": false,
     "artisan.maxBuffer": 304800,
     "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
 }

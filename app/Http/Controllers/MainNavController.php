@@ -41,7 +41,7 @@ class MainNavController extends Controller
         }
 
 
-        //get last 3 item from db to show in index page
+        //get last 3 item of products from db to show in index page
         $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
 
         //get category related to selected new products
@@ -52,17 +52,21 @@ class MainNavController extends Controller
             })->get();
         }
 
-        $NewProduct = [];
-        $P_Images=[];
-        foreach ($NewPr as $item) {
-            $P_Images = unserialize($item->images);
-            $NewProduct[]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
+        $NewProducts = [];
+        $P_Images = [];
 
+        //collect first image of each product and put it in array
+        foreach ($NewPr as $key => $item) {
+            $P_Images = unserialize($item->images);
+            $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
+            $NewProducts[$key]['title_fa'] =  $NewPrCategory[$key][0]->contents['0']['element_content'];
+            $NewProducts[$key]['title_en'] =  $NewPrCategory[$key][0]->contents['1']['element_content'];
+            $NewProducts[$key]['title_ru'] =  $NewPrCategory[$key][0]->contents['2']['element_content'];
+            $NewProducts[$key]['title_ar'] =  $NewPrCategory[$key][0]->contents['3']['element_content'];
         }
 
 
-        dd($NewPr, $NewPrCategory,$NewProduct);
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider','NewProducts'));
     }
 
 
