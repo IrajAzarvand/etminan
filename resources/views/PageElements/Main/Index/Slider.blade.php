@@ -3,15 +3,15 @@
         <ul class="slides">
             @foreach ($Slider as $item)
 
-                <li class="item" style="background-image: url({{ asset('storage/Sliders/' . $item['image']) }})">
-                    <div class="container">
-                        <div class="carousel-caption animated bounceInUp">
-                            <h1>
-                                {{ $item['element_content'] }}
-                            </h1>
-                        </div>
+            <li class="item" style="background-image: url({{ $item['image'] }})">
+                <div class="container">
+                    <div class="carousel-caption animated bounceInUp">
+                        <h1>
+                            {{ $item['element_content'] }}
+                        </h1>
                     </div>
-                </li>
+                </div>
+            </li>
 
             @endforeach
         </ul>

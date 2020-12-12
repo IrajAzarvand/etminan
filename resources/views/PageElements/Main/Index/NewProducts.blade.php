@@ -1,11 +1,3 @@
-@php
-$NewProductsSection=collect($IndexContents)->where('section','new_products');
-$SectionTitle=$NewProductsSection->where('element_title','section_title')->pluck('element_content')->first();
-$BtnNewProducts=$NewProductsSection->where('element_title','btn_title')->pluck('element_content')->first();
-$NewProducts
-@endphp
-
-
 <section class="portfolio_teasers_wrapper">
     <div class="container triangles-of-section">
         <div class="triangle-up-left"></div>

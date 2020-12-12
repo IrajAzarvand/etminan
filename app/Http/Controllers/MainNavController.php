@@ -29,6 +29,8 @@ class MainNavController extends Controller
         $IndexContents = collect(AllContentOfLocale())
             ->whereIn('page', array('welcome')) // 'welcome'=>contents for home page only
             ->all();
+
+        //*************************** SLIDER ********************************************************************* */
         $SliderItems = collect($IndexContents)
             ->whereIn('section', array('slider'))
             ->all();
@@ -36,14 +38,20 @@ class MainNavController extends Controller
         $Slider = [];
         foreach ($SliderItems as $item) {
 
-            $item['image'] = Slider::where('id', $item['element_id'])->value('image');
+            $item['image'] = asset('storage/Main/Sliders/' . Slider::where('id', $item['element_id'])->value('image'));
             $Slider[] = $item;
         }
 
 
+        //************************** NEW PRODUCTS ***************************************************************** */
+
+        $NewProductsSection = collect($IndexContents)->where('section', 'new_products');
+        $SectionTitle = $NewProductsSection->where('element_title', 'section_title')->pluck('element_content')->first();
+        $BtnNewProducts = $NewProductsSection->where('element_title', 'btn_title')->pluck('element_content')->first();
+
+
         //get last 3 item of products from db to show in index page
         $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
-
         //get category related to selected new products
         $NewPrCategory = [];
         foreach ($NewPr as $product) {
@@ -51,10 +59,8 @@ class MainNavController extends Controller
                 $query->pluck('element_content');
             })->get();
         }
-
         $NewProducts = [];
         $P_Images = [];
-
         //collect first image of each product and put it in array
         foreach ($NewPr as $key => $item) {
             $P_Images = unserialize($item->images);
@@ -65,8 +71,10 @@ class MainNavController extends Controller
             $NewProducts[$key]['title_ar'] =  $NewPrCategory[$key][0]->contents['3']['element_content'];
         }
 
+        //**************************       ***************************************************************** */
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider','NewProducts'));
+
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts'));
     }
 
 

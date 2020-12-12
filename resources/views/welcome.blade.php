@@ -7,6 +7,6 @@
 @section('content')
 @include('PageElements.Main.Index.NewProducts')
 @include('PageElements.Main.Index.Catalogues')
-@include('PageElements.Main.Index.CallToAction')
+@include('PageElements.Main.Index.Certificates')
 @include('PageElements.Main.Index.LatestNews')
 @endsection

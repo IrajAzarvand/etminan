@@ -98,7 +98,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <img class="img-fluid pad" src="/storage/Sliders/{{$EditSlider->image}}" alt="Photo">
+            <img class="img-fluid pad" src="/storage/Main/Sliders/{{$EditSlider->image}}" alt="Photo">
         </div>
         <!-- /.card-body -->
     </div>

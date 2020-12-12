@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\LocaleContent;
 use App\Models\Slider;
 use Illuminate\Http\Request;
-use App\Helpers;
 
 class SliderController extends Controller
 {
@@ -49,7 +48,7 @@ class SliderController extends Controller
         if ($request->hasFile('SliderImage')) {
             $uploaded = $request->file('SliderImage');
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-            $uploaded->storeAs('public\Sliders\\', $filename);
+            $uploaded->storeAs('public\Main\Sliders\\', $filename);
         }
 
         $Slider->image = $filename;
@@ -108,12 +107,12 @@ class SliderController extends Controller
         $filename = $request->input('OldSliderImage');
         if ($request->hasFile('SliderImage')) {
             //remove previous file
-            $filename = ('storage/Sliders/' . $filename);
+            $filename = ('storage/Main/Sliders/' . $filename);
             unlink($filename);
             //store new file
             $uploaded = $request->file('SliderImage');
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
-            $uploaded->storeAs('public\Sliders\\', $filename);
+            $uploaded->storeAs('public\Main\Sliders\\', $filename);
         }
 
 
@@ -139,7 +138,7 @@ class SliderController extends Controller
         $id = per_digit_conv($slider);
         $Slider = Slider::find($id);
         $SliderContent = LocaleContent::where(['section' => 'slider', 'element_id' => $id]);
-        $filename = ('storage/Sliders/' . $Slider['image']);
+        $filename = ('storage/Main/Sliders/' . $Slider['image']);
         unlink($filename);
         $SliderContent->delete();
         $Slider->delete();
