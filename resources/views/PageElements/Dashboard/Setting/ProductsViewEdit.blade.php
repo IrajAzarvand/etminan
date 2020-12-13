@@ -15,6 +15,8 @@
             @csrf
             @method('PATCH')
             <!-- /error box -->
+
+            <input type="hidden" name="ProductId" value="{{$Selectedproduct->id}}">
             <div class="mb3">
 
 
@@ -82,11 +84,11 @@
             <div class="box-body">
                 <div class="row">
                     <div class="form-group">
-                        <label>تصاویر مربوط به محصول</label>
+                        <label>تصاویر مربوط به محصول <span style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
                         <br>
                         @foreach($ProductImages as $image)
                         {{-- <div class="col-3"> --}}
-                        <img class="col-3" style="padding-bottom: 10px;" src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}" alt="Photo">
+                        <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$image]) }}"><img class="col-3" style="padding-bottom: 10px;" src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}" alt="Photo"></a>
                         {{-- </div> --}}
                         @endforeach
                         <br>

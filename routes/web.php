@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('Slider', SliderController::class);
 
+Route::get('/Product/{ProductId}/{productImage}/delete',[ProductController::class,'ProductImgRemove'])->name('ProductImageRemove');
 Route::resource('Product', ProductController::class);
 
 Route::resource('History', HistoryController::class);

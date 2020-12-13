@@ -15,7 +15,21 @@ class MainNavController extends Controller
         $SharedContents = collect(AllContentOfLocale())
             ->whereIn('page', array('')) //''=>contents for all pages(menus, footer, ...)
             ->all();
-        return $SharedContents;
+
+
+        $Footer = collect($SharedContents)->where('section', 'footer');
+        foreach ($Footer as $key => $value) {
+            if ($value['element_title'] == 'address') {
+                $Address = $value['element_content'];
+            } elseif ($value['element_title'] == 'copyright') {
+                $CopyRight = $value['element_content'];
+            } elseif ($value['element_title'] == 'section_title') {
+                $SectionTitle = $value['element_content'];
+            }
+        }
+        return [$SectionTitle, $Address,$CopyRight];
+
+        // return $SharedContents;
     }
 
     /**
@@ -71,10 +85,15 @@ class MainNavController extends Controller
             $NewProducts[$key]['title_ar'] =  $NewPrCategory[$key][0]->contents['3']['element_content'];
         }
 
+        //**************************  LATEST NEWS *********************************************************** */
+        $LatestNews = collect($IndexContents)->where('section', 'latestnews');
+        $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
+
+
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle'));
     }
 
 

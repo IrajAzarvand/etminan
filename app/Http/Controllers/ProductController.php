@@ -84,7 +84,7 @@ class ProductController extends Controller
                 $images[] = $filename;
             }
         }
-        $NewProduct->images = serialize($images); //for get array back use unserialize
+        $NewProduct->images = serialize($images);
         $NewProduct->update();
 
         return redirect('/Product');
@@ -129,9 +129,81 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $element_id = $request->input('ProductId');
+        $SelectedProduct = Product::where('id', $element_id)->with('contents')->first();
+        // dd($SelectedProduct);
+
+
+
+        $ProductImages = unserialize($SelectedProduct->images);
+        // $images = [];
+        if ($request->hasFile('product_images')) {
+            $count = 0;
+            foreach ($request->file('product_images') as $image) {
+                $uploaded = $image;
+                $filename = $element_id . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Products\\' . $element_id . '\\', $filename);
+                $ProductImages[] = $filename;
+            }
+        }
+        $SelectedProduct->images = serialize($ProductImages);
+
+        $Contents = [];
+        if ($request->p_introduction_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'products',
+                    'section' => 'products',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'p_introduction_' . $item['locale'],
+                    'element_content' => $request->input('p_introduction_' . $item['locale']),
+                ]);
+            }
+        }
+
+        if ($request->nutritionalValue_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'products',
+                    'section' => 'products',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'nutritionalValue_' . $item['locale'],
+                    'element_content' => $request->input('nutritionalValue_' . $item['locale']),
+                ]);
+            }
+        }
+
+
+
+        foreach (Locales() as $item) {
+            $SelectedProduct->contents()->where('element_id', $element_id)
+                ->update(
+                    [
+                        'page' => $Contents['page'],
+                        'section' => $Contents['section'],
+                        'element_id' => $Contents['element_id'],
+                        'locale' => $Contents['locale'],
+                        'element_title' => $Contents['element_title'],
+                        'element_content' => $Contents['element_content'],
+                    ],
+                );
+        }
+
+
+        // $this->resources()->wherePivot('another_id', 1)
+        //           ->updateExistingPivot($resource_id, array(
+        //                 'value' => $value,
+        //                 'updated_at' => new DateTime,
+        //             ));
+
+        $SelectedProduct->update();
+
+
+        return redirect('/Product');
     }
 
     /**
@@ -143,5 +215,23 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function ProductImgRemove($ProductId, $productImage)
+    {
+        $Selectedproduct = Product::where('id', $ProductId)->first();
+        $ProductImages = unserialize($Selectedproduct->images);
+        $filename = ('storage/Main/Products/' . $ProductId . '/' . $productImage);
+        unlink($filename); //delete file
+        $ProductImages = serialize(array_diff($ProductImages, array($productImage))); //remove item from image array
+        $Selectedproduct->update(['images' => $ProductImages]);
+        return back();
     }
 }

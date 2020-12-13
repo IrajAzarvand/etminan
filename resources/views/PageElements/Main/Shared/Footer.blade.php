@@ -1,31 +1,14 @@
 <footer>
-    @php
-    $Footer=collect($SharedContents)->where('section','footer');
-    foreach ($Footer as $key => $value) {
-    if($value['element_title']=='address')
-    {
-    $Address= $value['element_content'];
-    }
-    elseif($value['element_title']=='copyright')
-    {
-    $CopyRight= $value['element_content'];
-    }
-    elseif($value['element_title']=='section_title')
-    {
-    $SectionTitle= $value['element_content'];
-    }
-    }
-
-
-    @endphp
     <section class="footer_teasers_wrapper dark_section">
         <div class="container">
             <div class="row">
 
                 <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
-                    <h3>{{$SectionTitle}}</h3>
+                    {{-- section title --}}
+                    <h3>{{$SharedContents[0]}}</h3>
 
-                    <p>{{$Address}}</p>
+                    {{-- address --}}
+                    <p>{{$SharedContents[1]}}</p>
                 </div>
                 <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     <p><i class="fa fa-envelope"></i> info@hajabdollah.com</p>
@@ -49,7 +32,8 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-md-4">{{$CopyRight}}</div>
+                {{-- copyright --}}
+                <div class="col-sm-4 col-md-4">{{$SharedContents[2]}}</div>
                 <div class="col-sm-4 col-md-4"></div>
             </div>
         </div>
