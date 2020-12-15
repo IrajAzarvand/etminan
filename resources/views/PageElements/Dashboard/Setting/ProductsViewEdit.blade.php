@@ -37,8 +37,8 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>انتخاب نوع و دسته بندی محصول</label>
-                            <select name="ptype" class="form-control select2" onchange="collectCategories(this)" style="width: 100%;">
+                            <label> نوع و دسته بندی محصول</label>
+                            <select name="ptype" class="form-control select2" onchange="collectCategories(this)" disabled style="width: 100%;">
                                 <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
                                 @foreach ($product_ptypes as $id=>$ptype)
                                 <option value="{{$id}}" @if($id==$Selectedptype) selected @endif>{{$ptype}}</option>
@@ -97,6 +97,43 @@
             </div>
 
             {{-- image section end --}}
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Custom Tabs -->
+                    <div class="card">
+                        <label>نام محصول</label>
+
+                        <div class="card-header d-flex p-0">
+                            <ul class="nav nav-pills ml-auto p-2">
+                                @foreach (Locales() as $item)
+                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#p_name_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                @endforeach
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                @foreach (Locales() as $item)
+                                <div class="tab-pane @if ($loop->first) active @endif" id="p_name_{{$item['locale']}}">
+                                    <div class="mb-3">
+                                        @foreach ($Selectedproduct->contents as $content)
+                                        @if($content['element_title']=='p_name_'.$item['locale'])
+                                        <textarea id="editor1" name="p_name_{{$item['locale']}}" style="width: 100%">{{$content['element_content']}}</textarea>
+                                        @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- ./card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
 
             <div class="row">
                 <div class="col-12">
@@ -164,6 +201,7 @@
                                 @endforeach
                             </div>
                             <!-- /.tab-content -->
+
                         </div><!-- /.card-body -->
                     </div>
                     <!-- ./card -->

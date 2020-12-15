@@ -78,6 +78,38 @@
                 <div class="col-12">
                     <!-- Custom Tabs -->
                     <div class="card">
+                        <label>نام محصول</label>
+
+                        <div class="card-header d-flex p-0">
+                            <ul class="nav nav-pills ml-auto p-2">
+                                @foreach (Locales() as $item)
+                                <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#p_name_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                @endforeach
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                @foreach (Locales() as $item)
+                                <div class="tab-pane @if ($loop->first) active @endif" id="p_name_{{$item['locale']}}">
+                                    <div class="mb-3">
+                                        <textarea id="editor1" name="p_name_{{$item['locale']}}" style="width: 100%"></textarea>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- ./card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Custom Tabs -->
+                    <div class="card">
                         <label>معرفی محصول</label>
 
                         <div class="card-header d-flex p-0">
@@ -189,12 +221,6 @@
                     </div>
                 </div>
                 <hr>
-
-                {{-- <ul class="todo-list" id="ProductsList">
-                    {{-- category list shows here --}}
-                {{--</ul> --}}
-
-
 
 
 
@@ -361,7 +387,9 @@
 
             success: function (data) {
                 //show content
+                // console.log(data);
                 let Product_id='';
+                let Product_name='';
                 let count=0;
                 let table = document.getElementById("ProductsTable");
                 $('#ProductsTable').empty();
@@ -374,14 +402,16 @@
                     count++;
                     entry.forEach(function(childrenEntry) {
                         Product_id = childrenEntry.element_id;
+                        Product_name = childrenEntry[0].element_content;
 
                     });
+                    console.log(Product_name);
 
                     let rowCount = table.rows.length;
                     let row = table.insertRow(rowCount);
 
                     row.insertCell(0).innerHTML= count;
-                    row.insertCell(1).innerHTML= Product_id;
+                    row.insertCell(1).innerHTML= Product_name;
 
                     row.insertCell(2).innerHTML= '<button type="button" class="btn btn-primary"><a onclick="viewEditProduct('+ Product_id +')"><i class="fa fa-eye"></i></a></button> &nbsp <button type="button" class="btn btn-danger"><a onclick="deleteProduct('+ Product_id +')"><i class="fa fa-trash-o"></i></a></button>';
                     //   '<a onclick="editRow('+ Product_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Product_id +')"><i class="fa fa-trash-o"></i></a>';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Support\Facades\App;
@@ -27,7 +28,7 @@ class MainNavController extends Controller
                 $SectionTitle = $value['element_content'];
             }
         }
-        return [$SectionTitle, $Address,$CopyRight];
+        return [$SectionTitle, $Address, $CopyRight];
 
         // return $SharedContents;
     }
@@ -66,23 +67,32 @@ class MainNavController extends Controller
 
         //get last 3 item of products from db to show in index page
         $NewPr = Product::orderBy('id', 'desc')->take(3)->get();
-        //get category related to selected new products
-        $NewPrCategory = [];
-        foreach ($NewPr as $product) {
-            $NewPrCategory[] = Category::where('id', $product->cat_id)->with('contents', function ($query) {
-                $query->pluck('element_content');
-            })->get();
+
+        //get product name
+        $NewPrName = [];
+        foreach ($NewPr as $key => $pr) {
+            foreach (Locales() as $item) {
+                $NewPrName[$key][$item['locale']] = LocaleContent::where(['page' => 'products', 'section' => 'products', 'element_id' => $pr->id, 'locale' => $item['locale'], 'element_title' => 'p_name_' . $item['locale']])->pluck('element_content')[0];
+            }
         }
+
+        //get category related to selected new products
+        // $NewPrCategory = [];
+        // foreach ($NewPr as $product) {
+        //     $NewPrCategory[] = Category::where('id', $product->cat_id)->with('contents', function ($query) {
+        //         $query->pluck('element_content');
+        //     })->get();
+        // }
         $NewProducts = [];
         $P_Images = [];
         //collect first image of each product and put it in array
         foreach ($NewPr as $key => $item) {
             $P_Images = unserialize($item->images);
             $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
-            $NewProducts[$key]['title_fa'] =  $NewPrCategory[$key][0]->contents['0']['element_content'];
-            $NewProducts[$key]['title_en'] =  $NewPrCategory[$key][0]->contents['1']['element_content'];
-            $NewProducts[$key]['title_ru'] =  $NewPrCategory[$key][0]->contents['2']['element_content'];
-            $NewProducts[$key]['title_ar'] =  $NewPrCategory[$key][0]->contents['3']['element_content'];
+            $NewProducts[$key]['title_fa'] =  $NewPrName[$key]['fa'];
+            $NewProducts[$key]['title_en'] =  $NewPrName[$key]['en'];
+            $NewProducts[$key]['title_ru'] =  $NewPrName[$key]['ru'];
+            $NewProducts[$key]['title_ar'] =  $NewPrName[$key]['ar'];
         }
 
         //**************************  LATEST NEWS *********************************************************** */
