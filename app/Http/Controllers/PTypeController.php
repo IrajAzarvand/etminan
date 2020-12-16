@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\PType;
 use Illuminate\Http\Request;
 use App\Models\LocaleContent;
@@ -34,7 +35,7 @@ class PTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -62,7 +63,7 @@ class PTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PType  $pType
+     * @param \App\Models\PType $pType
      * @return \Illuminate\Http\Response
      */
     public function show(PType $pType)
@@ -73,7 +74,7 @@ class PTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PType  $pType
+     * @param \App\Models\PType $pType
      * @return \Illuminate\Http\Response
      */
     public function edit($pType)
@@ -85,8 +86,8 @@ class PTypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PType  $pType
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\PType $pType
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -103,19 +104,20 @@ class PTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PType  $pType
+     * @param \App\Models\PType $pType
      * @return \Illuminate\Http\Response
      */
     public function destroy($pType)
     {
-        // $id = per_digit_conv($pType);
-
         $SelectedPType = PType::find($pType);
         $categories = Category::where('ptype_id', $pType)->get();
-        foreach ($categories as $item) {
-            $item->contents()->delete();
+
+        $category = new CategoryController();
+        foreach ($categories as $c) {
+            $category->destroy($c->id);
+
         }
-        $SelectedPType->categories()->delete();
+//        $SelectedPType->categories()->delete();
         $SelectedPType->contents()->delete();
         $SelectedPType->delete();
     }

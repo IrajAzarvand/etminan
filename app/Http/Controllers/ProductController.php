@@ -230,10 +230,6 @@ class ProductController extends Controller
         $SelectedProduct = Product::find($product);
         $ProductImages = unserialize($SelectedProduct->images);
         $ProductImagesFolder = 'storage/Main/Products/';
-        // foreach ($ProductImages as $item) {
-        //     $filename = ($ProductImagesFolder . $SelectedProduct->id . '/' . $item);
-        //     unlink($filename); //delete file
-        // }
         foreach ($ProductImages as $item) {
             $this->ProductImgRemove($SelectedProduct->id, $item);
         }
@@ -247,13 +243,12 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Product $product
+     * @param $ProductId
+     * @param $productImage
      * @return \Illuminate\Http\Response
      */
     public function ProductImgRemove($ProductId, $productImage)
     {
-
-
         $Selectedproduct = Product::where('id', $ProductId)->first();
         $ProductImages = unserialize($Selectedproduct->images);
         $ProductImagesFolder = 'storage/Main/Products/';
@@ -261,7 +256,6 @@ class ProductController extends Controller
         unlink($filename); //delete file
         $ProductImages = serialize(array_values(array_diff($ProductImages, array($productImage)))); //serialize(reindex array(remove selected image()))
         $Selectedproduct->update(['images' => $ProductImages]);
-        return true;
-        // return back();
+         return back();
     }
 }
