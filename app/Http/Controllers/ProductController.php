@@ -225,9 +225,22 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
-        //
+        $SelectedProduct = Product::find($product);
+        $ProductImages = unserialize($SelectedProduct->images);
+        $ProductImagesFolder = 'storage/Main/Products/';
+        // foreach ($ProductImages as $item) {
+        //     $filename = ($ProductImagesFolder . $SelectedProduct->id . '/' . $item);
+        //     unlink($filename); //delete file
+        // }
+        foreach ($ProductImages as $item) {
+            $this->ProductImgRemove($SelectedProduct->id, $item);
+        }
+        rmdir($ProductImagesFolder . $SelectedProduct->id); //delete folder
+        $SelectedProduct->contents()->delete();
+        $SelectedProduct->delete();
+        return true;
     }
 
 
@@ -243,10 +256,12 @@ class ProductController extends Controller
 
         $Selectedproduct = Product::where('id', $ProductId)->first();
         $ProductImages = unserialize($Selectedproduct->images);
-        $filename = ('storage/Main/Products/' . $ProductId . '/' . $productImage);
+        $ProductImagesFolder = 'storage/Main/Products/';
+        $filename = ($ProductImagesFolder . $ProductId . '/' . $productImage);
         unlink($filename); //delete file
         $ProductImages = serialize(array_values(array_diff($ProductImages, array($productImage)))); //serialize(reindex array(remove selected image()))
         $Selectedproduct->update(['images' => $ProductImages]);
-        return back();
+        return true;
+        // return back();
     }
 }

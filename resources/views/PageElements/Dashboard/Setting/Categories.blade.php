@@ -141,8 +141,9 @@
             _token: token,
             r
             },
-            success: function() {
-            location.reload();
+            success: function(data) {
+            // location.reload();
+            console.log(data);
             }
         });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\LocaleContent;
+use App\Models\Product;
 use App\Models\PType;
 
 class CategoryController extends Controller
@@ -109,9 +110,16 @@ class CategoryController extends Controller
      */
     public function destroy($category)
     {
+
         $id = per_digit_conv($category);
         $Category = Category::find($id);
-        $Category->contents()->delete();
-        $Category->delete();
+        $CategoryProducts = Product::where('cat_id', $Category->id)->get();
+        foreach ($CategoryProducts as $Product) {
+            ProductController->destroy($Product->id);
+        }
+
+
+        // $Category->contents()->delete();
+        // $Category->delete();
     }
 }
