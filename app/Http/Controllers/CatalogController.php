@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catalog;
+use App\Models\LocaleContent;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -14,7 +15,9 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        //
+        $product_ptypes = LocaleContent::where(['section' => 'ptype', 'locale' => 'fa', 'element_title' => 'ptype'])->pluck('element_content', 'element_id');
+        $product_categories = LocaleContent::where(['section' => 'category', 'locale' => 'fa', 'element_title' => 'category'])->pluck('element_content', 'element_id');
+        return view('PageElements.Dashboard.Setting.Catalog',compact('product_ptypes','product_categories'));
     }
 
     /**
