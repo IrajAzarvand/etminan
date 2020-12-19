@@ -33,29 +33,32 @@
 
                 <div class="box-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label>انتخاب نوع و دسته بندی محصول جدید</label>
-                                <select name="ptype" class="form-control select2" onchange="collectCategories(this)"
-                                        style="width: 100%;">
-                                    <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
-                                    @foreach ($product_ptypes as $id=>$ptype)
-                                        <option value="{{$id}}">{{$ptype}}</option>
-                                    @endforeach
-                                </select>
-                                <hr>
+                                <div class="form-group">
+                                    <label>انتخاب نوع و دسته بندی محصول جدید</label>
+                                    <select name="ptype" class="form-control select2" onchange="collectCategories(this)"
+                                            style="width: 100%;">
+                                        <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
+                                        @foreach ($product_ptypes as $id=>$ptype)
+                                            <option value="{{$id}}">{{$ptype}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 {{-- ======================================= --}}
                                 <div class="form-group">
-                                    <select name="category" id="categories_list" class="form-control select2" onchange="collectProducts(this)"
+                                    <select name="category" id="categories_list" class="form-control select2"
+                                            onchange="collectProducts(this)"
                                             style="width: 100%;">
                                         <option value="">یکی از دسته بندی های محصولات را انتخاب کنید</option>
                                     </select>
                                 </div>
                                 {{-- ======================================= --}}
                                 <div class="form-group">
-                                    <select name="product" id="products_list" class="form-control select2"
+                                    <select name="product" id="products_list" class="form-control select2" onchange="showProductCatalogs(this)"
                                             style="width: 100%;">
-                                        <option value="">یکی از دسته بندی های محصولات را انتخاب کنید</option>
+                                        <option value="">یکی از محصولات را انتخاب کنید</option>
                                     </select>
                                 </div>
 
@@ -70,7 +73,7 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="form-group">
-                            <label for="exampleInputFile">ارسال تصاویر محصول</label>
+                            <label for="exampleInputFile">ارسال تصاویر کاتالوگ محصول</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="product_images[]" class="custom-file-input"
@@ -83,77 +86,6 @@
                     </div>
                 </div>
                 <hr>
-
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Custom Tabs -->
-                        <div class="card">
-                            <label>نام محصول</label>
-
-                            <div class="card-header d-flex p-0">
-                                <ul class="nav nav-pills ml-auto p-2">
-                                    @foreach (Locales() as $item)
-                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#p_name_{{$item['locale']}}"
-                                                                data-toggle="tab">{{$item['name']}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="tab-content">
-                                    @foreach (Locales() as $item)
-                                        <div class="tab-pane @if ($loop->first) active @endif"
-                                             id="p_name_{{$item['locale']}}">
-                                            <div class="mb-3">
-                                                <textarea id="editor1" name="p_name_{{$item['locale']}}"
-                                                          style="width: 100%"></textarea>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <!-- /.tab-content -->
-                            </div><!-- /.card-body -->
-                        </div>
-                        <!-- ./card -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-
-
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Custom Tabs -->
-                        <div class="card">
-                            <label>معرفی محصول</label>
-
-                            <div class="card-header d-flex p-0">
-                                <ul class="nav nav-pills ml-auto p-2">
-                                    @foreach (Locales() as $item)
-                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#p_introduction_{{$item['locale']}}"
-                                                                data-toggle="tab">{{$item['name']}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="tab-content">
-                                    @foreach (Locales() as $item)
-                                        <div class="tab-pane @if ($loop->first) active @endif"
-                                             id="p_introduction_{{$item['locale']}}">
-                                            <div class="mb-3">
-                                                <textarea id="editor1" name="p_introduction_{{$item['locale']}}"
-                                                          style="width: 100%" rows="10"></textarea>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <!-- /.tab-content -->
-                            </div><!-- /.card-body -->
-                        </div>
-                        <!-- ./card -->
-                    </div>
-                    <!-- /.col -->
-                </div>
 
 
                 <button type="submit" class="btn btn-primary">ذخیره</button>
@@ -168,74 +100,35 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <h3 class="card-title">
-                    مشاهده لیست محصولات
+                    مشاهده لیست کاتالوگ محصول
                 </h3>
 
             </div>
             <!-- /.card-header -->
 
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <i class="ion ion-clipboard mr-1"></i>
-                        لیست محصولات ثبت شده
-                    </h3>
 
-                </div>
-                <!-- /.card-header -->
                 <div class="card-body">
 
                     <div class="box-body">
                         <div class="row">
-                            <div class="form-group col-4">
-                                <label>انتخاب نوع و دسته بندی محصول جدید</label>
-                                <select name="ptypeList" class="form-control select2"
-                                        onchange="collectAllCategories(this)" style="width: 100%;">
-                                    <option value="">یکی از انواع اصلی محصولات را انتخاب کنید</option>
-                                    @foreach ($product_ptypes as $id=>$ptype)
-                                        <option value="{{$id}}">{{$ptype}}</option>
-                                    @endforeach
-                                </select>
-                                <hr>
-                                {{-- ======================================= --}}
-                                <div class="form-group">
-                                    <select name="categoryList" id="ShowcategoriesList" class="form-control select2"
-                                            onchange="showCategoryProducts(this)" style="width: 100%;">
-                                        <option value="">یکی از دسته بندی های محصولات را انتخاب کنید</option>
-                                    </select>
-                                </div>
-
+                            <div class="form-group">
+                                <label>کاتالوگ های مربوط به محصول <span
+                                        style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
+                                <br>
+                                {{--                                @foreach($ProductCatalogs as $catalog)--}}
+                                {{--                                    --}}{{-- <div class="col-3"> --}}
+                                {{--                                    <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$catalog]) }}"><img--}}
+                                {{--                                            class="col-3" style="padding-bottom: 10px;"--}}
+                                {{--                                            src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}"--}}
+                                {{--                                            alt="Photo"></a>--}}
+                                {{--                                    --}}{{-- </div> --}}
+                                {{--                                @endforeach--}}
+                                <br>
                             </div>
                         </div>
                     </div>
-                    <hr>
 
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">جدول محصولات</h3>
-
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover" id="ProductsTable">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>نام محصول</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                        <tr id="ProductsList">
-
-                                        </tr>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div><!-- /.row -->
                 </div>
                 <!-- /.card-body -->
 
@@ -254,8 +147,6 @@
     <script>
         function collectCategories(ptype) {
             let selectedPType = ptype.value;
-
-
             $.ajax({
                 type: "GET",
                 url: '/Category/' + selectedPType,
@@ -263,6 +154,7 @@
                 success: function (data) {
 
                     $('#categories_list').empty();
+                    document.getElementById("categories_list").options[0] = new Option("یکی از دسته بندی های محصولات را انتخاب کنید", "disabled");
                     data.forEach(function (entry) {
                         let list = '';
                         let Cat_id = '';
@@ -285,7 +177,39 @@
             let selectedCategory = category.value;
             $.ajax({
                 type: "GET",
-                url: '/Product/' + selectedPType,
+                url: '/Product/' + selectedCategory,
+
+                success: function (data) {
+                    console.log(data);
+                    $('#products_list').empty();
+                    document.getElementById("products_list").options[0] = new Option("یکی از محصولات را انتخاب کنید", "disabled");
+
+                    data.forEach(function (entry) {
+                        let list = '';
+                        let P_id = '';
+                        entry.forEach(function (childrenEntry) {
+                            if(childrenEntry.title.contain('p_name')){
+
+                                list = list + ' (' + childrenEntry.element_content + ') ';
+                                P_id = childrenEntry.element_id;
+                            }
+                        });
+                        let select = document.getElementById("products_list");
+                        select.options[select.options.length] = new Option(list, P_id);
+                    });
+                }
+            });
+        }
+    </script>
+
+
+
+    <script>
+        function showProductCatalogs(product) {
+            let selectedProduct = product.value;
+            $.ajax({
+                type: "GET",
+                url: '/Product/' + selectedProduct,
 
                 success: function (data) {
                     $('#products_list').empty();
@@ -303,6 +227,27 @@
             });
         }
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

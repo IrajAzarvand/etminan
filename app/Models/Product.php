@@ -26,7 +26,7 @@ class Product extends Model
 
     public function catalogues()
     {
-        return $this->hasMany(ProductCatalog::class, 'product_id');
+        return $this->belongsTo(ProductCatalog::class, 'product_id');
     }
 
     public function tags()
