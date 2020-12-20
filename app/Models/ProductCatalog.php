@@ -8,7 +8,7 @@ class ProductCatalog extends Model
 {
     protected $fillable = [
         'product_id',
-        'catalog_image',
+        'catalog_images',
     ];
 
     public function product()

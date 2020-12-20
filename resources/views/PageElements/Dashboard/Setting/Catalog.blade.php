@@ -76,7 +76,7 @@
                             <label for="exampleInputFile">ارسال تصاویر کاتالوگ محصول</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="product_images[]" class="custom-file-input"
+                                    <input type="file" name="catalog_images[]" class="custom-file-input"
                                            id="fileUploader" multiple>
                                     <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
                                 </div>
@@ -180,22 +180,19 @@
                 url: '/Product/' + selectedCategory,
 
                 success: function (data) {
-                    console.log(data);
+                    let count=0;
+
                     $('#products_list').empty();
                     document.getElementById("products_list").options[0] = new Option("یکی از محصولات را انتخاب کنید", "disabled");
 
                     data.forEach(function (entry) {
-                        let list = '';
-                        let P_id = '';
-                        entry.forEach(function (childrenEntry) {
-                            if(childrenEntry.title.contain('p_name')){
-
-                                list = list + ' (' + childrenEntry.element_content + ') ';
-                                P_id = childrenEntry.element_id;
-                            }
+                        count++;
+                        entry.forEach(function(childrenEntry) {
+                            Product_id = childrenEntry.element_id;
                         });
+                        Product_name = entry[0]['element_content'];
                         let select = document.getElementById("products_list");
-                        select.options[select.options.length] = new Option(list, P_id);
+                        select.options[select.options.length] = new Option(Product_name, Product_id);
                     });
                 }
             });
@@ -206,25 +203,26 @@
 
     <script>
         function showProductCatalogs(product) {
-            let selectedProduct = product.value;
-            $.ajax({
-                type: "GET",
-                url: '/Product/' + selectedProduct,
-
-                success: function (data) {
-                    $('#products_list').empty();
-                    data.forEach(function (entry) {
-                        let list = '';
-                        let P_id = '';
-                        entry.forEach(function (childrenEntry) {
-                            list = list + ' (' + childrenEntry.element_content + ') ';
-                            P_id = childrenEntry.element_id;
-                        });
-                        let select = document.getElementById("products_list");
-                        select.options[select.options.length] = new Option(list, P_id);
-                    });
-                }
-            });
+            // console.log(product.value);
+            // let selectedProduct = product.value;
+            // $.ajax({
+            //     type: "GET",
+            //     url: '/Product/' + selectedProduct,
+            //
+            //     success: function (data) {
+            //         $('#products_list').empty();
+            //         data.forEach(function (entry) {
+            //             let list = '';
+            //             let P_id = '';
+            //             entry.forEach(function (childrenEntry) {
+            //                 list = list + ' (' + childrenEntry.element_content + ') ';
+            //                 P_id = childrenEntry.element_id;
+            //             });
+            //             let select = document.getElementById("products_list");
+            //             select.options[select.options.length] = new Option(list, P_id);
+            //         });
+            //     }
+            // });
         }
     </script>
 
