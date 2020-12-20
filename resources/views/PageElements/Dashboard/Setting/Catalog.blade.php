@@ -203,26 +203,26 @@
 
     <script>
         function showProductCatalogs(product) {
-            // console.log(product.value);
-            // let selectedProduct = product.value;
-            // $.ajax({
-            //     type: "GET",
-            //     url: '/Product/' + selectedProduct,
-            //
-            //     success: function (data) {
-            //         $('#products_list').empty();
-            //         data.forEach(function (entry) {
-            //             let list = '';
-            //             let P_id = '';
-            //             entry.forEach(function (childrenEntry) {
-            //                 list = list + ' (' + childrenEntry.element_content + ') ';
-            //                 P_id = childrenEntry.element_id;
-            //             });
-            //             let select = document.getElementById("products_list");
-            //             select.options[select.options.length] = new Option(list, P_id);
-            //         });
-            //     }
-            // });
+            let selectedProduct= product.value;
+            $.ajax({
+                type: "GET",
+                url: '/Catalog/' + selectedProduct,
+
+                success: function (data) {
+                    console.log(selectedProduct,data);
+                    // $('#products_list').empty();
+                    // data.forEach(function (entry) {
+                    //     let list = '';
+                    //     let P_id = '';
+                    //     entry.forEach(function (childrenEntry) {
+                    //         list = list + ' (' + childrenEntry.element_content + ') ';
+                    //         P_id = childrenEntry.element_id;
+                    //     });
+                    //     let select = document.getElementById("products_list");
+                    //     select.options[select.options.length] = new Option(list, P_id);
+                    // });
+                }
+            });
         }
     </script>
 

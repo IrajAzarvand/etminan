@@ -56,7 +56,7 @@ class ProductCatalogController extends Controller
                     $images[] = $filename;
                 }
             }
-            $Catalog->product_id=$request->input('product');
+            $Catalog->product_id = $request->input('product');
             $Catalog->catalog_images = serialize($images);
             $Catalog->save();
 
@@ -70,9 +70,10 @@ class ProductCatalogController extends Controller
      * @param \App\Models\ProductCatalog $productCatalog
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCatalog $productCatalog)
+    public function show($productCatalog)
     {
-        //
+        $SelectedProduct = ProductCatalog::where('product_id', $productCatalog)->first();
+        return $SelectedProduct;
     }
 
     /**
