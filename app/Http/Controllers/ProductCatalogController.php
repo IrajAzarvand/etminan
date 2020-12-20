@@ -91,11 +91,24 @@ class ProductCatalogController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\ProductCatalog $productCatalog
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, ProductCatalog $productCatalog)
     {
-        dd('update section', $request, $productCatalog);
+        $CatalogImages = unserialize($productCatalog->catalog_images);
+        if ($request->hasFile('catalog_images')) {
+            $count = 0;
+            foreach ($request->file('catalog_images') as $image) {
+                $uploaded = $image;
+                $filename = $request->input('product') . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Products\\' . $request->input('product') . '\catalogs\\', $filename);
+                $CatalogImages[] = $filename;
+            }
+        }
+        $productCatalog->catalog_images = serialize($CatalogImages);
+
+        $productCatalog->update();
+        return redirect('/Catalog');
     }
 
     /**
