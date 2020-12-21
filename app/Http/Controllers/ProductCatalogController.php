@@ -68,12 +68,19 @@ class ProductCatalogController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\ProductCatalog $productCatalog
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function show($productCatalog)
     {
-        $SelectedProduct = ProductCatalog::where('product_id', $productCatalog)->first();
-        return $SelectedProduct;
+        $SelectedProductCatalogs = ProductCatalog::where('product_id', $productCatalog)->value('catalog_images');
+        $SelectedProductCatalogs = unserialize($SelectedProductCatalogs);
+        $Catalogs=[];
+        if($SelectedProductCatalogs) {
+            foreach ($SelectedProductCatalogs as $image) {
+                $Catalogs[] = asset('storage/Main/Products/' . $productCatalog . '/catalogs/' . $image);
+            }
+        }
+        return $Catalogs;
     }
 
     /**

@@ -116,14 +116,13 @@
                                 <label>کاتالوگ های مربوط به محصول <span
                                         style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
                                 <br>
-                                {{--                                @foreach($ProductCatalogs as $catalog)--}}
-                                {{--                                    --}}{{-- <div class="col-3"> --}}
-                                {{--                                    <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$catalog]) }}"><img--}}
-                                {{--                                            class="col-3" style="padding-bottom: 10px;"--}}
-                                {{--                                            src="{{asset('storage/Main/Products/' . $Selectedproduct->id . '/'. $image)}}"--}}
-                                {{--                                            alt="Photo"></a>--}}
-                                {{--                                    --}}{{-- </div> --}}
-                                {{--                                @endforeach--}}
+                                <div class="col-12" id="catalogs_list">
+                                    {{--                                            <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$catalog]) }}"><img--}}
+                                    {{--                                                    class="col-3" style="padding-bottom: 10px;"--}}
+                                    {{--                                                    src="{{$catalog}}"--}}
+                                    {{--                                                    alt="Photo"></a>--}}
+                                </div>
+
                                 <br>
                             </div>
                         </div>
@@ -180,14 +179,14 @@
                 url: '/Product/' + selectedCategory,
 
                 success: function (data) {
-                    let count=0;
+                    let count = 0;
 
                     $('#products_list').empty();
                     document.getElementById("products_list").options[0] = new Option("یکی از محصولات را انتخاب کنید", "disabled");
 
                     data.forEach(function (entry) {
                         count++;
-                        entry.forEach(function(childrenEntry) {
+                        entry.forEach(function (childrenEntry) {
                             Product_id = childrenEntry.element_id;
                         });
                         Product_name = entry[0]['element_content'];
@@ -203,24 +202,44 @@
 
     <script>
         function showProductCatalogs(product) {
-            let selectedProduct= product.value;
+            let selectedProduct = product.value;
             $.ajax({
                 type: "GET",
                 url: '/Catalog/' + selectedProduct,
 
                 success: function (data) {
-                    console.log(selectedProduct,data);
-                    // $('#products_list').empty();
-                    // data.forEach(function (entry) {
-                    //     let list = '';
-                    //     let P_id = '';
-                    //     entry.forEach(function (childrenEntry) {
-                    //         list = list + ' (' + childrenEntry.element_content + ') ';
-                    //         P_id = childrenEntry.element_id;
-                    //     });
-                    //     let select = document.getElementById("products_list");
-                    //     select.options[select.options.length] = new Option(list, P_id);
-                    // });
+                    console.log(selectedProduct, data);
+                    $('#catalogs_list').empty();
+                    data.forEach(function (entry) {
+
+
+                        // create catalogs list
+
+                        let catalog_section = document.getElementById("catalogs_list");
+
+                        // Create li
+                        let a_tag = document.createElement("a");
+                        catalog_section.appendChild(a_tag);
+
+                        //create span inside li
+                        let last_a_tag = catalog_section.lastElementChild;
+                        let img_obj = document.createElement("img");
+                        img_obj.setAttribute("class", "col-3");
+                        img_obj.setAttribute("src", entry);
+                        img_obj.setAttribute("style", "padding-bottom: 10px;");
+                        img_obj.setAttribute("alt", "Photo");
+                        last_a_tag.appendChild(img_obj);
+
+
+                        //show content
+
+
+                        // createElementImg("catalogs_list");
+                        // let lst_A=document.getElementById("catalogs_list").lastElementChild;
+                        // let a=lst_A.getElementsByTagName("a");
+                        // a[0].append='<a onclick="">'+entry+'</a>';
+                    });
+
                 }
             });
         }
