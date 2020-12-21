@@ -117,10 +117,7 @@
                                         style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
                                 <br>
                                 <div class="col-12" id="catalogs_list">
-                                    {{--                                            <a href="{{ route('ProductImageRemove', [$Selectedproduct->id,$catalog]) }}"><img--}}
-                                    {{--                                                    class="col-3" style="padding-bottom: 10px;"--}}
-                                    {{--                                                    src="{{$catalog}}"--}}
-                                    {{--                                                    alt="Photo"></a>--}}
+
                                 </div>
 
                                 <br>
@@ -208,36 +205,28 @@
                 url: '/Catalog/' + selectedProduct,
 
                 success: function (data) {
-                    console.log(selectedProduct, data);
                     $('#catalogs_list').empty();
-                    data.forEach(function (entry) {
 
+                    data.forEach(function (entry) {
+                        let filename = entry[1].split('/').pop()
 
                         // create catalogs list
-
                         let catalog_section = document.getElementById("catalogs_list");
 
-                        // Create li
+                        // Create <a> tag
                         let a_tag = document.createElement("a");
+                        a_tag.setAttribute("onclick", "deleteCatalog('" + selectedProduct +"','"+ filename + "')");
+
                         catalog_section.appendChild(a_tag);
 
-                        //create span inside li
+                        //create img tag inside li
                         let last_a_tag = catalog_section.lastElementChild;
                         let img_obj = document.createElement("img");
                         img_obj.setAttribute("class", "col-3");
-                        img_obj.setAttribute("src", entry);
+                        img_obj.setAttribute("src", entry[1]);
                         img_obj.setAttribute("style", "padding-bottom: 10px;");
                         img_obj.setAttribute("alt", "Photo");
                         last_a_tag.appendChild(img_obj);
-
-
-                        //show content
-
-
-                        // createElementImg("catalogs_list");
-                        // let lst_A=document.getElementById("catalogs_list").lastElementChild;
-                        // let a=lst_A.getElementsByTagName("a");
-                        // a[0].append='<a onclick="">'+entry+'</a>';
                     });
 
                 }
@@ -246,170 +235,12 @@
     </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
-        function showCategory() {
-            let ptypeId = document.getElementById('ptypeId').value;
+        function deleteCatalog(product, catalog) {
             $.ajax({
-                type: "GET",
-                url: '/Category/' + ptypeId,
+                type: 'GET',
+                url: '/Catalog/' + product +'/'+catalog+'/delete',
 
-                success: function (data) {
-
-                    // create category list
-                    function createElementLi(obj) {
-                        let ul_obj = document.getElementById(obj);
-
-                        // Create li
-                        let li_obj = document.createElement("li");
-                        ul_obj.appendChild(li_obj);
-
-                        //create span inside li
-                        let last_li = ul_obj.lastElementChild;
-                        let span_obj = document.createElement("span");
-                        span_obj.setAttribute("class", "text");
-                        last_li.appendChild(span_obj);
-                    }
-
-
-                    //show content
-                    let list = '';
-                    let Cat_id = '';
-                    $('#CategoryList').empty();
-                    data.forEach(function (entry) {
-                        entry.forEach(function (childrenEntry) {
-                            list = list + ' (' + childrenEntry.element_content + ') ';
-                            Cat_id = childrenEntry.element_id;
-                        });
-                        createElementLi("CategoryList");
-                        let lst_LI = document.getElementById("CategoryList").lastElementChild;
-                        let spn = lst_LI.getElementsByTagName("span");
-                        spn[0].innerHTML = '<a onclick="editRow(' + Cat_id + ')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow(' + Cat_id + ')"><i class="fa fa-trash-o"></i></a>' + list;
-                        console.log(list);
-                        list = '';
-                    });
-
-
-                }
-            });
-        }
-    </script>
-
-
-
-
-
-    {{-- ====================for show all products=============== --}}
-    <script>
-        function collectAllCategories(ptype) {
-            let selectedPType = ptype.value;
-            $.ajax({
-                type: "GET",
-                url: '/Category/' + selectedPType,
-
-                success: function (data) {
-
-                    $('#ShowcategoriesList').empty();
-                    document.getElementById("ShowcategoriesList").options[0] = new Option("یکی از دسته بندی های محصولات را انتخاب کنید", "disabled");
-                    data.forEach(function (entry) {
-                        let list = '';
-                        let Cat_id = '';
-                        entry.forEach(function (childrenEntry) {
-                            list = list + ' (' + childrenEntry.element_content + ') ';
-                            Cat_id = childrenEntry.element_id;
-
-                        });
-                        let select = document.getElementById("ShowcategoriesList");
-                        select.options[select.options.length] = new Option(list, Cat_id);
-                    });
-                }
-            });
-        }
-    </script>
-
-    <script>
-        function showCategoryProducts(category) {
-            let selectedCategory = category.value;
-
-            $.ajax({
-                type: "GET",
-                url: '/Product/' + selectedCategory,
-
-                success: function (data) {
-                    //show content
-                    // console.log(data);
-                    let Product_id = '';
-                    let Product_name = '';
-                    let count = 0;
-                    let table = document.getElementById("ProductsTable");
-                    $('#ProductsTable').empty();
-                    let row = table.insertRow();
-                    row.insertCell(0).innerHTML = "#";
-                    row.insertCell(1).innerHTML = "نام محصول";
-                    row.insertCell(2).innerHTML = "عملیات";
-
-                    data.forEach(function (entry) {
-                        count++;
-                        entry.forEach(function (childrenEntry) {
-                            Product_id = childrenEntry.element_id;
-                        });
-                        Product_name = entry[0]['element_content'];
-                        let rowCount = table.rows.length;
-                        let row = table.insertRow(rowCount);
-
-                        row.insertCell(0).innerHTML = count;
-                        row.insertCell(1).innerHTML = Product_name;
-
-                        row.insertCell(2).innerHTML = '<button type="button" class="btn btn-primary"><a onclick="viewEditProduct(' + Product_id + ')"><i class="fa fa-eye"></i></a></button> &nbsp <button type="button" class="btn btn-danger"><a onclick="deleteProduct(' + Product_id + ')"><i class="fa fa-trash-o"></i></a></button>';
-                    });
-
-
-                }
-            });
-        }
-    </script>
-
-
-
-    <script>
-        function viewEditProduct(product) {
-            window.location.href = "/Product/" + product + "/edit";
-        }
-    </script>
-
-
-
-    <script>
-        function deleteProduct(product) {
-            let token = "{{ csrf_token() }}";
-            $.ajax({
-                type: 'DELETE',
-                url: '/Product/' + product,
-                data: {
-                    _token: token,
-                    product
-                },
                 success: function () {
                     location.reload();
                 }
@@ -417,6 +248,5 @@
 
         }
     </script>
-
 
 @endsection

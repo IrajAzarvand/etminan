@@ -50,4 +50,5 @@ Route::resource('Footer', FooterController::class);
 
 Route::resource('PType', PTypeController::class);
 
+Route::get('/Catalog/{ProductId}/{catalogImage}/delete',[ProductCatalogController::class,'ProductCatalogRemove'])->name('ProductCatalogRemove');
 Route::resource('Catalog', ProductCatalogController::class);

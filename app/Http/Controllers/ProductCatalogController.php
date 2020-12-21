@@ -76,8 +76,8 @@ class ProductCatalogController extends Controller
         $SelectedProductCatalogs = unserialize($SelectedProductCatalogs);
         $Catalogs=[];
         if($SelectedProductCatalogs) {
-            foreach ($SelectedProductCatalogs as $image) {
-                $Catalogs[] = asset('storage/Main/Products/' . $productCatalog . '/catalogs/' . $image);
+            foreach ($SelectedProductCatalogs as $id=>$image) {
+                $Catalogs[] = [$id, asset('storage/Main/Products/' . $productCatalog . '/catalogs/' . $image)];
             }
         }
         return $Catalogs;
@@ -125,8 +125,29 @@ class ProductCatalogController extends Controller
      * @param \App\Models\ProductCatalog $productCatalog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductCatalog $productCatalog)
+    public function destroy($productCatalog)
     {
-        //
+
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $ProductId
+     * @param $productImage
+     * @return \Illuminate\Http\Response
+     */
+    public function ProductCatalogRemove($ProductId, $catalogImage)
+    {
+        $SelectedProduct=ProductCatalog::where('product_id',$ProductId)->first();
+        $ProductImages=unserialize($SelectedProduct->catalog_images);
+        $ProductImagesFolder = 'storage/Main/Products/'.$ProductId.'/catalogs/';
+        $filename = ( $ProductImagesFolder.$catalogImage);
+        unlink($filename); //delete file
+        $ProductImages = serialize(array_values(array_diff($ProductImages, array($catalogImage)))); //serialize(reindex array(remove selected image()))
+        $SelectedProduct->update(['catalog_images' => $ProductImages]);
+        return back();
     }
 }
