@@ -230,6 +230,8 @@ class ProductController extends Controller
         $SelectedProduct = Product::find($product);
         $ProductImages = unserialize($SelectedProduct->images);
         $ProductImagesFolder = 'storage/Main/Products/';
+        $ProductCatalogs = new ProductCatalogController();
+        $ProductCatalogs->destroy($product);
         foreach ($ProductImages as $item) {
             $this->ProductImgRemove($SelectedProduct->id, $item);
         }
@@ -256,6 +258,6 @@ class ProductController extends Controller
         unlink($filename); //delete file
         $ProductImages = serialize(array_values(array_diff($ProductImages, array($productImage)))); //serialize(reindex array(remove selected image()))
         $Selectedproduct->update(['images' => $ProductImages]);
-         return back();
+        return back();
     }
 }

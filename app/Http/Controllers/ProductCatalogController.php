@@ -127,16 +127,24 @@ class ProductCatalogController extends Controller
      */
     public function destroy($productCatalog)
     {
+        $SelectedProduct = ProductCatalog::where('product_id',$productCatalog)->first();
+        $ProductCatalogs = unserialize($SelectedProduct->catalog_images);
+        $ProductCatalogsFolder = 'storage/Main/Products/'.$productCatalog.'/catalogs/';
 
 
-
+        foreach ($ProductCatalogs as $item) {
+            $this->ProductCatalogRemove($productCatalog, $item);
+        }
+        rmdir($ProductCatalogsFolder); //delete folder
+        $SelectedProduct->delete();
+        return true;
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param $ProductId
-     * @param $productImage
+     * @param $catalogImage
      * @return \Illuminate\Http\Response
      */
     public function ProductCatalogRemove($ProductId, $catalogImage)

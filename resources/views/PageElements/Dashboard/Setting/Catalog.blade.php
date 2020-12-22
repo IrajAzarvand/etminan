@@ -244,6 +244,7 @@
                 success: function () {
                     location.reload();
                 }
+
             });
 
         }
