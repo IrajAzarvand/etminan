@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class CertificatesAndHonors extends Model
 {
-    use HasFactory;
+    protected $fillable=[
+        'Ch_Image',
+    ];
+
+    public function contents()
+    {
+        return $this->hasMany(LocaleContent::class, 'element_id')->where('page', 'CH')->where('section', 'CH');
+
+    }
 }

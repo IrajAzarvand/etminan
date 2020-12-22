@@ -44,4 +44,9 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(Footer::class);
     }
+
+    public function CH()
+    {
+        return $this->belongsTo(CertificatesAndHonors::class);
+    }
 }

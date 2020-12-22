@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CertificatesAndHonors;
+use App\Models\LocaleContent;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CertificatesAndHonorsController extends Controller
@@ -14,7 +16,8 @@ class CertificatesAndHonorsController extends Controller
      */
     public function index()
     {
-        return view('PageElements.Dashboard.Setting.CH');
+        $CH = CertificatesAndHonors::with('contents')->get();
+        return view('PageElements.Dashboard.Setting.CH', compact('CH'));
     }
 
     /**
@@ -30,18 +33,60 @@ class CertificatesAndHonorsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $CH = new CertificatesAndHonors;
+        $CH->save();
+        $element_id = $CH->id;
+        $Contents = [];
+        if ($request->ChTitle_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'CH',
+                    'section' => 'CH',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'ChTitle_' . $item['locale'],
+                    'element_content' => $request->input('ChTitle_' . $item['locale']),
+                ]);
+            }
+        }
+
+        if ($request->ChDescription_fa) {
+            foreach (Locales() as $item) {
+                $Contents[] = new LocaleContent([
+                    'page' => 'CH',
+                    'section' => 'CH',
+                    'element_id' => $element_id,
+                    'locale' => $item['locale'],
+                    'element_title' => 'ChDescription_' . $item['locale'],
+                    'element_content' => $request->input('ChDescription_' . $item['locale']),
+                ]);
+            }
+        }
+
+        $NewCH = Product::find($element_id);
+        $NewCH->contents()->saveMany($Contents);
+
+        if ($request->hasFile('CH_image')) {
+            $uploaded = $request->input('CH_image');
+            $filename = $element_id . '_' . time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+            $uploaded->storeAs('public\Main\CH\\', $filename);
+            $NewCH->Ch_Image = $filename;
+        }
+        $NewCH->update();
+
+        return redirect('/CH');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CertificatesAndHonors  $certificatesAndHonors
+     * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
     public function show(CertificatesAndHonors $certificatesAndHonors)
@@ -52,7 +97,7 @@ class CertificatesAndHonorsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CertificatesAndHonors  $certificatesAndHonors
+     * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
     public function edit(CertificatesAndHonors $certificatesAndHonors)
@@ -63,8 +108,8 @@ class CertificatesAndHonorsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CertificatesAndHonors  $certificatesAndHonors
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, CertificatesAndHonors $certificatesAndHonors)
@@ -75,7 +120,7 @@ class CertificatesAndHonorsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CertificatesAndHonors  $certificatesAndHonors
+     * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
     public function destroy(CertificatesAndHonors $certificatesAndHonors)
