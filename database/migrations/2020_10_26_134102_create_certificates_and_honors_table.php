@@ -16,7 +16,7 @@ class CreateCertificatesAndHonorsTable extends Migration
         //corresponding model => CH
         Schema::create('certificates_and_honors', function (Blueprint $table) {
             $table->id();
-            $table->string('Ch_Image');
+            $table->string('Ch_Image')->nullable();
             $table->timestamps();
         });
     }

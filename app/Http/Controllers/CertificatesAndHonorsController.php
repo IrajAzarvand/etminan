@@ -38,7 +38,7 @@ class CertificatesAndHonorsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
         $CH = new CertificatesAndHonors;
         $CH->save();
         $element_id = $CH->id;
@@ -69,11 +69,11 @@ class CertificatesAndHonorsController extends Controller
             }
         }
 
-        $NewCH = Product::find($element_id);
+        $NewCH = CertificatesAndHonors::find($element_id);
         $NewCH->contents()->saveMany($Contents);
 
         if ($request->hasFile('CH_image')) {
-            $uploaded = $request->input('CH_image');
+            $uploaded = $request->file('CH_image');
             $filename = $element_id . '_' . time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
             $uploaded->storeAs('public\Main\CH\\', $filename);
             $NewCH->Ch_Image = $filename;
