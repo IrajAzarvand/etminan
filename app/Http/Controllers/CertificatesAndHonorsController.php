@@ -123,8 +123,15 @@ class CertificatesAndHonorsController extends Controller
      * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CertificatesAndHonors $certificatesAndHonors)
+    public function destroy($CH)
     {
-        //
+        $SelectedCH = CertificatesAndHonors::find($CH);
+        $CHImage = $SelectedCH->Ch_Image;
+        $CHImagesFolder = 'storage/Main/CH/';
+        $filename = ($CHImagesFolder . $CHImage);
+        unlink($filename); //delete file
+        $SelectedCH->contents()->delete();
+        $SelectedCH->delete();
+        return true;
     }
 }

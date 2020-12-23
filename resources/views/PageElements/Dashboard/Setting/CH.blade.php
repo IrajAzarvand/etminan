@@ -58,7 +58,8 @@
                             <div class="card-header d-flex p-0">
                                 <ul class="nav nav-pills ml-auto p-2">
                                     @foreach (Locales() as $item)
-                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#ChTitle_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#ChTitle_{{$item['locale']}}"
+                                                                data-toggle="tab">{{$item['name']}}</a></li>
                                     @endforeach
                                 </ul>
                             </div><!-- /.card-header -->
@@ -90,7 +91,8 @@
                             <div class="card-header d-flex p-0">
                                 <ul class="nav nav-pills ml-auto p-2">
                                     @foreach (Locales() as $item)
-                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#ChDescription_{{$item['locale']}}" data-toggle="tab">{{$item['name']}}</a> </li>
+                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif" href="#ChDescription_{{$item['locale']}}"
+                                                                data-toggle="tab">{{$item['name']}}</a></li>
                                     @endforeach
                                 </ul>
                             </div><!-- /.card-header -->
@@ -128,7 +130,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="ion ion-clipboard mr-1"></i>
-                    لیست انواع محصولات (فارسی - انگلیسی - روسی - عربی)
+                    لیست گواهینامه ها (فارسی - انگلیسی - روسی - عربی)
                 </h3>
 
             </div>
@@ -138,16 +140,16 @@
                     <?php
                     foreach ($CH as $item) {
                         echo '<li>';
-                        foreach (Locales() as $key=>$value) {
+                        foreach (Locales() as $key => $value) {
                             // tag text
-                            echo '<span style="display: none;" class="text">'.$item->id .'</span>';
-                            echo '<span class="text">' . $item->contents[$key]['element_content'] . '</span>'.'| &nbsp; ';
+                            echo '<span style="display: none;" class="text">' . $item->id . '</span>';
+                            echo '<span class="text">' . $item->contents[$key]['element_content'] . '</span>' . '| &nbsp; ';
                         }
                         // General tools such as edit or delete
                         echo '<div class="tools">';
 
-                        echo '<a onclick="editRow('.$item->id.')"><i class="fa fa-edit"></i></a> &nbsp;';
-                        echo '<a onclick="deleteRow('.$item->id.')"><i class="fa fa-trash-o"></i></a>';
+                        echo '<a onclick="editRow(' . $item->id . ')"><i class="fa fa-edit"></i></a> &nbsp;';
+                        echo '<a onclick="deleteRow(' . $item->id . ')"><i class="fa fa-trash-o"></i></a>';
                         echo '</div>';
                         echo '</li>';
                     }
@@ -158,5 +160,50 @@
 
         </div>
     </div>
+
+
+
+
+    <script>
+        function deleteRow(r) {
+            let token = "{{ csrf_token() }}";
+            $.ajax({
+                type: 'DELETE',
+                url: '/CH/' + r,
+                data: {
+                    _token: token,
+                    r
+                },
+                success: function () {
+                    location.reload();
+                }
+            });
+
+        }
+
+    </script>
+
+    <script>
+        function editRow(r) {
+            $.ajax({
+                type: "GET",
+                url: '/CH/' + r + '/edit',
+
+                success: function (data) {
+                    //display data...
+                    let PTypeId = (data['id']);
+                    $('#PTypeEditModal').find('#PTypeId').val(PTypeId);
+                    data['contents'].forEach(element => {
+                        $('#PTypeEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
+                    });
+
+                    $("#PTypeEditModal-form").attr("action", "/PType/" + PTypeId);
+                    $('#PTypeEditModal').modal('show');
+                }
+            });
+        }
+    </script>
+    @include('PageElements.Dashboard.Setting.ModalEditPType')
+
 
 @endsection
