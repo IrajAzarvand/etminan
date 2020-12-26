@@ -36,7 +36,7 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="form-group">
-                            <label for="exampleInputFile">ارسال تصاویر گواهینامه</label>
+                            <label for="exampleInputFile">ارسال تصویر گواهینامه</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="CH_image" class="custom-file-input" id="fileUploader">
@@ -191,19 +191,28 @@
 
                 success: function (data) {
                     //display data...
-                    let PTypeId = (data['id']);
-                    $('#PTypeEditModal').find('#PTypeId').val(PTypeId);
-                    data['contents'].forEach(element => {
-                        $('#PTypeEditModal').find('#' + element['locale'] + 'edit').text(element['element_content']);
-                    });
+                    console.log(data);
+                    let CHId = (data[0]['id']);
+                    $('#CHEditModal').find('#CHId').val(CHId);
+                    data[0]['contents'].forEach(element => {
+                        if(element['element_title']=='ChTitle_'+ element['locale']) {
+                            $('#CHEditModal').find('#CH_Title_' + element['locale'] + 'edit').text(element['element_content']);
+                        }
+                        else if(element['element_title']=='ChDescription_'+ element['locale']){
+                            $('#CHEditModal').find('#CH_Desc_' + element['locale'] + 'edit').text(element['element_content']);
 
-                    $("#PTypeEditModal-form").attr("action", "/PType/" + PTypeId);
-                    $('#PTypeEditModal').modal('show');
+                        }
+                    });
+console.log('"'+data[1]+'"');
+                    $('#CHEditModal').find('#CH_img').attr("src",data[1]);
+
+                    $("#CHEditModal-form").attr("action", "/CH/" + CHId);
+                    $('#CHEditModal').modal('show');
                 }
             });
         }
     </script>
-    @include('PageElements.Dashboard.Setting.ModalEditPType')
+    @include('PageElements.Dashboard.Setting.ModalEditCertificate')
 
 
 @endsection

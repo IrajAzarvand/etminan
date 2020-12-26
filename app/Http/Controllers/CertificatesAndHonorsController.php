@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\CertificatesAndHonors;
 use App\Models\LocaleContent;
 use App\Models\Product;
@@ -100,9 +101,12 @@ class CertificatesAndHonorsController extends Controller
      * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
-    public function edit(CertificatesAndHonors $certificatesAndHonors)
+    public function edit($CH)
     {
-        //
+        $SelectedCH =CertificatesAndHonors::where('id', $CH)->with('contents')->first();
+        $CHImage = asset('storage/Main/CH/'.$SelectedCH->Ch_Image);
+        return [$SelectedCH,$CHImage];
+
     }
 
     /**
@@ -112,9 +116,63 @@ class CertificatesAndHonorsController extends Controller
      * @param \App\Models\CertificatesAndHonors $certificatesAndHonors
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CertificatesAndHonors $certificatesAndHonors)
+    public function update(Request $request)
     {
-        //
+        $SelectedCH = CertificatesAndHonors::where('id', $request->input('CHId'))->with('contents')->first();
+        $element_id = $SelectedCH->id;
+
+        $SelectedCHImage = $SelectedCH->Ch_Image;
+        if ($request->hasFile('CH_image')) {
+//            remove previous image
+            $ImagePath='storage/Main/CH/';
+            unlink($ImagePath.$SelectedCHImage);
+
+            $uploaded = $request->file('CH_image');
+            $filename = $element_id . '_' . time() . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+            $uploaded->storeAs('public\Main\CH\\', $filename);
+            $SelectedCH->Ch_Image = $filename;
+
+        }
+
+        if ($request->CH_Title_fa) {
+            foreach (Locales() as $item) {
+                $SelectedCH->contents()->updateOrInsert(
+                    [
+                        'page' => 'CH',
+                        'section' => 'CH',
+                        'element_id' => $element_id,
+                        'locale' => $item['locale'],
+                        'element_title' => 'ChTitle_' . $item['locale'],
+                    ],
+                    [
+                        'element_content' => $request->input('CH_Title_' . $item['locale']),
+                    ]
+                );
+            }
+        }
+
+
+        if ($request->CH_Desc_fa) {
+            foreach (Locales() as $item) {
+                $SelectedCH->contents()->updateOrInsert(
+                    [
+                        'page' => 'CH',
+                        'section' => 'CH',
+                        'element_id' => $element_id,
+                        'locale' => $item['locale'],
+                        'element_title' => 'ChDescription_' . $item['locale'],
+                    ],
+                    [
+                        'element_content' => $request->input('CH_Desc_' . $item['locale']),
+                    ]
+                );
+            }
+        }
+
+
+
+        $SelectedCH->update();
+        return redirect('/CH');
     }
 
     /**
