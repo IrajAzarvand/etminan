@@ -76,13 +76,7 @@ class MainNavController extends Controller
             }
         }
 
-        //get category related to selected new products
-        // $NewPrCategory = [];
-        // foreach ($NewPr as $product) {
-        //     $NewPrCategory[] = Category::where('id', $product->cat_id)->with('contents', function ($query) {
-        //         $query->pluck('element_content');
-        //     })->get();
-        // }
+
         $NewProducts = [];
         $P_Images = [];
         //collect first image of each product and put it in array
@@ -115,9 +109,18 @@ class MainNavController extends Controller
     public function AllProducts()
     {
         $SharedContents = $this->SharedContents();
-        $ProductsContents = collect(AllContentOfLocale())
-            ->whereIn('page', array('products')) // 'welcome'=>contents for home page only
-            ->all();
+//        $ProductsContents = collect(AllContentOfLocale())
+//            ->whereIn('page', array('products'))
+//            ->all();
+        $Products=Product::with('contents')->get();
+        $AllCategories=Category::with('contents')->get();
+        $CategoriesList=[];
+        foreach ($AllCategories as $key=>$item)
+        {
+            foreach (Locales() as $lang)
+            $CategoriesList[$key][$lang['locale']]=$item->contents()->where('locale',$lang['locale'])->pluck('element_content')[0];
+        }
+        dd($CategoriesList);
 
         return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'ProductsContents'));
     }

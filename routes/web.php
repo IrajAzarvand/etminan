@@ -22,6 +22,8 @@ Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
 Route::get('/AllProducts', [MainNavController::class, 'AllProducts'])->name('AllProducts');
 
 
+
+//Dashboard Routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

@@ -228,6 +228,7 @@ class ProductController extends Controller
     public function destroy($product)
     {
         $SelectedProduct = Product::find($product);
+
         $ProductImages = unserialize($SelectedProduct->images);
         $ProductImagesFolder = 'storage/Main/Products/';
         $ProductCatalogs = new ProductCatalogController();

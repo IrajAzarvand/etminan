@@ -112,15 +112,15 @@ class CategoryController extends Controller
     {
 
         $id = per_digit_conv($category);
+
         $Category = Category::find($id);
+
         $CategoryProducts = Product::where('cat_id', $Category->id)->get();
 
         $product = new ProductController;
         foreach ($CategoryProducts as $Product) {
-            $product->destroy($Product->id);
-
+          $product->destroy($Product->id);
         }
-
         $Category->contents()->delete();
         $Category->delete();
     }

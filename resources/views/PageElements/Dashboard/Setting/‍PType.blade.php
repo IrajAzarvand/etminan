@@ -118,7 +118,9 @@
                 },
                 success: function() {
                     location.reload();
+
                 }
+
             });
 
         }

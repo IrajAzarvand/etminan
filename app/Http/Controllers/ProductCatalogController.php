@@ -6,6 +6,7 @@ use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\ProductCatalog;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\True_;
 
 class ProductCatalogController extends Controller
 {
@@ -123,21 +124,24 @@ class ProductCatalogController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\ProductCatalog $productCatalog
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     public function destroy($productCatalog)
     {
         $SelectedProduct = ProductCatalog::where('product_id',$productCatalog)->first();
-        $ProductCatalogs = unserialize($SelectedProduct->catalog_images);
-        $ProductCatalogsFolder = 'storage/Main/Products/'.$productCatalog.'/catalogs/';
+        if($SelectedProduct){
+            $ProductCatalogs = unserialize($SelectedProduct->catalog_images);
+            $ProductCatalogsFolder = 'storage/Main/Products/'.$productCatalog.'/catalogs/';
 
 
-        foreach ($ProductCatalogs as $item) {
-            $this->ProductCatalogRemove($productCatalog, $item);
+            foreach ($ProductCatalogs as $item) {
+                $this->ProductCatalogRemove($productCatalog, $item);
+            }
+            rmdir($ProductCatalogsFolder); //delete folder
+            $SelectedProduct->delete();
         }
-        rmdir($ProductCatalogsFolder); //delete folder
-        $SelectedProduct->delete();
         return true;
+
     }
 
     /**

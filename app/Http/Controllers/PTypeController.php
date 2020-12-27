@@ -113,11 +113,12 @@ class PTypeController extends Controller
         $categories = Category::where('ptype_id', $pType)->get();
 
         $category = new CategoryController();
+
         foreach ($categories as $c) {
-            $category->destroy($c->id);
+           $category->destroy($c->id);
 
         }
-//        $SelectedPType->categories()->delete();
+        $SelectedPType->categories()->delete();
         $SelectedPType->contents()->delete();
         $SelectedPType->delete();
     }
