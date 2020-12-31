@@ -122,6 +122,7 @@ class MainNavController extends Controller
         }
         dd($CategoriesList);
 
+
         return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'ProductsContents'));
     }
 }
