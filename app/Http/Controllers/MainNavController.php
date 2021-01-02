@@ -83,10 +83,10 @@ class MainNavController extends Controller
         foreach ($NewPr as $key => $item) {
             $P_Images = unserialize($item->images);
             $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
-            $NewProducts[$key]['title_fa'] =  $NewPrName[$key]['fa'];
-            $NewProducts[$key]['title_en'] =  $NewPrName[$key]['en'];
-            $NewProducts[$key]['title_ru'] =  $NewPrName[$key]['ru'];
-            $NewProducts[$key]['title_ar'] =  $NewPrName[$key]['ar'];
+            $NewProducts[$key]['title_fa'] = $NewPrName[$key]['fa'];
+            $NewProducts[$key]['title_en'] = $NewPrName[$key]['en'];
+            $NewProducts[$key]['title_ru'] = $NewPrName[$key]['ru'];
+            $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
         }
 
         //**************************  LATEST NEWS *********************************************************** */
@@ -108,21 +108,36 @@ class MainNavController extends Controller
      */
     public function AllProducts()
     {
+
+        $SectionTitle = collect(AllContentOfLocale())
+            ->where('page', 'products')
+            ->where('element_title', 'section_title')
+            ->pluck('element_content')[0];
+
         $SharedContents = $this->SharedContents();
-//        $ProductsContents = collect(AllContentOfLocale())
-//            ->whereIn('page', array('products'))
-//            ->all();
-        $Products=Product::with('contents')->get();
-        $AllCategories=Category::with('contents')->get();
-        $CategoriesList=[];
-        foreach ($AllCategories as $key=>$item)
-        {
-            foreach (Locales() as $lang)
-            $CategoriesList[$key][$lang['locale']]=$item->contents()->where('locale',$lang['locale'])->pluck('element_content')[0];
+
+        $AllCategories = Category::with('contents')->get();
+        $CategoriesList = [];
+        foreach ($AllCategories as $key => $item) {
+            $CategoriesList[$key]['id'] = $item->id;
+            $CategoriesList[$key]['name'] = $item->contents()->where('locale', app()->getLocale())->pluck('element_content')[0];
         }
-        dd($CategoriesList);
 
+        $AllProducts = Product::with(['contents' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->get();
 
-        return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'ProductsContents'));
+        $PList = [];
+        foreach ($AllProducts as $key => $product) {
+            $PList[$key]['id'] = $product->id;
+            $PList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
+            foreach ($CategoriesList as $cat) {
+                if ($product->cat_id == $cat['id'])
+                    $PList[$key]['cat'] = $cat['name'];
+            }
+            $PList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+        }
+
+        return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
     }
 }

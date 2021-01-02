@@ -23,7 +23,7 @@ class FooterController extends Controller
         $CopyRight = Footer::with(['contents' => function ($query) {
             $query->where('element_title', 'copyright');
         }])->get();
-        // dd($Address);
+
         return view('PageElements.Dashboard.Setting.Footer', compact('Address', 'CopyRight'));
     }
 
