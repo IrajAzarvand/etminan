@@ -4,6 +4,17 @@
 
         <section class="portfolio_strict">
             <div class="container">
+
+
+                <div class="container triangles-of-sectioninner">
+                    <div class="triangle-up-left"></div>
+                    <div class="square-left"></div>
+                    <div class="triangle-up-right"></div>
+                    <div class="square-right"></div>
+                </div>
+
+
+
                 <ul class="portfolio_filters">
                     <li><a href="#" data-filter="*">همه</a></li>
                     {{--                    <li><a href="#" data-filter=".cat_artists">هنری</a></li>--}}
