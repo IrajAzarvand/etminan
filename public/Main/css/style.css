@@ -8719,6 +8719,10 @@ header.centered .menu_container>ul>li ul {
     top: -100px;
 }
 
+.main>.container.triangles-of-section.IX div {
+    top: -73px;
+}
+
 .main>.container.triangles-of-section div:after {
     -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
@@ -8728,6 +8732,11 @@ header.centered .menu_container>ul>li ul {
 .main>.container.triangles-of-section div.square-left,
 .main>.container.triangles-of-section div.square-right {
     top: -103px;
+}
+
+.main>.container.triangles-of-section.IX div.square-left,
+.main>.container.triangles-of-section.IX div.square-right {
+    top: -76px;
 }
 
 .main>.container.triangles-of-section div.square-left:after,
@@ -8824,6 +8833,15 @@ header.centered .menu_container>ul>li ul {
     overflow: hidden;
 }
 
+.container.triangles-of-section.IX .triangle-up-left {
+    width: 100px;
+    height: 73px;
+    position: absolute;
+    top: -148px;
+    left: -100px;
+    overflow: hidden;
+}
+
 .container.triangles-of-section .triangle-up-left:after {
     content: "";
     position: absolute;
@@ -8843,6 +8861,15 @@ header.centered .menu_container>ul>li ul {
 .container.triangles-of-section .triangle-up-right {
     width: 100px;
     height: 78px;
+    position: absolute;
+    top: -148px;
+    right: -100px;
+    overflow: hidden;
+}
+
+.container.triangles-of-section.IX .triangle-up-right {
+    width: 100px;
+    height: 73px;
     position: absolute;
     top: -148px;
     right: -100px;

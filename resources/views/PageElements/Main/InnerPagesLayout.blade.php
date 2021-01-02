@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="main">
-        <div class="container triangles-of-section">
+        <div class="container triangles-of-section IX">
             <div class="triangle-up-left"></div>
             <div class="square-left"></div>
             <div class="triangle-up-right"></div>
