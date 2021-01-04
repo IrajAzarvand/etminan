@@ -30,7 +30,7 @@
             </div>
             <div class="hgroup_subtitle animated bounceInUp ">
                 <div class="container">
-                    <p>این نمونه کارها می توانند تبلیغ خوبی برای ما باشند!</p>
+                    <p></p>
                 </div>
             </div>
         </div>

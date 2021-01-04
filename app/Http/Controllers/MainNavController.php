@@ -140,4 +140,32 @@ class MainNavController extends Controller
 
         return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
     }
+
+
+    /**
+     * Display all ptypes and categories including products .
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function ViewProduct($p_id)
+    {
+
+        $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
+        $Product['name'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+       foreach (unserialize($SelectedProduct->images) as $images){
+           $Product['images'][] = asset('storage/Main/Products/' . $SelectedProduct->id . '/' . $images);
+       }
+        $Product['introduction'] = $SelectedProduct->contents()->where('element_title', 'p_introduction_' . app()->getLocale())->pluck('element_content')[0];
+        $Product['nutritional_value'] = $SelectedProduct->contents()->where('element_title', 'nutritionalValue_' . app()->getLocale())->pluck('element_content')[0];
+
+
+        $SectionTitle = collect(AllContentOfLocale())
+            ->where('page', 'products')
+            ->where('element_title', 'section_title')
+            ->pluck('element_content')[0];
+
+        $SharedContents = $this->SharedContents();
+
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'SectionTitle', 'Product'));
+    }
 }
