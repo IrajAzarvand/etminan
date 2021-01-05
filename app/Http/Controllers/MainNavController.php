@@ -137,13 +137,13 @@ class MainNavController extends Controller
             }
             $PList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-//        dd($CategoriesList, $PList);
+
         return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
     }
 
 
     /**
-     * Display all ptypes and categories including products .
+     * Display product and related products.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
@@ -180,4 +180,48 @@ class MainNavController extends Controller
 
         return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList'));
     }
+
+
+
+    /**
+     * Display all galleries.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function AllGalleries()
+    {
+
+        $SectionTitle = collect(AllContentOfLocale())
+            ->where('page', 'products')
+            ->where('element_title', 'section_title')
+            ->pluck('element_content')[0];
+
+        $SharedContents = $this->SharedContents();
+
+        $AllCategories = Category::with('contents')->get();
+        $CategoriesList = [];
+        foreach ($AllCategories as $key => $item) {
+            $CategoriesList[$key]['id'] = $item->id;
+            $CategoriesList[$key]['name'] = $item->contents()->where('locale', app()->getLocale())->pluck('element_content')[0];
+        }
+
+        $AllProducts = Product::with(['contents' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->get();
+
+        $PList = [];
+        foreach ($AllProducts as $key => $product) {
+            $PList[$key]['id'] = $product->id;
+            $PList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
+            foreach ($CategoriesList as $cat) {
+                if ($product->cat_id == $cat['id'])
+                    $PList[$key]['cat'] = $cat['id'];
+            }
+            $PList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+        }
+//        dd($CategoriesList, $PList);
+        return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
+    }
+
+
 }
