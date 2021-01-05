@@ -25,12 +25,12 @@
         <div class="hgroup">
             <div class="hgroup_title animated bounceInUp skincolored">
                 <div class="container">
-                    <h1 class="">{{$SectionTitle}}</h1>
+                    <h1 class="">{{$PageTitle ?? $SectionTitle}}</h1>
                 </div>
             </div>
             <div class="hgroup_subtitle animated bounceInUp ">
                 <div class="container">
-                    <p></p>
+                    <p>{{$Product['name']?? ''}}</p>
                 </div>
             </div>
         </div>

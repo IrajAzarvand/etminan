@@ -133,11 +133,11 @@ class MainNavController extends Controller
             $PList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
             foreach ($CategoriesList as $cat) {
                 if ($product->cat_id == $cat['id'])
-                    $PList[$key]['cat'] = $cat['name'];
+                    $PList[$key]['cat'] = $cat['id'];
             }
             $PList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-
+//        dd($CategoriesList, $PList);
         return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
     }
 
@@ -149,6 +149,18 @@ class MainNavController extends Controller
      */
     public function ViewProduct($p_id)
     {
+        $SharedContents = $this->SharedContents();
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'products')
+            ->where('section', 'PageElements')
+//            ->where('element_title', 'section_title')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+        $ProductIntroductionTitle=$SectionTitles[1];
+        $ProductNVTitle=$SectionTitles[2];
+        $BtnBackTitle=$SectionTitles[3];
+        $RelatedProductsTitle=$SectionTitles[4];
 
         $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
         $Product['name'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
@@ -158,14 +170,14 @@ class MainNavController extends Controller
         $Product['introduction'] = $SelectedProduct->contents()->where('element_title', 'p_introduction_' . app()->getLocale())->pluck('element_content')[0];
         $Product['nutritional_value'] = $SelectedProduct->contents()->where('element_title', 'nutritionalValue_' . app()->getLocale())->pluck('element_content')[0];
 
+        $RelatedProducts=Product::where('cat_id',$SelectedProduct->cat_id)->whereNotIn('id',[$SelectedProduct->id])->with('contents')->get();
+        $RelatedPList = [];
+        foreach ($RelatedProducts as $key => $product) {
+            $RelatedPList[$key]['id'] = $product->id;
+            $RelatedPList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
+            $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+        }
 
-        $SectionTitle = collect(AllContentOfLocale())
-            ->where('page', 'products')
-            ->where('element_title', 'section_title')
-            ->pluck('element_content')[0];
-
-        $SharedContents = $this->SharedContents();
-
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'SectionTitle', 'Product'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList'));
     }
 }
