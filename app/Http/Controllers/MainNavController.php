@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\CertificatesAndHonors;
 use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\Slider;
@@ -89,6 +90,13 @@ class MainNavController extends Controller
             $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
         }
 
+        //**************************  CERTIFICATE AND HONORS ************************************************ */
+        foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch)
+        {
+            $CH_Images[]=asset('storage/Main/CH/'.$ch);
+        }
+
+
         //**************************  LATEST NEWS *********************************************************** */
         $LatestNews = collect($IndexContents)->where('section', 'latestnews');
         $LatestNewsTitle = $LatestNews->where('element_title', 'news_title')->pluck('element_content');
@@ -97,7 +105,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images'));
     }
 
 
@@ -188,7 +196,7 @@ class MainNavController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function AllGalleries()
+    public function AllCH()
     {
 
         $SectionTitle = collect(AllContentOfLocale())

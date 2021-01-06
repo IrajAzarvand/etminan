@@ -21,7 +21,7 @@ Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
 Route::get('/AllProducts', [MainNavController::class, 'AllProducts'])->name('AllProducts');
 Route::get('/ViewProduct/{p_id}', [MainNavController::class, 'ViewProduct'])->name('ViewProduct');
-Route::get('/AllGalleries', [MainNavController::class, 'AllGalleries'])->name('AllGalleries');
+Route::get('/AllCH', [MainNavController::class, 'AllCH'])->name('AllCH');
 
 
 
