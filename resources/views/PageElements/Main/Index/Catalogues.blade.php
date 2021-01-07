@@ -6,17 +6,14 @@
         <div class="square-right"></div>
     </div>
     <div class="container">
+        <h2 class="section_header fancy centered">{{ $SectionTitle }}</h2>
         <div class="row">
 
-            @php
-            $catalogues=collect($IndexContents)->where('section','catalog');
-            @endphp
-
-            @foreach ($catalogues as $catalog)
-            <div class="feature_teaser col-sm-4 col-md-4"><img alt="responsive" src="{{ asset('Main/images/500.jpg') }}">
-                <h3>{{ $catalog['element_title'] }}</h3>
-                <p>{{ $catalog['element_content'] }}</p>
-            </div>
+            @foreach ($Catalog_Images as $catalog)
+                <div class="feature_teaser col-sm-4 col-md-4">
+                    <img alt="responsive" src="{{ $catalog}}">
+                    {{--                <h3>{{ $catalog['element_title'] }}</h3>--}}
+                </div>
             @endforeach
 
         </div>

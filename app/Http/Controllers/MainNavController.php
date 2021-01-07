@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\CertificatesAndHonors;
 use App\Models\LocaleContent;
 use App\Models\Product;
+use App\Models\ProductCatalog;
 use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 
@@ -90,6 +91,17 @@ class MainNavController extends Controller
             $NewProducts[$key]['title_ar'] = $NewPrName[$key]['ar'];
         }
 
+        //**************************  CATALOGUES ************************************************ */
+        //select first image of catalog for each product
+        $Catalog_Images=[];
+        $Catalogues=ProductCatalog::all();
+
+        foreach ($Catalogues as $C)
+        {
+            $P_Id=$C->product_id;
+            $Catalog_Images[]=asset('storage/Main/Products/'.$P_Id.'/catalogs/'.unserialize($C->catalog_images)[0]);
+        }
+
         //**************************  CERTIFICATE AND HONORS ************************************************ */
         foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch)
         {
@@ -105,7 +117,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images'));
     }
 
 

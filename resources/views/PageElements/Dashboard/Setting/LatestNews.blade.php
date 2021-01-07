@@ -47,7 +47,7 @@
                                     <div class="mb-3">
                                         <textarea id="editor1" name="{{$item['locale']}}_title" style="width: 100%" placeholder="عنوان"></textarea>
                                         <br />
-                                        <textarea id="editor1" name="{{$item['locale']}}_description" style="width: 100%" placeholder="شرح"></textarea>
+                                        <textarea id="editor1" name="{{$item['locale']}}_description" style="width: 100%" placeholder="شرح" rows="10"></textarea>
 
                                     </div>
                                 </div>

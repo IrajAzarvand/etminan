@@ -9002,7 +9002,7 @@ section.features_teasers_wrapper .feature_teaser h3 {
     line-height: 30px;
     font-weight: 800;
     padding: 16px 0;
-    margin: 35px 0;
+    /*margin: 35px 0;*/
     clear: both;
 }
 
@@ -9013,7 +9013,6 @@ section.features_teasers_wrapper .feature_teaser h3 {
 .section_header.fancy {
     text-align: left;
     text-transform: uppercase;
-    margin: 0 0 35px 0;
     font-weight: 800;
 }
 
