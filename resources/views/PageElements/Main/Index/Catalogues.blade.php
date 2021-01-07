@@ -6,13 +6,12 @@
         <div class="square-right"></div>
     </div>
     <div class="container">
-        <h2 class="section_header fancy centered">{{ $SectionTitle }}</h2>
+        <h2 class="section_header fancy centered">{{ $CatalogSectionTitle }}</h2>
         <div class="row">
 
             @foreach ($Catalog_Images as $catalog)
                 <div class="feature_teaser col-sm-4 col-md-4">
                     <img alt="responsive" src="{{ $catalog}}">
-                    {{--                <h3>{{ $catalog['element_title'] }}</h3>--}}
                 </div>
             @endforeach
 

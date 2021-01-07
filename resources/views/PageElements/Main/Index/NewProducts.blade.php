@@ -6,7 +6,7 @@
         <div class="square-right"></div>
     </div>
     <div class="container">
-        <h2 class="section_header fancy centered">{{ $SectionTitle }}</h2>
+        <h2 class="section_header fancy centered">{{ $NewPrSectionTitle }}</h2>
         <div class="portfolio_strict row">
 
             @foreach($NewProducts as $key=>$item)

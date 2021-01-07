@@ -63,7 +63,7 @@ class MainNavController extends Controller
         //************************** NEW PRODUCTS ***************************************************************** */
 
         $NewProductsSection = collect($IndexContents)->where('section', 'new_products');
-        $SectionTitle = $NewProductsSection->where('element_title', 'section_title')->pluck('element_content')->first();
+        $NewPrSectionTitle = $NewProductsSection->where('element_title', 'section_title')->pluck('element_content')->first();
         $BtnNewProducts = $NewProductsSection->where('element_title', 'btn_title')->pluck('element_content')->first();
 
 
@@ -92,6 +92,9 @@ class MainNavController extends Controller
         }
 
         //**************************  CATALOGUES ************************************************ */
+        $CatalogsSection = collect($IndexContents)->where('section', 'catalog');
+        $CatalogSectionTitle = $CatalogsSection->where('element_title', 'section_title')->pluck('element_content')->first();
+
         //select first image of catalog for each product
         $Catalog_Images=[];
         $Catalogues=ProductCatalog::all();
@@ -103,6 +106,7 @@ class MainNavController extends Controller
         }
 
         //**************************  CERTIFICATE AND HONORS ************************************************ */
+        $CH_Images=[];
         foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch)
         {
             $CH_Images[]=asset('storage/Main/CH/'.$ch);
@@ -117,7 +121,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'SectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle','CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images'));
     }
 
 
