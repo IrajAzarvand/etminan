@@ -31,8 +31,6 @@ class MainNavController extends Controller
             }
         }
         return [$SectionTitle, $Address, $CopyRight];
-
-        // return $SharedContents;
     }
 
     /**
@@ -178,13 +176,12 @@ class MainNavController extends Controller
         $SectionTitles = collect(AllContentOfLocale())
             ->where('page', 'products')
             ->where('section', 'PageElements')
-//            ->where('element_title', 'section_title')
             ->pluck('element_content');
         $PageTitle=$SectionTitles[0];
         $ProductIntroductionTitle=$SectionTitles[1];
         $ProductNVTitle=$SectionTitles[2];
-        $BtnBackTitle=$SectionTitles[3];
-        $RelatedProductsTitle=$SectionTitles[4];
+        $BtnBackTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_back')->where('locale',app()->getLocale())->pluck('element_content')[0];
+        $RelatedProductsTitle=$SectionTitles[3];
 
         $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
         $Product['name'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
@@ -215,36 +212,51 @@ class MainNavController extends Controller
     public function AllCH()
     {
 
-        $SectionTitle = collect(AllContentOfLocale())
-            ->where('page', 'products')
-            ->where('element_title', 'section_title')
-            ->pluck('element_content')[0];
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'CH')
+            ->where('section', 'PageElements')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+        $MoreBtnTitle=$SectionTitles[1];
 
         $SharedContents = $this->SharedContents();
 
-        $AllCategories = Category::with('contents')->get();
-        $CategoriesList = [];
-        foreach ($AllCategories as $key => $item) {
-            $CategoriesList[$key]['id'] = $item->id;
-            $CategoriesList[$key]['name'] = $item->contents()->where('locale', app()->getLocale())->pluck('element_content')[0];
-        }
+        $AllCH = CertificatesAndHonors::with('contents')->get();
+        $CHList=[];
+        foreach ($AllCH as $key=>$CH)
+        {
+            $CHList[$key]['id'] = $CH->id;
+            $CHList[$key]['title'] = $CH->contents()->where('element_title', 'ChTitle_' . app()->getLocale())->pluck('element_content')[0];
+            $CHList[$key]['image']=asset('storage/Main/CH/'.$CH->Ch_Image);
 
-        $AllProducts = Product::with(['contents' => function ($query) {
-            $query->where('locale', app()->getLocale());
-        }])->get();
-
-        $PList = [];
-        foreach ($AllProducts as $key => $product) {
-            $PList[$key]['id'] = $product->id;
-            $PList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
-            foreach ($CategoriesList as $cat) {
-                if ($product->cat_id == $cat['id'])
-                    $PList[$key]['cat'] = $cat['id'];
-            }
-            $PList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-//        dd($CategoriesList, $PList);
-        return view('PageElements.Main.Product.AllProducts', compact('SharedContents', 'SectionTitle', 'CategoriesList', 'PList'));
+        return view('PageElements.Main.CH.AllCH', compact('SharedContents', 'PageTitle', 'MoreBtnTitle', 'CHList'));
+    }
+
+
+    /**
+     * Display all galleries.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function ViewCH($ch_id)
+    {
+
+        $SelectedCH=CertificatesAndHonors::where('id',$ch_id)->with('contents')->first();
+        $SelectedCHTitle=$SelectedCH->contents()->where('element_title', 'ChTitle_' . app()->getLocale())->pluck('element_content')[0];
+        $SelectedCHDescription=$SelectedCH->contents()->where('element_title', 'ChDescription_' . app()->getLocale())->pluck('element_content')[0];
+        $SelectedCHImage=asset('storage/Main/CH/'.$SelectedCH->Ch_Image);
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'CH')
+            ->where('section', 'PageElements')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+        $BtnBackTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_back')->where('locale',app()->getLocale())->pluck('element_content')[0];
+
+        $SharedContents = $this->SharedContents();
+
+        return view('PageElements.Main.CH.ViewCH', compact('SharedContents', 'PageTitle', 'BtnBackTitle', 'SelectedCHTitle','SelectedCHDescription','SelectedCHImage'));
     }
 
 

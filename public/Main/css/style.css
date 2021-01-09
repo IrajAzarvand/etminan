@@ -10005,13 +10005,14 @@ article.post .post_header h3.post_title a:visited {
 }
 
 article.post .post_content figure {
-    max-height: 400px;
+    /*max-height: 400px;*/
     overflow: hidden;
     margin: 15px 0 25px 0;
 }
 
 article.post .post_content figure img {
-    max-width: 100%;
+    max-width: 50%;
+
 }
 
 article.post .post_content .btn {
