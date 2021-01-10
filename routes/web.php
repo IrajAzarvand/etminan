@@ -13,6 +13,7 @@ use App\Http\Controllers\MainNavController;
 use App\Http\Controllers\OrganizationalChartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PTypeController;
+use App\Http\Controllers\SalesOfficeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
@@ -60,3 +61,5 @@ Route::get('/Catalog/{ProductId}/{catalogImage}/delete',[ProductCatalogControlle
 Route::resource('Catalog', ProductCatalogController::class);
 
 Route::resource('Gallery', GalleryController::class);
+
+Route::resource('SO', SalesOfficeController::class);

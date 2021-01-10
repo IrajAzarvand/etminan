@@ -88,6 +88,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Gallery.index',
                     'Icon' => 'fa fa-picture-o',
                 ],
+                [
+                    'SubMenu' => 'دفاتر فروش',
+                    'Url' => 'SO.index',
+                    'Icon' => 'fa fa-building-o',
+                ],
             ]
         ];
 
