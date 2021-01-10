@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductCatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CeoMessageController;
@@ -57,3 +58,5 @@ Route::resource('PType', PTypeController::class);
 
 Route::get('/Catalog/{ProductId}/{catalogImage}/delete',[ProductCatalogController::class,'ProductCatalogRemove'])->name('ProductCatalogRemove');
 Route::resource('Catalog', ProductCatalogController::class);
+
+Route::resource('Gallery', GalleryController::class);

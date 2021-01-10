@@ -83,6 +83,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'Footer.index',
                     'Icon' => 'fa fa-sort-amount-asc',
                 ],
+                [
+                    'SubMenu' => 'گالری تصاویر',
+                    'Url' => 'Gallery.index',
+                    'Icon' => 'fa fa-picture-o',
+                ],
             ]
         ];
 
