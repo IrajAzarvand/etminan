@@ -104,6 +104,19 @@ class MainNavController extends Controller
             $Catalog_Images[]=asset('storage/Main/Products/'.$P_Id.'/catalogs/'.unserialize($C->catalog_images)[0]);
         }
 
+        //**************************  PHOTO GALLERY ************************************************ */
+        $GallerySection = collect($IndexContents)->where('section', 'gallery');
+        $GallerySectionTitle = $GallerySection->where('element_title', 'section_title')->pluck('element_content')->first();
+
+        $Gallery=[];
+        foreach (Gallery::with('contents')->get() as $key=>$g)
+        {
+            $Gallery[$key]['image']=asset('storage/Main/Gallery/'.$g->id.'/'.unserialize($g->images)[0]);
+            foreach (Locales() as $item) {
+                $Gallery[$key]['title_'.$item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
+            }
+        }
+
         //**************************  CERTIFICATE AND HONORS ************************************************ */
         $CH_Images=[];
         foreach (CertificatesAndHonors::pluck('Ch_Image')->toArray() as $ch)
@@ -120,7 +133,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle','CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle','CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images', 'GallerySectionTitle', 'Gallery'));
     }
 
 

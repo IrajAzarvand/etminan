@@ -112,6 +112,38 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'btn_title',
                 'element_content' => 'أكثر',
             ],
+            [
+                'page' => 'welcome',
+                'section' => 'gallery',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'گالری تصاویر',
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'gallery',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Photo Gallery',
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'gallery',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Фотогалерея',
+            ],
+            [
+                'page' => 'welcome',
+                'section' => 'gallery',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'معرض الصور',
+            ],
             //footer
             [
                 'page' => '',
