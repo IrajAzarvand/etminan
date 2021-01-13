@@ -49,4 +49,9 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(CertificatesAndHonors::class);
     }
+
+    public function Galleries()
+    {
+        return $this->belongsTo(Gallery::class);
+    }
 }

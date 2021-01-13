@@ -30,7 +30,7 @@
             </div>
             <div class="hgroup_subtitle animated bounceInUp ">
                 <div class="container">
-                    <p>{{$Product['name']?? ''}}</p>
+                    <p>{{$Item['title']?? ''}}</p>
                 </div>
             </div>
         </div>

@@ -36,7 +36,7 @@ class MainNavsTableSeeder extends Seeder
                 'content_en' => 'Gallery',
                 'content_ar' => 'معرض الصور',
                 'content_ru' => 'Галерея',
-                'route_name' => 'HomePage',
+                'route_name' => 'AllGalleries',
                 'url' => null,
             ],
             [

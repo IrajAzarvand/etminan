@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\CertificatesAndHonors;
+use App\Models\Gallery;
 use App\Models\LocaleContent;
 use App\Models\Product;
 use App\Models\ProductCatalog;
@@ -184,7 +185,7 @@ class MainNavController extends Controller
         $RelatedProductsTitle=$SectionTitles[3];
 
         $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
-        $Product['name'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+        $Item['title'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
        foreach (unserialize($SelectedProduct->images) as $images){
            $Product['images'][] = asset('storage/Main/Products/' . $SelectedProduct->id . '/' . $images);
        }
@@ -199,7 +200,7 @@ class MainNavController extends Controller
             $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
 
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList'));
     }
 
 
@@ -258,6 +259,70 @@ class MainNavController extends Controller
 
         return view('PageElements.Main.CH.ViewCH', compact('SharedContents', 'PageTitle', 'BtnBackTitle', 'SelectedCHTitle','SelectedCHDescription','SelectedCHImage'));
     }
+
+
+
+
+    /**
+     * Display all galleries.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function AllGalleries()
+    {
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'gallery')
+            ->where('section', 'gallery')
+            ->pluck('element_content');
+
+        $PageTitle=$SectionTitles[0];
+        $MoreBtnTitle=$SectionTitles[1];
+
+        $SharedContents = $this->SharedContents();
+
+        $AllGalleries = Gallery::with('contents')->get();
+        $GList = [];
+        foreach ($AllGalleries as $key=>$gallery) {
+            $GList[$key]['id'] = $gallery->id;
+            $GList[$key]['title'] = $gallery->contents()->where('element_title', 'g_title_' . app()->getLocale())->pluck('element_content')[0];
+            $GList[$key]['image'] = asset('storage/Main/Gallery/'.$gallery->id . '/' . unserialize($gallery->images)[0]);
+        }
+
+        return view('PageElements.Main.Gallery.AllGalleries', compact('SharedContents', 'PageTitle', 'MoreBtnTitle', 'GList'));
+    }
+
+
+
+    /**
+     * Display Gallery and related images.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function ViewGallery($g_id)
+    {
+        $SharedContents = $this->SharedContents();
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'gallery')
+            ->where('section', 'gallery')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+        $BtnBackTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_back')->where('locale',app()->getLocale())->pluck('element_content')[0];
+
+        $SelectedGallery=Gallery::where('id',$g_id)->with('contents')->first();
+        $Gallery=[];
+        $Item['title'] = $SelectedGallery->contents()->where('element_title', 'g_title_' . app()->getLocale())->pluck('element_content')[0];
+        foreach (unserialize($SelectedGallery->images) as $images){
+            $Gallery['images'][] = asset('storage/Main/Gallery/' . $SelectedGallery->id . '/' . $images);
+        }
+
+        return view('PageElements.Main.Gallery.ViewGallery', compact('SharedContents', 'PageTitle', 'Item', 'BtnBackTitle', 'Gallery'));
+    }
+
+
+
+
 
 
 }

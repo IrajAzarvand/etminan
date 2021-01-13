@@ -25,6 +25,8 @@ Route::get('/AllProducts', [MainNavController::class, 'AllProducts'])->name('All
 Route::get('/ViewProduct/{p_id}', [MainNavController::class, 'ViewProduct'])->name('ViewProduct');
 Route::get('/AllCH', [MainNavController::class, 'AllCH'])->name('AllCH');
 Route::get('/ViewCH/{ch_id}', [MainNavController::class, 'ViewCH'])->name('ViewCH');
+Route::get('/AllGalleries', [MainNavController::class, 'AllGalleries'])->name('AllGalleries');
+Route::get('/ViewGallery/{g_id}', [MainNavController::class, 'ViewGallery'])->name('ViewGallery');
 
 
 
