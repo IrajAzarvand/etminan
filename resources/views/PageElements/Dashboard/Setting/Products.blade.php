@@ -334,7 +334,6 @@
                     let lst_LI=document.getElementById("CategoryList").lastElementChild;
                     let spn=lst_LI.getElementsByTagName("span");
                     spn[0].innerHTML='<a onclick="editRow('+ Cat_id +')"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="deleteRow('+ Cat_id +')"><i class="fa fa-trash-o"></i></a>' + list;
-                    console.log(list);
                     list='';
                 });
 

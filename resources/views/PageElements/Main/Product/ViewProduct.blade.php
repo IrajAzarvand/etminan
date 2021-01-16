@@ -38,12 +38,15 @@
                             <p>{{$Product['nutritional_value']}}</p>
                             <br>
                             <br>
-                    </div>
+                            <a href="#" class="btn btn-danger center-block ">{{$BtnViewCatalogTitle}}</a>
+                            <br>
+                            <br>
+                        </div>
                 </div>
                 <ul class="pager">
                     <li class="next"><a href="{{route('AllProducts')}}">← {{$BtnBackTitle}}</a></li>
                 </ul>
-            </div>
+                </div>
         </section>
         @if($RelatedPList)
         <section class="portfolio_teasers_wrapper">

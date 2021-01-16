@@ -83,6 +83,7 @@ class MainNavController extends Controller
         //collect first image of each product and put it in array
         foreach ($NewPr as $key => $item) {
             $P_Images = unserialize($item->images);
+            $NewProducts[$key]['id']=$item->id;
             $NewProducts[$key]['image'] = asset('storage/Main/Products/' . $item->id . '/' . $P_Images[0]); //get first image of product and save it in array
             $NewProducts[$key]['title_fa'] = $NewPrName[$key]['fa'];
             $NewProducts[$key]['title_en'] = $NewPrName[$key]['en'];
@@ -195,6 +196,7 @@ class MainNavController extends Controller
         $ProductIntroductionTitle=$SectionTitles[1];
         $ProductNVTitle=$SectionTitles[2];
         $BtnBackTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_back')->where('locale',app()->getLocale())->pluck('element_content')[0];
+        $BtnViewCatalogTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_view_catalog')->where('locale',app()->getLocale())->pluck('element_content')[0];
         $RelatedProductsTitle=$SectionTitles[3];
 
         $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
@@ -213,7 +215,7 @@ class MainNavController extends Controller
             $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
 
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'BtnBackTitle', 'RelatedProductsTitle', 'Product','RelatedPList','BtnViewCatalogTitle'));
     }
 
 

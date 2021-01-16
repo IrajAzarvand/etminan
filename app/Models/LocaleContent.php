@@ -54,4 +54,9 @@ class LocaleContent extends Model
     {
         return $this->belongsTo(Gallery::class);
     }
+
+    public function SalesOffice()
+    {
+        return $this->belongsTo(SalesOffice::class);
+    }
 }

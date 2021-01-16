@@ -15,7 +15,8 @@
                                         </div>
                                     </figcaption>
                                 </figure>
-                            </a></div>
+                            </a>
+                        </div>
                     </div>
 
                 @endforeach

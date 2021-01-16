@@ -12,7 +12,7 @@
             @foreach($NewProducts as $key=>$item)
 
             <div class="col-sm-4 col-md-4">
-                <div class="portfolio_item wow fadeInUp"><a href="portfolio_item.html">
+                <div class="portfolio_item wow fadeInUp"><a href="{{route('ViewProduct',[$item['id']])}}">
                         <figure style="background-image:url({{$item['image']}})">
                             <figcaption>
                                 <div class="portfolio_description">
