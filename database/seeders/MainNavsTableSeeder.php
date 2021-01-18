@@ -44,7 +44,7 @@ class MainNavsTableSeeder extends Seeder
                 'content_en' => 'Sales Offices',
                 'content_ar' => 'مكتب المبيعات',
                 'content_ru' => 'Офисы продаж',
-                'route_name' => 'HomePage',
+                'route_name' => 'SalesOffice',
                 'url' => null,
             ],
             [

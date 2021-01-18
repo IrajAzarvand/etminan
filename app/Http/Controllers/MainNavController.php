@@ -338,6 +338,28 @@ class MainNavController extends Controller
 
 
 
+    /**
+     * Display Gallery and related images.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function SalesOffice()
+    {
+        $SharedContents = $this->SharedContents();
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'sales_office')
+            ->where('section', 'sales_office')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+
+
+        return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle'));
+    }
+
+
+
+
 
 
 }
