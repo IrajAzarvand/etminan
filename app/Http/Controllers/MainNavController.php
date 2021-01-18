@@ -347,14 +347,13 @@ class MainNavController extends Controller
     {
         $SharedContents = $this->SharedContents();
 
-        $SectionTitles = collect(AllContentOfLocale())
+        $PageContents = collect(AllContentOfLocale())
             ->where('page', 'sales_office')
             ->where('section', 'sales_office')
-            ->pluck('element_content');
-        $PageTitle=$SectionTitles[0];
+            ->pluck('element_content','element_title');
+        $PageTitle=$PageContents['section_title'];
 
-
-        return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle'));
+        return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle','PageContents'));
     }
 
 

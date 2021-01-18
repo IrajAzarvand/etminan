@@ -154,9 +154,10 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            console.log(@json($PageContents));
             $("svg path").hover(function () {
-                let Name = $(this).data("value");
-                $(".Title").text(Name);
+                let StateName = $(this).data("value");
+                $(".Title").text(@json($PageContents));
                 $("svg path").mousemove(function (event) {
                     if (!event) {
                         event = window.event;
