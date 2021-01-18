@@ -165,8 +165,8 @@
                     let Y = event.pageY;
                     $(".Title").css({
                         'display': 'block',
-                        'top': Y - +300,
-                        'left': X - +50
+                        'top': Y - +240,
+                        'left': X - +10
                     });
                 });
             }, function () {
