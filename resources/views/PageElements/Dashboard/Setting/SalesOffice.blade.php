@@ -3,73 +3,73 @@
 @section('ContentHeader', 'دفاتر فروش')
 @section('content')
 
-    <div class="col-md-12">
-        <div class="card card-info card-outline">
-            <div class="card-header">
-                <h3 class="card-title">
-                    افزودن دفتر فروش جدید
-                </h3>
+{{--    <div class="col-md-12">--}}
+{{--        <div class="card card-info card-outline">--}}
+{{--            <div class="card-header">--}}
+{{--                <h3 class="card-title">--}}
+{{--                    افزودن دفتر فروش جدید--}}
+{{--                </h3>--}}
 
-            </div>
-            <!-- /.card-header -->
-            <form class="card-body" action="{{ route('SO.store') }}" method="post">
-            @csrf
-            <!-- /error box -->
-                <div class="mb3">
+{{--            </div>--}}
+{{--            <!-- /.card-header -->--}}
+{{--            <form class="card-body" action="{{ route('SO.store') }}" method="post">--}}
+{{--            @csrf--}}
+{{--            <!-- /error box -->--}}
+{{--                <div class="mb3">--}}
 
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+{{--                    @if ($errors->any())--}}
+{{--                        <div class="alert alert-danger">--}}
+{{--                            <ul>--}}
+{{--                                @foreach ($errors->all() as $error)--}}
+{{--                                    <li>{{ $error }}</li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
 
-                </div>
-                <!-- /.error box -->
+{{--                </div>--}}
+{{--                <!-- /.error box -->--}}
 
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Custom Tabs -->
-                        <div class="card">
-                            <label>نام، آدرس، شماره تلفن های دفتر</label>
+{{--                <div class="row">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <!-- Custom Tabs -->--}}
+{{--                        <div class="card">--}}
+{{--                            <label>نام، آدرس، شماره تلفن های دفتر</label>--}}
 
-                            <div class="card-header d-flex p-0">
-                                <ul class="nav nav-pills ml-auto p-2">
-                                    @foreach (Locales() as $item)
-                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#SalesOffice_{{$item['locale']}}"
-                                                                data-toggle="tab">{{$item['name']}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="tab-content">
-                                    @foreach (Locales() as $item)
-                                        <div class="tab-pane @if ($loop->first) active @endif"
-                                             id="SalesOffice_{{$item['locale']}}">
-                                            <div class="mb-3">
-                                                <textarea id="editor1" name="SalesOffice_{{$item['locale']}}"
-                                                          style="width: 100%" rows="10"></textarea>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <!-- /.tab-content -->
-                            </div><!-- /.card-body -->
-                        </div>
-                        <!-- ./card -->
-                    </div>
-                    <!-- /.col -->
-                </div>
+{{--                            <div class="card-header d-flex p-0">--}}
+{{--                                <ul class="nav nav-pills ml-auto p-2">--}}
+{{--                                    @foreach (Locales() as $item)--}}
+{{--                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"--}}
+{{--                                                                href="#SalesOffice_{{$item['locale']}}"--}}
+{{--                                                                data-toggle="tab">{{$item['name']}}</a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </div><!-- /.card-header -->--}}
+{{--                            <div class="card-body">--}}
+{{--                                <div class="tab-content">--}}
+{{--                                    @foreach (Locales() as $item)--}}
+{{--                                        <div class="tab-pane @if ($loop->first) active @endif"--}}
+{{--                                             id="SalesOffice_{{$item['locale']}}">--}}
+{{--                                            <div class="mb-3">--}}
+{{--                                                <textarea id="editor1" name="SalesOffice_{{$item['locale']}}"--}}
+{{--                                                          style="width: 100%" rows="10"></textarea>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                                <!-- /.tab-content -->--}}
+{{--                            </div><!-- /.card-body -->--}}
+{{--                        </div>--}}
+{{--                        <!-- ./card -->--}}
+{{--                    </div>--}}
+{{--                    <!-- /.col -->--}}
+{{--                </div>--}}
 
-                <button type="submit" class="btn btn-primary">ذخیره</button>
-            </form>
-        </div>
-    </div>
+{{--                <button type="submit" class="btn btn-primary">ذخیره</button>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- /.card -->
 
     <!-- / =============================================================================== -->
@@ -114,7 +114,7 @@
                                             <tr>
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$OfficeList['title']}}</td>
-                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" class="btn btn-danger"><a onclick="deleteOffice({{$OfficeList['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>
+                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" style="display: none" class="btn btn-danger"><a onclick="deleteOffice({{$OfficeList['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>
                                             </tr>
                                         @endforeach
                                     </table>

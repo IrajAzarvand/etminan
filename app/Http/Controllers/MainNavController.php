@@ -352,7 +352,6 @@ class MainNavController extends Controller
             ->where('section', 'sales_office')
             ->pluck('element_content','element_title');
         $PageTitle=$PageContents['section_title'];
-
         return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle','PageContents'));
     }
 
