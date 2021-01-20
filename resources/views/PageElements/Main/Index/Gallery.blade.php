@@ -7,7 +7,7 @@
                 @foreach($Gallery as $key=>$item)
 
                     <div class="col-sm-4 col-md-4">
-                        <div class="portfolio_item wow fadeInUp"><a href="">
+                        <div class="portfolio_item wow fadeInUp"><a href="{{route('ViewGallery',[$item['id']])}}">
                                 <figure style="background-image:url({{$item['image']}})">
                                     <figcaption>
                                         <div class="portfolio_description">

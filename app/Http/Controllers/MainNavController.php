@@ -112,6 +112,7 @@ class MainNavController extends Controller
         $Gallery=[];
         foreach (Gallery::with('contents')->get() as $key=>$g)
         {
+            $Gallery[$key]['id']=$g->id;
             $Gallery[$key]['image']=asset('storage/Main/Gallery/'.$g->id.'/'.unserialize($g->images)[0]);
             foreach (Locales() as $item) {
                 $Gallery[$key]['title_'.$item['locale']] = LocaleContent::where(['page' => 'gallery', 'section' => 'gallery', 'element_id' => $g->id, 'locale' => $item['locale'], 'element_title' => 'g_title_' . $item['locale']])->pluck('element_content')[0];
