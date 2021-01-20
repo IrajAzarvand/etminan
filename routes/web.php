@@ -18,6 +18,26 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
 
+//====================================== Management Routes Start
+//---------- clear app cache
+Route::get('/ClearAllCaches', function () {
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
+    echo 'cache clear done.';
+});
+
+//---------- DB Migration Routes
+Route::get('/migrate', function() {
+    Artisan::call('migrate:refresh --seed');
+});
+
+//====================================== Management Routes End
+
+
 Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
@@ -63,6 +83,7 @@ Route::resource('PType', PTypeController::class);
 Route::get('/Catalog/{ProductId}/{catalogImage}/delete',[ProductCatalogController::class,'ProductCatalogRemove'])->name('ProductCatalogRemove');
 Route::resource('Catalog', ProductCatalogController::class);
 
+Route::get('/Gallery/{GalleryId}/{GalleryImage}/delete',[GalleryController::class,'GalleryImgRemove'])->name('GalleryImageRemove');
 Route::resource('Gallery', GalleryController::class);
 
 Route::resource('SO', SalesOfficeController::class);

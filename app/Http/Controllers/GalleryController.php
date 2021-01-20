@@ -116,9 +116,42 @@ class GalleryController extends Controller
      * @param \App\Models\Gallery $gallery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request)
     {
-        //
+        $SelectedGallery = Gallery::where('id', $request->input('GalleryId'))->with('contents')->first();
+        $element_id = $SelectedGallery->id;
+
+        $GalleryImages = unserialize($SelectedGallery->images);
+        if ($request->hasFile('gallery_images')) {
+            $count = 0;
+            foreach ($request->file('gallery_images') as $image) {
+                $uploaded = $image;
+                $filename = $element_id . '_' . time() . $count++ . '.' . $uploaded->getClientOriginalExtension();  //timestamps.extension
+                $uploaded->storeAs('public\Main\Gallery\\' . $element_id . '\\', $filename);
+                $GalleryImages[] = $filename;
+            }
+        }
+        $SelectedGallery->images = serialize($GalleryImages);
+
+        if ($request->g_title_fa) {
+            foreach (Locales() as $item) {
+                $SelectedGallery->contents()->updateOrInsert(
+                    [
+                        'page' => 'gallery',
+                        'section' => 'gallery',
+                        'element_id' => $element_id,
+                        'locale' => $item['locale'],
+                        'element_title' => 'g_title_' . $item['locale'],
+                    ],
+                    [
+                        'element_content' => $request->input('g_title_' . $item['locale']),
+                    ]
+                );
+            }
+        }
+        $SelectedGallery->update();
+        return redirect('/Gallery');
+
     }
 
     /**
@@ -130,5 +163,26 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         //
+    }
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $ProductId
+     * @param $productImage
+     * @return \Illuminate\Http\Response
+     */
+    public function GalleryImgRemove($GalleryId, $GalleryImage)
+    {
+        $SelectedGallery = Gallery::where('id', $GalleryId)->first();
+        $GalleryImages = unserialize($SelectedGallery->images);
+        $GalleryImagesFolder = 'storage/Main/Gallery/';
+        $filename = ($GalleryImagesFolder . $GalleryId . '/' . $GalleryImage);
+        unlink($filename); //delete file
+        $GalleryImages = serialize(array_values(array_diff($GalleryImages, array($GalleryImage)))); //serialize(reindex array(remove selected image()))
+        $SelectedGallery->update(['images' => $GalleryImages]);
+        return back();
     }
 }

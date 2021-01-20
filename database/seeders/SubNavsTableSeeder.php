@@ -37,7 +37,7 @@ class SubNavsTableSeeder extends Seeder
                     'content_en' => 'Certificates and Honors',
                     'content_ar' => 'الشهادات والأوسمة',
                     'content_ru' => 'Сертификаты и награды',
-                    'route_name' => 'HomePage',
+                    'route_name' => 'AllCH',
                     'url' => null,
                 ],
                 [
