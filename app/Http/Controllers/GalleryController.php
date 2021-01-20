@@ -21,6 +21,7 @@ class GalleryController extends Controller
 
         $GList = [];
         foreach ($Galleries as $key=>$gallery) {
+            $GList[$key]['id'] = $gallery->id;
             $GList[$key]['image'] = unserialize($gallery->images)[0];
             $GList[$key]['title'] = $gallery->contents[0]->element_content;
         }
@@ -100,9 +101,12 @@ class GalleryController extends Controller
      * @param \App\Models\Gallery $gallery
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit($gallery)
     {
-        //
+        $SelectedGallery = Gallery::where('id', $gallery)->with('contents')->first();
+        $GalleryImages = unserialize($SelectedGallery->images);
+        return view('PageElements.Dashboard.Setting.GalleryViewEdit', compact('SelectedGallery', 'GalleryImages'));
+
     }
 
     /**
