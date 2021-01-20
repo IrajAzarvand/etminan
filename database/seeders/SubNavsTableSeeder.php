@@ -25,6 +25,14 @@ class SubNavsTableSeeder extends Seeder
                     'url' => null,
                 ],
                 [
+                    'content_fa' => 'معرفی شرکت',
+                    'content_en' => 'Company Introduction',
+                    'content_ar' => 'مقدمة عن شركة',
+                    'content_ru' => 'представление компании',
+                    'route_name' => 'HomePage',
+                    'url' => null,
+                ],
+                [
                     'content_fa' => 'پیام مدیر عامل',
                     'content_en' => 'CEO Message',
                     'content_ar' => 'رسالة من مدير الرأس',

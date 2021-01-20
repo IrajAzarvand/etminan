@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CIController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProductCatalogController;
 use App\Http\Controllers\CategoryController;
@@ -37,7 +38,7 @@ Route::get('/migrate', function() {
 
 //====================================== Management Routes End
 
-
+//Main Routes
 Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
@@ -87,3 +88,5 @@ Route::get('/Gallery/{GalleryId}/{GalleryImage}/delete',[GalleryController::clas
 Route::resource('Gallery', GalleryController::class);
 
 Route::resource('SO', SalesOfficeController::class);
+
+Route::resource('CI', CIController::class);

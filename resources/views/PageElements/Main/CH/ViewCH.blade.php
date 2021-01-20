@@ -8,7 +8,7 @@
                     <ul class="slides" >
 
 
-                        <li class="item" style="background-image: url({{$SelectedCHImage}}); width: 50%;">
+                        <li class="item" style="background-image: url({{$SelectedCHImage}}); width: 75%;">
                         </li>
 
                     </ul>
