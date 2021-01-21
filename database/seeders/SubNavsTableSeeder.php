@@ -29,7 +29,7 @@ class SubNavsTableSeeder extends Seeder
                     'content_en' => 'Company Introduction',
                     'content_ar' => 'مقدمة عن شركة',
                     'content_ru' => 'представление компании',
-                    'route_name' => 'HomePage',
+                    'route_name' => 'CIntro',
                     'url' => null,
                 ],
                 [

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\CertificatesAndHonors;
+use App\Models\CI;
 use App\Models\Gallery;
 use App\Models\LocaleContent;
 use App\Models\Product;
@@ -354,6 +355,35 @@ class MainNavController extends Controller
             ->pluck('element_content','element_title');
         $PageTitle=$PageContents['section_title'];
         return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle','PageContents'));
+    }
+
+
+
+    /**
+     * Display Gallery and related images.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function CompanyIntroduction()
+    {
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'CI')
+            ->where('section', 'PageElements')
+            ->pluck('element_content');
+        $PageTitle=$SectionTitles[0];
+
+        $SharedContents = $this->SharedContents();
+
+        $AllCI = CI::with('contents')->get();
+        $CIList=[];
+        foreach ($AllCI as $key=>$CI)
+        {
+            $CIList[$key]['title'] = $CI->contents()->where('element_title', 'CITitle_' . app()->getLocale())->pluck('element_content')[0];
+            $CIList[$key]['desc'] = $CI->contents()->where('element_title', 'CIDescription_' . app()->getLocale())->pluck('element_content')[0];
+
+        }
+
+        return view('PageElements.Main.CI.CI', compact('SharedContents', 'PageTitle','CIList'));
     }
 
 

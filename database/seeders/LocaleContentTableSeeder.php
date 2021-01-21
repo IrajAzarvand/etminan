@@ -596,7 +596,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'CI',
+                'section' => 'PageElements',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -604,7 +604,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'CI',
+                'section' => 'PageElements',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -612,7 +612,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'CI',
+                'section' => 'PageElements',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -620,7 +620,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'CI',
+                'section' => 'PageElements',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',
