@@ -594,6 +594,38 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'مكاتب المبيعات',
             ],
+            [
+                'page' => 'CI',
+                'section' => 'CI',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'معرفی شرکت',
+            ],
+            [
+                'page' => 'CI',
+                'section' => 'CI',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Company Introduction',
+            ],
+            [
+                'page' => 'CI',
+                'section' => 'CI',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Компания Введение',
+            ],
+            [
+                'page' => 'CI',
+                'section' => 'CI',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'تعريف عن الشركة',
+            ],
 
         ];
 

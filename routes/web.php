@@ -52,6 +52,7 @@ Route::get('/SalesOffices', [MainNavController::class, 'SalesOffice'])->name('Sa
 
 
 
+
 //Dashboard Routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

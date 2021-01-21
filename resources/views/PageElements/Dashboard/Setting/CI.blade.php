@@ -1,6 +1,6 @@
 @extends('PageElements.Dashboard.Layout')
 @section('PageTitle', 'تنظیمات معرفی شرکت')
-@section('ContentHeader', 'معرفی شرکت')
+@section('ContentHeader', 'تنظیمات معرفی شرکت')
 @section('content')
 
     <div class="col-md-12">
@@ -12,7 +12,7 @@
 
             </div>
             <!-- /.card-header -->
-            <form class="card-body" action="{{ route('CI.store') }}" method="post">
+            <form class="card-body" action="{{ route('CI.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- /error box -->
                 <div class="mb3">
@@ -35,13 +35,13 @@
                     <div class="col-12">
                         <!-- Custom Tabs -->
                         <div class="card">
-                            <label>متن</label>
+                            <label>عنوان</label>
 
                             <div class="card-header d-flex p-0">
                                 <ul class="nav nav-pills ml-auto p-2">
                                     @foreach (Locales() as $item)
                                         <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
-                                                                href="#CI_{{$item['locale']}}"
+                                                                href="#CITitle_{{$item['locale']}}"
                                                                 data-toggle="tab">{{$item['name']}}</a></li>
                                     @endforeach
                                 </ul>
@@ -50,33 +50,11 @@
                                 <div class="tab-content">
                                     @foreach (Locales() as $item)
                                         <div class="tab-pane @if ($loop->first) active @endif"
-                                             id="CI_{{$item['locale']}}">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="box box-info">
-                                                        <div class="box-header">
-                                                            <h3 class="box-title">توضیحات
-                                                            </h3>
-                                                        </div>
-                                                        <!-- /.box-header -->
-                                                        <div class="box-body pad">
-                                                            <form>
-                        <textarea id="editor" name="editor" rows="10"
-                                  cols="80">این ویرایشگر راست چین و فارسی شده و تنظیمات آن به صورت اختصاصی تنظیم شده است...</textarea>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.box -->
-
-                                                </div>
+                                             id="CITitle_{{$item['locale']}}">
+                                            <div class="mb-3">
+                                                <textarea id="editor1" name="CITitle_{{$item['locale']}}"
+                                                          style="width: 100%"></textarea>
                                             </div>
-
-
-{{--                                            --}}
-                                            {{--                                            <div class="mb-3">--}}
-                                            {{--                                                <textarea id="editor1" name="CI_{{$item['locale']}}"--}}
-                                            {{--                                                          style="width: 100%" rows="10"></textarea>--}}
-                                            {{--                                            </div>--}}
                                         </div>
                                     @endforeach
                                 </div>
@@ -88,6 +66,43 @@
                     <!-- /.col -->
                 </div>
 
+
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Custom Tabs -->
+                        <div class="card">
+                            <label>متن اصلی</label>
+
+                            <div class="card-header d-flex p-0">
+                                <ul class="nav nav-pills ml-auto p-2">
+                                    @foreach (Locales() as $item)
+                                        <li class="nav-item"><a class="nav-link @if ($loop->first) active @endif"
+                                                                href="#CIDescription_{{$item['locale']}}"
+                                                                data-toggle="tab">{{$item['name']}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    @foreach (Locales() as $item)
+                                        <div class="tab-pane @if ($loop->first) active @endif"
+                                             id="CIDescription_{{$item['locale']}}">
+                                            <div class="mb-3">
+                                                <textarea id="editor1" name="CIDescription_{{$item['locale']}}"
+                                                          style="width: 100%" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- ./card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+
                 <button type="submit" class="btn btn-primary">ذخیره</button>
             </form>
         </div>
@@ -95,98 +110,86 @@
     <!-- /.card -->
 
     <!-- / =============================================================================== -->
-    <!-- /view Office list -->
-    <div class="col-md-12">
-        <div class="card card-info card-outline">
-            <div class="card-header">
-                <h3 class="card-title">
-                    متن اضافه شده
-                </h3>
 
+    <!-- /CI List -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">لیست متن های وارد شده</h3>
             </div>
             <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                    <tr>
+                        <th>ردیف</th>
+                        <th>عنوان</th>
+                        <th>عملیات</th>
+                    </tr>
+                    <?php
+                    $counter = 1;
+                    foreach ($CIList as $item) {
+                        echo '<tr style="alignment: center;">';
+                        echo '<td>' . $counter++ . '</td>';
+                        echo '<td>' . $item['title'] . '</td>';
 
-            <div class="card">
-                <!-- /.card-header -->
-                <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover" id="ProductsTable">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>نام دفتر</th>
-                                            <th>عملیات</th>
-                                        </tr>
-{{--                                        @foreach($OList as $key=>$OfficeList)--}}
-{{--                                            <tr>--}}
-{{--                                                <td>{{$key+1}}</td>--}}
-{{--                                                <td>{{$OfficeList['title']}}</td>--}}
-{{--                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" style="display: none" class="btn btn-danger"><a onclick="deleteOffice({{$OfficeList['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>--}}
-{{--                                            </tr>--}}
-{{--                                        @endforeach--}}
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div><!-- /.row -->
-                </div>
-                <!-- /.card-body -->
-
+                        echo '<td>' . '<a onclick="editRow('.$item['id'].')"><button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>&nbsp<a onclick="deleteRow('.$item['id'].')"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>&nbsp</td>';
+                        echo '</tr>';
+                    }
+                    ?>
+                </table>
             </div>
-
-
+            <!-- /.card-body -->
         </div>
+        <!-- /.card -->
     </div>
-    <!-- /.card -->
 
 
-
-
-    {{-- ====================for show all products=============== --}}
 
     <script>
-        function deleteOffice(O_Id) {
+        function deleteRow(r) {
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/SO/' + O_Id,
+                url: '/CI/' + r,
                 data: {
                     _token: token,
-                    O_Id
+                    r
                 },
-                success: function () {
+                success: function (data) {
                     location.reload();
+
                 }
             });
 
         }
+
     </script>
 
     <script>
-        function EditOffice(r) {
+        function editRow(r) {
             $.ajax({
                 type: "GET",
-                url: '/SO/' + r + '/edit',
+                url: '/CI/' + r + '/edit',
 
                 success: function (data) {
                     //display data...
-                    let SOId= (data['id']);
-                    $('#SalesOfficeEditModal').find('#OfficeId').val(SOId);
+                    let CHId = (data['id']);
+                    $('#CIEditModal').find('#CI_Id').val(CHId);
                     data['contents'].forEach(element => {
-                        $('#SalesOfficeEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
-                    });
+                        if (element['element_title'] == 'CITitle_' + element['locale']) {
+                            $('#CIEditModal').find('#CI_Title_' + element['locale'] + 'edit').text(element['element_content']);
+                        } else if (element['element_title'] == 'CIDescription_' + element['locale']) {
+                            $('#CIEditModal').find('#CI_Desc_' + element['locale'] + 'edit').text(element['element_content']);
 
-                    $("#SalesOfficeEditModal-form").attr("action", "/SO/" + SOId);
-                    $('#SalesOfficeEditModal').modal('show');
+                        }
+                    });
+                    $("#CIEditModal-form").attr("action", "/CI/" + CHId);
+                    $('#CIEditModal').modal('show');
                 }
             });
         }
     </script>
-    @include('PageElements.Dashboard.Setting.ModalEditSalesOffice')
+    @include('PageElements.Dashboard.Setting.ModalEditCI')
+
+
 @endsection

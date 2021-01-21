@@ -191,7 +191,6 @@
 
                 success: function (data) {
                     //display data...
-                    console.log(data);
                     let CHId = (data[0]['id']);
                     $('#CHEditModal').find('#CHId').val(CHId);
                     data[0]['contents'].forEach(element => {
