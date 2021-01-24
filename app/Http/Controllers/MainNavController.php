@@ -199,8 +199,7 @@ class MainNavController extends Controller
         $ProductNVTitle=$SectionTitles[2];
         $BtnBackTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_back')->where('locale',app()->getLocale())->pluck('element_content')[0];
         $BtnViewCatalogTitle=LocaleContent::where('section','PageElements')->where('element_title','btn_view_catalog')->where('locale',app()->getLocale())->pluck('element_content')[0];
-        $RelatedProductsTitle=$SectionTitles[3];
-
+        $RelatedProductsTitle=$SectionTitles[4];
         $SelectedProduct=Product::where('id',$p_id)->with('contents')->first();
         $Item['title'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
        foreach (unserialize($SelectedProduct->images) as $images){
@@ -208,6 +207,8 @@ class MainNavController extends Controller
        }
         $Product['introduction'] = $SelectedProduct->contents()->where('element_title', 'p_introduction_' . app()->getLocale())->pluck('element_content')[0];
         $Product['nutritional_value'] = $SelectedProduct->contents()->where('element_title', 'nutritionalValue_' . app()->getLocale())->pluck('element_content')[0];
+
+        //get catalogs for specific product with (p_id)
 
         $RelatedProducts=Product::where('cat_id',$SelectedProduct->cat_id)->whereNotIn('id',[$SelectedProduct->id])->with('contents')->get();
         $RelatedPList = [];
