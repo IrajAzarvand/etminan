@@ -109,7 +109,7 @@
                     echo '<tr style="alignment: center;">';
                         echo '<td>' . $counter++ . '</td>';
                         echo '<td style="display: none;">' . $item['id'] . '</td>';
-                        echo '<td style="width: 15%;"><img style="width: 100%; height:8%;" src="storage/Main/Sliders/' . $item['image'] . '"></td>';
+                        echo '<td style="width: 15%;"><img style="width: 100%;" src="storage/Main/Sliders/' . $item['image'] . '"></td>';
 
                         foreach ($item->contents as $LocaleContent) {
                         echo '<td>' . $LocaleContent['element_content'] . '</td>';

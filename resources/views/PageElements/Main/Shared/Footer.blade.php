@@ -5,10 +5,10 @@
 
                 <div class="footer_teaser pl_about_us_widget col-sm-9 col-md-9">
                     {{-- section title --}}
-                    <h3>{{$SharedContents[0]}}</h3>
+                    <h3>{{$SharedContents['SectionTitle']}}</h3>
 
                     {{-- address --}}
-                    <p>{{$SharedContents[1]}}</p>
+                    <p>{{$SharedContents['Address']}}</p>
                 </div>
                 <div class="footer_teaser pl_about_us_widget">
                     <p><i class="fa fa-envelope"></i> info@hajabdollah.com</p>
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row">
                 {{-- copyright --}}
-                <div class="col-sm-4 col-md-4">{{$SharedContents[2]}}</div>
+                <div class="col-sm-4 col-md-4">{{$SharedContents['CopyRight']}}</div>
                 <div class="col-sm-4 col-md-4"></div>
             </div>
         </div>

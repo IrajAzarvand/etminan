@@ -38,13 +38,13 @@
                             <p>{{$Product['nutritional_value']}}</p>
                             <br>
                             <br>
-                            <a href="#" class="btn btn-danger center-block ">{{$BtnViewCatalogTitle}}</a>
+                            <a href="#" class="btn btn-danger center-block ">{{$SharedContents['BtnViewProductCatalog']}}</a>
                             <br>
                             <br>
                         </div>
                 </div>
                 <ul class="pager">
-                    <li class="next"><a href="{{route('AllProducts')}}">← {{$BtnBackTitle}}</a></li>
+                    <li class="next"><a href="{{route('AllProducts')}}">← {{$SharedContents['BtnBack']}}</a></li>
                 </ul>
                 </div>
         </section>

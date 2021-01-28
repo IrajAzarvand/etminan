@@ -15,6 +15,118 @@ class LocaleContentTableSeeder extends Seeder
     public function run()
     {
         $Content = [
+            //BUTTON TITLE => MORE
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'btn_more',
+                'element_content' => 'بیشتر',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'btn_more',
+                'element_content' => 'More',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'btn_more',
+                'element_content' => 'Больше',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'btn_more',
+                'element_content' => 'أكثر',
+            ],
+            //!--BUTTON TITLE => MORE
+
+            //BUTTON TITLE => BACK
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'btn_back',
+                'element_content' => 'بازگشت',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'btn_back',
+                'element_content' => 'Back',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'btn_back',
+                'element_content' => 'возвращается',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'btn_back',
+                'element_content' => 'العودة',
+            ],
+            //!--BUTTON TITLE => BACK
+
+            //BUTTON TITLE => VIEW PRODUCT CATALOG
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'btn_view_catalog',
+                'element_content' => 'مشاهده کاتالوگ محصول',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'btn_view_catalog',
+                'element_content' => 'View product catalog',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'btn_view_catalog',
+                'element_content' => 'Посмотреть каталог продукции',
+            ],
+            [
+                'page' => '',
+                'section' => 'PageElements',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'btn_view_catalog',
+                'element_content' => 'عرض كتالوج المنتج',
+            ],
+            //!--BUTTON TITLE => VIEW PRODUCT CATALOG
+
+
+
+
+
+
+
+
             [
                 'page' => 'welcome',
                 'section' => 'catalog',
@@ -59,27 +171,12 @@ class LocaleContentTableSeeder extends Seeder
             [
                 'page' => 'welcome',
                 'section' => 'new_products',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'بیشتر',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'new_products',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'New Products',
             ],
-            [
-                'page' => 'welcome',
-                'section' => 'new_products',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'More',
-            ],
+
             [
                 'page' => 'welcome',
                 'section' => 'new_products',
@@ -88,14 +185,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'новые продукты',
             ],
-            [
-                'page' => 'welcome',
-                'section' => 'new_products',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'Больше',
-            ],
+
             [
                 'page' => 'welcome',
                 'section' => 'new_products',
@@ -104,14 +194,7 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'منتجات جديدة',
             ],
-            [
-                'page' => 'welcome',
-                'section' => 'new_products',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'أكثر',
-            ],
+
             [
                 'page' => 'welcome',
                 'section' => 'gallery',
@@ -338,70 +421,9 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'القيمة الغذائية',
             ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'بازگشت',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'Back',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'возвращается',
-            ],
-            [
-                'page' => '',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_back',
-                'element_content' => 'العودة',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '1',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'مشاهده کاتالوگ محصول',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '1',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'View Product Catalog',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '1',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'Посмотреть каталог продукции',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '1',
-                'element_title' => 'btn_view_catalog',
-                'element_content' => 'عرض كتالوج المنتج',
-            ],
+
+
+
             [
                 'page' => 'products',
                 'section' => 'PageElements',
