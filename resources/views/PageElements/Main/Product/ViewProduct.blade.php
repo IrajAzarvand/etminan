@@ -38,7 +38,7 @@
                             <p>{{$Product['nutritional_value']}}</p>
                             <br>
                             <br>
-                            <a href="#" class="btn btn-danger center-block ">{{$SharedContents['BtnViewProductCatalog']}}</a>
+                            <a href="{{route('ViewCatalog',[$catalog['id']])}}" class="btn btn-danger center-block ">{{$SharedContents['BtnViewProductCatalog']}}</a>
                             <br>
                             <br>
                         </div>

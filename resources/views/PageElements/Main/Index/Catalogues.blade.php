@@ -9,14 +9,14 @@
         <h2 class="section_header fancy centered">{{ $CatalogSectionTitle }}</h2>
         <div class="row">
 
-            @foreach ($Catalog_Images as $catalog)
+            @foreach ($CatalogItems as $catalog)
                 <div class="feature_teaser col-sm-4 col-md-4">
-                    <img alt="responsive" src="{{ $catalog}}">
+                    <a href="{{route('ViewCatalog',[$catalog['id']])}}">  <img alt="responsive" src="{{ $catalog['image']}}"></a>
                 </div>
             @endforeach
 
         </div>
-        <div class="centered_button"><a class="btn btn-primary" href="#">{{ $SharedContents['BtnMore'] }}</a></div>
+        <div class="centered_button"><a class="btn btn-primary" href="{{route('AllCatalogs')}}">{{ $SharedContents['BtnMore'] }}</a></div>
 
     </div>
 </section>

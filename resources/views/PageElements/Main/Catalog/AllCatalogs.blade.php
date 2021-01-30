@@ -7,21 +7,21 @@
         <div class="container">
             <div class="row">
                 <div id="leftcol" class="col-sm-12 col-md-12">
-                    @if($GList)
-                        @foreach($GList as $GL)
+                    @if($CList)
+                        @foreach($CList as $CL)
                             <article class="post">
                                 <div class="post_header">
                                     <h3 class="post_title"><a
-                                            href="{{route('ViewGallery',[$GL['id']])}}">{{$GL['title']}}</a></h3>
+                                            href="{{route('ViewCatalog',[$CL['id']])}}">{{$CL['title']}}</a></h3>
 
                                 </div>
                                 <div class="post_content">
-                                    <figure><a href="{{route('ViewGallery',[$GL['id']])}}"><img alt="0"
-                                                                                           src="{{$GL['image']}}"></a>
+                                    <figure><a href="{{route('ViewCatalog',[$CL['id']])}}"><img alt="0"
+                                                                                           src="{{$CL['image']}}"></a>
                                     </figure>
 
-                                    <a href="{{route('ViewGallery',[$GL['id']])}}"
-                                       class="btn btn-primary">{{$MoreBtnTitle}}</a></div>
+                                    <a href="{{route('ViewCatalog',[$CL['id']])}}"
+                                       class="btn btn-primary">{{$SharedContents['BtnMore']}}</a></div>
                             </article>
                         @endforeach
                     @endif

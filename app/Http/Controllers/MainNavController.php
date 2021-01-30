@@ -18,7 +18,7 @@ class MainNavController extends Controller
     //get title for buttons from locale content table
     public function BtnTitle($element_title)
     {
-        return LocaleContent::where('element_title', $element_title)->pluck('element_content')[0];
+        return LocaleContent::where('locale',app()->getLocale())->where('element_title', $element_title)->pluck('element_content')[0];
 
     }
 
@@ -31,7 +31,7 @@ class MainNavController extends Controller
         $BtnMore = $this->BtnTitle('btn_more');
         $BtnBack = $this->BtnTitle('btn_back');
         $BtnViewProductCatalog = $this->BtnTitle('btn_view_catalog');
-        
+
         $Footer = collect($SharedContents)->where('section', 'footer');
         foreach ($Footer as $key => $value) {
             if ($value['element_title'] == 'address') {
@@ -115,12 +115,13 @@ class MainNavController extends Controller
         $CatalogSectionTitle = $CatalogsSection->where('element_title', 'section_title')->pluck('element_content')->first();
 
         //select first image of catalog for each product
-        $Catalog_Images = [];
+        $CatalogItems = [];
         $Catalogues = ProductCatalog::all();
 
-        foreach ($Catalogues as $C) {
+        foreach ($Catalogues as $key=>$C) {
             $P_Id = $C->product_id;
-            $Catalog_Images[] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
+            $CatalogItems[$key]['id']=$P_Id;
+            $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
         }
 
         //**************************  PHOTO GALLERY ************************************************ */
@@ -151,7 +152,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle', 'CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'Catalog_Images', 'GallerySectionTitle', 'Gallery'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle', 'CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'CatalogItems', 'GallerySectionTitle', 'Gallery'));
     }
 
 
@@ -391,6 +392,73 @@ class MainNavController extends Controller
 
         return view('PageElements.Main.CI.CI', compact('SharedContents', 'PageTitle', 'CIList'));
     }
+
+
+
+
+    /**
+     * Display all catalogs.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function AllCatalogs()
+    {
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'gallery')
+            ->where('section', 'gallery')
+            ->pluck('element_content');
+
+        $PageTitle = $SectionTitles[0];
+        $MoreBtnTitle = $SectionTitles[1];
+
+        $SharedContents = $this->SharedContents();
+
+        $AllCatalogs = ProductCatalog::get();
+
+        $CList = [];
+        foreach ($AllCatalogs as $key => $catalog) {
+            $Related_Product=$catalog->product_id;
+            $CList[$key]['id'] = $catalog->id;
+            $CList[$key]['image'] = asset('storage/Main/Products/' . $Related_Product . '/catalogs/' . unserialize($catalog->catalog_images)[0]);
+            $Product_title=LocaleContent::where('page','products')->where('section','products')->where('element_id',$Related_Product)->where('element_title','p_name_'.app()->getLocale())->pluck('element_content')[0];
+            $CList[$key]['title'] =$Product_title;
+        }
+        return view('PageElements.Main.Catalog.AllCatalogs', compact('SharedContents', 'PageTitle', 'MoreBtnTitle','CList'));
+    }
+
+
+
+
+    /**
+     * Display catalogs for special product.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function ViewCatalog($c_id)
+    {
+        $SharedContents = $this->SharedContents();
+
+        $SectionTitles = collect(AllContentOfLocale())
+            ->where('page', 'gallery')
+            ->where('section', 'gallery')
+            ->pluck('element_content');
+        $PageTitle = $SectionTitles[0];
+
+        $SelectedCatalog = ProductCatalog::where('id', $c_id)->first();
+        $Related_Product=$SelectedCatalog->product_id;
+        $Product_title=LocaleContent::where('page','products')->where('section','products')->where('element_id',$Related_Product)->where('element_title','p_name_'.app()->getLocale())->pluck('element_content')[0];
+        $Item['title'] = $Product_title;
+
+        $Catalog = [];
+        foreach (unserialize($SelectedCatalog->catalog_images) as $image) {
+            $Catalog['images'][] = asset('storage/Main/Products/' . $Related_Product . '/catalogs/' . $image);
+        }
+
+        return view('PageElements.Main.Catalog.ViewCatalog', compact('SharedContents', 'PageTitle', 'Item', 'Catalog'));
+    }
+
+
 
 
 }

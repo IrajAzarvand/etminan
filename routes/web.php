@@ -21,7 +21,7 @@ use App\Http\Controllers\TagController;
 
 //====================================== Management Routes Start
 //---------- clear app cache
-Route::get('/ClearAllCaches', function () {
+Route::get('/CC', function () {
     Artisan::call('config:clear');
     Artisan::call('route:clear');
     Artisan::call('cache:clear');
@@ -50,6 +50,8 @@ Route::get('/AllGalleries', [MainNavController::class, 'AllGalleries'])->name('A
 Route::get('/ViewGallery/{g_id}', [MainNavController::class, 'ViewGallery'])->name('ViewGallery');
 Route::get('/SalesOffices', [MainNavController::class, 'SalesOffice'])->name('SalesOffice');
 Route::get('/CompanyIntro', [MainNavController::class, 'CompanyIntroduction'])->name('CIntro');
+Route::get('/AllCatalogs', [MainNavController::class, 'AllCatalogs'])->name('AllCatalogs');
+Route::get('/ViewCatalog/{c_id}', [MainNavController::class, 'ViewCatalog'])->name('ViewCatalog');
 
 
 
@@ -91,4 +93,4 @@ Route::resource('Gallery', GalleryController::class);
 
 Route::resource('SO', SalesOfficeController::class);
 
-Route::resource('CI', CIController::class);
+Route::resource('CI', CIController::class); //Company Introduction
