@@ -120,7 +120,7 @@ class MainNavController extends Controller
 
         foreach ($Catalogues as $key=>$C) {
             $P_Id = $C->product_id;
-            $CatalogItems[$key]['id']=$P_Id;
+            $CatalogItems[$key]['id']=$C->id;
             $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
         }
 
