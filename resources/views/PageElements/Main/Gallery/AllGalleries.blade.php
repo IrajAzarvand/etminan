@@ -21,7 +21,7 @@
                                     </figure>
 
                                     <a href="{{route('ViewGallery',[$GL['id']])}}"
-                                       class="btn btn-primary">{{$MoreBtnTitle}}</a></div>
+                                       class="btn btn-primary">{{ $BtnMore }}</a></div>
                             </article>
                         @endforeach
                     @endif

@@ -1,5 +1,5 @@
 @extends('PageElements.Main.InnerPagesLayout')
-@section('PageTitle', 'کاتالوگ تصاویر')
+@section('PageTitle', 'کاتالوگ محصولات')
 @section('content')
 
         <section class="portfolio_slider_wrapper">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 <ul class="pager">
-                    <li class="next"><a href="{{route('AllCatalogs')}}">← {{$SharedContents['BtnBack']}}</a></li>
+                    <li class="next"><a href="{{route('AllCatalogs')}}">← {{ $BtnBack }}</a></li>
                 </ul>
             </div>
         </section>

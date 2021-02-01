@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <ul class="pager">
-                        <li class="next"><a href="{{route('AllCH')}}"><i class="fa fa-chevron-left"></i> {{$BtnBackTitle}}</a></li>
+                        <li class="next"><a href="{{route('AllCH')}}"><i class="fa fa-chevron-left"></i> {{ $BtnBack }}</a></li>
                     </ul>
                 </div>
             </div>

@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 <ul class="pager">
-                    <li class="next"><a href="{{route('AllGalleries')}}">← {{$BtnBackTitle}}</a></li>
+                    <li class="next"><a href="{{route('AllGalleries')}}">← {{ $BtnBack }}</a></li>
                 </ul>
             </div>
         </section>

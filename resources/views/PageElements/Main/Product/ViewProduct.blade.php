@@ -41,14 +41,14 @@
                         <br>
                         @if($ProductCatalog)
                             <a href="{{route('ViewCatalog',[$ProductCatalog])}}"
-                               class="btn btn-danger center-block ">{{$SharedContents['BtnViewProductCatalog']}}</a>
+                               class="btn btn-danger center-block ">{{ $BtnViewProductCatalog }}</a>
                         @endif
                         <br>
                         <br>
                     </div>
                 </div>
                 <ul class="pager">
-                    <li class="next"><a href="{{route('AllProducts')}}">← {{$SharedContents['BtnBack']}}</a></li>
+                    <li class="next"><a href="{{route('AllProducts')}}">← {{ $BtnBack }}</a></li>
                 </ul>
             </div>
     </section>

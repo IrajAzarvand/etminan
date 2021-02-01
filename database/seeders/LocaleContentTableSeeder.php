@@ -153,9 +153,143 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'منتجات جديدة',
             ],
+
+
+            [
+                'page' => 'Products',
+                'section' => '',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'محصولات',
+            ],
+
+            [
+                'page' => 'Products',
+                'section' => '',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Products',
+            ],
+
+            [
+                'page' => 'Products',
+                'section' => '',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Товары',
+            ],
+
+            [
+                'page' => 'Products',
+                'section' => '',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'منتجات',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'ProductIntroduction',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'معرفی محصول',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'ProductIntroduction',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Product Introduction',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'ProductIntroduction',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Внедрение продукции',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'ProductIntroduction',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'مقدمة المنتج',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'NutritionalValue',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'ارزش غذایی',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'NutritionalValue',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Nutritional Value',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'NutritionalValue',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Пищевая ценность',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'NutritionalValue',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'القيمة الغذائية',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'RelatedProducts',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'محصولات مرتبط',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'RelatedProducts',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Related Products',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'RelatedProducts',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Сопутствующие товары',
+            ],
+            [
+                'page' => 'Products',
+                'section' => 'RelatedProducts',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'منتجات ذات صله',
+            ],
             //!--SECTION TITLE => PRODUCTS
 
-            //!--SECTION TITLE => CATALOGS
+
+            //--SECTION TITLE => CATALOGS
             [
                 'page' => '',
                 'section' => 'Catalogs',
@@ -188,69 +322,47 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'section_title',
                 'element_content' => 'كتالوج المنتجات',
             ],
+            //!--SECTION TITLE => CATALOGS
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //--SECTION TITLE => GALLERY
             [
-                'page' => 'welcome',
-                'section' => 'new_products',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات جديدة',
-            ],
-
-            [
-                'page' => 'welcome',
-                'section' => 'gallery',
+                'page' => '',
+                'section' => 'Gallery',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'گالری تصاویر',
             ],
             [
-                'page' => 'welcome',
-                'section' => 'gallery',
+                'page' => '',
+                'section' => 'Gallery',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Photo Gallery',
             ],
+
             [
-                'page' => 'welcome',
-                'section' => 'gallery',
+                'page' => '',
+                'section' => 'Gallery',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Фотогалерея',
             ],
+
             [
-                'page' => 'welcome',
-                'section' => 'gallery',
+                'page' => '',
+                'section' => 'Gallery',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'معرض الصور',
             ],
-            //footer
+            //!--SECTION TITLE => GALLERY
+
+            //--SECTION FOOTER
+
             [
                 'page' => '',
                 'section' => 'footer',
@@ -347,141 +459,20 @@ class LocaleContentTableSeeder extends Seeder
                 'element_title' => 'copyright',
                 'element_content' => 'جميع الحقوق محفوظة لشركة الاطمینان',
             ],
-            //Products
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'محصولات',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Porducts',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Товары',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '1',
-                'element_title' => 'section_title',
-                'element_content' => 'معرفی محصول',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '1',
-                'element_title' => 'section_title',
-                'element_content' => 'Product Introduction',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '1',
-                'element_title' => 'section_title',
-                'element_content' => 'Внедрение продукции',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '1',
-                'element_title' => 'section_title',
-                'element_content' => 'مقدمة المنتج',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '2',
-                'element_title' => 'section_title',
-                'element_content' => 'ارزش غذایی',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '2',
-                'element_title' => 'section_title',
-                'element_content' => 'Nutritional Value',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '2',
-                'element_title' => 'section_title',
-                'element_content' => 'Пищевая ценность',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '2',
-                'element_title' => 'section_title',
-                'element_content' => 'القيمة الغذائية',
-            ],
+            //!--!SECTION TITLE => FOOTER
 
 
 
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '3',
-                'element_title' => 'section_title',
-                'element_content' => 'محصولات مرتبط',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '3',
-                'element_title' => 'section_title',
-                'element_content' => 'Related Products',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '3',
-                'element_title' => 'section_title',
-                'element_content' => 'Сопутствующие товары',
-            ],
-            [
-                'page' => 'products',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '3',
-                'element_title' => 'section_title',
-                'element_content' => 'منتجات ذات صله',
-            ],
+
+
+
+
+
+            //--SECTION TITLE => CH (Certificate and honors)
+
             [
                 'page' => 'CH',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -489,7 +480,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CH',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -497,7 +488,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CH',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -505,143 +496,90 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CH',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'الشهادات والأوسمة',
             ],
+            //--!SECTION TITLE => CH (Certificate and honors)
+
+            //--SECTION TITLE => GALLERY
             [
-                'page' => 'CH',
-                'section' => 'PageElements',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'بیشتر بخوانید',
-            ],
-            [
-                'page' => 'CH',
-                'section' => 'PageElements',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'More',
-            ],
-            [
-                'page' => 'CH',
-                'section' => 'PageElements',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'Больше',
-            ],
-            [
-                'page' => 'CH',
-                'section' => 'PageElements',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'أكثر',
-            ],
-            [
-                'page' => 'gallery',
-                'section' => 'gallery',
+                'page' => 'Gallery',
+                'section' => '',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'گالری تصاویر',
             ],
             [
-                'page' => 'gallery',
-                'section' => 'gallery',
+                'page' => 'Gallery',
+                'section' => '',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Photo Gallery',
             ],
             [
-                'page' => 'gallery',
-                'section' => 'gallery',
+                'page' => 'Gallery',
+                'section' => '',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Фотогалерея',
             ],
             [
-                'page' => 'gallery',
-                'section' => 'gallery',
+                'page' => 'Gallery',
+                'section' => '',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'معرض الصور',
             ],
+            //--!SECTION TITLE => GALLERY
+
+
+            //--SECTION TITLE => SALES OFFICES
             [
-                'page' => 'gallery',
-                'section' => 'gallery',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'بیشتر',
-            ],
-            [
-                'page' => 'gallery',
-                'section' => 'gallery',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'More',
-            ],
-            [
-                'page' => 'gallery',
-                'section' => 'gallery',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'Больше',
-            ],
-            [
-                'page' => 'gallery',
-                'section' => 'gallery',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'btn_title',
-                'element_content' => 'أكثر',
-            ],
-            [
-                'page' => 'sales_office',
-                'section' => 'sales_office',
+                'page' => 'SalesOffices',
+                'section' => '',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'دفاتر فروش',
             ],
             [
-                'page' => 'sales_office',
-                'section' => 'sales_office',
+                'page' => 'SalesOffices',
+                'section' => '',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Sales Offices',
             ],
             [
-                'page' => 'sales_office',
-                'section' => 'sales_office',
+                'page' => 'SalesOffices',
+                'section' => '',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'Офисы продаж',
             ],
             [
-                'page' => 'sales_office',
-                'section' => 'sales_office',
+                'page' => 'SalesOffices',
+                'section' => '',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'مكاتب المبيعات',
             ],
+            //--!SECTION TITLE => SALES OFFICES
+
+
+            //--SECTION TITLE => Company Introduction
             [
                 'page' => 'CI',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -649,7 +587,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -657,7 +595,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -665,7 +603,7 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'CI',
-                'section' => 'PageElements',
+                'section' => '',
                 'locale' => 'ar',
                 'element_id' => '0',
                 'element_title' => 'section_title',

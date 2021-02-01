@@ -41,7 +41,7 @@ class MainNavController extends Controller
             ->all();
 
 
-        $BtnViewProductCatalog = $this->BtnTitle('btn_view_catalog');
+
 
         $Footer = collect($SharedContents)->where('section', 'footer');
         foreach ($Footer as $key => $value) {
@@ -119,8 +119,7 @@ class MainNavController extends Controller
         }
 
         //**************************  CATALOGUES ************************************************ */
-
-        $CatalogSectionTitle = $CatalogsSection->where('element_title', 'section_title')->pluck('element_content')->first();
+        $CatalogSectionTitle=$this->PageSectionsTitle('','Catalogs',0,'section_title');
 
         //select first image of catalog for each product
         $CatalogItems = [];
@@ -133,8 +132,7 @@ class MainNavController extends Controller
         }
 
         //**************************  PHOTO GALLERY ************************************************ */
-        $GallerySection = collect($IndexContents)->where('section', 'gallery');
-        $GallerySectionTitle = $GallerySection->where('element_title', 'section_title')->pluck('element_content')->first();
+        $GallerySectionTitle = $this->PageSectionsTitle('','Gallery',0,'section_title');
 
         $Gallery = [];
         foreach (Gallery::with('contents')->get() as $key => $g) {
@@ -171,11 +169,7 @@ class MainNavController extends Controller
      */
     public function AllProducts()
     {
-
-        $SectionTitle = collect(AllContentOfLocale())
-            ->where('page', 'products')
-            ->where('element_title', 'section_title')
-            ->pluck('element_content')[0];
+        $SectionTitle  = $this->PageSectionsTitle('Products','',0,'section_title');
 
         $SharedContents = $this->SharedContents();
 
@@ -214,14 +208,13 @@ class MainNavController extends Controller
     {
         $SharedContents = $this->SharedContents();
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'products')
-            ->where('section', 'PageElements')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
-        $ProductIntroductionTitle = $SectionTitles[1];
-        $ProductNVTitle = $SectionTitles[2];
-        $RelatedProductsTitle = $SectionTitles[3];
+        $PageTitle  = $this->PageSectionsTitle('Products','',0,'section_title');
+        $ProductIntroductionTitle = $this->PageSectionsTitle('Products','ProductIntroduction',0,'section_title');
+        $ProductNVTitle = $this->PageSectionsTitle('Products','NutritionalValue',0,'section_title');
+        $RelatedProductsTitle = $this->PageSectionsTitle('Products','RelatedProducts',0,'section_title');
+        $BtnViewProductCatalog=$this->PageSectionsTitle('','PageElements',0,'btn_view_catalog');
+        $BtnBack=$this->BtnTitle('btn_back');
+
         $SelectedProduct = Product::where('id', $p_id)->with('contents')->first();
         $Item['title'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         foreach (unserialize($SelectedProduct->images) as $images) {
@@ -239,7 +232,7 @@ class MainNavController extends Controller
             $RelatedPList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
             $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList','ProductCatalog'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList','ProductCatalog','BtnViewProductCatalog','BtnBack'));
     }
 
 
@@ -251,12 +244,9 @@ class MainNavController extends Controller
     public function AllCH()
     {
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'CH')
-            ->where('section', 'PageElements')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
-        $MoreBtnTitle = $SectionTitles[1];
+
+        $PageTitle  = $this->PageSectionsTitle('CH','',0,'section_title');
+        $BtnMore=$this->BtnTitle('btn_more');
 
         $SharedContents = $this->SharedContents();
 
@@ -268,7 +258,7 @@ class MainNavController extends Controller
             $CHList[$key]['image'] = asset('storage/Main/CH/' . $CH->Ch_Image);
 
         }
-        return view('PageElements.Main.CH.AllCH', compact('SharedContents', 'PageTitle', 'MoreBtnTitle', 'CHList'));
+        return view('PageElements.Main.CH.AllCH', compact('SharedContents', 'PageTitle', 'BtnMore', 'CHList'));
     }
 
 
@@ -285,16 +275,13 @@ class MainNavController extends Controller
         $SelectedCHDescription = $SelectedCH->contents()->where('element_title', 'ChDescription_' . app()->getLocale())->pluck('element_content')[0];
         $SelectedCHImage = asset('storage/Main/CH/' . $SelectedCH->Ch_Image);
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'CH')
-            ->where('section', 'PageElements')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
-        $BtnBackTitle = LocaleContent::where('section', 'PageElements')->where('element_title', 'btn_back')->where('locale', app()->getLocale())->pluck('element_content')[0];
+
+        $PageTitle = $this->PageSectionsTitle('CH','',0,'section_title');
+        $BtnBack=$this->BtnTitle('btn_back');
 
         $SharedContents = $this->SharedContents();
 
-        return view('PageElements.Main.CH.ViewCH', compact('SharedContents', 'PageTitle', 'BtnBackTitle', 'SelectedCHTitle', 'SelectedCHDescription', 'SelectedCHImage'));
+        return view('PageElements.Main.CH.ViewCH', compact('SharedContents', 'PageTitle', 'BtnBack', 'SelectedCHTitle', 'SelectedCHDescription', 'SelectedCHImage'));
     }
 
 
@@ -305,14 +292,9 @@ class MainNavController extends Controller
      */
     public function AllGalleries()
     {
+        $PageTitle = $this->PageSectionsTitle('Gallery','',0,'section_title');
+        $BtnMore=$this->BtnTitle('btn_more');
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'gallery')
-            ->where('section', 'gallery')
-            ->pluck('element_content');
-
-        $PageTitle = $SectionTitles[0];
-        $MoreBtnTitle = $SectionTitles[1];
 
         $SharedContents = $this->SharedContents();
 
@@ -324,7 +306,7 @@ class MainNavController extends Controller
             $GList[$key]['image'] = asset('storage/Main/Gallery/' . $gallery->id . '/' . unserialize($gallery->images)[0]);
         }
 
-        return view('PageElements.Main.Gallery.AllGalleries', compact('SharedContents', 'PageTitle', 'MoreBtnTitle', 'GList'));
+        return view('PageElements.Main.Gallery.AllGalleries', compact('SharedContents', 'PageTitle', 'BtnMore', 'GList'));
     }
 
 
@@ -336,13 +318,9 @@ class MainNavController extends Controller
     public function ViewGallery($g_id)
     {
         $SharedContents = $this->SharedContents();
+        $PageTitle = $this->PageSectionsTitle('Gallery','',0,'section_title');
+        $BtnBack=$this->BtnTitle('btn_back');
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'gallery')
-            ->where('section', 'gallery')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
-        $BtnBackTitle = LocaleContent::where('section', 'PageElements')->where('element_title', 'btn_back')->where('locale', app()->getLocale())->pluck('element_content')[0];
 
         $SelectedGallery = Gallery::where('id', $g_id)->with('contents')->first();
         $Gallery = [];
@@ -351,7 +329,7 @@ class MainNavController extends Controller
             $Gallery['images'][] = asset('storage/Main/Gallery/' . $SelectedGallery->id . '/' . $images);
         }
 
-        return view('PageElements.Main.Gallery.ViewGallery', compact('SharedContents', 'PageTitle', 'Item', 'BtnBackTitle', 'Gallery'));
+        return view('PageElements.Main.Gallery.ViewGallery', compact('SharedContents', 'PageTitle', 'Item', 'BtnBack', 'Gallery'));
     }
 
 
@@ -368,7 +346,9 @@ class MainNavController extends Controller
             ->where('page', 'sales_office')
             ->where('section', 'sales_office')
             ->pluck('element_content', 'element_title');
-        $PageTitle = $PageContents['section_title'];
+
+        $PageTitle = $this->PageSectionsTitle('SalesOffices','',0,'section_title');
+
         return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle', 'PageContents'));
     }
 
@@ -380,12 +360,7 @@ class MainNavController extends Controller
      */
     public function CompanyIntroduction()
     {
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'CI')
-            ->where('section', 'PageElements')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
-
+        $PageTitle = $this->PageSectionsTitle('CI','',0,'section_title');
         $SharedContents = $this->SharedContents();
 
         $AllCI = CI::with('contents')->get();
@@ -409,14 +384,8 @@ class MainNavController extends Controller
      */
     public function AllCatalogs()
     {
-
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'gallery')
-            ->where('section', 'gallery')
-            ->pluck('element_content');
-
-        $PageTitle = $SectionTitles[0];
-        $MoreBtnTitle = $SectionTitles[1];
+        $PageTitle  = $this->PageSectionsTitle('','Catalogs',0,'section_title');
+        $BtnMore=$this->BtnTitle('btn_more');
 
         $SharedContents = $this->SharedContents();
 
@@ -430,7 +399,7 @@ class MainNavController extends Controller
             $Product_title=LocaleContent::where('page','products')->where('section','products')->where('element_id',$Related_Product)->where('element_title','p_name_'.app()->getLocale())->pluck('element_content')[0];
             $CList[$key]['title'] =$Product_title;
         }
-        return view('PageElements.Main.Catalog.AllCatalogs', compact('SharedContents', 'PageTitle', 'MoreBtnTitle','CList'));
+        return view('PageElements.Main.Catalog.AllCatalogs', compact('SharedContents', 'PageTitle', 'BtnMore','CList'));
     }
 
 
@@ -444,12 +413,9 @@ class MainNavController extends Controller
     public function ViewCatalog($c_id)
     {
         $SharedContents = $this->SharedContents();
+        $PageTitle  = $this->PageSectionsTitle('','Catalogs',0,'section_title');
+        $BtnBack=$this->BtnTitle('btn_back');
 
-        $SectionTitles = collect(AllContentOfLocale())
-            ->where('page', 'gallery')
-            ->where('section', 'gallery')
-            ->pluck('element_content');
-        $PageTitle = $SectionTitles[0];
 
         $SelectedCatalog = ProductCatalog::where('id', $c_id)->first();
         $Related_Product=$SelectedCatalog->product_id;
@@ -461,9 +427,8 @@ class MainNavController extends Controller
             $Catalog['images'][] = asset('storage/Main/Products/' . $Related_Product . '/catalogs/' . $image);
         }
 
-        return view('PageElements.Main.Catalog.ViewCatalog', compact('SharedContents', 'PageTitle', 'Item', 'Catalog'));
+        return view('PageElements.Main.Catalog.ViewCatalog', compact('SharedContents', 'PageTitle', 'Item', 'Catalog','BtnBack'));
     }
-
 
 
 

@@ -21,7 +21,7 @@
                                     </figure>
 
                                     <a href="{{route('ViewCatalog',[$CL['id']])}}"
-                                       class="btn btn-primary">{{$SharedContents['BtnMore']}}</a></div>
+                                       class="btn btn-primary">{{ $BtnMore }}</a></div>
                             </article>
                         @endforeach
                     @endif

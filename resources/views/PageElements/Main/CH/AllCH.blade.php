@@ -17,7 +17,7 @@
                                 <figure><a href="{{route('ViewCH',[$CH['id']])}}"><img alt="0" src="{{$CH['image']}}"></a>
                                 </figure>
 
-                                <a href="{{route('ViewCH',[$CH['id']])}}" class="btn btn-primary">{{$MoreBtnTitle}}</a></div>
+                                <a href="{{route('ViewCH',[$CH['id']])}}" class="btn btn-primary">{{ $BtnMore }}</a></div>
                         </article>
                     @endforeach
 
