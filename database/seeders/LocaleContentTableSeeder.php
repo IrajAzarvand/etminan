@@ -120,49 +120,10 @@ class LocaleContentTableSeeder extends Seeder
             ],
             //!--BUTTON TITLE => VIEW PRODUCT CATALOG
 
-
-
-
-
-
-
-
+            //SECTION TITLE => PRODUCTS
             [
                 'page' => 'welcome',
-                'section' => 'catalog',
-                'locale' => 'fa',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'کاتالوگ محصولات',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'catalog',
-                'locale' => 'en',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'Product Catalogs',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'catalog',
-                'locale' => 'ru',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'каталог товаров',
-            ],
-            [
-                'page' => 'welcome',
-                'section' => 'catalog',
-                'locale' => 'ar',
-                'element_id' => '0',
-                'element_title' => 'section_title',
-                'element_content' => 'كتالوج المنتجات',
-            ],
-
-            [
-                'page' => 'welcome',
-                'section' => 'new_products',
+                'section' => 'NewProducts',
                 'locale' => 'fa',
                 'element_id' => '0',
                 'element_title' => 'section_title',
@@ -170,21 +131,83 @@ class LocaleContentTableSeeder extends Seeder
             ],
             [
                 'page' => 'welcome',
-                'section' => 'new_products',
+                'section' => 'NewProducts',
                 'locale' => 'en',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'New Products',
             ],
-
             [
                 'page' => 'welcome',
-                'section' => 'new_products',
+                'section' => 'NewProducts',
                 'locale' => 'ru',
                 'element_id' => '0',
                 'element_title' => 'section_title',
                 'element_content' => 'новые продукты',
             ],
+            [
+                'page' => 'welcome',
+                'section' => 'NewProducts',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'منتجات جديدة',
+            ],
+            //!--SECTION TITLE => PRODUCTS
+
+            //!--SECTION TITLE => CATALOGS
+            [
+                'page' => '',
+                'section' => 'Catalogs',
+                'locale' => 'fa',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'کاتالوگ محصولات',
+            ],
+            [
+                'page' => '',
+                'section' => 'Catalogs',
+                'locale' => 'en',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'Product Catalogs',
+            ],
+            [
+                'page' => '',
+                'section' => 'Catalogs',
+                'locale' => 'ru',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'каталог товаров',
+            ],
+            [
+                'page' => '',
+                'section' => 'Catalogs',
+                'locale' => 'ar',
+                'element_id' => '0',
+                'element_title' => 'section_title',
+                'element_content' => 'كتالوج المنتجات',
+            ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             [
                 'page' => 'welcome',

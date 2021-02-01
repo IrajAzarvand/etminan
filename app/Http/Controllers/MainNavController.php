@@ -22,14 +22,25 @@ class MainNavController extends Controller
 
     }
 
+    //get title for page elements from locale content table
+    public function PageSectionsTitle($P,$S,$EID,$ETITLE)
+    {
+        return LocaleContent::where('locale',app()->getLocale())
+            ->where('page',$P)
+            ->where('section',$S)
+            ->where('element_id', $EID)
+            ->where('element_title', $ETITLE)
+            ->pluck('element_content')[0];
+
+    }
+
     public function SharedContents()
     {
         $SharedContents = collect(AllContentOfLocale())
             ->whereIn('page', array('')) //''=>contents for all pages(menus, footer, ...)
             ->all();
 
-        $BtnMore = $this->BtnTitle('btn_more');
-        $BtnBack = $this->BtnTitle('btn_back');
+
         $BtnViewProductCatalog = $this->BtnTitle('btn_view_catalog');
 
         $Footer = collect($SharedContents)->where('section', 'footer');
@@ -47,9 +58,6 @@ class MainNavController extends Controller
             'SectionTitle'=>$SectionTitle,
             'Address'=>$Address,
             'CopyRight'=>$CopyRight,
-            'BtnMore'=>$BtnMore,
-            'BtnBack'=>$BtnBack,
-            'BtnViewProductCatalog'=>$BtnViewProductCatalog
         ];
     }
 
@@ -61,6 +69,9 @@ class MainNavController extends Controller
     public function HomePage()
     {
         $SharedContents = $this->SharedContents();
+        $BtnMore=$this->BtnTitle('btn_more');
+
+
         $IndexContents = collect(AllContentOfLocale())
             ->whereIn('page', array('welcome')) // 'welcome'=>contents for home page only
             ->all();
@@ -79,10 +90,7 @@ class MainNavController extends Controller
 
 
         //************************** NEW PRODUCTS ***************************************************************** */
-
-        $NewProductsSection = collect($IndexContents)->where('section', 'new_products');
-        $NewPrSectionTitle = $NewProductsSection->where('element_title', 'section_title')->pluck('element_content')->first();
-        $BtnNewProducts = $NewProductsSection->where('element_title', 'btn_title')->pluck('element_content')->first();
+        $NewPrSectionTitle=$this->PageSectionsTitle('welcome','NewProducts',0,'section_title');
 
 
         //get last 3 item of products from db to show in index page
@@ -111,7 +119,7 @@ class MainNavController extends Controller
         }
 
         //**************************  CATALOGUES ************************************************ */
-        $CatalogsSection = collect($IndexContents)->where('section', 'catalog');
+
         $CatalogSectionTitle = $CatalogsSection->where('element_title', 'section_title')->pluck('element_content')->first();
 
         //select first image of catalog for each product
@@ -152,7 +160,7 @@ class MainNavController extends Controller
         //**************************       ***************************************************************** */
 
 
-        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle', 'CatalogSectionTitle', 'BtnNewProducts', 'LatestNewsTitle', 'CH_Images', 'CatalogItems', 'GallerySectionTitle', 'Gallery'));
+        return view('welcome', compact('SharedContents', 'IndexContents', 'Slider', 'NewProducts', 'NewPrSectionTitle', 'CatalogSectionTitle', 'BtnMore', 'LatestNewsTitle', 'CH_Images', 'CatalogItems', 'GallerySectionTitle', 'Gallery'));
     }
 
 

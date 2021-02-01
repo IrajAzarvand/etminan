@@ -26,6 +26,6 @@
             @endforeach
 
         </div>
-        <div class="centered_button"><a class="btn btn-primary" href="{{route('AllProducts')}}">{{ $SharedContents['BtnMore'] }}</a></div>
+        <div class="centered_button"><a class="btn btn-primary" href="{{route('AllProducts')}}">{{ $BtnMore }}</a></div>
     </div>
 </section>
