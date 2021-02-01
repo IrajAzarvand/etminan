@@ -115,6 +115,8 @@
                             <div class="form-group">
                                 <label>کاتالوگ های مربوط به محصول <span
                                         style="color: red">(برای حذف تصویر روی آن کلیک کنید)</span></label>
+                                <button onclick="deleteAllCatalogs()" type="submit" class="btn btn-danger">حذف تمام کاتالوگ های محصول</button>
+
                                 <br>
                                 <div class="col-12" id="catalogs_list">
 
@@ -241,11 +243,34 @@
                 type: 'GET',
                 url: '/Catalog/' + product +'/'+catalog+'/delete',
 
-                success: function () {
+                success: function (data) {
                     location.reload();
+
                 }
 
             });
+
+        }
+    </script>
+
+
+    <script>
+        function deleteAllCatalogs() {
+            let selectedProduct=document.getElementById('products_list').value;
+            if(selectedProduct) {
+                    let token = "{{ csrf_token() }}";
+                    $.ajax({
+                    type: 'DELETE',
+                    url: '/Catalog/' + selectedProduct,
+                    data: {
+                    _token: token,
+                        selectedProduct
+                },
+                    success: function() {
+                    location.reload();
+                }
+                });
+            }
 
         }
     </script>

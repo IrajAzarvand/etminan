@@ -159,6 +159,7 @@ class ProductCatalogController extends Controller
         $filename = ( $ProductImagesFolder.$catalogImage);
         unlink($filename); //delete file
         $ProductImages = serialize(array_values(array_diff($ProductImages, array($catalogImage)))); //serialize(reindex array(remove selected image()))
+
         $SelectedProduct->update(['catalog_images' => $ProductImages]);
         return back();
     }

@@ -210,7 +210,6 @@ class MainNavController extends Controller
             ->where('page', 'products')
             ->where('section', 'PageElements')
             ->pluck('element_content');
-//        dd($SharedContents, $SectionTitles);
         $PageTitle = $SectionTitles[0];
         $ProductIntroductionTitle = $SectionTitles[1];
         $ProductNVTitle = $SectionTitles[2];
@@ -223,7 +222,7 @@ class MainNavController extends Controller
         $Product['introduction'] = $SelectedProduct->contents()->where('element_title', 'p_introduction_' . app()->getLocale())->pluck('element_content')[0];
         $Product['nutritional_value'] = $SelectedProduct->contents()->where('element_title', 'nutritionalValue_' . app()->getLocale())->pluck('element_content')[0];
 
-        $ProductCatalogs = ProductCatalog::where('product_id', $p_id)->first();
+        $ProductCatalog = ProductCatalog::where('product_id', $p_id)->value('id');
 
         $RelatedProducts = Product::where('cat_id', $SelectedProduct->cat_id)->whereNotIn('id', [$SelectedProduct->id])->with('contents')->get();
         $RelatedPList = [];
@@ -232,8 +231,7 @@ class MainNavController extends Controller
             $RelatedPList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
             $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList','ProductCatalog'));
     }
 
 
