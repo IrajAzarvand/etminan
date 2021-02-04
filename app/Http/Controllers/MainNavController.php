@@ -432,4 +432,29 @@ class MainNavController extends Controller
 
 
 
+    /**
+     * Display Gallery and related images.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function Contactus()
+    {
+        $SharedContents = $this->SharedContents();
+        $PageTitle = $this->PageSectionsTitle('CU','PageTitle',0,'section_title');
+        $CompanyName = $this->PageSectionsTitle('CU','PageElements',1,'Company Name');
+        $Address = $this->PageSectionsTitle('','footer',1,'address');
+        $PhoneTitle = $this->PageSectionsTitle('CU','PageElements',2,'phone number');
+        $EmailTitle = $this->PageSectionsTitle('CU','PageElements',3,'mail title');
+
+
+
+
+
+        return view('PageElements.Main.ContactUs.ContactUs', compact('SharedContents', 'PageTitle','CompanyName','Address','PhoneTitle','EmailTitle'));
+    }
+
+
+
+
+
 }
