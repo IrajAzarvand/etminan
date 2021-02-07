@@ -7,9 +7,11 @@ use App\Models\CertificatesAndHonors;
 use App\Models\CI;
 use App\Models\Gallery;
 use App\Models\LocaleContent;
+use App\Models\Message;
 use App\Models\Product;
 use App\Models\ProductCatalog;
 use App\Models\Slider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class MainNavController extends Controller
@@ -18,16 +20,16 @@ class MainNavController extends Controller
     //get title for buttons from locale content table
     public function BtnTitle($element_title)
     {
-        return LocaleContent::where('locale',app()->getLocale())->where('element_title', $element_title)->pluck('element_content')[0];
+        return LocaleContent::where('locale', app()->getLocale())->where('element_title', $element_title)->pluck('element_content')[0];
 
     }
 
     //get title for page elements from locale content table
-    public function PageSectionsTitle($P,$S,$EID,$ETITLE)
+    public function PageSectionsTitle($P, $S, $EID, $ETITLE)
     {
-        return LocaleContent::where('locale',app()->getLocale())
-            ->where('page',$P)
-            ->where('section',$S)
+        return LocaleContent::where('locale', app()->getLocale())
+            ->where('page', $P)
+            ->where('section', $S)
             ->where('element_id', $EID)
             ->where('element_title', $ETITLE)
             ->pluck('element_content')[0];
@@ -39,8 +41,6 @@ class MainNavController extends Controller
         $SharedContents = collect(AllContentOfLocale())
             ->whereIn('page', array('')) //''=>contents for all pages(menus, footer, ...)
             ->all();
-
-
 
 
         $Footer = collect($SharedContents)->where('section', 'footer');
@@ -55,9 +55,9 @@ class MainNavController extends Controller
         }
 
         return [
-            'SectionTitle'=>$SectionTitle,
-            'Address'=>$Address,
-            'CopyRight'=>$CopyRight,
+            'SectionTitle' => $SectionTitle,
+            'Address' => $Address,
+            'CopyRight' => $CopyRight,
         ];
     }
 
@@ -69,7 +69,7 @@ class MainNavController extends Controller
     public function HomePage()
     {
         $SharedContents = $this->SharedContents();
-        $BtnMore=$this->BtnTitle('btn_more');
+        $BtnMore = $this->BtnTitle('btn_more');
 
 
         $IndexContents = collect(AllContentOfLocale())
@@ -90,7 +90,7 @@ class MainNavController extends Controller
 
 
         //************************** NEW PRODUCTS ***************************************************************** */
-        $NewPrSectionTitle=$this->PageSectionsTitle('welcome','NewProducts',0,'section_title');
+        $NewPrSectionTitle = $this->PageSectionsTitle('welcome', 'NewProducts', 0, 'section_title');
 
 
         //get last 3 item of products from db to show in index page
@@ -119,20 +119,20 @@ class MainNavController extends Controller
         }
 
         //**************************  CATALOGUES ************************************************ */
-        $CatalogSectionTitle=$this->PageSectionsTitle('','Catalogs',0,'section_title');
+        $CatalogSectionTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
 
         //select first image of catalog for each product
         $CatalogItems = [];
         $Catalogues = ProductCatalog::all();
 
-        foreach ($Catalogues as $key=>$C) {
+        foreach ($Catalogues as $key => $C) {
             $P_Id = $C->product_id;
-            $CatalogItems[$key]['id']=$C->id;
+            $CatalogItems[$key]['id'] = $C->id;
             $CatalogItems[$key]['image'] = asset('storage/Main/Products/' . $P_Id . '/catalogs/' . unserialize($C->catalog_images)[0]);
         }
 
         //**************************  PHOTO GALLERY ************************************************ */
-        $GallerySectionTitle = $this->PageSectionsTitle('','Gallery',0,'section_title');
+        $GallerySectionTitle = $this->PageSectionsTitle('', 'Gallery', 0, 'section_title');
 
         $Gallery = [];
         foreach (Gallery::with('contents')->get() as $key => $g) {
@@ -169,7 +169,7 @@ class MainNavController extends Controller
      */
     public function AllProducts()
     {
-        $SectionTitle  = $this->PageSectionsTitle('Products','',0,'section_title');
+        $SectionTitle = $this->PageSectionsTitle('Products', '', 0, 'section_title');
 
         $SharedContents = $this->SharedContents();
 
@@ -208,12 +208,12 @@ class MainNavController extends Controller
     {
         $SharedContents = $this->SharedContents();
 
-        $PageTitle  = $this->PageSectionsTitle('Products','',0,'section_title');
-        $ProductIntroductionTitle = $this->PageSectionsTitle('Products','ProductIntroduction',0,'section_title');
-        $ProductNVTitle = $this->PageSectionsTitle('Products','NutritionalValue',0,'section_title');
-        $RelatedProductsTitle = $this->PageSectionsTitle('Products','RelatedProducts',0,'section_title');
-        $BtnViewProductCatalog=$this->PageSectionsTitle('','PageElements',0,'btn_view_catalog');
-        $BtnBack=$this->BtnTitle('btn_back');
+        $PageTitle = $this->PageSectionsTitle('Products', '', 0, 'section_title');
+        $ProductIntroductionTitle = $this->PageSectionsTitle('Products', 'ProductIntroduction', 0, 'section_title');
+        $ProductNVTitle = $this->PageSectionsTitle('Products', 'NutritionalValue', 0, 'section_title');
+        $RelatedProductsTitle = $this->PageSectionsTitle('Products', 'RelatedProducts', 0, 'section_title');
+        $BtnViewProductCatalog = $this->PageSectionsTitle('', 'PageElements', 0, 'btn_view_catalog');
+        $BtnBack = $this->BtnTitle('btn_back');
 
         $SelectedProduct = Product::where('id', $p_id)->with('contents')->first();
         $Item['title'] = $SelectedProduct->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
@@ -232,7 +232,7 @@ class MainNavController extends Controller
             $RelatedPList[$key]['image'] = asset('storage/Main/Products/' . $product->id . '/' . unserialize($product->images)[0]);
             $RelatedPList[$key]['name'] = $product->contents()->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         }
-        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList','ProductCatalog','BtnViewProductCatalog','BtnBack'));
+        return view('PageElements.Main.Product.ViewProduct', compact('SharedContents', 'PageTitle', 'Item', 'ProductIntroductionTitle', 'ProductNVTitle', 'RelatedProductsTitle', 'Product', 'RelatedPList', 'ProductCatalog', 'BtnViewProductCatalog', 'BtnBack'));
     }
 
 
@@ -245,8 +245,8 @@ class MainNavController extends Controller
     {
 
 
-        $PageTitle  = $this->PageSectionsTitle('CH','',0,'section_title');
-        $BtnMore=$this->BtnTitle('btn_more');
+        $PageTitle = $this->PageSectionsTitle('CH', '', 0, 'section_title');
+        $BtnMore = $this->BtnTitle('btn_more');
 
         $SharedContents = $this->SharedContents();
 
@@ -276,8 +276,8 @@ class MainNavController extends Controller
         $SelectedCHImage = asset('storage/Main/CH/' . $SelectedCH->Ch_Image);
 
 
-        $PageTitle = $this->PageSectionsTitle('CH','',0,'section_title');
-        $BtnBack=$this->BtnTitle('btn_back');
+        $PageTitle = $this->PageSectionsTitle('CH', '', 0, 'section_title');
+        $BtnBack = $this->BtnTitle('btn_back');
 
         $SharedContents = $this->SharedContents();
 
@@ -292,8 +292,8 @@ class MainNavController extends Controller
      */
     public function AllGalleries()
     {
-        $PageTitle = $this->PageSectionsTitle('Gallery','',0,'section_title');
-        $BtnMore=$this->BtnTitle('btn_more');
+        $PageTitle = $this->PageSectionsTitle('Gallery', '', 0, 'section_title');
+        $BtnMore = $this->BtnTitle('btn_more');
 
 
         $SharedContents = $this->SharedContents();
@@ -318,8 +318,8 @@ class MainNavController extends Controller
     public function ViewGallery($g_id)
     {
         $SharedContents = $this->SharedContents();
-        $PageTitle = $this->PageSectionsTitle('Gallery','',0,'section_title');
-        $BtnBack=$this->BtnTitle('btn_back');
+        $PageTitle = $this->PageSectionsTitle('Gallery', '', 0, 'section_title');
+        $BtnBack = $this->BtnTitle('btn_back');
 
 
         $SelectedGallery = Gallery::where('id', $g_id)->with('contents')->first();
@@ -347,7 +347,7 @@ class MainNavController extends Controller
             ->where('section', 'sales_office')
             ->pluck('element_content', 'element_title');
 
-        $PageTitle = $this->PageSectionsTitle('SalesOffices','',0,'section_title');
+        $PageTitle = $this->PageSectionsTitle('SalesOffices', '', 0, 'section_title');
 
         return view('PageElements.Main.SalesOffices.SalesOffices', compact('SharedContents', 'PageTitle', 'PageContents'));
     }
@@ -360,7 +360,7 @@ class MainNavController extends Controller
      */
     public function CompanyIntroduction()
     {
-        $PageTitle = $this->PageSectionsTitle('CI','',0,'section_title');
+        $PageTitle = $this->PageSectionsTitle('CI', '', 0, 'section_title');
         $SharedContents = $this->SharedContents();
 
         $AllCI = CI::with('contents')->get();
@@ -375,8 +375,6 @@ class MainNavController extends Controller
     }
 
 
-
-
     /**
      * Display all catalogs.
      *
@@ -384,8 +382,8 @@ class MainNavController extends Controller
      */
     public function AllCatalogs()
     {
-        $PageTitle  = $this->PageSectionsTitle('','Catalogs',0,'section_title');
-        $BtnMore=$this->BtnTitle('btn_more');
+        $PageTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
+        $BtnMore = $this->BtnTitle('btn_more');
 
         $SharedContents = $this->SharedContents();
 
@@ -393,16 +391,14 @@ class MainNavController extends Controller
 
         $CList = [];
         foreach ($AllCatalogs as $key => $catalog) {
-            $Related_Product=$catalog->product_id;
+            $Related_Product = $catalog->product_id;
             $CList[$key]['id'] = $catalog->id;
             $CList[$key]['image'] = asset('storage/Main/Products/' . $Related_Product . '/catalogs/' . unserialize($catalog->catalog_images)[0]);
-            $Product_title=LocaleContent::where('page','products')->where('section','products')->where('element_id',$Related_Product)->where('element_title','p_name_'.app()->getLocale())->pluck('element_content')[0];
-            $CList[$key]['title'] =$Product_title;
+            $Product_title = LocaleContent::where('page', 'products')->where('section', 'products')->where('element_id', $Related_Product)->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
+            $CList[$key]['title'] = $Product_title;
         }
-        return view('PageElements.Main.Catalog.AllCatalogs', compact('SharedContents', 'PageTitle', 'BtnMore','CList'));
+        return view('PageElements.Main.Catalog.AllCatalogs', compact('SharedContents', 'PageTitle', 'BtnMore', 'CList'));
     }
-
-
 
 
     /**
@@ -413,13 +409,13 @@ class MainNavController extends Controller
     public function ViewCatalog($c_id)
     {
         $SharedContents = $this->SharedContents();
-        $PageTitle  = $this->PageSectionsTitle('','Catalogs',0,'section_title');
-        $BtnBack=$this->BtnTitle('btn_back');
+        $PageTitle = $this->PageSectionsTitle('', 'Catalogs', 0, 'section_title');
+        $BtnBack = $this->BtnTitle('btn_back');
 
 
         $SelectedCatalog = ProductCatalog::where('id', $c_id)->first();
-        $Related_Product=$SelectedCatalog->product_id;
-        $Product_title=LocaleContent::where('page','products')->where('section','products')->where('element_id',$Related_Product)->where('element_title','p_name_'.app()->getLocale())->pluck('element_content')[0];
+        $Related_Product = $SelectedCatalog->product_id;
+        $Product_title = LocaleContent::where('page', 'products')->where('section', 'products')->where('element_id', $Related_Product)->where('element_title', 'p_name_' . app()->getLocale())->pluck('element_content')[0];
         $Item['title'] = $Product_title;
 
         $Catalog = [];
@@ -427,34 +423,56 @@ class MainNavController extends Controller
             $Catalog['images'][] = asset('storage/Main/Products/' . $Related_Product . '/catalogs/' . $image);
         }
 
-        return view('PageElements.Main.Catalog.ViewCatalog', compact('SharedContents', 'PageTitle', 'Item', 'Catalog','BtnBack'));
+        return view('PageElements.Main.Catalog.ViewCatalog', compact('SharedContents', 'PageTitle', 'Item', 'Catalog', 'BtnBack'));
     }
 
 
-
     /**
-     * Display Gallery and related images.
+     * Display contact us form
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function Contactus()
     {
         $SharedContents = $this->SharedContents();
-        $PageTitle = $this->PageSectionsTitle('CU','PageTitle',0,'section_title');
-        $CompanyName = $this->PageSectionsTitle('CU','PageElements',1,'Company Name');
-        $Address = $this->PageSectionsTitle('','footer',1,'address');
-        $PhoneTitle = $this->PageSectionsTitle('CU','PageElements',2,'phone number');
-        $EmailTitle = $this->PageSectionsTitle('CU','PageElements',3,'mail title');
+        $PageTitle = $this->PageSectionsTitle('CU', 'PageTitle', 0, 'section_title');
+        $CompanyName = $this->PageSectionsTitle('CU', 'PageElements', 1, 'Company Name');
+        $Address = $this->PageSectionsTitle('', 'footer', 1, 'address');
+        $PhoneTitle = $this->PageSectionsTitle('CU', 'PageElements', 2, 'phone number');
+        $EmailTitle = $this->PageSectionsTitle('CU', 'PageElements', 3, 'mail title');
+        $FormNameTitle = $this->PageSectionsTitle('CU', 'PageElements', 4, 'form name title');
+        $FormEmailTitle = $this->PageSectionsTitle('CU', 'PageElements', 5, 'form email title');
+        $FormSubjectTitle = $this->PageSectionsTitle('CU', 'PageElements', 6, 'form subject title');
+        $FormMessageTitle = $this->PageSectionsTitle('CU', 'PageElements', 7, 'form message title');
+        $FormSendMessageBtn = $this->PageSectionsTitle('', 'PageElements', 0, 'btn_send_message');
 
-
-
-
-
-        return view('PageElements.Main.ContactUs.ContactUs', compact('SharedContents', 'PageTitle','CompanyName','Address','PhoneTitle','EmailTitle'));
+        return view('PageElements.Main.ContactUs.ContactUs', compact('SharedContents', 'PageTitle', 'CompanyName', 'Address', 'PhoneTitle', 'EmailTitle', 'FormNameTitle', 'FormEmailTitle', 'FormSubjectTitle', 'FormMessageTitle', 'FormSendMessageBtn'));
     }
 
+    /**
+     * get message from contact us page and store in DB.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function StoreMessage(Request $request)
+    {
+        $rules = [
+            'name' => ['required', 'regex:/^[\pL\s\-]+$/u'], //acceps alpha and space in this field
+            'email' => ['required', 'email'],
+            'subject' => ['required'],
+            'message' => ['required'],
+
+        ];
+        $this->validate($request, $rules);
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
 
 
+    }
 
 
 }

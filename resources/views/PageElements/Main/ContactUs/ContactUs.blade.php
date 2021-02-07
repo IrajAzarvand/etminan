@@ -13,7 +13,6 @@
                                 <div class="team_member"><img src="{{asset('Main/images/Etminan about-us Logo.jpg')}}"
                                                               alt="logo">
                                     <h5>{{$CompanyName}}</h5>
-                                    {{--                                    <small>دانلود منابع طراحی وب و گرافیک</small><br>--}}
                                     <address>
                                         {{$Address}}
                                     </address>
@@ -23,34 +22,46 @@
                                 </div>
                             </div>
                             <div class="contact_form col-sm-6 col-md-8">
-                                <form name="contact_form" id="contact_form" method="post">
+                                <form name="contact_form" action="{{route('ContactUs')}}" id="contact_form" method="post">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-sm-6 col-md-6">
-                                            <label>نام</label>
-                                            <input name="name" id="name" class="form-control" type="text" value="">
+                                            <label>{{ $FormNameTitle }} <span style="color: red">*</span></label>
+                                            <input name="name" id="name" class="form-control" type="text" value="" required>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
-                                            <label>ایمیل</label>
-                                            <input name="email" id="email" class="form-control" type="text" value="">
+                                            <label>{{ $FormEmailTitle }} <span style="color: red">*</span></label>
+                                            <input name="email" id="email" class="form-control" type="text" value="" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
-                                            <label>موضوع</label>
-                                            <input name="subject" id="subject" class="form-control" type="text">
+                                            <label>{{ $FormSubjectTitle }} <span style="color: red">*</span></label>
+                                            <input name="subject" id="subject" class="form-control" type="text" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12">
-                                            <label>پیام</label>
+                                            <label>{{ $FormMessageTitle }} <span style="color: red">*</span></label>
                                             <textarea name="message" id="message" rows="8"
-                                                      class="form-control"></textarea>
+                                                      class="form-control" required></textarea>
                                         </div>
                                         <div class="col-sm-12 col-md-12"><br/>
-                                            <a id="submit_btn" class="btn btn-primary" name="submit">ثبت پیام</a> <span
-                                                id="notice" class="alert alert-warning alert-dismissable hidden"
-                                                style="margin-left:20px;"></span></div>
+                                           <button type="submit" style="border: none; background-color: transparent;">
+                                               <a id="submit_btn" class="btn btn-primary" name="submit">{{ $FormSendMessageBtn }}</a> <span
+                                                   id="notice" class="alert alert-warning alert-dismissable hidden"
+                                                   style="margin-left:20px;"></span>
+                                           </button> </div>
                                     </div>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                 </form>
                             </div>
                         </div>

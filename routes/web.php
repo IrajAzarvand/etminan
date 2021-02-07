@@ -53,6 +53,7 @@ Route::get('/CompanyIntro', [MainNavController::class, 'CompanyIntroduction'])->
 Route::get('/AllCatalogs', [MainNavController::class, 'AllCatalogs'])->name('AllCatalogs');
 Route::get('/ViewCatalog/{c_id}', [MainNavController::class, 'ViewCatalog'])->name('ViewCatalog');
 Route::get('/ContactUs', [MainNavController::class, 'ContactUs'])->name('ContactUs');
+Route::post('/ContactUs', [MainNavController::class, 'StoreMessage'])->name('ContactUs');
 
 
 
