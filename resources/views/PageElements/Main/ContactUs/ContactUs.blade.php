@@ -1,6 +1,11 @@
 @extends('PageElements.Main.InnerPagesLayout')
 @section('PageTitle', 'تماس با ما')
 @section('content')
+
+    @if(Session::has('status'))
+        <script>alert('{{ Session::get('status') }}')</script>
+    @endif
+
     <section class="with_right_sidebar">
         <div class="container">
             <div class="row">

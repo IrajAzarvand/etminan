@@ -14,7 +14,18 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $Messages = Message::all()->sortByDesc('id');
+        $MSG=[];
+        $count=0;
+        foreach ($Messages as $key=>$message){
+            $MSG[$key]['id']=$message->id;
+            $MSG[$key]['row']=++$count;
+            $MSG[$key]['sender_name']=$message->name;
+            $MSG[$key]['sender_email']=$message->email;
+            $MSG[$key]['message_subject']=$message->subject;
+            $MSG[$key]['message_text']=$message->message;
+        }
+        return view('PageElements.Dashboard.Setting.Messages',compact('MSG'));
     }
 
     /**
@@ -78,8 +89,9 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($message)
     {
-        //
+        $SelectedMSG = Message::find($message);
+        $SelectedMSG->delete();
     }
 }

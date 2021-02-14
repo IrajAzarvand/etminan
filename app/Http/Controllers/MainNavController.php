@@ -453,7 +453,7 @@ class MainNavController extends Controller
      * get message from contact us page and store in DB.
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function StoreMessage(Request $request)
     {
@@ -470,7 +470,14 @@ class MainNavController extends Controller
         $email = $request->input('email');
         $subject = $request->input('subject');
         $message = $request->input('message');
-
+        Message::insert([
+            'name'=> $name,
+            'email'=>$email,
+            'subject'=>$subject,
+            'message'=>$message,
+        ]);
+        $request->session()->flash('status', 'Message Stored!');
+        return back();
 
     }
 

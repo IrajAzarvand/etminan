@@ -98,6 +98,11 @@ class SubMenuTableSeeder extends Seeder
                     'Url' => 'SO.index',
                     'Icon' => 'fa fa-building-o',
                 ],
+                [
+                    'SubMenu' => 'پیام ها',
+                    'Url' => 'CUMessages.index',
+                    'Icon' => 'fa fa-comments-o',
+                ],
             ]
         ];
 

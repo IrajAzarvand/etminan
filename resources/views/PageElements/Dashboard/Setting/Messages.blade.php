@@ -1,5 +1,5 @@
 @extends('PageElements.Dashboard.Layout')
-@section('PageTitle', 'تنظیمات دفاتر فروش')
+@section('PageTitle', 'تنظیمات پیام ها')
 @section('ContentHeader', 'دفاتر فروش')
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="card card-info card-outline">
             <div class="card-header">
                 <h3 class="card-title">
-                    مشاهده لیست دفاتر
+                    مشاهده لیست پیام ها
                 </h3>
 
             </div>
@@ -19,7 +19,7 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="ion ion-clipboard mr-1"></i>
-                        لیست دفاتر ثبت شده
+                        لیست پیام های دریافت شده
                     </h3>
 
                 </div>
@@ -30,7 +30,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">جدول دفاتر</h3>
+                                    <h3 class="card-title">جدول پیام ها</h3>
 
                                 </div>
                                 <!-- /.card-header -->
@@ -38,14 +38,14 @@
                                     <table class="table table-hover" id="ProductsTable">
                                         <tr>
                                             <th>#</th>
-                                            <th>نام دفتر</th>
+                                            <th>ایمیل فرستنده</th>
                                             <th>عملیات</th>
                                         </tr>
-                                        @foreach($OList as $key=>$OfficeList)
+                                        @foreach($MSG as $Message)
                                             <tr>
-                                                <td>{{$key+1}}</td>
-                                                <td>{{$OfficeList['title']}}</td>
-                                                <td><button type="button" class="btn btn-primary"><a onclick="EditOffice({{$OfficeList['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" style="display: none" class="btn btn-danger"><a onclick="deleteOffice({{$OfficeList['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>
+                                                <td>{{$Message['row']}}</td>
+                                                <td>{{$Message['sender_email']}}</td>
+                                                <td><button type="button" class="btn btn-primary"><a onclick="viewMessage({{$Message['id']}})"><i class="fa fa-eye"></i></a></button> &nbsp; &nbsp; <button type="button" class="btn btn-danger"><a onclick="deleteMessage({{$Message['id']}})"><i class="fa fa-trash-o"></i></a></button> </td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -71,14 +71,14 @@
     {{-- ====================for show all products=============== --}}
 
     <script>
-        function deleteOffice(O_Id) {
+        function deleteMessage(M_Id) {
             let token = "{{ csrf_token() }}";
             $.ajax({
                 type: 'DELETE',
-                url: '/SO/' + O_Id,
+                url: '/CUMessages/' + M_Id,
                 data: {
                     _token: token,
-                    O_Id
+                    M_Id
                 },
                 success: function () {
                     location.reload();
@@ -89,7 +89,7 @@
     </script>
 
     <script>
-        function EditOffice(r) {
+        function viewMessage(r) {
             $.ajax({
                 type: "GET",
                 url: '/SO/' + r + '/edit',

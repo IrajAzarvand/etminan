@@ -68,7 +68,7 @@ class MainNavsTableSeeder extends Seeder
                 'content_en' => 'Contact Us',
                 'content_ru' => 'Контакты',
                 'content_ar' => 'اتصل بنا',
-                'route_name' => 'ContactUs',
+                'route_name' => 'ContactUsForm',
                 'url' => null,
             ],
             [

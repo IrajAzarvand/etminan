@@ -18,6 +18,8 @@ use App\Http\Controllers\SalesOfficeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\MessageController;
+
 
 //====================================== Management Routes Start
 //---------- clear app cache
@@ -37,8 +39,7 @@ Route::get('/migrate', function() {
 });
 
 //====================================== Management Routes End
-
-//Main Routes
+//====================================== Main Routes
 Route::get('/locale/{lang}', [LangController::class, 'locale'])->name('locale');
 
 Route::get('/', [MainNavController::class, 'HomePage'])->name('HomePage');
@@ -52,13 +53,13 @@ Route::get('/SalesOffices', [MainNavController::class, 'SalesOffice'])->name('Sa
 Route::get('/CompanyIntro', [MainNavController::class, 'CompanyIntroduction'])->name('CIntro');
 Route::get('/AllCatalogs', [MainNavController::class, 'AllCatalogs'])->name('AllCatalogs');
 Route::get('/ViewCatalog/{c_id}', [MainNavController::class, 'ViewCatalog'])->name('ViewCatalog');
-Route::get('/ContactUs', [MainNavController::class, 'ContactUs'])->name('ContactUs');
+Route::get('/ContactUs', [MainNavController::class, 'ContactUs'])->name('ContactUsForm');
 Route::post('/ContactUs', [MainNavController::class, 'StoreMessage'])->name('ContactUs');
+//====================================== Main Routes End
 
 
 
-
-//Dashboard Routes
+//====================================== Dashboard Routes
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -96,3 +97,7 @@ Route::resource('Gallery', GalleryController::class);
 Route::resource('SO', SalesOfficeController::class);
 
 Route::resource('CI', CIController::class); //Company Introduction
+
+Route::resource('CUMessages', MessageController::class);
+
+//====================================== Dashboard Routes End
