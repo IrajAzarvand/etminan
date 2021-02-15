@@ -16,14 +16,14 @@ class SubNavsTableSeeder extends Seeder
     {
         $SubNavs = [
             6 => [
-                [
-                    'content_fa' => 'تاریخچه',
-                    'content_en' => 'History',
-                    'content_ar' => 'التاريخ',
-                    'content_ru' => 'История',
-                    'route_name' => 'HomePage',
-                    'url' => null,
-                ],
+//                [
+//                    'content_fa' => 'تاریخچه',
+//                    'content_en' => 'History',
+//                    'content_ar' => 'التاريخ',
+//                    'content_ru' => 'История',
+//                    'route_name' => 'HomePage',
+//                    'url' => null,
+//                ],
                 [
                     'content_fa' => 'معرفی شرکت',
                     'content_en' => 'Company Introduction',
@@ -32,14 +32,14 @@ class SubNavsTableSeeder extends Seeder
                     'route_name' => 'CIntro',
                     'url' => null,
                 ],
-                [
-                    'content_fa' => 'پیام مدیر عامل',
-                    'content_en' => 'CEO Message',
-                    'content_ar' => 'رسالة من مدير الرأس',
-                    'content_ru' => 'Письмо начальству',
-                    'route_name' => 'HomePage',
-                    'url' => null,
-                ],
+//                [
+//                    'content_fa' => 'پیام مدیر عامل',
+//                    'content_en' => 'CEO Message',
+//                    'content_ar' => 'رسالة من مدير الرأس',
+//                    'content_ru' => 'Письмо начальству',
+//                    'route_name' => 'HomePage',
+//                    'url' => null,
+//                ],
                 [
                     'content_fa' => 'گواهینامه ها و افتخارات',
                     'content_en' => 'Certificates and Honors',
@@ -48,14 +48,14 @@ class SubNavsTableSeeder extends Seeder
                     'route_name' => 'AllCH',
                     'url' => null,
                 ],
-                [
-                    'content_fa' => 'چارت سازمانی',
-                    'content_en' => 'Organizational Chart',
-                    'content_ar' => 'مخطط',
-                    'content_ru' => 'Организационная структура',
-                    'route_name' => 'HomePage',
-                    'url' => null,
-                ],
+//                [
+//                    'content_fa' => 'چارت سازمانی',
+//                    'content_en' => 'Organizational Chart',
+//                    'content_ar' => 'مخطط',
+//                    'content_ru' => 'Организационная структура',
+//                    'route_name' => 'HomePage',
+//                    'url' => null,
+//                ],
 
             ],
             8 => [
