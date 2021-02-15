@@ -20,7 +20,7 @@
                 <div class="footer_teaser pl_about_us_widget">
                     <div class="footer_social">
                         <div class="social_wrapper">
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/etminan.icecream/" target="_blank"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-paper-plane"></i></a>
                         </div>
                     </div>
