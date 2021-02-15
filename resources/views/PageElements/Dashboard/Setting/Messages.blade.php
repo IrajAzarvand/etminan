@@ -92,21 +92,26 @@
         function viewMessage(r) {
             $.ajax({
                 type: "GET",
-                url: '/SO/' + r + '/edit',
+                url: '/CUMessages/' + r,
 
                 success: function (data) {
                     //display data...
-                    let SOId= (data['id']);
-                    $('#SalesOfficeEditModal').find('#OfficeId').val(SOId);
-                    data['contents'].forEach(element => {
-                        $('#SalesOfficeEditModal').find('#'+element['locale']+'edit').text(element['element_content']);
-                    });
 
-                    $("#SalesOfficeEditModal-form").attr("action", "/SO/" + SOId);
-                    $('#SalesOfficeEditModal').modal('show');
+                   console.log(data);
+                    let MId= (data['id']);
+                    let SenderName= (data['name']);
+                    let SenderMail= (data['email']);
+                    let MessageSubject= (data['subject']);
+                    let Message= (data['message']);
+                    $('#MessageViewModal').find('#MessageId').val(MId);
+                    $('#MessageViewModal').find('#SenderName').val(SenderName);
+                    $('#MessageViewModal').find('#SenderEmail').val(SenderMail);
+                    $('#MessageViewModal').find('#MessageSubject').val(MessageSubject);
+                    $('#MessageViewModal').find('#Message').val(Message);
+                    $('#MessageViewModal').modal('show');
                 }
             });
         }
     </script>
-    @include('PageElements.Dashboard.Setting.ModalEditSalesOffice')
+    @include('PageElements.Dashboard.Setting.ModalViewMessage')
 @endsection

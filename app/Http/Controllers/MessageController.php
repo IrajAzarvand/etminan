@@ -55,9 +55,10 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show($message)
     {
-        //
+        $SelectedMSG=Message::find($message);
+        return $SelectedMSG;
     }
 
     /**
